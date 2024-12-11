@@ -4,8 +4,8 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 
 const Team = () => {
   return (
-    <div className="grid max-w-[1440px] mx-auto lg:grid-cols-2 my-16 text-white ">
-      <div className="px-4 py-5">
+    <div className="grid  max-w-[1400px] mx-auto px-5 lg:px-0 lg:grid-cols-2 my-16 text-white ">
+      <div className=" py-5 px-0 lg:px-10">
         <h1 className="text-[34px] pb-5 font-semibold">Teamet bak sidesone</h1>
         <p className="text-[22px]">
           Hos Sidesone er vi eksperter på å skape digitale løsninger som gjør en
@@ -41,6 +41,7 @@ const Team = () => {
         </div>
       </div>
       <div
+        className=" min-h-[50vh]"
         style={{
           backgroundImage: "url('/coding.jpg')",
           backgroundSize: "cover",

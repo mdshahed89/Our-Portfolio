@@ -4,9 +4,9 @@ import React from "react";
 import { MdAddIcCall, MdEmail } from "react-icons/md";
 const Footer = () => {
   return (
-    <footer className="px-5 max-w-[1400px] mx-auto py-10">
-      <div className="grid lg:grid-cols-3 gap-5 justify-between ">
-        <div className="flex flex-col items-center justify-center gap-5 lg:justify-start">
+    <footer className="px-5 lg:px-0 max-w-[1280px] mx-auto py-16">
+      <div className="grid lg:grid-cols-3 gap-5 justify-center lg:justify-between ">
+        <div className="flex flex-col items-center lg:items-start justify-center gap-5 lg:justify-start">
           <Image
             src="/logo.png"
             alt="Logo"

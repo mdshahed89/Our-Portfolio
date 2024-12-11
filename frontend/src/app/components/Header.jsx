@@ -57,9 +57,11 @@ const Header = () => {
             <li className="relative group">
               <Tooltip
                 title={
-                  <div className="space-y-2 py-2">
+                  <div className="space-y-2  py-2">
                     <MenuItem>
-                      <Link href="#">Nettside</Link>
+                      <Link className="" href="#">
+                        Nettside
+                      </Link>
                     </MenuItem>
                     <MenuItem>
                       <Link href="#">Nettbutikk</Link>
@@ -71,7 +73,9 @@ const Header = () => {
                 }
                 placement="bottom"
                 PopperProps={{
-                  modifiers: [{ name: "offset", options: { offset: [20, 2] } }],
+                  modifiers: [
+                    { name: "offset", options: { offset: [20, -5] } },
+                  ],
                 }}
                 componentsProps={{
                   tooltip: {
@@ -89,7 +93,7 @@ const Header = () => {
                 onOpen={() => setIsTooltipOpen(true)}
                 onClose={() => setIsTooltipOpen(false)}
               >
-                <div className="flex items-center pb-2 hover:text-green-300 cursor-pointer">
+                <div className="flex items-center text-xl font-semibold pb-2 hover:text-green-300 cursor-pointer">
                   Nettside
                   <FaChevronDown
                     className={`ml-2 text-sm transition-transform duration-300 ${
@@ -104,7 +108,7 @@ const Header = () => {
             <li className="relative group">
               <Tooltip
                 title={
-                  <div className="space-y-2 py-2">
+                  <div className="space-y-2 text-xl font-medium py-2">
                     <MenuItem>
                       <Link href="#">Nettside</Link>
                     </MenuItem>
@@ -118,7 +122,9 @@ const Header = () => {
                 }
                 placement="bottom"
                 PopperProps={{
-                  modifiers: [{ name: "offset", options: { offset: [20, 2] } }],
+                  modifiers: [
+                    { name: "offset", options: { offset: [20, -5] } },
+                  ],
                 }}
                 componentsProps={{
                   tooltip: {
@@ -136,7 +142,7 @@ const Header = () => {
                 onOpen={() => setIsTooltipOpen1(true)}
                 onClose={() => setIsTooltipOpen1(false)}
               >
-                <div className="flex items-center pb-2 hover:text-green-300 cursor-pointer">
+                <div className="flex text-xl font-semibold items-center pb-2 hover:text-green-300 cursor-pointer">
                   Digitale Tjenester
                   <FaChevronDown
                     className={`ml-2 text-sm transition-transform duration-300 ${
@@ -149,20 +155,16 @@ const Header = () => {
             </li>
 
             <li className="relative group">
-              <Link
-                href="#"
-                className="flex items-center pb-2 hover:text-green-300"
-              >
+              <div className="flex text-xl font-semibold items-center pb-2 hover:text-green-300 cursor-pointer">
                 Hvem er vi?
-              </Link>
+                <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-green-300 transition-all duration-300 group-hover:w-full"></span>
+              </div>
             </li>
             <li className="relative group">
-              <Link
-                href="#"
-                className="flex items-center pb-2 hover:text-green-300"
-              >
+              <div className="flex text-xl font-semibold items-center pb-2 hover:text-green-300 cursor-pointer">
                 Prosjekter
-              </Link>
+                <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-green-300 transition-all duration-300 group-hover:w-full"></span>
+              </div>
             </li>
           </ul>
         </nav>

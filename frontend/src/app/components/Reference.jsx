@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Reference = () => {
   return (
-    <div className="px-5 max-w-[1400px] mx-auto lg:px-4">
+    <div className="px-5 max-w-[1280px] mb-10 mx-auto lg:px-0">
       <div className="">
         <h1 className="text-[25px] lg:text-[56px] py-3 font-semibold">
           Referanser
