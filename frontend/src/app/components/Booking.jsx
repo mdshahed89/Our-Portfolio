@@ -1,0 +1,34 @@
+const Booking = () => {
+  return (
+    <div className="max-w-[1440px] min-h-[100vh] mx-auto mt-16  grid lg:grid-cols-2 ">
+      <div
+        className="order-2 lg:order-1 min-h-[50vh]"
+        style={{
+          backgroundImage: "url('/coding.jpg')",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          width: "100%",
+        }}
+      ></div>
+      <div className="bg-[#7BDCB5] order-1 py-3 lg:order-2 flex items-center justify-center text-center">
+        <div className="space-y-3">
+          <h1 className="text-[56px] font-bold">Spørsmål?</h1>
+          <h2 className="text-[32px] font-bold">Ring oss: +47 13 65 07</h2>
+          <h2 className="text-[32px] font-bold">
+            Mail oss: Kontakt@sidesone.no
+          </h2>
+          <h2 className="text-[32px] font-bold">Eller</h2>
+          <h2 className="text-[32px] font-bold">Book en konsultasjon</h2>
+          <div className="flex justify-center my-3 mt-6">
+            <button className="w-60 bg-black text-white p-3 rounded-full">
+              Book Møte
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Booking;
