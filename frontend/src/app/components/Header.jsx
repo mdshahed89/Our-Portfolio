@@ -59,17 +59,15 @@ const Header = () => {
               <Tooltip
                 title={
                   <div className="space-y-2  py-2">
-                    <MenuItem>
-                      <Link className="" href="#">
-                        Nettside
-                      </Link>
-                    </MenuItem>
-                    <MenuItem>
-                      <Link href="#">Nettbutikk</Link>
-                    </MenuItem>
-                    <MenuItem>
-                      <Link href="#">Webapplikasjon</Link>
-                    </MenuItem>
+                    <Link className="" href="/nettside">
+                      <MenuItem>Nettside</MenuItem>
+                    </Link>
+                    <Link href="/nettbuttik">
+                      <MenuItem>Nettbutikk</MenuItem>
+                    </Link>
+                    <Link href="/webapplikasjon">
+                      <MenuItem>Webapplikasjon</MenuItem>
+                    </Link>
                   </div>
                 }
                 placement="bottom"
@@ -94,15 +92,17 @@ const Header = () => {
                 onOpen={() => setIsTooltipOpen(true)}
                 onClose={() => setIsTooltipOpen(false)}
               >
-                <div className="flex items-center text-xl font-semibold pb-2 hover:text-green-300 cursor-pointer">
-                  Nettside
-                  <FaChevronDown
-                    className={`ml-2 text-sm transition-transform duration-300 ${
-                      isTooltipOpen ? "rotate-180" : "rotate-0"
-                    }`}
-                  />
-                  <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-green-300 transition-all duration-300 group-hover:w-full"></span>
-                </div>
+                <Link href={"/nettside"}>
+                  <div className="flex items-center text-xl font-semibold pb-2 hover:text-green-300 cursor-pointer">
+                    Nettside
+                    <FaChevronDown
+                      className={`ml-2 text-sm transition-transform duration-300 ${
+                        isTooltipOpen ? "rotate-180" : "rotate-0"
+                      }`}
+                    />
+                    <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-green-300 transition-all duration-300 group-hover:w-full"></span>
+                  </div>
+                </Link>
               </Tooltip>
             </li>
 
@@ -185,34 +185,45 @@ const Header = () => {
         <ul className="flex flex-col mt-7 space-y-8">
           {/* Dropdown 1 */}
           <li className="relative group">
-            <div
-              className="flex items-center pb-2 hover:text-green-300 cursor-pointer"
-              onClick={() => toggleDropdown(0)}
-            >
-              Nettside
-              <FaChevronDown
-                className={`ml-2 text-sm transition-transform duration-300 ${
-                  dropdownOpen === 0 ? "rotate-180" : "rotate-0"
-                }`}
-              />
-            </div>
+            <Link href={"/nettside"}>
+              <div
+                className="flex items-center pb-2 hover:text-green-300 cursor-pointer"
+                onClick={() => toggleDropdown(0)}
+              >
+                Nettside
+                <FaChevronDown
+                  className={`ml-2 text-sm transition-transform duration-300 ${
+                    dropdownOpen === 0 ? "rotate-180" : "rotate-0"
+                  }`}
+                />
+              </div>
+            </Link>
             <ul
               className={`flex flex-col mt-2 transition-all duration-200 ease-in-out ${
                 dropdownOpen === 0 ? "block" : "hidden"
               }`}
             >
               <li>
-                <Link href="#" className="block py-2 hover:bg-green-100">
+                <Link
+                  href="/nettside"
+                  className="block py-2 hover:bg-green-100"
+                >
                   Nettside
                 </Link>
               </li>
               <li>
-                <Link href="#" className="block py-2 hover:bg-green-100">
+                <Link
+                  href="/nettbuttik"
+                  className="block py-2 hover:bg-green-100"
+                >
                   Nettbutikk
                 </Link>
               </li>
               <li>
-                <Link href="#" className="block py-2 hover:bg-green-100">
+                <Link
+                  href="/webapplikasjon"
+                  className="block py-2 hover:bg-green-100"
+                >
                   Webapplikasjon
                 </Link>
               </li>
@@ -258,7 +269,7 @@ const Header = () => {
           {/* Other Links */}
           <li className="relative group">
             <Link
-              href="#"
+              href="/om-oss"
               className="flex items-center pb-2 hover:text-green-300"
             >
               Hvem er vi?
