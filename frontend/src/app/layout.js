@@ -11,10 +11,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={` antialiased`}>
-        <div className="h-[80px]">
+        <div className="">
           <Header />
         </div>
-        <div className="min-h-[calc(100vh-80px)]">{children}</div>
+        <div className="">{children}</div>
         <div className="bg-[#035635]">
           <Footer></Footer>
         </div>

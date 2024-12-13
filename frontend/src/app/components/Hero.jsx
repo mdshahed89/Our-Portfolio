@@ -3,8 +3,8 @@ import Link from "next/link";
 import { IoIosArrowRoundForward } from "react-icons/io";
 const Hero = () => {
   return (
-    <div className="min-h-[100vh] max-w-[1280px] mx-auto text-white flex flex-col lg:flex-row lg:justify-between ">
-      <div className=" px-4 pt-12 lg:pt-24 lg:px-0">
+    <div className="min-h-[115vh] max-w-[1280px] mx-auto text-white flex flex-col lg:flex-row lg:justify-between ">
+      <div className=" px-4 pt-28 lg:pt-40 lg:px-0">
         <div className="space-y-2">
           <h1 className="text-[42px] lg:text-[62px] font-bold ">
             Øk vekst og synlighet med <br className="hidden lg:flex" /> en

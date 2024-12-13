@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import MenuItem from "@mui/material/MenuItem";
 import Link from "next/link";
 import Image from "next/image";
-
+import { RxCross2 } from "react-icons/rx";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(null);
@@ -36,14 +36,15 @@ const Header = () => {
       } z-50`}
     >
       <header className="text-white py-5 flex max-w-[1280px] mx-auto justify-between items-center">
-        <Image
-          src="/logo.png"
-          alt="Logo"
-          height={190}
-          width={190}
-          className="object-contain"
-        />
-
+        <Link href={"/"}>
+          <Image
+            src="/logo.png"
+            alt="Logo"
+            height={200}
+            width={200}
+            className="object-contain"
+          />
+        </Link>
         <div className="lg:hidden" onClick={() => setMenuOpen(!menuOpen)}>
           <FaBars className="text-2xl cursor-pointer" />
         </div>
@@ -156,13 +157,13 @@ const Header = () => {
 
             <li className="relative group">
               <div className="flex text-xl font-semibold items-center pb-2 hover:text-green-300 cursor-pointer">
-                Hvem er vi?
+                <Link href="/om-oss"> Hvem er vi?</Link>
                 <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-green-300 transition-all duration-300 group-hover:w-full"></span>
               </div>
             </li>
             <li className="relative group">
               <div className="flex text-xl font-semibold items-center pb-2 hover:text-green-300 cursor-pointer">
-                Prosjekter
+                <Link href="/referanser"> Prosjekter</Link>
                 <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-green-300 transition-all duration-300 group-hover:w-full"></span>
               </div>
             </li>
@@ -178,7 +179,7 @@ const Header = () => {
       >
         <div className="flex justify-end">
           <button onClick={() => setMenuOpen(false)}>
-            <FaBars className="text-2xl cursor-pointer" />
+            <RxCross2 className="text-2xl cursor-pointer" />
           </button>
         </div>
         <ul className="flex flex-col mt-7 space-y-8">
@@ -265,7 +266,7 @@ const Header = () => {
           </li>
           <li className="relative group">
             <Link
-              href="#"
+              href="/referanser"
               className="flex items-center pb-2 hover:text-green-300"
             >
               Prosjekter

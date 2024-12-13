@@ -1,45 +1,70 @@
-import Image from "next/image";
+const toolsData = [
+  {
+    imgSrc: "/t1.png",
+    imgAlt: "Nettsideutvikling",
+    title: "Nettsideutvikling",
+    description: "Lage dynamiske nettsider for din digitale suksesss",
+  },
+  {
+    imgSrc: "/t2.png",
+    imgAlt: "Driftsavtale",
+    title: "Driftsavtale",
+    description:
+      "Stabile og pålitelige driftsavtaler som sikrer nettsiden din.",
+  },
+  {
+    imgSrc: "/t3.png",
+    imgAlt: "Responsive design",
+    title: "Responsive design",
+    description:
+      "Responsivt design for best mulig brukeropplevelse på alle enheter.",
+  },
+  {
+    imgSrc: "/t4.png",
+    imgAlt: "Vedlikehold",
+    title: "Vedlikehold",
+    description: "Vedlikehold som sikrer stabilitet og optimal ytelse.",
+  },
+  {
+    imgSrc: "/t5.png",
+    imgAlt: "SEO",
+    title: "SEO",
+    description: "SEO som forbedrer synligheten og rangeringen på nettet.",
+  },
+];
 
 const Tools = () => {
   return (
-    <div className="grid lg:grid-cols-5 my-16   max-w-[1280px] mx-auto justify-center lg:justify-between px-5 lg:px-0 gap-5 items-center">
-      <div className="flex flex-col  items-center justify-center ">
-        <Image src={"/t1.png"} width={80} height={80} alt="Nettsideutvikling" />
-        <div className="text-center space-y-2 pt-2">
-          <h1 className="text-2xl font-semibold">Nettsideutvikling</h1>
-          <p>Lage dynamiske nettsider for din digitale suksesss</p>
+    <div className="grid lg:grid-cols-5 my-16 max-w-[1280px] mx-auto lg:justify-between px-5 lg:px-0 gap-5 ">
+      {toolsData.map((tool, index) => (
+        <div key={index} className="flex flex-col items-center  space-y-2">
+          <div className="flex items-center flex-col ">
+            <div className="w-[60px] h-[60px]">
+              <figure
+                className="overflow-hidden"
+                style={{
+                  height: "60px",
+                  width: "60px",
+                }}
+              >
+                <img
+                  src={tool.imgSrc}
+                  alt={tool.imgAlt}
+                  className="h-full w-full object-contain"
+                />
+              </figure>
+            </div>
+            <div className="text-center space-y-2 pt-2">
+              <h1 className="text-2xl font-semibold text-gray-900">
+                {tool.title}
+              </h1>
+            </div>
+          </div>
+          <div className="text-center">
+            <p className="text-gray-600 text-lg">{tool.description}</p>
+          </div>
         </div>
-      </div>
-      <div className="flex flex-col items-center justify-center ">
-        <Image src={"/t2.png"} width={80} height={80} alt="Driftsavtale" />
-        <div className="text-center space-y-2 pt-2">
-          <h1 className="text-2xl font-semibold">Driftsavtale</h1>
-          <p>Stabile og pålitelige driftsavtaler som sikrer nettsiden din.</p>
-        </div>
-      </div>
-      <div className="flex flex-col items-center justify-center ">
-        <Image src={"/t3.png"} width={80} height={80} alt="Responsive design" />
-        <div className="text-center space-y-2 pt-2">
-          <h1 className="text-2xl font-semibold">Responsive design</h1>
-          <p>
-            Responsivt design for best mulig brukeropplevelse på alle enheter.
-          </p>
-        </div>
-      </div>
-      <div className="flex flex-col items-center justify-center ">
-        <Image src={"/t4.png"} width={80} height={80} alt="Vedlikehold" />
-        <div className="text-center space-y-2 pt-2">
-          <h1 className="text-2xl font-semibold">Vedlikehold</h1>
-          <p>Vedlikehold som sikrer stabilitet og optimal ytelse.</p>
-        </div>
-      </div>
-      <div className="flex flex-col items-center justify-center ">
-        <Image src={"/t5.png"} width={80} height={80} alt="SEO" />
-        <div className="text-center space-y-2 pt-2">
-          <h1 className="text-2xl font-semibold">SEO</h1>
-          <p>SEO som forbedrer synligheten og rangeringen på nettet.s</p>
-        </div>
-      </div>
+      ))}
     </div>
   );
 };

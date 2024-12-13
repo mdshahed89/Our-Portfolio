@@ -24,7 +24,7 @@ export default function Home() {
         <Booking></Booking>
       </div>
       <div>
-        <Reference></Reference>
+        <Reference title={"Referanser"}></Reference>
       </div>
     </div>
   );

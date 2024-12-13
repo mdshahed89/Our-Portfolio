@@ -4,10 +4,10 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 
 const Team = () => {
   return (
-    <div className="grid  max-w-[1400px] mx-auto px-5 lg:px-0 lg:grid-cols-2 my-16 text-white ">
-      <div className=" py-5 px-0 lg:px-10">
-        <h1 className="text-[34px] pb-5 font-semibold">Teamet bak sidesone</h1>
-        <p className="text-[22px]">
+    <div className="grid  max-w-[1400px] mx-auto  lg:px-0 lg:grid-cols-2 my-16 text-white ">
+      <div className=" py-5 px-5">
+        <h1 className="text-[30px] pb-5 font-semibold">Teamet bak sidesone</h1>
+        <p className="text-[20px] text-gray-100">
           Hos Sidesone er vi eksperter på å skape digitale løsninger som gjør en
           forskjell for både enkeltpersoner og bedrifter. Vi forstår at behovene
           kan variere – fra små bedrifter og gründere som trenger en funksjonell
@@ -18,7 +18,7 @@ const Team = () => {
         </p>
         <br />
         <br />
-        <p className="text-[22px]">
+        <p className="text-[20px] text-gray-100">
           Vi er en webutviklingsbedrift som setter samarbeid i sentrum. Gjennom
           tett dialog med kundene våre skreddersyr vi løsninger som er tilpasset
           deres spesifikke behov. Vi følger deg nøye opp gjennom hele prosessen

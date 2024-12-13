@@ -1,113 +1,75 @@
 import Link from "next/link";
 
-const Reference = () => {
+const Reference = ({ title }) => {
+  const referencesData = [
+    {
+      title: "REAL PARTNER AS",
+      description:
+        "Eiendomsselskapet Real Partner as ble etablert i 1989 og har dermed lang historie som tilrettelegger…",
+      image: "/r1.png",
+      url: "https://realpartner.com",
+      projectLink: "#",
+    },
+    {
+      title: "Konsulenttorget",
+      description:
+        "Kontakt frilansere og konsulenter direkte på vår åpne talentplattform. Vi viser alltid frem kvalifikasjoner, slik…",
+      image: "/r2.png",
+      url: "https://konsulenttorget.com",
+      projectLink: "#",
+    },
+    {
+      title: "Instacall",
+      description:
+        "InstaCall er et ledende tele-marketing byrå som spesialiserer seg på kundeservice, møtebooking og salgsløsninger. Vi kombinerer…",
+      image: "/r3.png",
+      url: "https://instacall.com",
+      projectLink: "#",
+    },
+  ];
+
   return (
-    <div className="px-5 max-w-[1280px] mb-10 mx-auto lg:px-0">
-      <div className="">
+    <div className="max-w-[1280px] pb-10 px-5 lg:px-0 mx-auto">
+      <div>
         <h1 className="text-[25px] lg:text-[56px] py-3 font-semibold">
-          Referanser
+          {title}
         </h1>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
-        <div className="">
-          <div>
-            <Link target="_blank" href={`{b.url}`}>
-              <figure
-                className=" "
-                style={{
-                  height: "230px",
-                  width: "100%",
-                  overflow: "hidden",
-                }}
-              >
-                <img
-                  src={`/r1.png`}
-                  alt=""
-                  className="object-cover h-full w-full"
-                />
-              </figure>
-            </Link>
-          </div>
-          <div className="text-center px-5 py-3 space-y-3">
-            <h1 className="text-2xl font-semibold">REAL PARTNER AS</h1>
-            <div className="min-h-[80px]">
-              <p>
-                Eiendomsselskapet Real Partner as ble etablert i 1989 og har
-                dermed lang historie som tilrettelegger…
-              </p>
+      <div className="grid md:grid-cols-2  lg:grid-cols-3 gap-4 lg:gap-8">
+        {referencesData.map((reference, index) => (
+          <div key={index} className="bg-white">
+            <div>
+              <Link target="_blank" href={reference.url}>
+                <figure
+                  style={{
+                    height: "230px",
+                    width: "100%",
+                    overflow: "hidden",
+                  }}
+                >
+                  <img
+                    src={reference.image}
+                    alt={reference.title}
+                    className="object-cover h-full w-full"
+                  />
+                </figure>
+              </Link>
             </div>
-            <Link href={"#"} className="text-lg">
-              Se Prosjektet→
-            </Link>
-          </div>
-        </div>
-        <div className="">
-          <div>
-            <Link target="_blank" href={`{b.url}`}>
-              <figure
-                className=" "
-                style={{
-                  height: "230px",
-                  width: "100%",
-                  overflow: "hidden",
-                }}
+            <div className=" px-5 py-3 space-y-3">
+              <h1 className="text-2xl font-semibold ">{reference.title}</h1>
+              <div className="min-h-[80px]">
+                <p className="text-[20px] ">{reference.description}</p>
+              </div>
+              <Link
+                href={reference.projectLink}
+                className="text-lg font-medium pl-10 "
               >
-                <img
-                  src={`/r2.png`}
-                  alt=""
-                  className="object-cover h-full w-full"
-                />
-              </figure>
-            </Link>
-          </div>
-          <div className="text-center px-5 py-3 space-y-3">
-            <h1 className="text-2xl font-semibold">Konsulenttorget</h1>
-            <div className="min-h-[80px]">
-              <p>
-                InstaCall er et ledende tele-marketing byrå som spesialiserer
-                seg på kundeservice, møtebooking og salgsløsninger. Vi
-                kombinerer…
-              </p>
+                Se Prosjektet →
+              </Link>
             </div>
-            <Link href={"#"} className="text-lg">
-              Se Prosjektet→
-            </Link>
           </div>
-        </div>
-        <div className="">
-          <div>
-            <Link target="_blank" href={`{b.url}`}>
-              <figure
-                className=" "
-                style={{
-                  height: "230px",
-                  width: "100%",
-                  overflow: "hidden",
-                }}
-              >
-                <img
-                  src={`/r3.png`}
-                  alt=""
-                  className="object-cover h-full w-full"
-                />
-              </figure>
-            </Link>
-          </div>
-          <div className="text-center px-5 py-3 space-y-3 ">
-            <h1 className="text-2xl font-semibold">Instacall</h1>
-            <div className="min-h-[80px]">
-              <p>
-                InstaCall er et ledende tele-marketing byrå som spesialiserer
-                seg på kundeservice, møtebooking og salgsløsninger. Vi
-                kombinerer…
-              </p>
-            </div>
-            <Link href={"#"} className="text-lg">
-              Se Prosjektet→
-            </Link>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

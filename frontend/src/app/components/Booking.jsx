@@ -1,6 +1,6 @@
 const Booking = () => {
   return (
-    <div className="max-w-[1400px] min-h-[100vh] mx-auto mt-16 px-5 lg:px-0 grid lg:grid-cols-2 ">
+    <div className="max-w-[1400px] min-h-[100vh] mx-auto mt-16  lg:px-0 grid lg:grid-cols-2 ">
       <div
         className="order-2 lg:order-1 min-h-[50vh]"
         style={{
