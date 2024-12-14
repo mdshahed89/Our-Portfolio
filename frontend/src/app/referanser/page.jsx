@@ -41,7 +41,7 @@ const page = () => {
         </div>
         <div>
           <div className="max-w-[1280px] pb-10 px-5 lg:px-0 mx-auto">
-            <div className="grid md:grid-cols-2  lg:grid-cols-3 gap-4 lg:gap-8">
+            <div className="grid md:grid-cols-2  lg:grid-cols-3 gap-2 lg:gap-4 ">
               {referencesData.map((reference, index) => (
                 <div
                   key={index}
