@@ -3,7 +3,7 @@ import LogoForm from "../components/LogoForm";
 
 const page = () => {
   return (
-    <div className=" min-h-[100vh] px-5 lg:px-0 max-w-[1280px] mx-auto mt-[150px] ">
+    <div className=" min-h-[100vh] px-5 lg:px-0 max-w-[1400px] mx-auto mt-[150px] ">
       <div className="space-y-10">
         <h1 className="text-2xl md:text-4xl text-gray-700 font-medium">
           Vi Lager Logoer som Passer Dine Behov

@@ -27,7 +27,7 @@ const toolsData = [
 const page = () => {
   return (
     <div>
-      <div className="px-5 max-w-[1280px] mt-20 mx-auto lg:px-0">
+      <div className="px-5 max-w-[1400px] mt-20 mx-auto lg:px-0">
         <div className="lg:h-screen flex flex-col md:flex-row items-center pt-5 justify-evenly">
           <div className="md:w-[50%]">
             <div className="flex items-center justify-center">
@@ -130,7 +130,7 @@ const ToolsGrid = () => {
   const keywordsToBold = ["Figma", "WordPress", "MERN-stack"];
 
   return (
-    <div className="max-w-[1280px] pb-10 mx-auto">
+    <div className="max-w-[1400px] pb-10 mx-auto">
       <div className="flex items-center justify-center mb-5">
         <h1 className="font-semibold text-[37px] text-gray-800">Verktøy</h1>
       </div>

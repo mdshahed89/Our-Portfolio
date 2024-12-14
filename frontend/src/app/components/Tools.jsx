@@ -35,7 +35,7 @@ const toolsData = [
 
 const Tools = () => {
   return (
-    <div className="grid lg:grid-cols-5 my-16 max-w-[1280px] mx-auto lg:justify-between px-5 lg:px-0 gap-5 ">
+    <div className="grid lg:grid-cols-5 my-16 max-w-[1400px] mx-auto lg:justify-between px-5 lg:px-0 gap-5 ">
       {toolsData.map((tool, index) => (
         <div key={index} className="flex flex-col items-center  space-y-2">
           <div className="flex items-center flex-col ">

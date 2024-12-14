@@ -3,7 +3,7 @@ import NettsideForm from "../components/NettsideForm";
 const page = () => {
   return (
     <div>
-      <div className="flex flex-col-reverse gap-10 lg:gap-0 lg:flex-row  px-5 lg:px-0 max-w-[1280px] py-36 mx-auto  justify-between">
+      <div className="flex flex-col-reverse gap-10 lg:gap-0 lg:flex-row  px-5 lg:px-0 max-w-[1400px] py-36 mx-auto  justify-between">
         <div className="lg:w-[32%] space-y-5">
           <div>
             <figure>

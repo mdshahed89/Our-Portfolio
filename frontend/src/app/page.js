@@ -9,7 +9,7 @@ import Tools from "./components/Tools";
 export default function Home() {
   return (
     <div>
-      <div className="bg-[#035635]">
+      <div className="bg-[#035635] lg:pb-0 pb-24 ">
         <Hero></Hero>
       </div>
       <Slider></Slider>

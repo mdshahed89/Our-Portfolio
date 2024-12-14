@@ -40,7 +40,7 @@ const OfferSection = () => {
     },
   ];
   return (
-    <div className="px-5 lg:px-0 max-w-[1280px] mx-auto">
+    <div className="px-5 lg:px-0 max-w-[1400px] mx-auto">
       <div>
         <h1 className="font-bold text-[40px]">Hva vi tilbyr</h1>
       </div>

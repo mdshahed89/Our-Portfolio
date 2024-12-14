@@ -29,7 +29,7 @@ const Reference = ({ title }) => {
   ];
 
   return (
-    <div className="max-w-[1280px] pb-10 px-5 lg:px-0 mx-auto">
+    <div className="max-w-[1400px] pb-10 px-5 lg:px-0 mx-auto">
       <div>
         <h1 className="text-[25px] lg:text-[56px] py-3 font-semibold">
           {title}
