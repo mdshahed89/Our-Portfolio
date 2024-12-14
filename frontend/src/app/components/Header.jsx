@@ -58,7 +58,7 @@ const Header = () => {
             <li className="relative group">
               <Tooltip
                 title={
-                  <div className="space-y-2  py-2">
+                  <div className="space-y-2 text-xl font-medium py-2">
                     <Link className="" href="/nettside">
                       <MenuItem>Nettside</MenuItem>
                     </Link>
@@ -110,15 +110,15 @@ const Header = () => {
               <Tooltip
                 title={
                   <div className="space-y-2 text-xl font-medium py-2">
-                    <MenuItem>
-                      <Link href="/markedsforing">Markedsføring</Link>
-                    </MenuItem>
-                    <MenuItem>
-                      <Link href="/seo">SEO</Link>
-                    </MenuItem>
-                    <MenuItem>
-                      <Link href="/logo">Logo</Link>
-                    </MenuItem>
+                    <Link href="/markedsforing">
+                      <MenuItem>Markedsføring</MenuItem>
+                    </Link>
+                    <Link href="/seo">
+                      <MenuItem>SEO</MenuItem>
+                    </Link>
+                    <Link href="/logo">
+                      <MenuItem>Logo</MenuItem>
+                    </Link>
                   </div>
                 }
                 placement="bottom"
@@ -185,7 +185,7 @@ const Header = () => {
         <ul className="flex flex-col mt-7 space-y-8">
           {/* Dropdown 1 */}
           <li className="relative group">
-            <Link href={"/nettside"}>
+            <Link href={"/nettside"} onClick={() => setMenuOpen(false)}>
               <div
                 className="flex items-center pb-2 hover:text-green-300 cursor-pointer"
                 onClick={() => toggleDropdown(0)}
@@ -205,6 +205,7 @@ const Header = () => {
             >
               <li>
                 <Link
+                  onClick={() => setMenuOpen(false)}
                   href="/nettside"
                   className="block py-2 hover:bg-green-100"
                 >
@@ -213,6 +214,7 @@ const Header = () => {
               </li>
               <li>
                 <Link
+                  onClick={() => setMenuOpen(false)}
                   href="/nettbuttik"
                   className="block py-2 hover:bg-green-100"
                 >
@@ -221,6 +223,7 @@ const Header = () => {
               </li>
               <li>
                 <Link
+                  onClick={() => setMenuOpen(false)}
                   href="/webapplikasjon"
                   className="block py-2 hover:bg-green-100"
                 >
@@ -232,34 +235,48 @@ const Header = () => {
 
           {/* Dropdown 2 */}
           <li className="relative group">
-            <div
-              className="flex items-center pb-2 hover:text-green-300 cursor-pointer"
-              onClick={() => toggleDropdown(1)}
-            >
-              Digitale Tjenester
-              <FaChevronDown
-                className={`ml-2 text-sm transition-transform duration-300 ${
-                  dropdownOpen === 1 ? "rotate-180" : "rotate-0"
-                }`}
-              />
-            </div>
+            <Link href="/digitale-tjenester" onClick={() => setMenuOpen(false)}>
+              <div
+                className="flex items-center pb-2 hover:text-green-300 cursor-pointer"
+                onClick={() => toggleDropdown(1)}
+              >
+                Digitale Tjenester
+                <FaChevronDown
+                  className={`ml-2 text-sm transition-transform duration-300 ${
+                    dropdownOpen === 1 ? "rotate-180" : "rotate-0"
+                  }`}
+                />
+              </div>
+            </Link>
             <ul
               className={`flex flex-col mt-2 transition-all duration-200 ease-in-out ${
                 dropdownOpen === 1 ? "block" : "hidden"
               }`}
             >
               <li>
-                <Link href="#" className="block py-2 hover:bg-green-100">
+                <Link
+                  onClick={() => setMenuOpen(false)}
+                  href="/seo"
+                  className="block py-2 hover:bg-green-100"
+                >
                   Seo
                 </Link>
               </li>
               <li>
-                <Link href="#" className="block py-2 hover:bg-green-100">
+                <Link
+                  onClick={() => setMenuOpen(false)}
+                  href="/logo"
+                  className="block py-2 hover:bg-green-100"
+                >
                   Logo
                 </Link>
               </li>
               <li>
-                <Link href="#" className="block py-2 hover:bg-green-100">
+                <Link
+                  onClick={() => setMenuOpen(false)}
+                  href="#"
+                  className="block py-2 hover:bg-green-100"
+                >
                   Webapplikasjon
                 </Link>
               </li>
@@ -270,6 +287,7 @@ const Header = () => {
           <li className="relative group">
             <Link
               href="/om-oss"
+              onClick={() => setMenuOpen(false)}
               className="flex items-center pb-2 hover:text-green-300"
             >
               Hvem er vi?
@@ -278,6 +296,7 @@ const Header = () => {
           <li className="relative group">
             <Link
               href="/referanser"
+              onClick={() => setMenuOpen(false)}
               className="flex items-center pb-2 hover:text-green-300"
             >
               Prosjekter

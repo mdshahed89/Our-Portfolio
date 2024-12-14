@@ -28,12 +28,7 @@ const Hero = () => {
           </Link>
         </div>
       </div>
-      <div class="w-full lg:w-[400px] min-h-[65vh] lg:min-h-[100vh] bg-no-repeat bg-right-bottom lg:bg-left-bottom bg-[url('/person.png')] -translate-x-[20%]"></div>
-      {/* <div className="w-full lg:w-[400px] min-h-[100vh] bg-no-repeat bg-right-bottom lg:bg-left-bottom bg-[url('/person.png')]">
-        <div className="bg-left-bottom bg-cover bg-no-repeat translate-x-[-40%]">
-          <img src="/person.png" alt="person" className="hidden" />
-        </div>
-      </div> */}
+      <div className="w-full lg:w-[400px] min-h-[65vh] lg:min-h-[100vh] bg-no-repeat bg-right-bottom lg:bg-left-bottom bg-[url('/person.png')] -translate-x-[20%]"></div>
     </div>
   );
 };
