@@ -1,5 +1,5 @@
 import React from "react";
-import LogoForm from "../components/AllForms/LogoForm";
+import LogoForm from "../components/LogoForm";
 
 const page = () => {
   return (
@@ -30,7 +30,7 @@ const page = () => {
         </h1>
       </div>
       <div className="my-20">
-        <LogoForm></LogoForm>
+        <LogoForm />
       </div>
     </div>
   );

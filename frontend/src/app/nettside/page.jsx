@@ -1,4 +1,4 @@
-import NettsideForm from "../components/AllForms/nettsideForm";
+import NettsideForm from "../components/NettsideForm";
 
 const page = () => {
   return (
@@ -102,7 +102,7 @@ const page = () => {
           </div>
 
           <div className="pt-10">
-            <NettsideForm></NettsideForm>
+            <NettsideForm />
           </div>
         </div>
       </div>

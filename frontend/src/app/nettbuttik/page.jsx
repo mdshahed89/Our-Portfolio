@@ -1,4 +1,4 @@
-import NettsideForm from "../components/AllForms/nettsideForm";
+import NettsideForm from "@/app/components/NettsideForm"
 
 const page = () => {
   return (
@@ -30,7 +30,7 @@ const page = () => {
                 <p>
                   Vi vil deretter ta kontakt med deg for å tilby hjelp og
                   veiledning i å finne den optimale løsningen som passer best
-                  for deg – og det er helt uforpliktende!s
+                  for deg - og det er helt uforpliktende!s
                 </p>
               </div>
             </div>
@@ -103,7 +103,7 @@ const page = () => {
           </div>
 
           <div className="pt-10">
-            <NettsideForm></NettsideForm>
+            <NettsideForm />
           </div>
         </div>
       </div>
