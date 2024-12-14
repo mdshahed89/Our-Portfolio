@@ -58,7 +58,7 @@ const Header = () => {
             <li className="relative group">
               <Tooltip
                 title={
-                  <div className="space-y-2  py-2">
+                  <div className="space-y-2 text-xl font-medium py-2">
                     <Link className="" href="/nettside">
                       <MenuItem>Nettside</MenuItem>
                     </Link>
