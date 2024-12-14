@@ -36,7 +36,7 @@ const Reference = ({ title }) => {
         </h1>
       </div>
 
-      <div className="grid md:grid-cols-2  lg:grid-cols-3 gap-4 lg:gap-8">
+      <div className="grid md:grid-cols-2  lg:grid-cols-3 gap-2 lg:gap-4">
         {referencesData.map((reference, index) => (
           <div key={index} className="rounded-xl overflow-hidden shadow-lg">
             <div className=" ">
@@ -59,7 +59,7 @@ const Reference = ({ title }) => {
             <div className=" px-5 py-3 space-y-3 bg-slate-50">
               <h1 className="text-2xl font-semibold ">{reference.title}</h1>
               <div className="min-h-[130px]">
-                <p className="text-[20px] text-gray-700">
+                <p className="text-lg text-gray-600 font-medium">
                   {reference.description}
                 </p>
               </div>
