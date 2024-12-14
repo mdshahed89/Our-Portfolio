@@ -43,7 +43,10 @@ const page = () => {
           <div className="max-w-[1280px] pb-10 px-5 lg:px-0 mx-auto">
             <div className="grid md:grid-cols-2  lg:grid-cols-3 gap-4 lg:gap-8">
               {referencesData.map((reference, index) => (
-                <div key={index} className="bg-white">
+                <div
+                  key={index}
+                  className="bg-white rounded-xl overflow-hidden "
+                >
                   <div>
                     <Link target="_blank" href={reference.url}>
                       <figure
@@ -68,7 +71,7 @@ const page = () => {
                     <h1 className="text-sm font-medium text-gray-600">
                       {reference.date}
                     </h1>
-                    <div className="min-h-[160px]">
+                    <div className="min-h-[150px]">
                       <p className="text-[20px] text-gray-600">
                         {reference.description}
                       </p>

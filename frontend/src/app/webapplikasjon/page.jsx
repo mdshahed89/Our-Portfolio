@@ -30,7 +30,7 @@ const page = () => {
                 <p>
                   Vi vil deretter ta kontakt med deg for å tilby hjelp og
                   veiledning i å finne den optimale løsningen som passer best
-                  for deg – og det er helt uforpliktende!s
+                  for deg - og det er helt uforpliktende!s
                 </p>
               </div>
             </div>
@@ -87,7 +87,7 @@ const page = () => {
           <div>
             <h1 className="text-3xl font-semibold">
               Fortell oss om din nye
-              <span className="text-[#7BDCB5]">webapplikasjon</span>
+              <span className="text-[#7BDCB5]"> webapplikasjon</span>
             </h1>
             <p className="pt-8 text-lg font-normal">
               Når det gjelder webapplikasjoner, utvikler vi kraftige og

@@ -38,8 +38,8 @@ const Reference = ({ title }) => {
 
       <div className="grid md:grid-cols-2  lg:grid-cols-3 gap-4 lg:gap-8">
         {referencesData.map((reference, index) => (
-          <div key={index} className="bg-white">
-            <div>
+          <div key={index} className="rounded-xl overflow-hidden shadow-lg">
+            <div className=" ">
               <Link target="_blank" href={reference.url}>
                 <figure
                   style={{
@@ -56,14 +56,16 @@ const Reference = ({ title }) => {
                 </figure>
               </Link>
             </div>
-            <div className=" px-5 py-3 space-y-3">
+            <div className=" px-5 py-3 space-y-3 bg-slate-50">
               <h1 className="text-2xl font-semibold ">{reference.title}</h1>
-              <div className="min-h-[80px]">
-                <p className="text-[20px] ">{reference.description}</p>
+              <div className="min-h-[130px]">
+                <p className="text-[20px] text-gray-700">
+                  {reference.description}
+                </p>
               </div>
               <Link
                 href={reference.projectLink}
-                className="text-lg font-medium pl-10 "
+                className="text-lg font-medium  "
               >
                 Se Prosjektet →
               </Link>

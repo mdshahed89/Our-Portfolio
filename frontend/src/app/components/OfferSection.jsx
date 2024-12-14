@@ -48,7 +48,7 @@ const OfferSection = () => {
         {offers.map((offer, index) => (
           <div
             key={index}
-            className={`p-5 min-h-[550px] md:min-h-[350px] lg:min-h-[530px] ${
+            className={`p-5 min-h-[550px] md:min-h-[350px] rounded-xl  lg:min-h-[530px] ${
               offer.textColor || "text-black"
             }`}
             style={{ backgroundColor: offer.backgroundColor }}

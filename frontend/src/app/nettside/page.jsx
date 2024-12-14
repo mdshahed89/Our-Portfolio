@@ -30,7 +30,7 @@ const page = () => {
                 <p>
                   Vi vil deretter ta kontakt med deg for å tilby hjelp og
                   veiledning i å finne den optimale løsningen som passer best
-                  for deg – og det er helt uforpliktende!s
+                  for deg - og det er helt uforpliktende!s
                 </p>
               </div>
             </div>
@@ -80,8 +80,8 @@ const page = () => {
           </div>
         </div>
 
-        <div class=" hidden lg:flex lg:w-[10%] items-center justify-center mx-auto">
-          <div class="h-full border-l border-gray-300"></div>
+        <div className=" hidden lg:flex lg:w-[10%] items-center justify-center mx-auto">
+          <div className="h-full border-l border-gray-300"></div>
         </div>
         <div className="lg:w-[58%]">
           <div>

@@ -10,7 +10,7 @@ const Team = () => {
         <p className="text-[20px] text-gray-100">
           Hos Sidesone er vi eksperter på å skape digitale løsninger som gjør en
           forskjell for både enkeltpersoner og bedrifter. Vi forstår at behovene
-          kan variere – fra små bedrifter og gründere som trenger en funksjonell
+          kan variere - fra små bedrifter og gründere som trenger en funksjonell
           og tiltalende nettside, til større virksomheter som krever avanserte
           webapplikasjoner og helhetlige digitale strategier. Uansett hvem du
           er, eller hvilken bransje du opererer i, er vårt mål alltid det samme:
@@ -22,7 +22,7 @@ const Team = () => {
           Vi er en webutviklingsbedrift som setter samarbeid i sentrum. Gjennom
           tett dialog med kundene våre skreddersyr vi løsninger som er tilpasset
           deres spesifikke behov. Vi følger deg nøye opp gjennom hele prosessen
-          – fra de første planleggingsmøtene til lansering og langt inn i
+          - fra de første planleggingsmøtene til lansering og langt inn i
           driftsfasen. For oss er det ikke bare viktig å levere et ferdig
           produkt; vi ønsker å bygge langsiktige relasjoner og være en partner
           som du kan stole på.
