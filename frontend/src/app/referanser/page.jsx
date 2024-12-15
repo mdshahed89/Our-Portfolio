@@ -33,14 +33,14 @@ const page = () => {
 
   return (
     <div className="bg-[#EDFCF7] min-h-screen">
-      <div className="px-5 max-w-[1280px]  mx-auto lg:px-0">
+      <div className="px-5 max-w-[1400px]  mx-auto lg:px-0">
         <div className="pt-40 pb-5">
           <h1 className="text-[#1E293B] text-[40px] md:text-[76px] font-bold">
             Prosjekter
           </h1>
         </div>
         <div>
-          <div className="max-w-[1280px] pb-10 px-5 lg:px-0 mx-auto">
+          <div className="max-w-[1400px] pb-10 px-5 lg:px-0 mx-auto">
             <div className="grid md:grid-cols-2  lg:grid-cols-3 gap-2 lg:gap-4 ">
               {referencesData.map((reference, index) => (
                 <div

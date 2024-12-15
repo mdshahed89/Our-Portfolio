@@ -11,7 +11,7 @@ const Slider = () => {
 
   return (
     <div className="-translate-y-20">
-      <Marquee speed={50} pauseOnHover={true}>
+      <Marquee speed={50} pauseOnHover={true} autoFill >
         {items.map((item, index) => (
           <div
             key={index}
