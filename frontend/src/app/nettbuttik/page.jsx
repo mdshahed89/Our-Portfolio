@@ -30,7 +30,7 @@ const page = () => {
                 <p>
                   Vi vil deretter ta kontakt med deg for å tilby hjelp og
                   veiledning i å finne den optimale løsningen som passer best
-                  for deg – og det er helt uforpliktende!s
+                  for deg - og det er helt uforpliktende!s
                 </p>
               </div>
             </div>
