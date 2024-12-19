@@ -1,22 +1,26 @@
-import Link from "next/link";
+import HomeImg from "@/assets/HeroImg.png";
+import figma from "@/assets/Figma.png";
+import mern from "@/assets/mern.png";
+import web from "@/assets/web.png";
+import Image from "next/image";
 import React from "react";
 const toolsData = [
   {
-    imgSrc: "/figma.png",
+    imgSrc: figma,
     imgAlt: "Figma",
     title: "Figma",
     description:
       "Vi bruker Figma for å lage brukervennlige og estetiske design som oppfyller både funksjonelle og visuelle behov.",
   },
   {
-    imgSrc: "/mern.png",
+    imgSrc: mern,
     imgAlt: "MERN",
     title: "WordPress eller Mern",
     description:
       "Avhengig av prosjektets kompleksitet bruker vi enten WordPress, som er ideelt for fleksible og skalerbare nettsider, eller MERN-stack (MongoDB, Express, React, Node.js) for mer komplekse og skreddersydde webapplikasjoner.",
   },
   {
-    imgSrc: "/web.png",
+    imgSrc: web,
     imgAlt: "Webhotell",
     title: "Webhotell",
     description:
@@ -27,19 +31,19 @@ const toolsData = [
 const page = () => {
   return (
     <div>
-      <div className="px-5 max-w-[1400px] mt-20 mx-auto lg:px-0">
-        <div className="lg:h-screen flex flex-col md:flex-row items-center pt-5 justify-evenly">
+      <div className="px-3 max-w-[1400px] mx-auto lg:px-0">
+        <div className="flex flex-col  md:flex-row items-center mt-[110px] lg:mt-[142px]  justify-evenly">
           <div className="md:w-[50%]">
-            <div className="flex items-center justify-center">
-              <img
-                src="/person.png"
+            <div className="flex md:h-[500px] items-center md:items-end justify-center">
+              <Image
+                src={HomeImg}
                 alt="Person"
-                className="w-full lg:w-[300px]  object-contain"
+                className="w-full md:w-[350px]  object-contain"
               />
             </div>
           </div>
-          <div className="md:w-[50%] md:px-3 lg:pr-10">
-            <h1 className="text-[16px] md:text-[28px] lg:text-[40px] font-semibold">
+          <div className="md:w-[50%]  md:px-3 lg:pr-10">
+            <h1 className="text-[16px]  text-center md:text-start md:text-[28px] lg:text-[40px] font-semibold">
               «Å utvikle digitale løsninger <br className="hidden lg:flex" />{" "}
               som både ser bra ut og skaper
               <br className="hidden lg:flex" />
@@ -50,8 +54,8 @@ const page = () => {
         </div>
       </div>
       <div className="bg-[#035635]">
-        <div className="grid  max-w-[1400px] mx-auto  lg:grid-cols-2 my-16 text-white ">
-          <div className=" py-5 px-5">
+        <div className="grid  items-center  lg:grid-cols-2 mb-16 text-white ">
+          <div className=" py-5 px-3">
             <h1 className="text-[30px] pb-5  font-semibold">
               Teamet bak Sidesone har omfattende erfaring innen nettsidedesign
               og utvikling.
@@ -94,7 +98,7 @@ const page = () => {
             </p>
           </div>
           <div
-            className=" min-h-[50vh]"
+            className=" h-full"
             style={{
               backgroundImage: "url('/coding.jpg')",
               backgroundSize: "cover",
@@ -130,11 +134,11 @@ const ToolsGrid = () => {
   const keywordsToBold = ["Figma", "WordPress", "MERN-stack"];
 
   return (
-    <div className="max-w-[1400px] pb-10 mx-auto">
+    <div className=" pb-10 ">
       <div className="flex items-center justify-center mb-5">
         <h1 className="font-semibold text-[37px] text-gray-800">Verktøy</h1>
       </div>
-      <div className="grid md:grid-cols-2 px-5 lg:px-0 lg:grid-cols-3 gap-4 lg:gap-8">
+      <div className="grid md:grid-cols-2 px-3 lg:px-0 lg:grid-cols-3 gap-4 lg:gap-8">
         {toolsData.map((tool, index) => (
           <div
             key={index}
@@ -146,7 +150,7 @@ const ToolsGrid = () => {
                   tool.imgAlt === "MERN" ? "w-[100px]" : "w-[50px]"
                 } overflow-hidden`}
               >
-                <img
+                <Image
                   src={tool.imgSrc}
                   alt={tool.imgAlt}
                   className="object-contain h-full w-full"

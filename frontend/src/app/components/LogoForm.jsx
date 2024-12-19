@@ -1,6 +1,12 @@
 "use client";
+import toast from "react-hot-toast";
+import axios from "axios";
+import { usePathname } from "next/navigation";
+
 const LogoForm = () => {
-  const handleSubmit = (e) => {
+  const pathName = usePathname();
+  const path = pathName === "/logo" ? "Logo" : "";
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const firstName = form.firstName.value;
@@ -10,6 +16,7 @@ const LogoForm = () => {
     const description = form.description.value;
 
     const formData = {
+      path,
       firstName,
       lastName,
       email,
@@ -17,7 +24,14 @@ const LogoForm = () => {
       description,
     };
 
-    console.log(formData);
+    const { data } = await axios.post(
+      "http://localhost:5000/send-logo-email",
+      formData
+    );
+    if (data === "Email sent successfully!") {
+      toast.success("Email sent successfully!");
+      form.reset();
+    }
   };
   return (
     <div>
@@ -104,7 +118,7 @@ const LogoForm = () => {
           <div>
             <button
               type="submit"
-              className="bg-[#035635] px-3 py-1  rounded-full text-white"
+              className="bg-[#035635] px-4 py-2 text-xl font-medium  rounded-full text-white"
             >
               Send inn
             </button>

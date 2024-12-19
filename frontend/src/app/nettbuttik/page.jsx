@@ -1,14 +1,16 @@
-import NettsideForm from "@/app/components/NettsideForm"
+import Person from "@/assets/Person.png";
+import NettsideForm from "@/app/components/NettsideForm";
+import Image from "next/image";
 
 const page = () => {
   return (
     <div>
-      <div className="flex flex-col-reverse gap-10 lg:gap-0 lg:flex-row  px-5 lg:px-0 max-w-[1400px] py-36 mx-auto  justify-between">
+      <div className="flex flex-col-reverse gap-10 lg:gap-0 lg:flex-row  px-3 lg:px-0 max-w-[1400px] py-36 mx-auto  justify-between">
         <div className="lg:w-[32%] space-y-5">
           <div>
             <figure>
-              <img
-                src="/ow.png"
+              <Image
+                src={Person}
                 alt=""
                 className="object-cover w-[400px] mx-auto lg:h-full lg:w-full"
               />
@@ -19,7 +21,7 @@ const page = () => {
               Send oss dine krav, så tar vi kontakt med deg innen 1 arbeidsdag!
             </h1>
           </div>
-          <div className="bg-[#F9F9F9] flex flex-col gap-4 items-center justify-between p-5">
+          <div className="bg-[#F9F9F9] flex flex-col gap-8 items-center justify-between p-5">
             <div className="flex justify-between gap-5">
               <div className="flex items-start">
                 <h1 className="text-4xl font-bold text-[#7BDCB5]">1</h1>

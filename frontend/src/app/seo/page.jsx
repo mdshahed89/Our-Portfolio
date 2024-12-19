@@ -5,12 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { RiSearch2Line } from "react-icons/ri";
 import { IoKeyOutline } from "react-icons/io5";
-import { AiOutlineFontSize } from 'react-icons/ai';
+import { AiOutlineFontSize } from "react-icons/ai";
 import { HiLink } from "react-icons/hi2";
 
 const page = () => {
   return (
-    <div className=" min-h-[100vh] h-full mt-[120px]  ">
+    <div className="  h-full mt-[120px]  ">
       <div className=" flex md:flex-row flex-col md:gap-0 gap-7 px-1 ">
         <div className=" flex-1 md:order-1 order-2  ">
           <div className=" flex flex-col gap-8 justify-between md:px-3 ">
@@ -113,10 +113,11 @@ const page = () => {
 
       <div>
         <div className=" flex justify-center bg-[#04301eee] py-8 ">
-          <button className=" bg-[#fff] px-8 py-2 text-[#000] rounded-md font-medium ">Ta kontakt for et uforpliktende tilbud.</button>
+          <button className=" bg-[#fff] px-8 py-2 text-[#000] rounded-md font-medium ">
+            Ta kontakt for et uforpliktende tilbud.
+          </button>
         </div>
       </div>
-
     </div>
   );
 };

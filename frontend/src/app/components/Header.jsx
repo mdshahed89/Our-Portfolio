@@ -6,7 +6,9 @@ import MenuItem from "@mui/material/MenuItem";
 import Link from "next/link";
 import Image from "next/image";
 import { RxCross2 } from "react-icons/rx";
+import { usePathname } from "next/navigation";
 const Header = () => {
+  const pathName = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(null);
   const [scrolled, setScrolled] = useState(false);
@@ -29,9 +31,13 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  if (pathName.includes("adminpanel") || pathName.includes("login")) {
+    return;
+  }
+
   return (
     <div
-      className={`fixed px-5 h-[80px] lg:px-0 top-0 w-full ${
+      className={`fixed px-3 h-[112px] py-4 lg:px-0 top-0 w-full ${
         scrolled ? "bg-[#035635] shadow-xl" : "bg-[#035635]"
       } z-50`}
     >
@@ -40,8 +46,8 @@ const Header = () => {
           <Image
             src="/logo.png"
             alt="Logo"
-            height={200}
-            width={200}
+            height={221}
+            width={221}
             className="object-contain"
           />
         </Link>

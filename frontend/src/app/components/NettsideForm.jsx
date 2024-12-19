@@ -1,17 +1,44 @@
 "use client";
-
+import { uploadFile } from "@/AuthProvider/imageUpload";
+import axios from "axios";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
-
+import { RxCross2 } from "react-icons/rx";
+import toast from 'react-hot-toast';
 const NettsideForm = () => {
-  const [filePreviews, setFilePreviews] = useState([]);
+  const pathName = usePathname();
+  const path =
+    pathName === "/nettside"
+      ? "Nettside"
+      : pathName === "/nettbuttik"
+      ? "Nettbuttik"
+      : "Webapplikasjon";
+  const [filePreview, setFilePreview] = useState("");
   const [selectedValues, setSelectedValues] = useState([]);
+  const [file, setFile] = useState(null);
+  const [errors, setErrors] = useState({});
   const handleFileUpload = (event) => {
-    const files = Array.from(event.target.files);
-    const previews = files.map((file) => ({
-      name: file.name,
-      url: URL.createObjectURL(file),
-    }));
-    setFilePreviews(previews);
+    const selectedFile = event.target.files[0];
+    const maxSize = 2 * 1024 * 1024;
+
+    if (selectedFile) {
+      if (selectedFile.size <= maxSize) {
+        setFilePreview({
+          name: selectedFile.name,
+          url: URL.createObjectURL(selectedFile),
+        });
+        setFile(selectedFile);
+        setErrors((prev) => ({ ...prev, file: null }));
+      } else {
+        setErrors((prev) => ({
+          ...prev,
+          file: "File size must be less than 2 MB.",
+        }));
+        setFilePreview(null);
+        setFile(null);
+      }
+    }
   };
 
   const options = [
@@ -35,30 +62,63 @@ const NettsideForm = () => {
     );
   };
 
-  const handleSubmit = (e) => {
+  const handleClearFile = () => {
+    setFilePreview(null);
+    setFile(null);
+    setErrors((prev) => ({ ...prev, file: null }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const firstName = form.firstName.value;
     const lastName = form.lastName.value;
     const email = form.email.value;
     const phone = form.phone.value;
+    const firma = form.firma.value;
     const budget = form.budget.value;
     const pages = form.pages.value;
     const description = form.description.value;
 
-    const formData = {
-      firstName,
-      lastName,
-      email,
-      phone,
-      budget,
-      pages,
-      vlag: selectedValues,
-      description,
-      image: filePreviews,
-    };
-
-    console.log(formData);
+    const newErrors = {};
+    if (!file) newErrors.file = "Cover Image is required.";
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+    try {
+      const uploadedImageURL = await uploadFile(file);
+      console.log(uploadedImageURL);
+      if (uploadedImageURL) {
+        const formData = {
+          path,
+          firstName,
+          lastName,
+          email,
+          phone,
+          budget,
+          firma,
+          pages,
+          vlag: selectedValues,
+          description,
+          image: uploadedImageURL,
+        };
+        const { data } = await axios.post(
+          "http://localhost:5000/send-email",
+          formData
+        );
+        if (data === "Email sent successfully!") {
+         toast.success("Email sent successfully!");
+          form.reset();
+          setFile(null);
+          setFilePreview(null);
+          setSelectedValues([]);
+          setErrors({});
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div>
@@ -127,6 +187,20 @@ const NettsideForm = () => {
               />
             </div>
           </div>
+          <div>
+            <div className="flex flex-col">
+              <label htmlFor="firma" className="text-xl mb-1">
+                Firma
+              </label>
+              <input
+                type="text"
+                id="firma"
+                name="firma"
+                className="rounded-full bg-transparent border border-[#7BDCB5] outline-none focus:border-dashed p-2 mt-1"
+                required
+              />
+            </div>
+          </div>
           <div className="grid grid-cols-1 items-end md:grid-cols-2 gap-4">
             <div className="flex flex-col">
               <label htmlFor="budget" className="text-xl mb-1">
@@ -138,8 +212,46 @@ const NettsideForm = () => {
                 className="rounded-full bg-transparent border border-[#7BDCB5] outline-none focus:border-dashed p-2 mt-1"
                 required
               >
-                <option value="8000-150000">8000 - 150000kr</option>
-                <option value="160000-250000">160000 - 250000kr</option>
+                {pathName === "/nettside" ? (
+                  <>
+                    <option value="8,000  - 15,000 kr">
+                      8,000 - 15,000 kr
+                    </option>
+                    <option value="15,000 - 25,000 kr">
+                      15,000 kr - 25,000 kr
+                    </option>
+                    <option value="25,000 - 35,000 kr">
+                      25,000 - 35,000 kr
+                    </option>
+                    <option value="jet vet ikke">jet vet ikke</option>
+                  </>
+                ) : pathName === "/nettbuttik" ? (
+                  <>
+                    <option value="15,000 - 25,000 kr">
+                      15,000 kr - 25,000 kr
+                    </option>
+                    <option value="25,000 - 35,000 kr">
+                      25,000 - 35,000 kr
+                    </option>
+                    <option value="35,000 - 50,000 Kr">
+                      35,000 - 50,000 KR
+                    </option>
+                    <option value="50,000+ kr">50,000+</option>
+                    <option value="jet vet ikke">jet vet ikke</option>
+                  </>
+                ) : (
+                  <>
+                    {" "}
+                    <option value="30,000 - 75,000 kr">
+                      30,000 - 75,000 kr
+                    </option>
+                    <option value="75,000 - 1,25,000 kr">
+                      75,000 kr - 1,25,000 kr
+                    </option>
+                    <option value="1,25,000+">1,25,000+ kr</option>
+                    <option value="I don't know">jet vet ikke</option>
+                  </>
+                )}
               </select>
             </div>
 
@@ -150,9 +262,28 @@ const NettsideForm = () => {
                 className="rounded-full bg-transparent border border-[#7BDCB5] outline-none focus:border-dashed p-2 mt-1"
                 required
               >
-                <option value="1">1</option>
-                <option value="1-5">1-5</option>
-                <option value="5+">5+</option>
+                {pathName === "/nettside" ? (
+                  <>
+                    <option value="1">1</option>
+                    <option value="1 - 5">1 - 5</option>
+                    <option value="10 +">10 +</option>
+                    <option value="jet vet ikke">jet vet ikke</option>
+                  </>
+                ) : pathName === "/nettbuttik" ? (
+                  <>
+                    <option value="1 - 10"> 1 - 10</option>
+                    <option value="10 - 20">10 - 20</option>
+                    <option value="20 - 50">20 - 50</option>
+                    <option value="50+">50+</option>
+                    <option value="jet vet ikke">jet vet ikke</option>
+                  </>
+                ) : (
+                  <>
+                    <option value="5-10">5-10</option>
+                    <option value="10+">10+</option>
+                    <option value="jet vet ikke">jet vet ikke</option>
+                  </>
+                )}
               </select>
             </div>
           </div>
@@ -180,53 +311,58 @@ const NettsideForm = () => {
               </div>
             </div>
 
-            <div>
+            <div className="">
               <h3 className="text-lg font-semibold mb-2">
                 Hvis du har bilder eller logo kan du laste de opp her
               </h3>
-              <div>
-                <div className="border  border-dashed border-[#7BDCB5] rounded-lg p-4 flex flex-col items-center gap-3">
-                  {filePreviews.length > 0 ? (
-                    <div className="">
-                      {filePreviews.map((file, index) => (
-                        <div key={index} className="relative  rounded-lg p-2">
-                          <img
-                            src={file.url}
-                            alt={file.name}
-                            className="w-full h-32 object-cover rounded-md"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <div className="flex items-center  flex-col gap-5 justify-center">
-                      <div className="text-center text-gray-500">
-                        Dra og slipp filer her, eller
-                      </div>
-                      <button
-                        type="button"
-                        className="bg-[#035635]  text-white py-2 px-4 rounded-full"
-                        onClick={() =>
-                          document.getElementById("file-input").click()
-                        }
-                      >
-                        Velg filer
+              <div className="border border-dashed border-[#7BDCB5] rounded-lg p-4 flex flex-col items-center gap-3">
+                {filePreview ? (
+                  <div>
+                    <div className="flex justify-end">
+                      <button type="button" onClick={handleClearFile}>
+                        <RxCross2 className="text-2xl" />
                       </button>
-                      <input
-                        id="file-input"
-                        type="file"
-                        multiple
-                        className="hidden"
-                        onChange={handleFileUpload}
-                        required
+                    </div>
+                    <div className="relative rounded-lg p-2">
+                      <Image
+                        src={filePreview.url}
+                        alt={filePreview.name}
+                        width={100}
+                        height={100}
+                        className="w-full h-32 object-cover rounded-md"
                       />
                     </div>
-                  )}
-                </div>
-                <p className="text-sm text-gray-500 mt-2">
-                  Max. file size: 2 MB.
-                </p>
+                  </div>
+                ) : (
+                  <div className="flex flex-col gap-5 items-center justify-center">
+                    <div className="text-center text-gray-500">
+                      Dra og slipp filer her, eller
+                    </div>
+                    <button
+                      type="button"
+                      className="bg-[#035635] text-white py-2 px-4 rounded-full"
+                      onClick={() =>
+                        document.getElementById("file-input").click()
+                      }
+                    >
+                      Velg filer
+                    </button>
+                    <input
+                      id="file-input"
+                      type="file"
+                      accept="image/*"
+                      className="hidden"
+                      onChange={handleFileUpload}
+                    />
+                  </div>
+                )}
               </div>
+              {errors.file && (
+                <span className="text-red-500 text-sm">{errors.file}</span>
+              )}
+              <p className="text-sm text-gray-500 mt-2">
+                Max. file size: 2 MB.
+              </p>
             </div>
           </div>
           <div className="">
@@ -246,7 +382,7 @@ const NettsideForm = () => {
           <div>
             <button
               type="submit"
-              className="bg-[#035635] px-3 py-1  rounded-full text-white"
+              className="bg-[#035635] px-4 py-2 text-xl font-medium  rounded-full text-white"
             >
               Send inn
             </button>
