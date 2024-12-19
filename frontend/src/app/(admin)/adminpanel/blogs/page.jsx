@@ -14,7 +14,7 @@ const page = () => {
             href={"/adminpanel/createblog"}
             className="border border-white rounded-md p-2"
           >
-            Create Blog
+            Create Blogs
           </Link>
         </div>
       </div>
