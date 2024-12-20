@@ -1,8 +1,8 @@
 const Booking = () => {
   return (
-    <div className=" max-h-[100vh]  mt-16  lg:px-0 grid lg:grid-cols-2 ">
+    <div className=" h-[100vh] mb-96 lg:mb-0  mt-16  lg:px-0 grid lg:grid-cols-2 ">
       <div
-        className="order-2 lg:order-1 h-[80vh] "
+        className="order-2 lg:order-1  h-[80vh] lg:h-[100vh]"
         style={{
           backgroundImage: "url('/coding.jpg')",
           backgroundSize: "cover",

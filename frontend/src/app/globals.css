@@ -48,3 +48,39 @@
 .custom-quill3 .ql-container.ql-snow {
   border-radius: 0 0 4px 4px; /* Match bottom corners */
 }
+
+.content {
+  text-align: left;
+}
+
+.content h1 {
+  font-size: 50px;
+  line-height: 1.2;
+}
+
+.content h2 {
+  font-size: 40px;
+  line-height: 1.3;
+}
+
+.content h3 {
+  font-size: 30px;
+  line-height: 1.4;
+}
+
+.content p {
+  font-size: 20px;
+
+  line-height: 1.6;
+}
+
+.content img {
+  width: 70%;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+}
+
+.content ul {
+  list-style-type: disc;
+}
