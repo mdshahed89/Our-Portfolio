@@ -30,3 +30,43 @@ export const adminData = async (req, res) => {
     },
   });
 };
+
+export const createAdmin = async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    if(!email || !password){
+      return res.status(400).send({
+        success: false,
+        message: "Email and password is required"
+      })
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const admin = new Admin({
+      email,
+      password: hashedPassword
+    })
+
+    const savedAdmin = await admin.save()
+
+    if(!savedAdmin){
+      return res.status(400).send({
+        success: false,
+        message: "Failed to save admin"
+      })
+    }
+
+    return res.status(201).send({
+      success: true,
+      message: "Admin created successfully"
+    })
+
+  } catch (error) {
+    console.log(`Server error when creating admin: ${error}`);
+    return res.status(500).send({
+      success: false,
+      message: "Server Error when creating admin",
+    });
+  }
+}
