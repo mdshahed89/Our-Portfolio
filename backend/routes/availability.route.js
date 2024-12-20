@@ -5,7 +5,7 @@ const router = express.Router();
 
 
 router.post("/set-data", setAvailability);
-router.get("/get-data", getAvailability)
+router.get("/get-availability", getAvailability)
 
 
 
