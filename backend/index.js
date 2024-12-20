@@ -2,6 +2,9 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import dbConnect from "./utils/dbConfig.js";
+import bookingRoutes from "./routes/booking.route.js"
+import availabilityRoutes from "./routes/availability.route.js"
+
 const app = express();
 dotenv.config();
 app.use(cors());
@@ -16,6 +19,8 @@ app.use(admin);
 app.use(project);
 app.use(sendEmail);
 app.use(blog);
+app.use("/api/book", bookingRoutes )
+app.use("/api/availability", availabilityRoutes )
 dbConnect();
 
 app.get("/", (req, res) => {
