@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { IoIosArrowRoundForward } from "react-icons/io";
-import HeroImg from "@/assets/HeroImg.png";
 
 const Hero = () => {
   return (
@@ -30,7 +29,7 @@ const Hero = () => {
         </div>
       </div>
       <div
-        className={`  w-full lg:w-[600px] mx-auto lg:order-2 order-1 lg:pt-0 mt-8 lg:h-auto h-[500px] bg-no-repeat  bg-hero-image`}
+        className={`  w-full lg:w-[600px] mx-auto lg:order-2 order-1 lg:pt-0  mt-14 lg:mt-8 lg:h-auto h-[500px] bg-no-repeat  bg-hero-image`}
       >
         {/* Content */}
       </div>

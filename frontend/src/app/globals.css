@@ -2,30 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-#submenu {
-    left : 0;
-    opacity: 0;
-    position: absolute;
-    top: 35px;
-    visibility: hidden;
-    z-index: 1;
-}
-
-li:hover ul#submenu {
-    opacity: 1;
-    top: 80px;
-    visibility: visible;
-}
-
-#submenu li {
-    float: none;
-    width: 100%;
-}
-
 .bg-hero-image {
-    background-image: url("../assets/HeroImg.png");
-    /* background-size: cover; */
-    background-position: center center;
-  }
+  background-image: url("../assets/HeroImg.png");
+  /* background-size: cover; */
+  background-position: center center;
+}
+
+.custom-swal-popup {
+  background-color: white; /* Light background color */
+  border-radius: 0px; /* Rounded corners */
+}
+
+.custom-swal-title {
+  color: #07275a; /* Custom title color */
+  font-size: 1.5em; /* Larger title font */
+}
+
+.custom-swal-confirm-button {
+  background-color: #07275a !important; /* Confirm button color */
+  color: white !important;
+  border-radius: 0px;
+}
+
+.custom-swal-cancel-button {
+  background-color: red !important; /* Cancel button color */
+  color: white !important;
+  border-radius: 0px;
+}
+
+.ql-toolbar .ql-formats:not(:last-child) {
+  border-right: 2px solid #bdbdbd;
+  padding-right: 8px;
+}
+
+.custom-quill3 .ql-container {
+  border-radius: 4px; /* Adjust border radius */
+  height: 300px;
+  font-size: 18px; /* Set height */
+}
+
+.custom-quill3 .ql-toolbar {
+  border-radius: 4px 4px 0 0; /* Match top corners of the container */
+}
+
+.custom-quill3 .ql-container.ql-snow {
+  border-radius: 0 0 4px 4px; /* Match bottom corners */
+}

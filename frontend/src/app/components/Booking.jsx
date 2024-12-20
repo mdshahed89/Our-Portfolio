@@ -1,8 +1,8 @@
 const Booking = () => {
   return (
-    <div className="max-w-[1400px] min-h-[100vh] mx-auto mt-16  lg:px-0 grid lg:grid-cols-2 ">
+    <div className=" max-h-[100vh]  mt-16  lg:px-0 grid lg:grid-cols-2 ">
       <div
-        className="order-2 lg:order-1 min-h-[50vh]"
+        className="order-2 lg:order-1 h-[80vh] "
         style={{
           backgroundImage: "url('/coding.jpg')",
           backgroundSize: "cover",
@@ -11,7 +11,7 @@ const Booking = () => {
           width: "100%",
         }}
       ></div>
-      <div className="bg-[#7BDCB5] order-1 py-3 lg:order-2 flex items-center justify-center text-center">
+      <div className="bg-[#7BDCB5] py-10  order-1  lg:order-2 flex items-center justify-center text-center">
         <div className="space-y-3">
           <h1 className="text-[40px] lg:text-[56px] font-bold">Spørsmål?</h1>
           <h2 className="text-[24px] lg:text-[32px] font-bold">

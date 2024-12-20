@@ -1,25 +1,30 @@
-import express from "express"
-import dotenv from "dotenv"
-import dbConnect from "./utils/dbConfig.js"
+import express from "express";
+import dotenv from "dotenv";
+import cors from "cors";
+import dbConnect from "./utils/dbConfig.js";
+const app = express();
+dotenv.config();
+app.use(cors());
+app.use(express.json({ limit: "50mb" }));
+app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
-
-
-
-const app = express()
-dotenv.config()
-
-dbConnect()
-
+import admin from "./routes/login.route.js";
+import project from "./routes/project.route.js";
+import sendEmail from "./routes/sendemail.route.js";
+import blog from "./routes/blog.route.js";
+app.use(admin);
+app.use(project);
+app.use(sendEmail);
+app.use(blog);
+dbConnect();
 
 app.get("/", (req, res) => {
-    res.status(200).send({
-        success: true,
-        message: "Server is running"
-    })
-})
-
+  res.status(200).send({
+    success: true,
+    message: "Server is running",
+  });
+});
 
 app.listen(5000, () => {
-    console.log(`Server is running on port 500`);
-    
-})
+  console.log(`Server is running on port 500`);
+});
