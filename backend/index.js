@@ -1,22 +1,23 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import cookieParser from 'cookie-parser'
+import cookieParser from "cookie-parser";
 import dbConnect from "./utils/dbConfig.js";
-import bookingRoutes from "./routes/booking.route.js"
-import availabilityRoutes from "./routes/availability.route.js"
+import bookingRoutes from "./routes/booking.route.js";
+import availabilityRoutes from "./routes/availability.route.js";
 
 const app = express();
 dotenv.config();
+dbConnect();
 const corsOptions = {
   origin: [process.env.FRONTEND_URL],
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
 };
 
-app.use(cors(corsOptions))
-app.use(cookieParser())
+app.use(cors(corsOptions));
+app.use(cookieParser());
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
@@ -28,9 +29,8 @@ app.use(admin);
 app.use(project);
 app.use(sendEmail);
 app.use(blog);
-app.use("/api/book", bookingRoutes )
-app.use("/api/availability", availabilityRoutes )
-dbConnect();
+app.use("/api/book", bookingRoutes);
+app.use("/api/availability", availabilityRoutes);
 
 app.get("/", (req, res) => {
   res.status(200).send({
@@ -39,8 +39,8 @@ app.get("/", (req, res) => {
   });
 });
 
-if (process.env.NODE_ENV !== 'production') {
-app.listen(5000, () => {
-  console.log(`Server is running on port 500`);
-});
+if (process.env.NODE_ENV !== "production") {
+  app.listen(process.env.PORT || 5000, () => {
+    console.log(`Server is running on port ${process.env.PORT || 5000}`);
+  });
 }

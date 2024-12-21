@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import Admin from "../models/login.model.js";
 const jwtSecret = "kbsdkfbuiusd237448973644382";
 
@@ -31,9 +31,9 @@ export const adminData = async (req, res) => {
 };
 
 export const createAdmin = async (req, res) => {
-  const { email, password } = req.body;
+  const { name, email, password } = req.body;
   try {
-    if(!email || !password){
+    if(!email || !password || !name){
       return res.status(400).send({
         success: false,
         message: "Email and password is required"
@@ -43,6 +43,7 @@ export const createAdmin = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const admin = new Admin({
+      name,
       email,
       password: hashedPassword
     })
@@ -58,7 +59,8 @@ export const createAdmin = async (req, res) => {
 
     return res.status(201).send({
       success: true,
-      message: "Admin created successfully"
+      message: "Admin created successfully",
+      admin: savedAdmin
     })
 
   } catch (error) {

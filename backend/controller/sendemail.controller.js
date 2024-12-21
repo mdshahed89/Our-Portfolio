@@ -2,24 +2,23 @@ import nodemailer from "nodemailer";
 import jwt from "jsonwebtoken";
 import Admin from "../models/login.model.js";
 const jwtSecret = "kbsdkfbuiusd237448973644382";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 export const sendEmail = async (req, res) => {
   const info = req.body;
   console.log(info);
   const transporter = nodemailer.createTransport({
-    service: "gmail",
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false,
+    host: "send.one.com", 
+    port: 587, 
+    secure: false, 
     auth: {
-      user: "stgfbv@gmail.com",
-      pass: "ryniwolefretazzt",
+      user: process.env.SIDESONE_EMAIL, 
+      pass: process.env.SIDESONE_EMAIL_PASS, 
     },
   });
 
   const mailBody = {
-    from: info.email,
-    to: "robayatfarsit@gmail.com",
+    from: process.env.SIDESONE_EMAIL,
+    to: process.env.SIDESONE_EMAIL,
     subject: "New Submission Details",
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9;">
@@ -106,7 +105,7 @@ export const sendEmail = async (req, res) => {
 
   transporter.sendMail(mailBody, (error, info) => {
     if (error) {
-      console(error);
+      console.log(error);
       return res.status(500).send("Error sending email");
     } else {
       console.log(info.response);
@@ -118,19 +117,18 @@ export const sendEmail = async (req, res) => {
 export const sendLogoEmail = async (req, res) => {
   const info = req.body;
   const transporter = nodemailer.createTransport({
-    service: "gmail",
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false,
+    host: "send.one.com", 
+    port: 587, 
+    secure: false, 
     auth: {
-      user: "stgfbv@gmail.com",
-      pass: "ryniwolefretazzt",
+      user: process.env.SIDESONE_EMAIL, 
+      pass: process.env.SIDESONE_EMAIL_PASS, 
     },
   });
 
   const mailBody = {
-    from: info.email,
-    to: "robayatfarsit@gmail.com",
+    from: process.env.SIDESONE_EMAIL,
+    to: process.env.SIDESONE_EMAIL,
     subject: "New Submission Details",
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9;">
@@ -191,7 +189,7 @@ export const sendLogoEmail = async (req, res) => {
 
   transporter.sendMail(mailBody, (error, info) => {
     if (error) {
-      console(error);
+      console.log(error);
       return res.status(500).send("Error sending email");
     } else {
       console.log(info.response);
@@ -204,21 +202,20 @@ export const sendResetEmail = async (req, res) => {
   const { email } = req.body;
 
   const transporter = nodemailer.createTransport({
-    service: "gmail",
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false,
+    host: "send.one.com", 
+    port: 587, 
+    secure: false, 
     auth: {
-      user: "stgfbv@gmail.com",
-      pass: "ryniwolefretazzt",
+      user: process.env.SIDESONE_EMAIL, 
+      pass: process.env.SIDESONE_EMAIL_PASS, 
     },
   });
   const token = jwt.sign({ email }, jwtSecret, { expiresIn: "1h" });
 
-  const resetLink = `http://localhost:3000/reset-password/${token}`;
+  const resetLink = `${process.env.FRONTEND_URL}/reset-password/${token}`;
   const mailBody = {
-    from: `Team Talentpeoples <wdev520@gmail.com>`,
-    to: email,
+    from: process.env.SIDESONE_EMAIL,
+    to: process.env.SIDESONE_EMAIL,
     subject: "Reset Password",
     html: `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
@@ -243,7 +240,7 @@ export const sendResetEmail = async (req, res) => {
 
   transporter.sendMail(mailBody, (error, info) => {
     if (error) {
-      console(error);
+      console.log(error);
       return res.status(500).send("Error sending email");
     } else {
       console.log(info.response);
