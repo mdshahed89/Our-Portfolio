@@ -1,6 +1,6 @@
 import React from "react";
-import Seo1 from "@/assets/Seo1.png";
-import Seo2 from "@/assets/Seo2.jpg";
+import Seo1 from "@/assets/seo.png";
+import Seo2 from "@/assets/s2.png";
 import Image from "next/image";
 import Link from "next/link";
 import { RiSearch2Line } from "react-icons/ri";

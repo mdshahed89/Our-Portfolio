@@ -42,7 +42,7 @@ const OfferSection = () => {
   return (
     <div className="px-3 -mt-24 lg:-mt-40 lg:px-0 max-w-[1600px] mx-auto">
       <div>
-        <h1 className="font-bold py-3 text-[40px]">Hva vi tilbyr</h1>
+        <h1 className="font-bold px-4 py-3 text-[40px]">Hva vi tilbyr</h1>
       </div>
       <div className="flex flex-col lg:flex-row justify-center gap-5 items-center ">
         <div className={`p-5  lg:max-w-[520px] bg-[#7BDCB5]`}>

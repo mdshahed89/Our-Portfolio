@@ -1,7 +1,7 @@
 import React from "react";
-import Service1 from "@/assets/Service1.jpg";
-import Service2 from "@/assets/Service2.jpg";
-import Service3 from "@/assets/Service3.jpeg";
+import Service3 from "@/assets/A.jpg";
+import Service2 from "@/assets/B.png";
+import Service1 from "@/assets/C.jpg";
 import Image from "next/image";
 
 const page = () => {

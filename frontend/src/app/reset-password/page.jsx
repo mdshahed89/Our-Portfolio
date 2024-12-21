@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
-const page = () => {
+const Page = () => {
   const router = useRouter();
   const pathName = usePathname();
 
@@ -15,4 +15,4 @@ const page = () => {
   return <div></div>;
 };
 
-export default page;
+export default Page;

@@ -29,7 +29,7 @@ const Hero = () => {
         </div>
       </div>
       <div
-        className={`  w-full lg:w-[600px] mx-auto lg:order-2 order-1 lg:pt-0  mt-14 lg:mt-8 lg:h-auto h-[500px] bg-no-repeat  bg-hero-image`}
+        className={`  w-full lg:w-[500px] mx-auto lg:order-2 order-1 lg:pt-0 mr-16 mt-[75px] lg:mt-8 lg:h-auto h-[500px] bg-no-repeat  bg-hero-image`}
       >
         {/* Content */}
       </div>
