@@ -10,7 +10,7 @@ const GetAvailability = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/availability/get-availability"
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/availability/get-availability`
       );
       setAvailabilityData(response.data.availability);
     } catch (error) {

@@ -1,6 +1,6 @@
 import React from "react";
 import Seo1 from "@/assets/seo.png";
-import Seo2 from "@/assets/s2.png";
+import Seo2 from "@/assets/s2.webp";
 import Image from "next/image";
 import Link from "next/link";
 import { RiSearch2Line } from "react-icons/ri";
@@ -10,15 +10,15 @@ import { HiLink } from "react-icons/hi2";
 
 const page = () => {
   return (
-    <div className="  h-full mt-[120px]  ">
-      <div className=" flex md:flex-row flex-col md:gap-0 gap-7 px-1 ">
-        <div className=" flex-1 md:order-1 order-2  ">
-          <div className=" flex flex-col gap-8 justify-between md:px-3 ">
-            <h2 className=" md:text-[2rem] text-[1.7rem] lg:text-[2.2rem] font-semibold ">
+    <div className="  h-full mt-[160px]  ">
+      <div className=" flex items-center lg:flex-row flex-col lg:gap-0 gap-7 px-1 ">
+        <div className=" flex-1 lg:order-1 order-2  ">
+          <div className=" flex flex-col gap-8 justify-between lg:px-3 ">
+            <h2 className=" lg:text-[2rem] text-[1.7rem]  font-semibold ">
               Søkemotoroptimalisering
             </h2>
             <div>
-              <h3 className=" text-[1.2rem] md:text-[1.4rem] font-semibold ">
+              <h3 className=" text-[1.2rem] lg:text-[1.4rem] font-semibold ">
                 Hva er SEO, og hvordan jobber Sidesone med det?
               </h3>
               <p className=" text-base md:text-lg text-gray-500 ">
@@ -51,7 +51,7 @@ const page = () => {
             </div>
           </div>
         </div>
-        <div className=" md:order-2 order-1 w-full md:w-[50%] h-auto items-stretch ">
+        <div className=" lg:order-2 order-1 w-full lg:w-[50%] h-auto items-stretch ">
           <Image
             src={Seo1}
             alt="Seo img"
@@ -61,12 +61,22 @@ const page = () => {
       </div>
 
       <div className=" text-[#fff] bg-[#035635] py-10 mt-10 ">
-        <div className=" flex lg:flex-row flex-col md:gap-0 gap-7 mt-10  ">
-          <div className=" w-full lg:w-[50%] h-auto ">
-            <h3 className=" md:px-3 text-[1.4rem] font-semibold mb-6 ">
+      <div className=" flex lg:flex-row flex-col ">
+      <h3 className=" md:px-3 text-[1.4rem] font-semibold lg:mb-6  flex-1 ">
               Hvordan gjør vi nettsiden din mer synlig på nett?
             </h3>
-            <div className="  w-full h-[92%] items-stretch ">
+            <h3 className=" md:px-3 px-1 text-[1.4rem] font-semibold lg:mb-6  flex-1 ">
+              Usikker hvor seo resultatene dine? så kan du sjekke de{" "}
+              <Link href={`#`} className=" border-b-2 border-[#fff] ">
+                her
+              </Link>
+              .
+            </h3>
+      </div>
+        <div className=" flex items-center lg:flex-row flex-col lg:gap-0 gap-7 mt-10  ">
+          <div className=" w-full lg:w-[50%] h-auto ">
+            
+            <div className="  w-full h-auto items-stretch ">
               <Image
                 src={Seo2}
                 alt="Seo img"
@@ -76,13 +86,7 @@ const page = () => {
           </div>
 
           <div className=" flex-1  ">
-            <h3 className=" md:px-3 px-1 text-[1.4rem] font-semibold mb-6 lg:mt-0 mt-5 ">
-              Usikker hvor seo resultatene dine? så kan du sjekke de{" "}
-              <Link href={`#`} className=" border-b-2 border-[#fff] ">
-                her
-              </Link>
-              .
-            </h3>
+            
             <div className=" flex flex-col gap-8 justify-between md:px-3 px-1 ">
               <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 2xl:grid-cols-2 gap-5  ">
                 <Group

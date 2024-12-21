@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { FaUserFriends } from "react-icons/fa";
 import parse from "html-react-parser";
 import { MdDelete } from "react-icons/md";
-const page = () => {
+const Page = () => {
   function formatDate(isoDate) {
     const date = new Date(isoDate);
     const options = { year: "numeric", month: "long", day: "numeric" };
@@ -28,7 +28,7 @@ const page = () => {
 
   const [referencesData, setReferencesData] = useState([]);
   const fetchData = async () => {
-    const { data } = await axios.get("http://localhost:5000/get-blog");
+    const { data } = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/get-blog`);
     setReferencesData(data.data);
   };
   useEffect(() => {
@@ -51,7 +51,7 @@ const page = () => {
       },
     }).then(async (result) => {
       if (result.isConfirmed) {
-        await axios.delete(`http://localhost:5000/delete-blog/${id}`);
+        await axios.delete(`${process.env.NEXT_PUBLIC_BACKEND_URL}/delete-blog/${id}`);
         fetchData();
         Swal.fire({
           title: "Deleted!",

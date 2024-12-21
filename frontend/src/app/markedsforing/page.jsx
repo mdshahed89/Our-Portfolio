@@ -1,5 +1,5 @@
 import React from "react";
-import Marketting1 from "@/assets/Market.png";
+import Marketting1 from "@/assets/Market.webp";
 import Image from "next/image";
 import { IoCheckmarkSharp } from "react-icons/io5";
 
@@ -38,15 +38,15 @@ const page = () => {
         <h2 className=" text-[2.5rem] font-semibold text-center mb-4 ">
           Markedsføring
         </h2>
-        <div className=" flex gap-5 md:flex-row flex-col ">
-          <div className=" w-full md:w-[40%] lg:w-[30%] xl:w-[30rem] h-auto items-stretch  ">
+        <div className=" flex gap-5 lg:flex-row flex-col items-stretch ">
+          <div className=" w-full  lg:w-[30%] xl:w-[30rem] h-[40rem] lg:max-h-[32rem]    ">
             <Image
               src={Marketting1}
               alt="Marketting Img"
               className=" w-full h-full object-cover rounded-md "
             />
           </div>
-          <div className=" flex-1 flex flex-col justify-between gap-8 text-xl text-gray-600 md:pb-0 pb-5 ">
+          <div className=" flex-1 flex flex-col justify-between gap-8 text-xl text-gray-600 md:pb-0 pb-5 lg:leading-8 ">
             <p>
               I dagens digitale landskap er effektiv markedsføring avgjørende
               for å skille seg ut og nå frem til de rette målgruppene. Vår
@@ -60,7 +60,7 @@ const page = () => {
               behov og mål. Gjennom hele prosessen prioriterer vi åpen
               kommunikasjon og tett oppfølging, slik at du alltid er oppdatert
               på fremgangen. Våre spesialister samarbeider for å sikre at hver
-              del av strategien fungerer sømløst – fra innholdsproduksjon og
+              del av strategien fungerer sømløst - fra innholdsproduksjon og
               annonsering til dataanalyse og optimalisering.
             </p>
             <p>

@@ -10,7 +10,7 @@ const page = async () => {
 
   try {
     const response = await fetch(
-      `http://localhost:5000/api/availability/get-availability`,
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/availability/get-availability`,
       {
         method: "GET",
         cache: "no-store", // Ensures fresh data for SSR

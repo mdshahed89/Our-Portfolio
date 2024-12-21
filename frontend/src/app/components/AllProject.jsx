@@ -5,7 +5,7 @@ import BlogCard from "./BlogCard";
 const AllProject = () => {
   const [referencesData, setReferencesData] = useState([]);
   const fetchData = async () => {
-    const { data } = await axios.get("http://localhost:5000/get-blog");
+    const { data } = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/get-blog`);
     setReferencesData(data.data);
   };
   useEffect(() => {

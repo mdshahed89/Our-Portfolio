@@ -24,7 +24,7 @@ const DetailsPage = () => {
     const fetchBlogDetails = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/get-details/${id}`
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/get-details/${id}`
         );
         setBlog(response.data.data);
       } catch (error) {
@@ -35,7 +35,7 @@ const DetailsPage = () => {
     // Fetch all blogs
     const fetchAllBlogs = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/get-blog");
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/get-blog`);
         setAllBlogs(response.data.data);
       } catch (error) {
         console.error("Error fetching all blogs:", error.message);

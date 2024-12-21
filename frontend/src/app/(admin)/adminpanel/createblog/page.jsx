@@ -73,7 +73,7 @@ const Page = () => {
       console.log(formData);
 
       const { data } = await axios.post(
-        "http://localhost:5000/save-blog",
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/save-blog`,
         formData
       );
       if (data.success === true) {

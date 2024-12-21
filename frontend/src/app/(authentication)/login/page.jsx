@@ -38,7 +38,7 @@ const Page = () => {
     const email = form.email.value;
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/send-reset-email",
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/send-reset-email`,
         {
           email,
         }

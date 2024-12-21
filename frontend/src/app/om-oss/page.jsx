@@ -1,4 +1,4 @@
-import HomeImg from "@/assets/HeroImg.png";
+import HomeImg from "@/assets/HeroImg.webp";
 import figma from "@/assets/Figma.png";
 import mern from "@/assets/mern.png";
 import web from "@/assets/web.png";

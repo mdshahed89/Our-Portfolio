@@ -11,7 +11,7 @@ import { MdDelete } from "react-icons/md";
 const ProjectCard = () => {
   const [projects, setProject] = useState([]);
   const fetchData = async () => {
-    const { data } = await axios.get("http://localhost:5000/get-project");
+    const { data } = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/get-project`);
     setProject(data.data);
   };
   useEffect(() => {
@@ -34,7 +34,7 @@ const ProjectCard = () => {
       },
     }).then(async (result) => {
       if (result.isConfirmed) {
-        await axios.delete(`http://localhost:5000/delete-project/${id}`);
+        await axios.delete(`${process.env.NEXT_PUBLIC_BACKEND_URL}/delete-project/${id}`);
         fetchData();
         Swal.fire({
           title: "Deleted!",

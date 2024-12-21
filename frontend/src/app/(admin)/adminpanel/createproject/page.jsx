@@ -67,7 +67,7 @@ const Page = () => {
       };
 
       const { data } = await axios.post(
-        "http://localhost:5000/save-project",
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/save-project`,
         formData
       );
       if (data.success === true) {

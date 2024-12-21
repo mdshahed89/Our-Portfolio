@@ -1,13 +1,22 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import cookieParser from 'cookie-parser'
 import dbConnect from "./utils/dbConfig.js";
 import bookingRoutes from "./routes/booking.route.js"
 import availabilityRoutes from "./routes/availability.route.js"
 
 const app = express();
 dotenv.config();
-app.use(cors());
+const corsOptions = {
+  origin: [process.env.FRONTEND_URL],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+};
+
+app.use(cors(corsOptions))
+app.use(cookieParser())
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 

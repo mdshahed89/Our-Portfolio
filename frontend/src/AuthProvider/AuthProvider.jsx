@@ -11,7 +11,7 @@ const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:5000/login", {
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/login`, {
         email,
         password,
       });
