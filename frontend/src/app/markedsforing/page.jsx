@@ -1,5 +1,5 @@
 import React from "react";
-import Marketting1 from "@/assets/Market.webp";
+import Marketting1 from "@/assets/market.webp";
 import Image from "next/image";
 import { IoCheckmarkSharp } from "react-icons/io5";
 
