@@ -7,7 +7,7 @@ export const sendEmail = async (req, res) => {
   const info = req.body;
   console.log(info);
   const transporter = nodemailer.createTransport({
-    host: "send.one.com", 
+    host: "smtp.gmail.com", 
     port: 587, 
     secure: false, 
     auth: {
@@ -127,7 +127,7 @@ export const sendLogoEmail = async (req, res) => {
   });
 
   const mailBody = {
-    from: process.env.SIDESONE_EMAIL,
+    from: `${info?.firstName} ${info?.lastName} ${process.env.SIDESONE_EMAIL}`,
     to: process.env.SIDESONE_EMAIL,
     subject: "New Submission Details",
     html: `
