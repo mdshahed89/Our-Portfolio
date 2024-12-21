@@ -3,16 +3,7 @@ import Link from "next/link";
 const Booking = () => {
   return (
     <div className=" h-[100vh] mb-96 lg:mb-0  mt-16  lg:px-0 grid lg:grid-cols-2 ">
-      <div
-        className="order-2 lg:order-1  h-[80vh] lg:h-[100vh]"
-        style={{
-          backgroundImage: "url('/coding.jpg')",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-          width: "100%",
-        }}
-      ></div>
+      <div className="order-2 lg:order-1  h-[80vh] lg:h-[100vh] booking-image"></div>
       <div className="bg-[#7BDCB5] py-10  order-1  lg:order-2 flex items-center justify-center text-center">
         <div className="space-y-3">
           <h1 className="text-[40px] lg:text-[56px] font-bold">Spørsmål?</h1>

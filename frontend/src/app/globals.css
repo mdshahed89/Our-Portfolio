@@ -3,29 +3,43 @@
 @tailwind utilities;
 
 .bg-hero-image {
-  background-image: url("../assets/HeroImg.png");
-  /* background-size: cover; */
-  background-position: center center;
+  background-image: url("../assets/Sidesone ansatt.png");
+  background-size: contain;
+  background-position: bottom center;
+}
+
+.booking-image {
+  background-image: url("../assets/Booking.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.bg-image2 {
+  background-image: url("../assets/D.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .custom-swal-popup {
-  background-color: white; /* Light background color */
-  border-radius: 0px; /* Rounded corners */
+  background-color: white;
+  border-radius: 0px;
 }
 
 .custom-swal-title {
-  color: #07275a; /* Custom title color */
-  font-size: 1.5em; /* Larger title font */
+  color: #07275a;
+  font-size: 1.5em;
 }
 
 .custom-swal-confirm-button {
-  background-color: #07275a !important; /* Confirm button color */
+  background-color: #07275a !important;
   color: white !important;
   border-radius: 0px;
 }
 
 .custom-swal-cancel-button {
-  background-color: red !important; /* Cancel button color */
+  background-color: red !important;
   color: white !important;
   border-radius: 0px;
 }
@@ -36,17 +50,17 @@
 }
 
 .custom-quill3 .ql-container {
-  border-radius: 4px; /* Adjust border radius */
+  border-radius: 4px;
   height: 300px;
-  font-size: 18px; /* Set height */
+  font-size: 18px;
 }
 
 .custom-quill3 .ql-toolbar {
-  border-radius: 4px 4px 0 0; /* Match top corners of the container */
+  border-radius: 4px 4px 0 0;
 }
 
 .custom-quill3 .ql-container.ql-snow {
-  border-radius: 0 0 4px 4px; /* Match bottom corners */
+  border-radius: 0 0 4px 4px;
 }
 
 .content {

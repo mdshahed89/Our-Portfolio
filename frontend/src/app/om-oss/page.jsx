@@ -97,16 +97,7 @@ const page = () => {
               størrelse eller bransje.
             </p>
           </div>
-          <div
-            className=" h-full"
-            style={{
-              backgroundImage: "url('/coding.jpg')",
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              width: "100%",
-            }}
-          ></div>
+          <div className=" h-full bg-image2"></div>
         </div>
       </div>
 

@@ -45,7 +45,7 @@ const Header = () => {
         scrolled ? "bg-[#035635] shadow-xl" : "bg-[#035635]"
       } z-50`}
     >
-      <header className="text-white py-5 flex max-w-[1400px] mx-auto justify-between items-center">
+      <header className="text-white px-5 py-5 flex max-w-[1400px] mx-auto justify-between items-center">
         <Link href={"/"}>
           <Image
             src="/logo.png"
@@ -68,15 +68,36 @@ const Header = () => {
             <li className="relative group">
               <Tooltip
                 title={
-                  <div className="space-y-2 text-xl font-medium py-2">
-                    <Link className="" href="/nettside">
-                      <MenuItem>Nettside</MenuItem>
+                  <div className="space-y-3 text-xl font-medium py-2">
+                    <Link
+                      className={` ${
+                        pathName === "/nettside" && "text-[#17DB4F]"
+                      }`}
+                      href="/nettside"
+                    >
+                      <MenuItem className="text-lg hover:text-[#17DB4F] font-medium">
+                        Nettside
+                      </MenuItem>
                     </Link>
-                    <Link href="/nettbuttik">
-                      <MenuItem>Nettbutikk</MenuItem>
+                    <Link
+                      className={` ${
+                        pathName === "/nettbuttik" && "text-[#17DB4F]"
+                      }`}
+                      href="/nettbuttik"
+                    >
+                      <MenuItem className="text-lg hover:text-[#17DB4F] font-medium">
+                        Nettbutikk
+                      </MenuItem>
                     </Link>
-                    <Link href="/webapplikasjon">
-                      <MenuItem>Webapplikasjon</MenuItem>
+                    <Link
+                      className={` ${
+                        pathName === "/webapplikasjon" && "text-[#17DB4F]"
+                      }`}
+                      href="/webapplikasjon"
+                    >
+                      <MenuItem className="text-lg hover:text-[#17DB4F] font-medium">
+                        Webapplikasjon
+                      </MenuItem>
                     </Link>
                   </div>
                 }
@@ -102,15 +123,23 @@ const Header = () => {
                 onOpen={() => setIsTooltipOpen(true)}
                 onClose={() => setIsTooltipOpen(false)}
               >
-                <Link href={"/nettside"}>
-                  <div className="flex items-center text-xl font-semibold pb-2 hover:text-green-300 cursor-pointer">
+                <Link
+                  className={`${
+                    (pathName === "/nettside" ||
+                      pathName === "/nettbuttik" ||
+                      pathName === "/webapplikasjon") &&
+                    "text-[#17DB4F]"
+                  }`}
+                  href={"/nettside"}
+                >
+                  <div className="flex items-center text-xl font-semibold pb-2 hover:text-[#17DB4F] cursor-pointer">
                     Nettside
                     <FaChevronDown
                       className={`ml-2 text-sm transition-transform duration-300 ${
                         isTooltipOpen ? "rotate-180" : "rotate-0"
                       }`}
                     />
-                    <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-green-300 transition-all duration-300 group-hover:w-full"></span>
+                    <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-[#17DB4F] transition-all duration-300 group-hover:w-full"></span>
                   </div>
                 </Link>
               </Tooltip>
@@ -119,15 +148,32 @@ const Header = () => {
             <li className="relative group">
               <Tooltip
                 title={
-                  <div className="space-y-2 text-xl font-medium py-2">
-                    <Link href="/markedsforing">
-                      <MenuItem>Markedsføring</MenuItem>
+                  <div className="space-y-3 text-xl font-medium py-2">
+                    <Link
+                      className={`${
+                        pathName === "/markedsforing" && "text-[#17DB4F]"
+                      }`}
+                      href="/markedsforing"
+                    >
+                      <MenuItem className="text-lg hover:text-[#17DB4F] font-medium">
+                        Markedsføring
+                      </MenuItem>
                     </Link>
-                    <Link href="/seo">
-                      <MenuItem>SEO</MenuItem>
+                    <Link
+                      className={`${pathName === "/seo" && "text-[#17DB4F]"}`}
+                      href="/seo"
+                    >
+                      <MenuItem className="text-lg hover:text-[#17DB4F] font-medium">
+                        SEO
+                      </MenuItem>
                     </Link>
-                    <Link href="/logo">
-                      <MenuItem>Logo</MenuItem>
+                    <Link
+                      className={` ${pathName === "/logo" && "text-[#17DB4F]"}`}
+                      href="/logo"
+                    >
+                      <MenuItem className="text-lg hover:text-[#17DB4F] font-medium">
+                        Logo
+                      </MenuItem>
                     </Link>
                   </div>
                 }
@@ -153,28 +199,53 @@ const Header = () => {
                 onOpen={() => setIsTooltipOpen1(true)}
                 onClose={() => setIsTooltipOpen1(false)}
               >
-                <div className="flex text-xl font-semibold items-center pb-2 hover:text-green-300 cursor-pointer">
-                  <Link href={"/digitale-tjenester"}>Digitale Tjenester</Link>
+                <div className="flex text-xl font-semibold items-center pb-2 hover:text-[#17DB4F] cursor-pointer">
+                  <Link
+                    className={`${
+                      (pathName === "/digitale-tjenester" ||
+                        pathName === "/markedsforing" ||
+                        pathName === "/seo" ||
+                        pathName === "/logo") &&
+                      "text-[#17DB4F]"
+                    }`}
+                    href={"/digitale-tjenester"}
+                  >
+                    Digitale Tjenester
+                  </Link>
                   <FaChevronDown
                     className={`ml-2 text-sm transition-transform duration-300 ${
                       isTooltipOpen1 ? "rotate-180" : "rotate-0"
                     }`}
                   />
-                  <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-green-300 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-[#17DB4F] transition-all duration-300 group-hover:w-full"></span>
                 </div>
               </Tooltip>
             </li>
 
             <li className="relative group">
-              <div className="flex text-xl font-semibold items-center pb-2 hover:text-green-300 cursor-pointer">
-                <Link href="/om-oss"> Hvem er vi?</Link>
-                <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-green-300 transition-all duration-300 group-hover:w-full"></span>
+              <div className="flex text-xl font-semibold items-center pb-2 hover:text-[#17DB4F] cursor-pointer">
+                <Link
+                  className={`${pathName === "/om-oss" && "text-[#17DB4F]"}`}
+                  href="/om-oss"
+                >
+                  {" "}
+                  Hvem er vi?
+                </Link>
+                <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-[#17DB4F] transition-all duration-300 group-hover:w-full"></span>
               </div>
             </li>
             <li className="relative group">
-              <div className="flex text-xl font-semibold items-center pb-2 hover:text-green-300 cursor-pointer">
-                <Link href="/referanser"> Prosjekter</Link>
-                <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-green-300 transition-all duration-300 group-hover:w-full"></span>
+              <div className="flex text-xl font-semibold items-center pb-2 hover:text-[#17DB4F] cursor-pointer">
+                <Link
+                  className={`${
+                    pathName === "/referanser" && "text-[#17DB4F]"
+                  }`}
+                  href="/referanser"
+                >
+                  {" "}
+                  Prosjekter
+                </Link>
+                <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-[#17DB4F] transition-all duration-300 group-hover:w-full"></span>
               </div>
             </li>
           </ul>
@@ -183,7 +254,7 @@ const Header = () => {
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 right-0 w-64 h-full bg-[#035635] text-white p-5 transition-all duration-300 ${
+        className={`fixed top-0 right-0 w-64 lg:hidden h-full bg-[#035635] text-white p-5 transition-all duration-300 ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -195,9 +266,12 @@ const Header = () => {
         <ul className="flex flex-col mt-7 space-y-8">
           {/* Dropdown 1 */}
           <li className="relative group">
-            <Link href={"/nettside"} onClick={() => setMenuOpen(false)}>
+            <Link href={"/nettside"}>
               <div
-                className="flex items-center pb-2 hover:text-green-300 cursor-pointer"
+                className={`flex items-center pb-2 hover:text-[#17DB4F] cursor-pointer ${
+                  pathName === "/nettside" && "text-[#17DB4F]"
+                }
+                `}
                 onClick={() => toggleDropdown(0)}
               >
                 Nettside
@@ -209,7 +283,7 @@ const Header = () => {
               </div>
             </Link>
             <ul
-              className={`flex flex-col mt-2 transition-all duration-200 ease-in-out ${
+              className={`flex flex-col pl-2 mt-2 transition-all duration-200 ease-in-out ${
                 dropdownOpen === 0 ? "block" : "hidden"
               }`}
             >
@@ -226,7 +300,10 @@ const Header = () => {
                 <Link
                   onClick={() => setMenuOpen(false)}
                   href="/nettbuttik"
-                  className="block py-2 hover:bg-green-100"
+                  className={`block py-2 hover:bg-green-100 hover:text-[#17DB4F] cursor-pointer ${
+                    pathName === "/nettbuttik" && "text-[#17DB4F]"
+                  }
+                  `}
                 >
                   Nettbutikk
                 </Link>
@@ -235,7 +312,10 @@ const Header = () => {
                 <Link
                   onClick={() => setMenuOpen(false)}
                   href="/webapplikasjon"
-                  className="block py-2 hover:bg-green-100"
+                  className={`block py-2 hover:bg-green-100 hover:text-[#17DB4F] cursor-pointer ${
+                    pathName === "/webapplikasjon" && "text-[#17DB4F]"
+                  }
+                  `}
                 >
                   Webapplikasjon
                 </Link>
@@ -245,9 +325,12 @@ const Header = () => {
 
           {/* Dropdown 2 */}
           <li className="relative group">
-            <Link href="/digitale-tjenester" onClick={() => setMenuOpen(false)}>
+            <Link href="/digitale-tjenester">
               <div
-                className="flex items-center pb-2 hover:text-green-300 cursor-pointer"
+                className={`flex items-center pb-2 hover:text-[#17DB4F] cursor-pointer ${
+                  pathName === "/digitale-tjenester" && "text-[#17DB4F]"
+                }
+              `}
                 onClick={() => toggleDropdown(1)}
               >
                 Digitale Tjenester
@@ -259,24 +342,28 @@ const Header = () => {
               </div>
             </Link>
             <ul
-              className={`flex flex-col mt-2 transition-all duration-200 ease-in-out ${
+              className={`flex flex-col pl-2 mt-2 transition-all duration-200 ease-in-out ${
                 dropdownOpen === 1 ? "block" : "hidden"
               }`}
             >
               <li>
                 <Link
-                  onClick={() => setMenuOpen(false)}
                   href="/seo"
-                  className="block py-2 hover:bg-green-100"
+                  className={`flex items-center pb-2 hover:text-[#17DB4F] cursor-pointer ${
+                    pathName === "/seo" && "text-[#17DB4F]"
+                  }
+                  `}
                 >
                   Seo
                 </Link>
               </li>
               <li>
                 <Link
-                  onClick={() => setMenuOpen(false)}
                   href="/logo"
-                  className="block py-2 hover:bg-green-100"
+                  className={`flex items-center pb-2 hover:text-[#17DB4F] cursor-pointer ${
+                    pathName === "/logo" && "text-[#17DB4F]"
+                  }
+                  `}
                 >
                   Logo
                 </Link>
@@ -284,10 +371,13 @@ const Header = () => {
               <li>
                 <Link
                   onClick={() => setMenuOpen(false)}
-                  href="#"
-                  className="block py-2 hover:bg-green-100"
+                  href="/markedsforing"
+                  className={`flex items-center pb-2 hover:text-[#17DB4F] cursor-pointer ${
+                    pathName === "/seo" && "text-[#17DB4F]"
+                  }
+                  `}
                 >
-                  Webapplikasjon
+                  Markedsføring
                 </Link>
               </li>
             </ul>
@@ -298,7 +388,7 @@ const Header = () => {
             <Link
               href="/om-oss"
               onClick={() => setMenuOpen(false)}
-              className="flex items-center pb-2 hover:text-green-300"
+              className="flex items-center pb-2 hover:text-[#17DB4F]"
             >
               Hvem er vi?
             </Link>
@@ -307,7 +397,7 @@ const Header = () => {
             <Link
               href="/referanser"
               onClick={() => setMenuOpen(false)}
-              className="flex items-center pb-2 hover:text-green-300"
+              className="flex items-center pb-2 hover:text-[#17DB4F]"
             >
               Prosjekter
             </Link>
