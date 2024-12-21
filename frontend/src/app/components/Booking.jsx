@@ -1,8 +1,10 @@
+import Link from "next/link";
+
 const Booking = () => {
   return (
-    <div className=" max-h-[100vh]  mt-16  lg:px-0 grid lg:grid-cols-2 ">
+    <div className=" h-[100vh] mb-96 lg:mb-0  mt-16  lg:px-0 grid lg:grid-cols-2 ">
       <div
-        className="order-2 lg:order-1 h-[80vh] "
+        className="order-2 lg:order-1  h-[80vh] lg:h-[100vh]"
         style={{
           backgroundImage: "url('/coding.jpg')",
           backgroundSize: "cover",
@@ -25,9 +27,12 @@ const Booking = () => {
             Book en konsultasjon
           </h2>
           <div className="flex justify-center py-5 lg:my-3 mt-6">
-            <button className="w-60 bg-black text-white p-3 rounded-full">
+            <Link
+              href={"/book-now"}
+              className="w-60 bg-black text-white p-3 rounded-full"
+            >
               Book Møte
-            </button>
+            </Link>
           </div>
         </div>
       </div>

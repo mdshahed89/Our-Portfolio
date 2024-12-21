@@ -1,39 +1,32 @@
-import R1 from "@/assets/R1.png";
-import R2 from "@/assets/R2.png";
-import R3 from "@/assets/R3.png";
+"use client";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-
+import { useEffect, useState } from "react";
+import parse from "html-react-parser";
 const Reference = ({ title }) => {
-  const referencesData = [
-    {
-      title: "REAL PARTNER AS",
-      description:
-        "Eiendomsselskapet Real Partner as ble etablert i 1989 og har dermed lang historie som tilrettelegger…",
-      image: R1,
-      date: "November 30, 2024",
-      url: "https://realpartner.com",
-      projectLink: "#",
-    },
-    {
-      title: "Konsulenttorget",
-      date: "November 30, 2024",
-      description:
-        "Kontakt frilansere og konsulenter direkte på vår åpne talentplattform. Vi viser alltid frem kvalifikasjoner, slik…",
-      image: R2,
-      url: "https://konsulenttorget.com",
-      projectLink: "#",
-    },
-    {
-      title: "Instacall",
-      date: "November 30, 2024",
-      description:
-        "InstaCall er et ledende tele-marketing byrå som spesialiserer seg på kundeservice, møtebooking og salgsløsninger. Vi kombinerer…",
-      image: R3,
-      url: "https://instacall.com",
-      projectLink: "#",
-    },
-  ];
+  const [referencesData, setReferencesData] = useState([]);
+  const fetchData = async () => {
+    const { data } = await axios.get("http://localhost:5000/get-blog");
+    setReferencesData(data.data);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  function getParagraphContent(htmlContent) {
+    // Use a regex to match <p> tags and capture their content
+    const matches = htmlContent?.match(/<p>(.*?)<\/p>/gs);
+    return matches ? matches.map((match) => match.replace(/<[^>]+>/g, "")) : [];
+  }
+
+  function sliceContent(content, maxLength) {
+    // Extract text content and apply the slice
+    const textContent = parse(content);
+    return textContent.length > maxLength
+      ? textContent.slice(0, maxLength) + "..."
+      : textContent;
+  }
 
   return (
     <div className="pb-10 px-3 lg:px-5 ">
@@ -44,10 +37,10 @@ const Reference = ({ title }) => {
       </div>
 
       <div className="grid lg:grid-cols-3 items-center justify-center gap-5">
-        {referencesData.map((reference, index) => (
-          <div key={index} className=" overflow-hidden shadow-lg">
+        {referencesData?.slice(0, 3).map((reference, index) => (
+          <div key={index} className=" overflow-hidden ">
             <div className=" ">
-              <Link target="_blank" href={reference.url}>
+              <Link href={`/referanser/${reference?._id}`}>
                 <figure
                   style={{
                     height: "230px",
@@ -56,26 +49,33 @@ const Reference = ({ title }) => {
                   }}
                 >
                   <Image
-                    src={reference.image}
-                    alt={reference.title}
+                    src={`${reference?.coverImage}`}
+                    alt={`${reference?.title}` || "Blog Image"}
+                    width={400}
+                    height={230}
                     className="object-cover h-full w-full"
                   />
                 </figure>
               </Link>
             </div>
-            <div className=" px-3 py-3 space-y-3 bg-slate-50">
-              <h1 className="text-2xl font-semibold ">{reference.title}</h1>
-              <div className="lg:min-h-[130px]">
-                <p className="text-lg text-gray-600 ">
-                  {reference.description}
-                </p>
+            <div className="px-3 py-3 space-y-3">
+              <h1 className="text-2xl font-semibold">
+                {reference?.title || "Untitled Blog"}
+              </h1>
+
+              <div className="line-clamp-3 py-2 text-[22px] text-gray-600">
+                {sliceContent(
+                  getParagraphContent(reference?.content).join(" ")
+                )}
               </div>
-              <Link
-                href={reference.projectLink}
-                className="text-lg mt-4 lg:mt-0 font-medium  "
-              >
-                Se Prosjektet →
-              </Link>
+              <div>
+                <Link
+                  className="text-black p-3 font-medium text-lg"
+                  href={`/referanser`}
+                >
+                  Se Prosjektet→
+                </Link>
+              </div>
             </div>
           </div>
         ))}

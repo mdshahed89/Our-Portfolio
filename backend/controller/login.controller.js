@@ -1,6 +1,5 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
-import nodemailer from "nodemailer";
 import Admin from "../models/login.model.js";
 const jwtSecret = "kbsdkfbuiusd237448973644382";
 

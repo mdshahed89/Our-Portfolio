@@ -82,6 +82,15 @@ const Sidebar = () => {
                     <span className="mx-3 font-medium">Blog Management</span>
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    href="/adminpanel/book-system"
+                    className={`flex w-full rounded-md items-center px-4 py-2 mt-5 text-white hover:bg-slate-50  hover:text-[#035635] transition-colors duration-300 transform`}
+                  >
+                    <VscGitPullRequestGoToChanges className="w-5  h-5" />
+                    <span className="mx-3 font-medium">Booking Management</span>
+                  </Link>
+                </li>
               </ul>
             </nav>
           </div>

@@ -58,7 +58,7 @@ const page = () => {
         <div>
           <Link
             href={"/adminpanel/createproject"}
-            className="border border-white rounded-md p-2"
+            className="px-6 py-2 rounded-md font-medium bg-green-700 text-white"
           >
             Create Project
           </Link>

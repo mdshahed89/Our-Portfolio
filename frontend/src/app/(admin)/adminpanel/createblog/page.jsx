@@ -1,15 +1,17 @@
 "use client";
 import { FaUserFriends } from "react-icons/fa";
 import Image from "next/image";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import ReactQuill from "react-quill-new";
 import "react-quill-new/dist/quill.snow.css";
 import { uploadFile } from "@/AuthProvider/imageUpload";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { AuthContext } from "@/AuthProvider/AuthProvider";
 
 const Page = () => {
+  const { user } = useContext(AuthContext);
   const [value, setValue] = useState("");
   const [filePreview, setFilePreview] = useState([]);
   const [file, setFile] = useState(null);
@@ -63,6 +65,7 @@ const Page = () => {
     try {
       const uploadedImageURL = await uploadFile(file);
       const formData = {
+        author: user.name,
         title,
         content,
         coverImage: uploadedImageURL,

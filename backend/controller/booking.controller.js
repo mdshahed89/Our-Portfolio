@@ -1,11 +1,11 @@
 import Booking from "../models/booking.modal.js";
 
 export const sendBookingData = async (req, res) => {
-  const { title, fullName, email, phoneNo, dateAndTime } = req.body
+  const { title, fullName, email, phoneNo, dateAndTime } = req.body;
 
   try {
     console.log(title, fullName, email, dateAndTime);
-    
+
     if (!fullName || !email || !dateAndTime || !title) {
       return res.status(400).send({
         success: false,
@@ -46,7 +46,7 @@ export const sendBookingData = async (req, res) => {
 
 export const getAllBooking = async (req, res) => {
   try {
-    const allBooking = await Booking.find();
+    const allBooking = await Booking.find().sort({ createdAt: -1 });
 
     return res.status(201).send({
       success: true,

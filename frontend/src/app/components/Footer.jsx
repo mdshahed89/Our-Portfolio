@@ -6,7 +6,11 @@ import React from "react";
 import { MdAddIcCall, MdEmail } from "react-icons/md";
 const Footer = () => {
   const pathName = usePathname();
-  if (pathName.includes("adminpanel") || pathName.includes("login")) {
+  if (
+    pathName.includes("adminpanel") ||
+    pathName.includes("login") ||
+    pathName.includes("reset-password")
+  ) {
     return;
   }
   return (

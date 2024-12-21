@@ -31,7 +31,11 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  if (pathName.includes("adminpanel") || pathName.includes("login")) {
+  if (
+    pathName.includes("adminpanel") ||
+    pathName.includes("login") ||
+    pathName.includes("reset-password")
+  ) {
     return;
   }
 

@@ -6,31 +6,31 @@ import { FaRegUser } from "react-icons/fa6";
 import { MdAlternateEmail } from "react-icons/md";
 import { BsTelephonePlus } from "react-icons/bs";
 import toast from "react-hot-toast";
+import { SlCalender } from "react-icons/sl";
 
-export const BookNowModal = ({title}) => {
+export const BookNowModal = ({ title }) => {
   const [openModal, setOpenModal] = useState(false);
-    const [bookingData, setBookingData] = useState({
-      title,
-      email: "",
-      fullName: "",
-      phoneNo: "",
-      dateAndTime: ""
-    })
+  const [bookingData, setBookingData] = useState({
+    title,
+    email: "",
+    fullName: "",
+    phoneNo: "",
+    dateAndTime: "",
+  });
 
   const handleChange = (e) => {
     setBookingData({
-        ...bookingData,
-        [e.target.id]: e.target.value
-    })
-  }
+      ...bookingData,
+      [e.target.id]: e.target.value,
+    });
+  };
 
-  console.log(process.env.NEXT_PUBLIC_BACKEND_URL);
-  
+  // console.log(process.env.NEXT_PUBLIC_BACKEND_URL);
 
   const sendBookingData = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/book/send-data`, {
+      const response = await fetch(`http://localhost:5000/api/book/send-data`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -38,30 +38,29 @@ export const BookNowModal = ({title}) => {
         body: JSON.stringify(bookingData),
       });
       console.log(response);
-      
+
       if (response.ok) {
         const result = await response.json();
-        toast.success("Booking successfully")
+        toast.success("Booking successfully");
         setBookingData({
           title,
-      email: "",
-      fullName: "",
-      phoneNo: "",
-      dateAndTime: ""
-        })
-        setOpenModal(false)
+          email: "",
+          fullName: "",
+          phoneNo: "",
+          dateAndTime: "",
+        });
+        setOpenModal(false);
         console.log("Booking successful:", result);
       } else {
         console.log("Failed to book:", response.status, response.statusText);
-        toast.error("Failed to booking")
+        toast.error("Failed to booking");
       }
     } catch (error) {
       console.log("Error:", error);
-      toast.error("Failed to send booking data")
+      toast.error("Failed to send booking data");
     }
   };
   console.log(bookingData);
-  
 
   return (
     <div className="mx-auto flex w-full items-center justify-end ">
@@ -85,7 +84,10 @@ export const BookNowModal = ({title}) => {
               : "-translate-y-20 opacity-0 duration-150"
           }`}
         >
-          <form onSubmit={sendBookingData} className="px-5 pb-5 pt-3 lg:pb-10 lg:pt-5 lg:px-10">
+          <form
+            onSubmit={sendBookingData}
+            className="px-5 pb-5 pt-3 lg:pb-10 lg:pt-5 lg:px-10"
+          >
             <div
               onClick={() => setOpenModal(false)}
               className=" flex justify-end text-[1.8rem] cursor-pointer  "
@@ -173,7 +175,7 @@ export const BookNowModal = ({title}) => {
                     className="block w-full rounded-lg p-3 pl-10 outline-none border"
                   />
                   <span className="absolute left-2 top-0 flex items-center h-full text-green-500 ">
-                    <BsTelephonePlus />
+                    <SlCalender />
                   </span>
                 </div>
               </div>
