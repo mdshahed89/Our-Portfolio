@@ -5,7 +5,31 @@ import { CiClock2 } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
 import { BookNowModal } from "../components/BookNowModal";
 
-const page = () => {
+const page = async () => {
+
+  let availability = null
+
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/availability/get-availability`, {
+      method: 'GET',
+      cache: 'no-store', // Ensures fresh data for SSR
+    });
+  
+    if (!response.ok) {
+      throw new Error('Failed to fetch data');
+    }
+  
+    const data = await response.json();
+    // console.log("da",data);
+
+    if(data?.success){
+      availability =  data?.availability
+    }
+    
+  } catch (error) {
+    console.log(`Failed to fetch availability data: ${error}`);
+  }
+
   return (
     <div className=" mt-[10rem] max-w-[1400px] mx-auto md:px-3 px-2 ">
       <h3 className=" text-[1.5rem] font-semibold ">
@@ -13,10 +37,10 @@ const page = () => {
       </h3>
 
       <div className=" grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 mt-10 gap-4 ">
-        <Card title="Nettside Design" time="45 min" />
-        <Card title="Nettside Utvikling" time="40 min" />
-        <Card title="E-handelsløsninger" time="50 min" />
-        <Card title="Markedsføringsløsninger" time="40 min" />
+        <Card title="Nettside Design" time="45 min" availability={availability} />
+        <Card title="Nettside Utvikling" time="40 min" availability={availability} />
+        <Card title="E-handelsløsninger" time="50 min" availability={availability} />
+        <Card title="Markedsføringsløsninger" time="40 min" availability={availability} />
       </div>
     </div>
   );
@@ -24,7 +48,7 @@ const page = () => {
 
 export default page;
 
-const Card = ({title, time}) => {
+const Card = ({title, time, availability}) => {
     return(
         <div className=" hover:shadow-[0_0_5px_1px_rgba(0,128,0,0.6)]  shadow-[0_0_5px_1px_rgba(128,128,128,0.6)] px-3 pt-5 pb-3 rounded-md ">
           <div className=" flex items-center gap-1 w-fit px-4 py-1 rounded-full bg-green-200 text-[#035635] text-[1rem] font-semibold ">
@@ -49,7 +73,7 @@ const Card = ({title, time}) => {
             </div>
           </div>
           <div className=" flex justify-end mt-4 ">
-            <BookNowModal title={title} />
+            <BookNowModal title={title} availability={availability} />
           </div>
         </div>
     )

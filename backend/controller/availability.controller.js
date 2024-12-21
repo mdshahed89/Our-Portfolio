@@ -54,12 +54,12 @@ export const setAvailability = async (req, res) => {
 export const getAvailability = async (req, res) => {
   try {
     const availability = await Availability.findOne();
-    if (!availability) {
-      return res.status(404).send({
-        success: false,
-        message: "No availability found",
-      });
-    }
+    // if (!availability) {
+    //   return res.status(404).send({
+    //     success: false,
+    //     message: "No availability found",
+    //   });
+    // }
 
     return res.status(200).send({
       success: true,

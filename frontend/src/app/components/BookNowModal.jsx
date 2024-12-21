@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { FaRegUser } from "react-icons/fa6";
 import { MdAlternateEmail } from "react-icons/md";
@@ -8,7 +8,7 @@ import { BsTelephonePlus } from "react-icons/bs";
 import toast from "react-hot-toast";
 import { SlCalender } from "react-icons/sl";
 
-export const BookNowModal = ({ title }) => {
+export const BookNowModal = ({ title, availability }) => {
   const [openModal, setOpenModal] = useState(false);
   const [bookingData, setBookingData] = useState({
     title,
@@ -18,7 +18,37 @@ export const BookNowModal = ({ title }) => {
     dateAndTime: "",
   });
 
+  const [fromTime, setFromTime] = useState("")
+  const [toTime, setToTime] = useState("")
+
+  useEffect(()=> {
+    if(availability){
+      setFromTime(availability?.startDate)
+      setToTime(availability?.endDate)
+    }
+  }, [])
+
+  // const fromTime = "2024-12-28T15:45";
+  // const toTime = "2024-12-30T17:00";
+
+
   const handleChange = (e) => {
+
+    if (e.target.id === "dateAndTime" && availability) {
+      const selectedTime = new Date(e.target.value).getTime();
+      const from = new Date(fromTime).getTime();
+      const to = new Date(toTime).getTime();
+      const now = new Date().getTime();
+
+      if (selectedTime < now) {
+        toast.error("You cannot select a past date and time.");
+        return;
+      } else if (selectedTime >= from && selectedTime <= to) {
+        toast.error("The selected date and time is not available.");
+        return;
+      }
+    }
+
     setBookingData({
       ...bookingData,
       [e.target.id]: e.target.value,
@@ -60,7 +90,7 @@ export const BookNowModal = ({ title }) => {
       toast.error("Failed to send booking data");
     }
   };
-  console.log(bookingData);
+  // console.log(bookingData);
 
   return (
     <div className="mx-auto flex w-full items-center justify-end ">
@@ -172,6 +202,7 @@ export const BookNowModal = ({ title }) => {
                     type="datetime-local"
                     value={bookingData.dateAndTime}
                     onChange={handleChange}
+                    min={new Date().toISOString().slice(0, 16)}
                     className="block w-full rounded-lg p-3 pl-10 outline-none border"
                   />
                   <span className="absolute left-2 top-0 flex items-center h-full text-green-500 ">
