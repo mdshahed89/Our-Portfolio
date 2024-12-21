@@ -44,19 +44,19 @@ const OfferSection = () => {
       <div>
         <h1 className="font-bold px-4 py-3 text-[40px]">Hva vi tilbyr</h1>
       </div>
-      <div className="flex flex-col lg:flex-row justify-center gap-5 items-center ">
+      <div className=" gap-5 grid lg:grid-cols-3 grid-cols-1 ">
         <div className={`p-5  lg:max-w-[520px] bg-[#7BDCB5]`}>
           <h1 className="text-[34px]  pb-5 font-semibold">Nettside</h1>
           <div className="lg:min-h-[180px]">
-            <p
-              className={`text-lg text-gray-600 leading-tight whitespace-pre-line`}
+            <div
+              className={`text-xl flex flex-col gap-6 text-gray-600 leading-tight whitespace-pre-line`}
             >
-              Vi utvikler nettsider som er funksjonelle, moderne og
-              brukervennlige. <br /> <br />
-              Når det gjelder nettsider, bygger vi informative og brukervennlige
+              <p className=" italic ">Vi utvikler nettsider som er funksjonelle, moderne og
+              brukervennlige. </p>
+              <p>Når det gjelder nettsider, bygger vi informative og brukervennlige
               sider som er skreddersydd for dine behov og tilpasset det norske
-              markedet. Øk vekst og synlighet med en profesjonell nettside.
-            </p>
+              markedet. Øk vekst og synlighet med en profesjonell nettside.</p>
+            </div>
           </div>
           <div className="flex justify-center my-3 mt-6">
             <button className="w-60 bg-black text-white p-3 rounded-full">
@@ -68,16 +68,16 @@ const OfferSection = () => {
         <div className={`p-5 lg:max-w-[520px] bg-[#FFD0F9]`}>
           <h1 className="text-[34px]  pb-5 font-semibold">Nettbutikk</h1>
           <div className="lg:min-h-[180px]">
-            <p
-              className={`text-lg text-gray-600 leading-tight whitespace-pre-line`}
+            <div
+              className={`text-xl flex flex-col gap-6 text-gray-600 leading-tight whitespace-pre-line`}
             >
-              Vi tilbyr nettbutikker som gir en enkel og effektiv
-              handelsopplevelse for kundene dine. <br /> <br />
-              Vi fokuserer på å skape et attraktivt design som fremhever
+              <p className=" italic ">Vi tilbyr nettbutikker som gir en enkel og effektiv
+              handelsopplevelse for kundene dine. </p>
+              <p>Vi fokuserer på å skape et attraktivt design som fremhever
               produktene dine og gir en smidig handleopplevelse for kundene. Vi
               sørger for riktig fargepalett, tydelig produktinformasjon og
-              optimal navigasjon.
-            </p>
+              optimal navigasjon.</p>
+            </div>
           </div>
           <div className="flex justify-center my-3 mt-6">
             <button className="w-60 bg-black text-white p-3 rounded-full">
@@ -88,18 +88,22 @@ const OfferSection = () => {
 
         <div className={`p-5 lg:max-w-[520px] bg-[#0B2927]`}>
           <h1 className="text-[34px]  pb-5 font-semibold text-white">
-            Nettbutikk
+          Webapplikasjon
           </h1>
           <div className="lg:min-h-[180px]">
-            <p
-              className={`text-lg text-gray-100 leading-tight whitespace-pre-line`}
+            <div
+              className={`text-xl flex flex-col gap-6 text-gray-100 leading-tight whitespace-pre-line`}
             >
+              <p className=" italic ">
               Vi tilbyr skreddersydde webapplikasjoner som gir bedriften din
-              effektive og brukervennlige digitale løsninger. <br /> <br />
+              effektive og brukervennlige digitale løsninger. 
+              </p>
+              <p>
               Når det gjelder webapplikasjoner, utvikler vi kraftige og
               brukervennlige løsninger som er skreddersydd for dine behov. Vi
               fokuserer på funksjonalitet, design og ytelse.
-            </p>
+              </p>
+            </div>
           </div>
           <div className="flex justify-center my-3 mt-6">
             <button className="w-60 bg-black text-white p-3 rounded-full">
