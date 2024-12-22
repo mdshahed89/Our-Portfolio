@@ -5,7 +5,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { SlCalender } from "react-icons/sl";
 
-const AvailabilityModal = () => {
+const AvailabilityModal = ({ fetchData }) => {
   const [openModal, setOpenModal] = useState(false);
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
@@ -36,6 +36,7 @@ const AvailabilityModal = () => {
 
       if (data.success) {
         toast.success("Availability saved successfully!");
+        fetchData();
         setStartDate("");
         setEndDate("");
         setOpenModal(false);
@@ -52,7 +53,7 @@ const AvailabilityModal = () => {
     <div className="mx-auto flex w-full items-center justify-end">
       <button
         onClick={() => setOpenModal(true)}
-        className="px-6 py-2 rounded-md font-medium bg-green-700 text-white"
+        className="px-10 py-2 transition-all duration-300 ease-in-out active:scale-95 rounded-md font-medium bg-green-700 text-white"
       >
         Set Availability
       </button>
@@ -77,9 +78,9 @@ const AvailabilityModal = () => {
             className="px-5 pb-5 pt-3 lg:pb-10 lg:pt-5 lg:px-10"
           >
             <div className="flex justify-between items-center mb-5">
-              <h1 className="text-2xl font-semibold">
+              <h2 className="text-2xl font-semibold">
                 Select Start & End Date
-              </h1>
+              </h2>
               <button
                 type="button"
                 onClick={() => setOpenModal(false)}
@@ -138,7 +139,7 @@ const AvailabilityModal = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full mt-5 py-2.5 rounded-lg text-white font-medium bg-green-700 hover:bg-green-800 transition-all duration-200"
+              className="w-full mt-5 transition-all duration-300 ease-in-out active:scale-95 py-2.5 rounded-lg text-white font-medium bg-green-700 hover:bg-green-800 "
             >
               Confirm Availability
             </button>

@@ -2,6 +2,7 @@ import React from "react";
 import Marketting1 from "@/assets/market.webp";
 import Image from "next/image";
 import { IoCheckmarkSharp } from "react-icons/io5";
+import Link from "next/link";
 
 const page = () => {
   const package1 = [
@@ -41,6 +42,8 @@ const page = () => {
         <div className=" flex gap-5 lg:flex-row flex-col items-stretch ">
           <div className=" w-full  lg:w-[30%] xl:w-[30rem] h-[40rem] lg:max-h-[32rem]    ">
             <Image
+              loading="lazy"
+              placeholder="blur"
               src={Marketting1}
               alt="Marketting Img"
               className=" w-full h-full object-cover rounded-md "
@@ -128,10 +131,13 @@ const Package = ({ packages, title, price }) => {
           ))}
         </div>
       </div>
-      <div className=" mt-20 ">
-        <button className=" font-medium w-full py-2 rounded-full bg-[#fff] text-[#000] text-lg ">
+      <div className=" mt-20 mx-auto ">
+        <Link
+          href="mailto:kontakt@sideson.no"
+          className=" font-medium w-full py-2 px-8 transition-all duration-300 ease-in-out active:scale-95 rounded-full bg-[#fff] text-[#000] text-lg "
+        >
           Ta Kontakt
-        </button>
+        </Link>
       </div>
     </div>
   );

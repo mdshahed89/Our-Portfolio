@@ -84,7 +84,7 @@ const Page = () => {
     <div className="m-5">
       <div className="h-[50px] flex gap-2 px-5 text-white items-center bg-[#035635]">
         <FaUserFriends size={20} />
-        <h1 className="text-[15px] font-bold">Create Blogs</h1>
+        <h2 className="text-[15px] font-bold">Create Blogs</h2>
       </div>
 
       <div className="my-5">
@@ -135,6 +135,8 @@ const Page = () => {
                     </div>
                     <div className="relative rounded-lg p-2">
                       <Image
+                        loading="lazy"
+                        placeholder="blur"
                         src={filePreview.url}
                         alt={filePreview.name}
                         width={100}
@@ -150,7 +152,7 @@ const Page = () => {
                     </div>
                     <button
                       type="button"
-                      className="bg-[#035635] text-white py-2 px-4 rounded-full"
+                      className="bg-[#035635] transition-all duration-300 ease-in-out active:scale-95 text-white py-2 px-4 rounded-full"
                       onClick={() =>
                         document.getElementById("file-input").click()
                       }
@@ -178,7 +180,7 @@ const Page = () => {
             <div className="flex items-center justify-center">
               <button
                 type="submit"
-                className="bg-[#035635] px-4 py-2 md:w-96 text-xl font-medium rounded-full text-white"
+                className="bg-[#035635] px-10 py-2 md:w-96 text-xl font-medium rounded-full text-white"
               >
                 Submit
               </button>

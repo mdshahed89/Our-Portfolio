@@ -1,29 +1,8 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'); */
 
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.bg-hero-image {
-  background-image: url("../assets/Sidesone ansatt.webp");
-  background-size: contain;
-  background-position: bottom center;
-}
-
-.booking-image {
-  background-image: url("../assets/Booking.webp");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.bg-image2 {
-  background-image: url("../assets/D.webp");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
 
 .custom-swal-popup {
   background-color: white;

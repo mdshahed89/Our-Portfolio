@@ -11,10 +11,13 @@ const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     setLoading(true);
     try {
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/login`, {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/login`,
+        {
+          email,
+          password,
+        }
+      );
 
       const { token, user } = response.data;
 
@@ -59,6 +62,13 @@ const AuthProvider = ({ children }) => {
     login,
     logout,
   };
+  if (loading) {
+    return (
+      <div className=" h-[100vh] w-[100vw] bg-white flex items-center justify-center ">
+        <div className="w-10 h-10 animate-[spin_1s_linear_infinite] rounded-full border-double border-4 border-r-0 border-l-0 border-b-green-400 border-t-green-700"></div>
+      </div>
+    );
+  }
 
   return (
     <AuthContext.Provider value={authInfo}>

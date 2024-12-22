@@ -22,7 +22,10 @@ const Sidebar = () => {
           <div className="block cursor-pointer p-4 font-bold">
             <Link href={"/"}>
               <Image
+                loading="lazy"
+                placeholder="blur"
                 src="/logo.png"
+                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA..."
                 alt="Logo"
                 height={180}
                 width={180}
@@ -50,6 +53,9 @@ const Sidebar = () => {
             <div className="w-full flex px-4 py-2   items-center mx-auto">
               <Link href={"/"}>
                 <Image
+                  loading="lazy"
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA..."
+                  placeholder="blur"
                   src="/logo.png"
                   alt="Logo"
                   height={180}

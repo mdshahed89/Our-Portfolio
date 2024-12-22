@@ -45,7 +45,7 @@ const page = () => {
               </p>
             </div>
             <div className=" flex md:justify-start justify-center ">
-              <button className=" bg-[#000] px-8 py-2 rounded-md text-[#fff] font-medium ">
+              <button className=" bg-[#000] px-10 py-2 rounded-md text-[#fff] font-medium ">
                 Ta kontakt for et uforpliktende tilbud.
               </button>
             </div>
@@ -53,6 +53,8 @@ const page = () => {
         </div>
         <div className=" lg:order-2 order-1 w-full lg:w-[50%] h-auto items-stretch ">
           <Image
+            loading="lazy"
+            placeholder="blur"
             src={Seo1}
             alt="Seo img"
             className=" w-full h-full object-cover rounded-md "
@@ -61,23 +63,24 @@ const page = () => {
       </div>
 
       <div className=" text-[#fff] bg-[#035635] py-10 mt-10 ">
-      <div className=" flex lg:flex-row flex-col ">
-      <h3 className=" md:px-3 text-[1.4rem] font-semibold lg:mb-6  flex-1 ">
-              Hvordan gjør vi nettsiden din mer synlig på nett?
-            </h3>
-            <h3 className=" md:px-3 px-1 text-[1.4rem] font-semibold lg:mb-6  flex-1 ">
-              Usikker hvor seo resultatene dine? så kan du sjekke de{" "}
-              <Link href={`#`} className=" border-b-2 border-[#fff] ">
-                her
-              </Link>
-              .
-            </h3>
-      </div>
+        <div className=" flex lg:flex-row flex-col ">
+          <h3 className=" md:px-3 text-[1.4rem] font-semibold lg:mb-6  flex-1 ">
+            Hvordan gjør vi nettsiden din mer synlig på nett?
+          </h3>
+          <h3 className=" md:px-3 px-1 text-[1.4rem] font-semibold lg:mb-6  flex-1 ">
+            Usikker hvor seo resultatene dine? så kan du sjekke de{" "}
+            <Link href={`#`} className=" border-b-2 border-[#fff] ">
+              her
+            </Link>
+            .
+          </h3>
+        </div>
         <div className=" flex items-center lg:flex-row flex-col lg:gap-0 gap-7 mt-10  ">
           <div className=" w-full lg:w-[50%] h-auto ">
-            
             <div className="  w-full h-auto items-stretch ">
               <Image
+                loading="lazy"
+                placeholder="blur"
                 src={Seo2}
                 alt="Seo img"
                 className=" w-full h-full object-cover rounded-md "
@@ -86,7 +89,6 @@ const page = () => {
           </div>
 
           <div className=" flex-1  ">
-            
             <div className=" flex flex-col gap-8 justify-between md:px-3 px-1 ">
               <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 2xl:grid-cols-2 gap-5  ">
                 <Group
@@ -117,7 +119,7 @@ const page = () => {
 
       <div>
         <div className=" flex justify-center bg-[#04301eee] py-8 ">
-          <button className=" bg-[#fff] px-8 py-2 text-[#000] rounded-md font-medium ">
+          <button className=" bg-[#fff] px-10 py-2 text-[#000] rounded-md font-medium ">
             Ta kontakt for et uforpliktende tilbud.
           </button>
         </div>

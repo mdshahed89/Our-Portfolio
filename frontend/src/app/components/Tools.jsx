@@ -47,24 +47,21 @@ const Tools = () => {
         <div key={index} className="flex flex-col items-center  space-y-2">
           <div className="flex items-center flex-col ">
             <div className="w-[60px] h-[60px]">
-              <figure
-                className="overflow-hidden"
-                style={{
-                  height: "60px",
-                  width: "60px",
-                }}
-              >
+              <figure className="overflow-hidden w-[60px] h-[60px]">
                 <Image
                   src={tool.imgSrc}
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA..."
+                  loading="lazy"
+                  placeholder="blur"
                   alt={tool.imgAlt}
                   className="h-full w-full object-contain"
                 />
               </figure>
             </div>
             <div className="text-center space-y-2 pt-2">
-              <h1 className="text-2xl font-semibold text-gray-900">
+              <h2 className="text-2xl font-semibold text-gray-900">
                 {tool.title}
-              </h1>
+              </h2>
             </div>
           </div>
           <div className="text-center">

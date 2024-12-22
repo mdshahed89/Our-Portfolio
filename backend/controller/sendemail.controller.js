@@ -7,98 +7,111 @@ export const sendEmail = async (req, res) => {
   const info = req.body;
   console.log(info);
   const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com", 
-    port: 587, 
-    secure: false, 
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false,
     auth: {
-      user: process.env.SIDESONE_EMAIL, 
-      pass: process.env.SIDESONE_EMAIL_PASS, 
+      user: process.env.SIDESONE_EMAIL,
+      pass: process.env.SIDESONE_EMAIL_PASS,
     },
   });
 
   const mailBody = {
     from: process.env.SIDESONE_EMAIL,
     to: process.env.SIDESONE_EMAIL,
-    subject: "New Submission Details",
+    subject: "Ny Innlevering Detaljer",
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9;">
-        <h2 style="color: #333; text-align: center;">New Submission Details</h2>
+        <h2 style="color: #333; text-align: center;">Ny ${
+          info.path
+        } Innlevering Detaljer</h2>
         
-        <p style="color: #555; font-size: 16px;">Hi [Name],</p>
-        <p style="color: #555; font-size: 16px;">
-          Below are the ${info?.path} details submitted by the user:
-        </p>
-  
-        <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px;">
+          <tr style="background-color: #f2f2f2;">
+            <td style="padding: 8px; font-weight: bold;">Navn</td>
+            
+          </tr>
+          <tr style="background-color: #ffffff;">
+          <td style="padding: 8px;">${info.firstName || "N/A"} ${
+      info.lastName || ""
+    }</td>    
+          </tr>
+          
           <tr>
-            <th style="text-align: left; padding: 8px; background-color: #007BFF; color: #fff;">Field</th>
-            <th style="text-align: left; padding: 8px; background-color: #007BFF; color: #fff;">Details</th>
+            <td style="padding: 8px; font-weight: bold; background-color: #f2f2f2;">E-post</td>
+            
+          </tr>
+          <tr style="background-color: #ffffff;">
+         <td style="padding: 8px;">${info.email || "N/A"}</td>
+          </tr>
+          <tr style="background-color: #f2f2f2;">
+            <td style="padding: 8px; font-weight: bold;">Telefon</td>
+           
+          </tr>
+          <tr style="background-color: #ffffff;">
+          <td style="padding: 8px;">${info.phone || "N/A"}</td>
+            
           </tr>
           <tr>
-            <td style="padding: 8px; border-bottom: 1px solid #ddd;">First Name</td>
-            <td style="padding: 8px; border-bottom: 1px solid #ddd;">${
-              info.firstName || "N/A"
-            }</td>
+            <td style="padding: 8px; font-weight: bold; background-color: #f2f2f2;">Firma</td>
+           
+          </tr>
+          <tr style="background-color: #ffffff;">
+           <td style="padding: 8px;">${info.firma || "N/A"}</td>
+          </tr>
+          <tr style="background-color: #f2f2f2;">
+            <td style="padding: 8px; font-weight: bold;">Budget</td>
+           
+          </tr>
+          <tr style="background-color: #ffffff;">
+           <td style="padding: 8px;">${info.budget || "N/A"}</td>
           </tr>
           <tr>
-            <td style="padding: 8px; border-bottom: 1px solid #ddd;">Last Name</td>
-            <td style="padding: 8px; border-bottom: 1px solid #ddd;">${
-              info.lastName || "N/A"
-            }</td>
+            <td style="padding: 8px; font-weight: bold; background-color: #f2f2f2;">Antal sider</td>
+            
+          </tr>
+          <tr style="background-color: #ffffff;">
+         <td style="padding: 8px;">${info.pages || "N/A"}</td>
+          </tr>
+          <tr style="background-color: #f2f2f2;">
+            <td style="padding: 8px; font-weight: bold;">Valg</td>
+           
+          </tr>
+          <tr style="background-color: #ffffff;">
+           <td style="padding: 8px;">
+              <ul style="margin: 0; padding-left: 16px; list-style-type: disc;">
+                ${
+                  info.vlag
+                    ? info.vlag.map((item) => `<li>${item}</li>`).join("")
+                    : "<li>N/A</li>"
+                }
+              </ul>
+            </td>
           </tr>
           <tr>
-            <td style="padding: 8px; border-bottom: 1px solid #ddd;">Email</td>
-            <td style="padding: 8px; border-bottom: 1px solid #ddd;">${
-              info.email || "N/A"
-            }</td>
+            <td style="padding: 8px; font-weight: bold; background-color: #f2f2f2;">Hvis du har bilder eller logo kan du laste de opp her</td>
+           
           </tr>
-          <tr>
-            <td style="padding: 8px; border-bottom: 1px solid #ddd;">Phone</td>
-            <td style="padding: 8px; border-bottom: 1px solid #ddd;">${
-              info.phone || "N/A"
-            }</td>
+          <tr style="background-color: #ffffff;">
+          <td style="padding: 8px;">
+              ${
+                info.image
+                  ? `<a href="${info.image}" target="_blank" style="color: #007BFF;">Last opp bilde</a>`
+                  : "N/A"
+              }
+            </td> 
           </tr>
-          <tr>
-            <td style="padding: 8px; border-bottom: 1px solid #ddd;">Budget</td>
-            <td style="padding: 8px; border-bottom: 1px solid #ddd;">${
-              info.budget || "N/A"
-            }</td>
+          <tr style="background-color: #f2f2f2;">
+            <td style="padding: 8px; font-weight: bold;">Beskriv hvordan du ønsker at nettsiden din skal være</td>
+           
           </tr>
-          <tr>
-            <td style="padding: 8px; border-bottom: 1px solid #ddd;">Company</td>
-            <td style="padding: 8px; border-bottom: 1px solid #ddd;">${
-              info.firma || "N/A"
-            }</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px; border-bottom: 1px solid #ddd;">Number of Pages</td>
-            <td style="padding: 8px; border-bottom: 1px solid #ddd;">${
-              info.pages || "N/A"
-            }</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px; border-bottom: 1px solid #ddd;">Flags</td>
-            <td style="padding: 8px; border-bottom: 1px solid #ddd;">${
-              info.vlag?.join(", ") || "N/A"
-            }</td>
-          </tr>
-          <tr>
-            <td style="padding: 8px; border-bottom: 1px solid #ddd;">Description</td>
-            <td style="padding: 8px; border-bottom: 1px solid #ddd;">${
-              info.description || "N/A"
-            }</td>
+          <tr style="background-color: #ffffff;">
+           <td style="padding: 8px;">${info.description || "N/A"}</td>
           </tr>
         </table>
-  
-        ${
-          info.image
-            ? `<p style="color: #555; font-size: 16px;">Attached Images:</p>
-               ${info.image}`
-            : ""
-        }
-  
-        <p style="color: #555; font-size: 16px;">Best regards,</p>
-        <p style="color: #555; font-size: 16px; font-weight: bold;">Team Talentpeoples</p>
+        
+        <p style="color: #555; font-size: 14px;">Best regards,</p>
+      
       </div>
     `,
   };
@@ -117,12 +130,12 @@ export const sendEmail = async (req, res) => {
 export const sendLogoEmail = async (req, res) => {
   const info = req.body;
   const transporter = nodemailer.createTransport({
-    host: "send.one.com", 
-    port: 587, 
-    secure: false, 
+    host: "send.one.com",
+    port: 587,
+    secure: false,
     auth: {
-      user: process.env.SIDESONE_EMAIL, 
-      pass: process.env.SIDESONE_EMAIL_PASS, 
+      user: process.env.SIDESONE_EMAIL,
+      pass: process.env.SIDESONE_EMAIL_PASS,
     },
   });
 
@@ -202,12 +215,12 @@ export const sendResetEmail = async (req, res) => {
   const { email } = req.body;
 
   const transporter = nodemailer.createTransport({
-    host: "send.one.com", 
-    port: 587, 
-    secure: false, 
+    host: "send.one.com",
+    port: 587,
+    secure: false,
     auth: {
-      user: process.env.SIDESONE_EMAIL, 
-      pass: process.env.SIDESONE_EMAIL_PASS, 
+      user: process.env.SIDESONE_EMAIL,
+      pass: process.env.SIDESONE_EMAIL_PASS,
     },
   });
   const token = jwt.sign({ email }, jwtSecret, { expiresIn: "1h" });

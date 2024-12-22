@@ -9,7 +9,7 @@ const Page = () => {
     <div className=" m-5 ">
       <div className="h-[50px] flex gap-2 px-5 text-white items-center bg-[#035635]">
         <FaUserFriends size={20} />
-        <h1 className="text-[15px] font-bold">Profile</h1>
+        <h2 className="text-[15px] font-bold">Profile</h2>
       </div>
       <AdminProfile />
     </div>

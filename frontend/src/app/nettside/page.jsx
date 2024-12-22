@@ -10,6 +10,8 @@ const page = () => {
           <div>
             <figure>
               <Image
+                loading="lazy"
+                placeholder="blur"
                 src={Person}
                 alt=""
                 className="object-cover w-[400px] mx-auto lg:h-full lg:w-full"
@@ -17,19 +19,19 @@ const page = () => {
             </figure>
           </div>
           <div className="text-center">
-            <h1 className="text-lg font-medium  text-gray-500">
+            <h2 className="text-lg font-medium  text-gray-500">
               Send oss dine krav, så tar vi kontakt med deg innen 1 arbeidsdag!
-            </h1>
+            </h2>
           </div>
           <div className="bg-[#F9F9F9] flex flex-col gap-8 items-center justify-between p-5">
             <div className="flex justify-between gap-5">
               <div className="flex items-start">
-                <h1 className="text-4xl font-bold text-[#7BDCB5]">1</h1>
+                <h2 className="text-4xl font-bold text-[#7BDCB5]">1</h2>
               </div>
               <div>
-                <h1 className="text-lg font-semibold text-gray-500">
+                <h2 className="text-lg font-semibold text-gray-500">
                   Send inn kontaktskjema
-                </h1>
+                </h2>
                 <p>
                   Vi vil deretter ta kontakt med deg for å tilby hjelp og
                   veiledning i å finne den optimale løsningen som passer best
@@ -39,12 +41,12 @@ const page = () => {
             </div>
             <div className="flex  gap-4">
               <div className="flex items-start">
-                <h1 className="text-4xl font-bold text-[#7BDCB5]">2</h1>
+                <h2 className="text-4xl font-bold text-[#7BDCB5]">2</h2>
               </div>
               <div>
-                <h1 className="text-lg font-semibold text-gray-500">
+                <h2 className="text-lg font-semibold text-gray-500">
                   Del dine ønsker og behov for din nye nettside
-                </h1>
+                </h2>
                 <p>
                   Når du har valgt din nettsidepakke, sender du over informasjon
                   om hva du ønsker å ha med på din nye nettside.
@@ -53,12 +55,12 @@ const page = () => {
             </div>
             <div className="flex  gap-4">
               <div className="flex items-start">
-                <h1 className="text-4xl font-bold text-[#7BDCB5]">3</h1>
+                <h2 className="text-4xl font-bold text-[#7BDCB5]">3</h2>
               </div>
               <div>
-                <h1 className="text-lg font-semibold text-gray-500">
+                <h2 className="text-lg font-semibold text-gray-500">
                   Vi lager din nye nettside
-                </h1>
+                </h2>
                 <p>
                   Vårt team designer en attraktiv og brukervennlig nettside for
                   dine kunder. Vi skriver også teksten basert på den
@@ -68,12 +70,12 @@ const page = () => {
             </div>
             <div className="flex  gap-4">
               <div className="flex items-start">
-                <h1 className="text-4xl font-bold text-[#7BDCB5]">4</h1>
+                <h2 className="text-4xl font-bold text-[#7BDCB5]">4</h2>
               </div>
               <div>
-                <h1 className="text-lg font-semibold text-gray-500">
+                <h2 className="text-lg font-semibold text-gray-500">
                   Du godkjenner, vi lanserer
-                </h1>
+                </h2>
                 <p>
                   Vi samarbeider med deg gjennom hele prosessen, og vi lanserer
                   ikke nettsiden før du er fornøyd og har gitt din godkjennelse.
@@ -88,10 +90,10 @@ const page = () => {
         </div>
         <div className="lg:w-[58%]">
           <div>
-            <h1 className="text-3xl font-semibold">
+            <h2 className="text-3xl font-semibold">
               Fortell oss om din{" "}
               <span className="text-[#7BDCB5]">nettside</span>
-            </h1>
+            </h2>
             <p className="pt-8 text-lg font-normal">
               Når det gjelder nettsider, bygger vi informative og brukervennlige
               sider som er skreddersydd for dine behov og tilpasset det norske

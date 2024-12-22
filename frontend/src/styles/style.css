@@ -1,0 +1,19 @@
+.bg-hero-image {
+  background-image: url("../assets/Sidesone ansatt.webp");
+  background-size: contain;
+  background-position: bottom center; /* Default for larger devices */
+}
+
+/* Media query for small devices (e.g., smartphones) */
+@media (max-width: 768px) {
+  .bg-hero-image {
+    background-position: bottom right; /* For small devices */
+  }
+}
+
+.bg-image2 {
+  background-image: url("../assets/D.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

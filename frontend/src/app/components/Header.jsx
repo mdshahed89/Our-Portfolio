@@ -48,7 +48,10 @@ const Header = () => {
       <header className="text-white px-5 py-5 flex max-w-[1400px] mx-auto justify-between items-center">
         <Link href={"/"}>
           <Image
+            loading="lazy"
+            placeholder="blur"
             src="/logo.png"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA..."
             alt="Logo"
             height={221}
             width={221}

@@ -118,7 +118,7 @@ const LogoForm = () => {
           <div>
             <button
               type="submit"
-              className="bg-[#035635] px-4 py-2 text-xl font-medium  rounded-full text-white"
+              className="bg-[#035635] px-5 transition-all duration-300 ease-in-out active:scale-95 py-2 text-xl font-medium  rounded-full text-white"
             >
               Send inn
             </button>
