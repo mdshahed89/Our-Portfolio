@@ -2,11 +2,14 @@
 import toast from "react-hot-toast";
 import axios from "axios";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 const LogoForm = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const pathName = usePathname();
   const path = pathName === "/logo" ? "Logo" : "";
   const handleSubmit = async (e) => {
+    setIsLoading(true);
     e.preventDefault();
     const form = e.target;
     const firstName = form.firstName.value;
@@ -29,7 +32,8 @@ const LogoForm = () => {
       formData
     );
     if (data === "Email sent successfully!") {
-      toast.success("Email sent successfully!");
+      toast.success("E-post sendt!");
+      setIsLoading(false);
       form.reset();
     }
   };
@@ -115,13 +119,18 @@ const LogoForm = () => {
               ></textarea>
             </div>
           </div>
-          <div>
+          <div className="flex items-center gap-5">
             <button
               type="submit"
-              className="bg-[#035635] px-5 transition-all duration-300 ease-in-out active:scale-95 py-2 text-xl font-medium  rounded-full text-white"
+              className="bg-[#035635] px-10 py-2 transition-all duration-300 ease-in-out active:scale-95 text-xl font-medium  rounded-full text-white"
             >
               Send inn
             </button>
+            <div>
+              {isLoading && (
+                <div className="w-10 h-10 animate-[spin_1s_linear_infinite] rounded-full border-double border-4 border-r-0 border-l-0 border-b-green-400 border-t-green-700"></div>
+              )}
+            </div>
           </div>
         </div>
       </form>

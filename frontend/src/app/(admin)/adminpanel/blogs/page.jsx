@@ -76,14 +76,14 @@ const Page = () => {
       <div className="h-[50px] flex justify-between items-center px-5 text-white bg-[#035635]">
         <div className="items-center flex gap-2">
           <FaUserFriends size={20} />
-          <h2 className="text-[15px] font-bold">All Blogs</h2>
+          <h2 className="text-[15px] font-bold">Alle Blogg</h2>
         </div>
         <div>
           <Link
             href={"/adminpanel/createblog"}
             className="px-10 py-2 rounded-md font-medium transition-all duration-300 ease-in-out active:scale-95 bg-green-700 text-white"
           >
-            Create Blogs
+            skape Blogg
           </Link>
         </div>
       </div>
@@ -95,10 +95,10 @@ const Page = () => {
             <div className="flex flex-col items-center justify-center h-[400px]  rounded-xl">
               <FaDatabase size={50} className="text-gray-400 mb-4" />
               <p className="text-2xl font-bold text-gray-600">
-                No Data Available
+                Ingen data tilgjengelig
               </p>
               <p className="text-gray-500 mt-2">
-                It seems like there are no blogs to display right now.
+                Det virker som det ikke er noen prosjekter å vise akkurat nå.
               </p>
             </div>
           ) : (

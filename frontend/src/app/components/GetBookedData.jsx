@@ -60,11 +60,13 @@ const GetBookedData = () => {
           ))}
         </div>
       ) : (
-        <div className="flex flex-col items-center justify-center h-[400px] bg-gray-100 rounded-xl">
+        <div className="flex flex-col items-center justify-center h-[400px]  rounded-xl">
           <FaDatabase size={50} className="text-gray-400 mb-4" />
-          <p className="text-2xl font-bold text-gray-600">No Data Available</p>
+          <p className="text-2xl font-bold text-gray-600">
+            Ingen data tilgjengelig
+          </p>
           <p className="text-gray-500 mt-2">
-            It seems like there are no bookings to display right now.
+            Det virker som det ikke er noen prosjekter å vise akkurat nå.
           </p>
         </div>
       )}
