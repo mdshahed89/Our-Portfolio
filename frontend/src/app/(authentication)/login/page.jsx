@@ -61,9 +61,9 @@ const Page = () => {
       <div className="bg-white w-[90%] md:w-[80%] lg:w-[50%] rounded-xl p-2 md:p-5 mx-auto">
         {emailSent ? (
           <div className="text-center space-y-4">
-            <h1 className="text-2xl font-bold text-green-600">
+            <h2 className="text-2xl font-bold text-green-600">
               Email Sent Successfully!
-            </h1>
+            </h2>
             <p className="text-gray-700 text-lg font-medium">
               Please check your email inbox or spam folder for the reset link.
               It may take a few minutes to arrive.
@@ -71,9 +71,9 @@ const Page = () => {
           </div>
         ) : (
           <>
-            <h1 className="text-2xl text-center font-bold py-3">
+            <h2 className="text-2xl text-center font-bold py-3">
               {showForgetPassword ? "Forget Password" : "Login"}
-            </h1>
+            </h2>
             {!showForgetPassword ? (
               <form onSubmit={handleLoginSubmit} className="space-y-3">
                 <div className="flex flex-col">
@@ -123,7 +123,7 @@ const Page = () => {
                 <div className="flex items-center justify-center">
                   <button
                     type="submit"
-                    className="bg-[#035635] w-60 text-xl font-semibold text-white rounded-full p-2"
+                    className="bg-[#035635] transition-all duration-300 ease-in-out active:scale-95 w-60 text-xl font-semibold text-white rounded-full p-2"
                   >
                     Login
                   </button>
@@ -146,7 +146,7 @@ const Page = () => {
                 <div className="flex items-center justify-center">
                   <button
                     type="submit"
-                    className="bg-[#035635] w-60 text-xl font-semibold text-white rounded-full p-2"
+                    className="bg-[#035635] transition-all duration-300 ease-in-out active:scale-95 w-60 text-xl font-semibold text-white rounded-full p-2"
                   >
                     Send Reset Email
                   </button>
@@ -155,7 +155,7 @@ const Page = () => {
                   <button
                     type="button"
                     onClick={() => setShowForgetPassword(false)}
-                    className="underline text-[#035635]"
+                    className="underline transition-all duration-300 ease-in-out active:scale-95 text-[#035635]"
                   >
                     Back to Login
                   </button>

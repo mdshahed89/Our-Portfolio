@@ -34,8 +34,11 @@ const BlogCard = ({ reference }) => {
               }}
             >
               <Image
+                loading="lazy"
+                placeholder="blur"
                 src={`${reference?.coverImage}`}
                 alt={`${reference?.title}` || "Blog Image"}
+                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA..."
                 width={400}
                 height={230}
                 className="object-cover h-full w-full"
@@ -44,12 +47,12 @@ const BlogCard = ({ reference }) => {
           </Link>
         </div>
         <div className="px-3 py-3 space-y-3">
-          <h1 className="text-2xl font-semibold">
+          <h2 className="text-2xl font-semibold">
             {reference?.title || "Untitled Blog"}
-          </h1>
-          <h1 className="text-sm font-medium text-gray-600">
+          </h2>
+          <h2 className="text-sm font-medium text-gray-600">
             {formatDate(reference?.createdAt)}
-          </h1>
+          </h2>
           <div className="line-clamp-3 py-2 text-[20px] text-gray-600">
             {sliceContent(getParagraphContent(reference?.content).join(" "))}
           </div>

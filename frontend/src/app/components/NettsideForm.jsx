@@ -5,8 +5,10 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { RxCross2 } from "react-icons/rx";
-import toast from 'react-hot-toast';
+import toast from "react-hot-toast";
+import { FaCheck } from "react-icons/fa";
 const NettsideForm = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const pathName = usePathname();
   const path =
     pathName === "/nettside"
@@ -69,6 +71,7 @@ const NettsideForm = () => {
   };
 
   const handleSubmit = async (e) => {
+    setIsLoading(true);
     e.preventDefault();
     const form = e.target;
     const firstName = form.firstName.value;
@@ -108,9 +111,10 @@ const NettsideForm = () => {
           formData
         );
         if (data === "Email sent successfully!") {
-         toast.success("Email sent successfully!");
+          toast.success("Email sent successfully!");
           form.reset();
           setFile(null);
+          setIsLoading(false);
           setFilePreview(null);
           setSelectedValues([]);
           setErrors({});
@@ -118,6 +122,7 @@ const NettsideForm = () => {
       }
     } catch (error) {
       console.log(error);
+      setIsLoading(false);
     }
   };
   return (
@@ -293,19 +298,31 @@ const NettsideForm = () => {
               <div className="flex flex-col gap-4">
                 {options.map((option) => (
                   <div key={option.name} className="flex items-center gap-2">
+                    {/* Hidden Checkbox */}
                     <input
                       type="checkbox"
+                      id={option.name}
                       checked={selectedValues.includes(option.name)}
                       onChange={() => handleChange(option.name)}
-                      className={`w-6 h-6 border ${
-                        selectedValues.includes(option.name)
-                          ? "bg-[#7BDCB5] border-[#7BDCB5]"
-                          : "border-gray-300"
-                      } rounded-md`}
+                      className="hidden"
                     />
-                    <span className="flex items-center gap-2 text-black">
+                    {/* Custom Label */}
+                    <label
+                      htmlFor={option.name}
+                      className="flex items-center cursor-pointer gap-2 text-gray-800"
+                    >
+                      {/* Custom Checkbox */}
+                      <span
+                        className={`w-6 h-6 flex items-center justify-center border-2 rounded-md transition-all ${
+                          selectedValues.includes(option.name)
+                            ? "bg-green-400 border-green-400 text-white"
+                            : "bg-white border-gray-300"
+                        }`}
+                      >
+                        {selectedValues.includes(option.name) && <FaCheck />}
+                      </span>
                       {option.name}
-                    </span>
+                    </label>
                   </div>
                 ))}
               </div>
@@ -325,6 +342,9 @@ const NettsideForm = () => {
                     </div>
                     <div className="relative rounded-lg p-2">
                       <Image
+                        loading="lazy"
+                        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA..."
+                        placeholder="blur"
                         src={filePreview.url}
                         alt={filePreview.name}
                         width={100}
@@ -379,13 +399,18 @@ const NettsideForm = () => {
               ></textarea>
             </div>
           </div>
-          <div>
+          <div className="flex items-center gap-5">
             <button
               type="submit"
-              className="bg-[#035635] px-4 py-2 text-xl font-medium  rounded-full text-white"
+              className="bg-[#035635] px-10 py-2 transition-all duration-300 ease-in-out active:scale-95 text-xl font-medium  rounded-full text-white"
             >
               Send inn
             </button>
+            <div>
+              {isLoading && (
+                <div className="w-10 h-10 animate-[spin_1s_linear_infinite] rounded-full border-double border-4 border-r-0 border-l-0 border-b-green-400 border-t-green-700"></div>
+              )}
+            </div>
           </div>
         </div>
       </form>

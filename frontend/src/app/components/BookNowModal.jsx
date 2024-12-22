@@ -18,22 +18,20 @@ export const BookNowModal = ({ title, availability }) => {
     dateAndTime: "",
   });
 
-  const [fromTime, setFromTime] = useState("")
-  const [toTime, setToTime] = useState("")
+  const [fromTime, setFromTime] = useState("");
+  const [toTime, setToTime] = useState("");
 
-  useEffect(()=> {
-    if(availability){
-      setFromTime(availability?.startDate)
-      setToTime(availability?.endDate)
+  useEffect(() => {
+    if (availability) {
+      setFromTime(availability?.startDate);
+      setToTime(availability?.endDate);
     }
-  }, [])
+  }, []);
 
   // const fromTime = "2024-12-28T15:45";
   // const toTime = "2024-12-30T17:00";
 
-
   const handleChange = (e) => {
-
     if (e.target.id === "dateAndTime" && availability) {
       const selectedTime = new Date(e.target.value).getTime();
       const from = new Date(fromTime).getTime();
@@ -60,13 +58,16 @@ export const BookNowModal = ({ title, availability }) => {
   const sendBookingData = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/book/send-data`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(bookingData),
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/book/send-data`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(bookingData),
+        }
+      );
       console.log(response);
 
       if (response.ok) {
@@ -124,7 +125,7 @@ export const BookNowModal = ({ title, availability }) => {
             >
               <RxCross2 />
             </div>
-            <h1 className="pb-8 text-4xl backdrop-blur-sm">Book Now</h1>
+            <h2 className="pb-8 text-4xl backdrop-blur-sm">Book Now</h2>
             <div className="space-y-3">
               <div>
                 <label

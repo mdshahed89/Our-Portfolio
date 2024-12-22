@@ -1,35 +1,17 @@
-"use client";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { MdOutlineDateRange } from "react-icons/md";
-
-const GetAvailability = () => {
-  const [availabilityData, setAvailabilityData] = useState([]);
-  console.log(availabilityData);
-
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/availability/get-availability`
-      );
-      setAvailabilityData(response.data.availability);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+const GetAvailability = ({ availabilityData }) => {
   return (
     <div className="">
       <div className="flex items-center p-2 rounded-xl gap-2  text-gray-500">
-        <h3 className="text-lg uppercase font-medium">
-          Unavailable :{" "}
-          <span>{new Date(availabilityData?.startDate).toLocaleString()}</span>
-          {" - "}
-          <span>{new Date(availabilityData?.endDate).toLocaleString()}</span>
-        </h3>
+        {availabilityData && (
+          <h3 className="text-lg uppercase font-medium">
+            Unavailable :{" "}
+            <span>
+              {new Date(availabilityData?.startDate).toLocaleString()}
+            </span>
+            {" - "}
+            <span>{new Date(availabilityData?.endDate).toLocaleString()}</span>
+          </h3>
+        )}
       </div>
     </div>
   );

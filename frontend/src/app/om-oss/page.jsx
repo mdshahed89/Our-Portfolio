@@ -4,6 +4,7 @@ import mern from "@/assets/mern.png";
 import web from "@/assets/web.png";
 import Image from "next/image";
 import React from "react";
+import "../../styles/style.css";
 const toolsData = [
   {
     imgSrc: figma,
@@ -36,6 +37,9 @@ const page = () => {
           <div className="md:w-[50%]">
             <div className="flex md:h-[500px] items-center md:items-end justify-center">
               <Image
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA..."
                 src={HomeImg}
                 alt="Person"
                 className="w-full md:w-[350px]  object-contain"
@@ -43,23 +47,23 @@ const page = () => {
             </div>
           </div>
           <div className="md:w-[50%]  md:px-3 lg:pr-10">
-            <h1 className="text-[16px]  text-center md:text-start md:text-[28px] lg:text-[40px] font-semibold">
+            <h2 className="text-[16px]  text-center md:text-start md:text-[28px] lg:text-[40px] font-semibold">
               «Å utvikle digitale løsninger <br className="hidden lg:flex" />{" "}
               som både ser bra ut og skaper
               <br className="hidden lg:flex" />
               resultater for kundene våre, er
               <br className="hidden lg:flex" /> det som driver oss hver dag.»
-            </h1>
+            </h2>
           </div>
         </div>
       </div>
       <div className="bg-[#035635]">
         <div className="grid  items-center  lg:grid-cols-2 mb-16 text-white ">
           <div className=" py-5 px-3">
-            <h1 className="text-[30px] pb-5  font-semibold">
+            <h2 className="text-[30px] pb-5  font-semibold">
               Teamet bak Sidesone har omfattende erfaring innen nettsidedesign
               og utvikling.
-            </h1>
+            </h2>
             <p className="text-gray-100 text-[20px]">
               Hos Sidesone er vi en dedikert webutviklingsbedrift som jobber
               tett med både enkeltpersoner og bedrifter for å skape
@@ -127,9 +131,9 @@ const ToolsGrid = () => {
   return (
     <div className=" pb-10 ">
       <div className="flex items-center justify-center mb-5">
-        <h1 className="font-semibold text-[37px] text-gray-800">Verktøy</h1>
+        <h2 className="font-semibold text-[37px] text-gray-800">Verktøy</h2>
       </div>
-      <div className="grid md:grid-cols-2 px-3 lg:px-0 lg:grid-cols-3 gap-4 lg:gap-8">
+      <div className="grid px-5 md:grid-cols-2  lg:grid-cols-3 gap-4 lg:gap-6">
         {toolsData.map((tool, index) => (
           <div
             key={index}
@@ -148,7 +152,7 @@ const ToolsGrid = () => {
                 />
               </figure>
               <div>
-                <h1 className="text-2xl font-semibold">{tool.title}</h1>
+                <h2 className="text-2xl font-semibold">{tool.title}</h2>
               </div>
             </div>
             <div className="space-y-3">

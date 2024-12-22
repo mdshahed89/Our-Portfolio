@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { IoIosArrowRoundForward } from "react-icons/io";
-
+import coding from "@/assets/coding.png";
 const Team = () => {
   return (
     <div className="grid   lg:px-0 lg:grid-cols-2 my-16 text-white ">
       <div className=" pt-[5rem] pb-[4rem] px-3">
-        <h1 className="text-[34px]   pb-5 font-semibold">
+        <h3 className="text-[34px]   pb-5 font-semibold">
           Teamet bak sidesone
-        </h1>
+        </h3>
         <p className="text-[20px] text-gray-100">
           Hos Sidesone er vi eksperter på å skape digitale løsninger som gjør en
           forskjell for både enkeltpersoner og bedrifter. Vi forstår at behovene
@@ -31,7 +31,7 @@ const Team = () => {
         </p>
         <div className="flex justify-center items-center">
           <Link
-            href="#"
+            href="/om-oss"
             className="border my-8 rounded-sm w-[260px] justify-center text-xl font-medium flex items-center gap-2 border-white p-3 transition-transform transform hover:scale-x-105 hover:origin-left group"
           >
             Les mer om sidesone
@@ -42,16 +42,20 @@ const Team = () => {
           </Link>
         </div>
       </div>
-      <div
-        className=" min-h-[50vh]"
-        style={{
-          backgroundImage: "url('/coding.jpg')",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-          width: "100%",
-        }}
-      ></div>
+      <div className=" min-h-[50vh]">
+        <figure className="w-full h-full overflow-hidden">
+          <Image
+            loading="lazy"
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA..."
+            src={coding}
+            alt={"Coding"}
+            width={400}
+            height={300}
+            className="w-full h-full object-cover "
+          />
+        </figure>
+      </div>
     </div>
   );
 };
