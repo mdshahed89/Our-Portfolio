@@ -5,7 +5,7 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 const Team = () => {
   return (
     <div className="grid   lg:px-0 lg:grid-cols-2 my-16 text-white ">
-      <div className=" py-10 px-3">
+      <div className=" pt-[5rem] pb-[4rem] px-3">
         <h1 className="text-[34px]   pb-5 font-semibold">
           Teamet bak sidesone
         </h1>

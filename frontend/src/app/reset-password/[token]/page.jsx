@@ -34,7 +34,7 @@ const Page = () => {
     });
     try {
       const response = await axios.patch(
-        "http://localhost:5000/reset-password",
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/reset-password`,
         {
           token,
           password,

@@ -104,7 +104,7 @@ const NettsideForm = () => {
           image: uploadedImageURL,
         };
         const { data } = await axios.post(
-          "http://localhost:5000/send-email",
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/send-email`,
           formData
         );
         if (data === "Email sent successfully!") {

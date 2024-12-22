@@ -30,7 +30,7 @@ const AvailabilityModal = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/api/availability/set-data",
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/availability/set-data`,
         formData
       );
 

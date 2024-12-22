@@ -25,7 +25,7 @@ const LogoForm = () => {
     };
 
     const { data } = await axios.post(
-      "http://localhost:5000/send-logo-email",
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/send-logo-email`,
       formData
     );
     if (data === "Email sent successfully!") {

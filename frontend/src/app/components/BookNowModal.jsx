@@ -60,7 +60,7 @@ export const BookNowModal = ({ title, availability }) => {
   const sendBookingData = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:5000/api/book/send-data`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/book/send-data`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

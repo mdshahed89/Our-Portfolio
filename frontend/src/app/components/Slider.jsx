@@ -10,7 +10,7 @@ const Slider = () => {
   console.log(projects);
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await axios.get("http://localhost:5000/get-project");
+      const { data } = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/get-project`);
       setProject(data.data);
     };
     fetchData();

@@ -7,7 +7,7 @@ import parse from "html-react-parser";
 const Reference = ({ title }) => {
   const [referencesData, setReferencesData] = useState([]);
   const fetchData = async () => {
-    const { data } = await axios.get("http://localhost:5000/get-blog");
+    const { data } = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/get-blog`);
     setReferencesData(data.data);
   };
   useEffect(() => {

@@ -12,7 +12,7 @@ const GetBookedData = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/book/get-all-data"
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/book/get-all-data`
       );
       setBookData(response.data.bookings);
     } catch (error) {
