@@ -12,6 +12,7 @@ import { AuthContext } from "@/AuthProvider/AuthProvider";
 
 const Page = () => {
   const { user } = useContext(AuthContext);
+  const [isLoading, setIsLoading] = useState(false);
   const [value, setValue] = useState("");
   const [filePreview, setFilePreview] = useState([]);
   const [file, setFile] = useState(null);
@@ -57,6 +58,7 @@ const Page = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     const form = e.target;
     const title = form.title.value;
     const content = value;
@@ -77,20 +79,22 @@ const Page = () => {
         formData
       );
       if (data.success === true) {
+        setIsLoading(false);
         router.push("/adminpanel/blogs");
       }
       setErrors({});
     } catch (error) {
+      setIsLoading(false);
       console.log(error);
       setErrors((prev) => ({ ...prev, file: "Image upload failed." }));
     }
   };
 
   return (
-    <div className="m-5">
+    <div className="m-2 md:m-5">
       <div className="h-[50px] flex gap-2 px-5 text-white items-center bg-[#035635]">
         <FaUserFriends size={20} />
-        <h2 className="text-[15px] font-bold">Create Blogs</h2>
+        <h2 className="text-[15px] font-bold">Lag blogger</h2>
       </div>
       <div className="my-5">
         <form onSubmit={handleSubmit}>
@@ -99,7 +103,7 @@ const Page = () => {
               <div className="flex flex-col">
                 <label htmlFor="title" className="text-xl mb-1">
                   Title{" "}
-                  <small className="text-red-500 text-sm">(Required)</small>
+                  <small className="text-red-500 text-sm"> (Påkrevd)</small>
                 </label>
                 <input
                   type="text"
@@ -130,6 +134,7 @@ const Page = () => {
                         <Image
                           loading="lazy"
                           placeholder="blur"
+                          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA..."
                           src={file.url}
                           alt={file.name}
                           width={100}
@@ -142,7 +147,7 @@ const Page = () => {
                 ) : (
                   <div className="flex items-center flex-col gap-5 justify-center">
                     <div className="text-center text-gray-500">
-                      Drag and drop files here, or
+                      Dra og slipp filer her, eller
                     </div>
                     <button
                       type="button"
@@ -151,7 +156,7 @@ const Page = () => {
                         document.getElementById("file-input").click()
                       }
                     >
-                      Choose Files
+                      Velg Filer
                     </button>
                     <input
                       id="file-input"
@@ -183,13 +188,18 @@ const Page = () => {
                 className="custom-quill3"
               />
             </div>
-            <div className="flex justify-center">
+            <div className="flex items-center gap-5">
               <button
                 type="submit"
-                className="bg-[#035635] px-10 py-2 text-xl transition-all duration-300 ease-in-out active:scale-95 font-medium rounded-full text-white"
+                className="bg-[#035635] px-10 py-2 transition-all duration-300 ease-in-out active:scale-95 text-xl font-medium  rounded-full text-white"
               >
-                Submit
+                Send inn
               </button>
+              <div>
+                {isLoading && (
+                  <div className="w-10 h-10 animate-[spin_1s_linear_infinite] rounded-full border-double border-4 border-r-0 border-l-0 border-b-green-400 border-t-green-700"></div>
+                )}
+              </div>
             </div>
           </div>
         </form>

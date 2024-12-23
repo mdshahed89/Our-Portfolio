@@ -8,6 +8,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 const Page = () => {
   const navigate = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
   const [filePreview, setFilePreview] = useState(null);
   const [file, setFile] = useState(null);
   const [errors, setErrors] = useState({});
@@ -43,6 +44,7 @@ const Page = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     const form = e.target;
     const title = form.title.value.trim();
     const url = form.url.value.trim();
@@ -72,16 +74,18 @@ const Page = () => {
       );
       if (data.success === true) {
         navigate.push("/adminpanel/manageproject");
+        setIsLoading(false);
       }
       setErrors({});
     } catch (error) {
+      setIsLoading(false);
       console.log(error);
       setErrors((prev) => ({ ...prev, file: "Image upload failed." }));
     }
   };
 
   return (
-    <div className="m-5">
+    <div className="m-2 md:m-5">
       <div className="h-[50px] flex gap-2 px-5 text-white items-center bg-[#035635]">
         <FaUserFriends size={20} />
         <h2 className="text-[15px] font-bold">Create Blogs</h2>
@@ -140,6 +144,7 @@ const Page = () => {
                         src={filePreview.url}
                         alt={filePreview.name}
                         width={100}
+                        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA..."
                         height={100}
                         className="w-full h-32 object-cover rounded-md"
                       />
@@ -177,13 +182,18 @@ const Page = () => {
               </p>
             </div>
 
-            <div className="flex items-center justify-center">
+            <div className="flex items-center gap-5">
               <button
                 type="submit"
-                className="bg-[#035635] px-10 py-2 md:w-96 text-xl font-medium rounded-full text-white"
+                className="bg-[#035635] px-10 py-2 transition-all duration-300 ease-in-out active:scale-95 text-xl font-medium  rounded-full text-white"
               >
-                Submit
+                Send inn
               </button>
+              <div>
+                {isLoading && (
+                  <div className="w-10 h-10 animate-[spin_1s_linear_infinite] rounded-full border-double border-4 border-r-0 border-l-0 border-b-green-400 border-t-green-700"></div>
+                )}
+              </div>
             </div>
           </div>
         </form>

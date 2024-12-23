@@ -1,7 +1,6 @@
 "use client";
 import { AuthContext } from "@/AuthProvider/AuthProvider";
 import axios from "axios";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useContext, useState } from "react";
 import toast from "react-hot-toast";
@@ -45,7 +44,7 @@ const Page = () => {
       );
       console.log(data);
       if (data === "Email sent successfully!") {
-        toast.success("Email sent successfully!");
+        toast.success("E-post sendt!");
         form.reset();
         setEmailSent(true);
       }
@@ -61,18 +60,16 @@ const Page = () => {
       <div className="bg-white w-[90%] md:w-[80%] lg:w-[50%] rounded-xl p-2 md:p-5 mx-auto">
         {emailSent ? (
           <div className="text-center space-y-4">
-            <h2 className="text-2xl font-bold text-green-600">
-              Email Sent Successfully!
-            </h2>
+            <h2 className="text-2xl font-bold text-green-600">E-post sendt!</h2>
             <p className="text-gray-700 text-lg font-medium">
-              Please check your email inbox or spam folder for the reset link.
-              It may take a few minutes to arrive.
+              Vennligst sjekk e-postinnboksen eller søppelpostmappen for
+              tilbakestillingskoblingen.Det kan ta noen minutter å komme frem.
             </p>
           </div>
         ) : (
           <>
             <h2 className="text-2xl text-center font-bold py-3">
-              {showForgetPassword ? "Forget Password" : "Login"}
+              {showForgetPassword ? "Glem passord" : "Login"}
             </h2>
             {!showForgetPassword ? (
               <form onSubmit={handleLoginSubmit} className="space-y-3">
@@ -116,7 +113,7 @@ const Page = () => {
                     onClick={() => setShowForgetPassword(true)}
                   >
                     <small className="underline text-[#035635]">
-                      Forget Password
+                      Glem passord
                     </small>
                   </button>
                 </div>
@@ -133,7 +130,8 @@ const Page = () => {
               <form onSubmit={handleForgetPasswordSubmit} className="space-y-3">
                 <div className="flex flex-col">
                   <label htmlFor="email" className="text-xl mb-1">
-                    Enter your email to reset your password
+                    Skriv inn e-postadressen din for å tilbakestille passordet
+                    ditt
                   </label>
                   <input
                     type="email"
@@ -148,7 +146,7 @@ const Page = () => {
                     type="submit"
                     className="bg-[#035635] transition-all duration-300 ease-in-out active:scale-95 w-60 text-xl font-semibold text-white rounded-full p-2"
                   >
-                    Send Reset Email
+                    Send tilbakestilt e-post
                   </button>
                 </div>
                 <div className="flex items-center justify-center pt-3">
@@ -157,7 +155,7 @@ const Page = () => {
                     onClick={() => setShowForgetPassword(false)}
                     className="underline transition-all duration-300 ease-in-out active:scale-95 text-[#035635]"
                   >
-                    Back to Login
+                    Tilbake til pålogging
                   </button>
                 </div>
               </form>

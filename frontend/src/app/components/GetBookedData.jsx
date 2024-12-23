@@ -27,7 +27,7 @@ const GetBookedData = () => {
   return (
     <div className="container mx-auto px-4 mt-5">
       {bookData.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1  lg:grid-cols-3 gap-6">
           {bookData.map((item) => (
             <div
               key={item._id}
@@ -60,11 +60,13 @@ const GetBookedData = () => {
           ))}
         </div>
       ) : (
-        <div className="flex flex-col items-center justify-center h-[400px] bg-gray-100 rounded-xl">
+        <div className="flex flex-col items-center justify-center h-[400px]  rounded-xl">
           <FaDatabase size={50} className="text-gray-400 mb-4" />
-          <p className="text-2xl font-bold text-gray-600">No Data Available</p>
-          <p className="text-gray-500 mt-2">
-            It seems like there are no bookings to display right now.
+          <p className="text-2xl font-bold text-gray-600">
+            Ingen data tilgjengelig
+          </p>
+          <p className="text-gray-500 text-center mt-2">
+            Det virker som det ikke er noen prosjekter å vise akkurat nå.
           </p>
         </div>
       )}

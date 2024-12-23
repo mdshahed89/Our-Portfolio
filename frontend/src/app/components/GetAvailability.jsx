@@ -4,7 +4,7 @@ const GetAvailability = ({ availabilityData }) => {
       <div className="flex items-center p-2 rounded-xl gap-2  text-gray-500">
         {availabilityData && (
           <h3 className="text-lg uppercase font-medium">
-            Unavailable :{" "}
+            Utilgjengelig :{" "}
             <span>
               {new Date(availabilityData?.startDate).toLocaleString()}
             </span>

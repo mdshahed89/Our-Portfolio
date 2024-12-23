@@ -130,7 +130,7 @@ export const sendEmail = async (req, res) => {
 export const sendLogoEmail = async (req, res) => {
   const info = req.body;
   const transporter = nodemailer.createTransport({
-    host: "send.one.com",
+    host: "smtp.gmail.com",
     port: 587,
     secure: false,
     auth: {
@@ -195,7 +195,7 @@ export const sendLogoEmail = async (req, res) => {
   
   
         <p style="color: #555; font-size: 16px;">Best regards,</p>
-        <p style="color: #555; font-size: 16px; font-weight: bold;">Team Talentpeoples</p>
+     
       </div>
     `,
   };
@@ -215,7 +215,7 @@ export const sendResetEmail = async (req, res) => {
   const { email } = req.body;
 
   const transporter = nodemailer.createTransport({
-    host: "send.one.com",
+    host: "smtp.gmail.com",
     port: 587,
     secure: false,
     auth: {
@@ -228,14 +228,14 @@ export const sendResetEmail = async (req, res) => {
   const resetLink = `${process.env.FRONTEND_URL}/reset-password/${token}`;
   const mailBody = {
     from: process.env.SIDESONE_EMAIL,
-    to: process.env.SIDESONE_EMAIL,
-    subject: "Reset Password",
+    to: email,
+    subject: "Glem passord",
     html: `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
       <h2 style="color: #333;">Password Reset Request</h2>
       <p style="color: #555; font-size: 16px;">Hi,</p>
       <p style="color: #555; font-size: 16px;">
-        You requested to reset your password. Please click the button below to reset your password. This link will expire in 5 minutes.
+       Du ba om å tilbakestille passordet ditt. Klikk på knappen nedenfor for å tilbakestille passordet ditt. Denne lenken utløper om 5 minutter.
       </p>
       <div style="text-align: center; margin: 20px 0;">
         <a href="${resetLink}" 
@@ -244,9 +244,10 @@ export const sendResetEmail = async (req, res) => {
         </a>
       </div>
       <p style="color: #555; font-size: 14px;">
-        If you did not request this change, you can safely ignore this email.
+        
+Hvis du ikke har bedt om denne endringen, kan du trygt ignorere denne e-posten.
       </p>
-      <p style="color: #555; font-size: 14px;">Thanks, <br>Farsit</p>
+      <p style="color: #555; font-size: 14px;">Thanks
     </div>
   `,
   };
@@ -271,7 +272,7 @@ export const resetPassword = async (req, res) => {
   });
   try {
     if (password !== confirmPassword) {
-      return res.status(400).send({ message: "Passwords do not match" });
+      return res.status(400).send({ message: "Passord stemmer ikke" });
     }
     const decoded = jwt.verify(token, jwtSecret);
     const { email } = decoded;
@@ -284,8 +285,6 @@ export const resetPassword = async (req, res) => {
     res.status(200).send(result);
   } catch (err) {
     console.error(err);
-    res
-      .status(400)
-      .send({ message: "Links has been expired,please try again" });
+    res.status(400).send({ message: "Linker er utløpt, prøv igjen" });
   }
 };

@@ -22,7 +22,7 @@ const AvailabilityModal = ({ fetchData }) => {
     e.preventDefault();
 
     if (!startDate || !endDate) {
-      toast.error("Please select both start and end dates.");
+      toast.error("Velg både start- og sluttdato.");
       return;
     }
 
@@ -35,7 +35,7 @@ const AvailabilityModal = ({ fetchData }) => {
       );
 
       if (data.success) {
-        toast.success("Availability saved successfully!");
+        toast.success("Tilgjengelighet lagret!");
         fetchData();
         setStartDate("");
         setEndDate("");
@@ -53,9 +53,9 @@ const AvailabilityModal = ({ fetchData }) => {
     <div className="mx-auto flex w-full items-center justify-end">
       <button
         onClick={() => setOpenModal(true)}
-        className="px-10 py-2 transition-all duration-300 ease-in-out active:scale-95 rounded-md font-medium bg-green-700 text-white"
+        className="px-1 md:px-10 py-2 transition-all duration-300 ease-in-out active:scale-95 rounded-md text-[13px] md:text-lg font-medium bg-green-700 text-white"
       >
-        Set Availability
+        Angi tilgjengelighet
       </button>
 
       {/* Modal */}
@@ -79,7 +79,7 @@ const AvailabilityModal = ({ fetchData }) => {
           >
             <div className="flex justify-between items-center mb-5">
               <h2 className="text-2xl font-semibold">
-                Select Start & End Date
+                Velg Start- og sluttdato
               </h2>
               <button
                 type="button"
@@ -96,7 +96,7 @@ const AvailabilityModal = ({ fetchData }) => {
                 htmlFor="startDate"
                 className="block mb-2 font-medium text-gray-700"
               >
-                Start Date & Time:
+                Startdato og klokkeslett:
               </label>
               <div className="relative">
                 <input
@@ -119,7 +119,7 @@ const AvailabilityModal = ({ fetchData }) => {
                 htmlFor="endDate"
                 className="block mb-2 font-medium text-gray-700"
               >
-                End Date & Time:
+                Sluttdato og klokkeslett:
               </label>
               <div className="relative">
                 <input
@@ -141,7 +141,7 @@ const AvailabilityModal = ({ fetchData }) => {
               type="submit"
               className="w-full mt-5 transition-all duration-300 ease-in-out active:scale-95 py-2.5 rounded-lg text-white font-medium bg-green-700 hover:bg-green-800 "
             >
-              Confirm Availability
+              Bekreft tilgjengelighet
             </button>
           </form>
         </div>

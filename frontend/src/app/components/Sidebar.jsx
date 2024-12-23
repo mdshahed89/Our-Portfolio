@@ -8,7 +8,9 @@ import Image from "next/image";
 import { MdDashboardCustomize } from "react-icons/md";
 import { VscGitPullRequestGoToChanges } from "react-icons/vsc";
 import { AuthContext } from "@/AuthProvider/AuthProvider";
+import { usePathname } from "next/navigation";
 const Sidebar = () => {
+  const pathName = usePathname();
   const { logout } = useContext(AuthContext);
   const [isActive, setActive] = useState(true);
   const handleToggle = () => {
@@ -73,28 +75,43 @@ const Sidebar = () => {
                   {" "}
                   <Link
                     href="/adminpanel/manageproject"
-                    className={`flex w-full rounded-md items-center px-4 py-2 mt-5 text-white hover:bg-slate-50  hover:text-[#035635] transition-colors duration-300 transform`}
+                    className={`flex w-full ${
+                      pathName === "/adminpanel/manageproject"
+                        ? "bg-slate-50  text-[#035635]"
+                        : "text-white"
+                    }
+                       rounded-md items-center px-4 py-2 mt-5  hover:bg-slate-50  hover:text-[#035635] transition-colors duration-300 transform`}
                   >
                     <MdDashboardCustomize className="w-5 h-5 " />
-                    <span className="mx-3 font-medium">Project Management</span>
+                    <span className="mx-3 font-medium">prosjekt ledelse</span>
                   </Link>
                 </li>
                 <li>
                   <Link
                     href="/adminpanel/blogs"
-                    className={`flex w-full rounded-md items-center px-4 py-2 mt-5 text-white hover:bg-slate-50  hover:text-[#035635] transition-colors duration-300 transform`}
+                    className={`flex w-full ${
+                      pathName === "/adminpanel/blogs"
+                        ? "bg-slate-50  text-[#035635]"
+                        : "text-white"
+                    }
+                       rounded-md items-center px-4 py-2 mt-5  hover:bg-slate-50  hover:text-[#035635] transition-colors duration-300 transform`}
                   >
                     <VscGitPullRequestGoToChanges className="w-5  h-5" />
-                    <span className="mx-3 font-medium">Blog Management</span>
+                    <span className="mx-3 font-medium">Blogg Ledelse</span>
                   </Link>
                 </li>
                 <li>
                   <Link
                     href="/adminpanel/book-system"
-                    className={`flex w-full rounded-md items-center px-4 py-2 mt-5 text-white hover:bg-slate-50  hover:text-[#035635] transition-colors duration-300 transform`}
+                    className={`flex w-full ${
+                      pathName === "/adminpanel/book-system"
+                        ? "bg-slate-50  text-[#035635]"
+                        : "text-white"
+                    }
+                       rounded-md items-center px-4 py-2 mt-5  hover:bg-slate-50  hover:text-[#035635] transition-colors duration-300 transform`}
                   >
                     <VscGitPullRequestGoToChanges className="w-5  h-5" />
-                    <span className="mx-3 font-medium">Booking Management</span>
+                    <span className="mx-3 font-medium">Bestilling Ledelse</span>
                   </Link>
                 </li>
               </ul>
@@ -106,10 +123,15 @@ const Sidebar = () => {
           <hr />
           <Link
             href="/adminpanel"
-            className={`flex w-full rounded-md items-center px-4 py-2 mt-5 text-white hover:bg-slate-50  hover:text-[#035635] transition-colors duration-300 transform`}
+            className={`flex w-full ${
+              pathName === "/adminpanel"
+                ? "bg-slate-50  text-[#035635]"
+                : "text-white"
+            }
+               rounded-md items-center px-4 py-2 mt-5  hover:bg-slate-50  hover:text-[#035635] transition-colors duration-300 transform`}
           >
             <FaUserCog className="w-5 h-5 " />
-            <span className="mx-3 font-medium">Profile</span>
+            <span className="mx-3 font-medium">profil</span>
           </Link>
           <button
             onClick={logout}

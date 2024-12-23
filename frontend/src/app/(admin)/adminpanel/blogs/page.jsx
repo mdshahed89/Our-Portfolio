@@ -1,13 +1,15 @@
 "use client";
 import axios from "axios";
 import Image from "next/image";
-import Swal from "sweetalert2";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaDatabase, FaUserFriends } from "react-icons/fa";
 import parse from "html-react-parser";
 import { MdDelete } from "react-icons/md";
 const Page = () => {
+  const [openModal, setOpenModal] = useState(false);
+  const [deleteId, setDeleteId] = useState(null);
+
   function formatDate(isoDate) {
     const date = new Date(isoDate);
     const options = { year: "numeric", month: "long", day: "numeric" };
@@ -38,71 +40,48 @@ const Page = () => {
   }, []);
 
   const handleDelete = async (id) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-      customClass: {
-        popup: "custom-swal-popup",
-        title: "custom-swal-title",
-        confirmButton: "custom-swal-confirm-button",
-        cancelButton: "custom-swal-cancel-button",
-      },
-    }).then(async (result) => {
-      if (result.isConfirmed) {
-        await axios.delete(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/delete-blog/${id}`
-        );
-        fetchData();
-        Swal.fire({
-          title: "Deleted!",
-          text: "Your file has been deleted.",
-          customClass: {
-            popup: "custom-swal-popup",
-            title: "custom-swal-title",
-          },
-          timer: 2000,
-          showConfirmButton: false,
-        });
-      }
-    });
+    try {
+      await axios.delete(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/delete-blog/${id}`
+      );
+      fetchData();
+      setOpenModal(false);
+    } catch (error) {
+      console.error("Error deleting:", error);
+    }
   };
 
   return (
-    <div className="m-5">
+    <div className="m-2 md:m-5">
       <div className="h-[50px] flex justify-between items-center px-5 text-white bg-[#035635]">
         <div className="items-center flex gap-2">
           <FaUserFriends size={20} />
-          <h2 className="text-[15px] font-bold">All Blogs</h2>
+          <h2 className="text-[15px] font-bold">Alle Blogg</h2>
         </div>
         <div>
           <Link
             href={"/adminpanel/createblog"}
-            className="px-10 py-2 rounded-md font-medium transition-all duration-300 ease-in-out active:scale-95 bg-green-700 text-white"
+            className="px-2 md:px-10 py-2 rounded-md font-medium transition-all duration-300 ease-in-out active:scale-95 bg-green-700 text-white"
           >
-            Create Blogs
+            skape Blogg
           </Link>
         </div>
       </div>
 
       <div>
         <div className="my-5">
-          {/* Check if there's any data to display */}
           {referencesData.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-[400px]  rounded-xl">
               <FaDatabase size={50} className="text-gray-400 mb-4" />
               <p className="text-2xl font-bold text-gray-600">
-                No Data Available
+                Ingen data tilgjengelig
               </p>
-              <p className="text-gray-500 mt-2">
-                It seems like there are no blogs to display right now.
+              <p className="text-gray-500 text-center mt-2">
+                Det virker som det ikke er noen prosjekter å vise akkurat nå.
               </p>
             </div>
           ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-4">
+            <div className="grid  lg:grid-cols-3 gap-2 lg:gap-4">
               {referencesData.map((reference) => (
                 <div key={reference._id} className="bg-white overflow-hidden">
                   <div>
@@ -125,14 +104,47 @@ const Page = () => {
                           className="object-cover h-full w-full"
                         />
                       </figure>
-                      <button
-                        onClick={() => {
-                          handleDelete(reference._id);
-                        }}
-                        className="bg-white text-[#035635] transition-all duration-300 ease-in-out active:scale-95 rounded-xl top-5 right-5 p-2 absolute"
-                      >
-                        <MdDelete size={25} />
-                      </button>
+                      <div>
+                        <button
+                          onClick={() => {
+                            setDeleteId(reference._id);
+                            setOpenModal(true);
+                          }}
+                          className="bg-white text-[#035635] transition-all duration-300 ease-in-out active:scale-95 rounded-xl top-5 right-5 p-2 absolute"
+                        >
+                          <MdDelete size={25} />
+                        </button>
+
+                        {openModal && (
+                          <div
+                            onClick={() => setOpenModal(false)}
+                            className="fixed inset-0 z-50 flex items-center justify-center bg-black/20 backdrop-blur-sm"
+                          >
+                            <div
+                              onClick={(e) => e.stopPropagation()}
+                              className="w-80 md:w-96 rounded-lg  bg-white p-12 text-center shadow-lg"
+                            >
+                              <h6 className="text-lg font-medium py-4 text-gray-800">
+                                Er du sikker? Vil du slette den?
+                              </h6>
+                              <div className="mt-4 flex justify-center gap-4">
+                                <button
+                                  onClick={() => handleDelete(deleteId)}
+                                  className="rounded-md bg-red-600 w-40 px-4 py-2 text-white hover:bg-red-700"
+                                >
+                                  Ja, Slett
+                                </button>
+                                <button
+                                  onClick={() => setOpenModal(false)}
+                                  className="rounded-md border border-gray-400 w-40 px-4 py-2 text-gray-600 hover:bg-gray-200"
+                                >
+                                  Kansellere
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
                   <div className="px-3 py-3 space-y-3">
