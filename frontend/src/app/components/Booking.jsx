@@ -3,9 +3,9 @@ import booking from "@/assets/Booking.webp";
 import Image from "next/image";
 const Booking = () => {
   return (
-    <div className=" h-[100vh] mb-96 lg:mb-0  mt-16  lg:px-0 grid lg:grid-cols-2 ">
-      <div className="order-2 lg:order-1  h-[80vh] lg:h-[100vh] ">
-        <figure className="w-full h-full overflow-hidden">
+    <div className=" lg:mb-0  mt-16  lg:px-0 grid lg:grid-cols-2 ">
+      <div className="order-2 lg:order-1  ">
+        <div className="w-full h-auto md:h-[700px] overflow-hidden ">
           <Image
             loading="lazy"
             placeholder="blur"
@@ -15,7 +15,7 @@ const Booking = () => {
             height={800}
             className="w-full h-full object-cover "
           />
-        </figure>
+        </div>
       </div>
 
       <div className="bg-[#7BDCB5] py-10  order-1  lg:order-2 flex items-center justify-center text-center">

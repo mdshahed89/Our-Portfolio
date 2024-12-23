@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { IoIosArrowRoundForward } from "react-icons/io";
-import coding from "@/assets/coding.png";
+import coding from "@/assets/coding.webp";
 const Team = () => {
   return (
     <div className="grid   lg:px-0 lg:grid-cols-2 my-16 text-white ">
@@ -32,7 +32,7 @@ const Team = () => {
         <div className="flex justify-center items-center">
           <Link
             href="/om-oss"
-            className="border my-8 rounded-sm w-[260px] justify-center text-xl font-medium flex items-center gap-2 border-white p-3 transition-transform transform hover:scale-x-105 hover:origin-left group"
+            className="border my-8 rounded-sm w-[280px] justify-center text-xl font-medium flex items-center gap-2 border-white p-3 transition-transform transform hover:scale-x-105 hover:origin-left group"
           >
             Les mer om sidesone
             <IoIosArrowRoundForward

@@ -12,7 +12,7 @@ module.exports = {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        Montserrat: ["Montserrat", "serif"]
+        Inter: ["Inter", "serif"]
       },
     },
   },

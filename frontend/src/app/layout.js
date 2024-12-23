@@ -1,3 +1,5 @@
+
+import CookieBanner from "./components/CookieBanner";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import ScrollToTopButton from "./components/ScrollToTopButton";
@@ -9,13 +11,16 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
+
   return (
     <html lang="no">
-      <body className={` antialiased `}>
+      <body className={` antialiased font-Inter `}>
         <div className="">
           <Header />
         </div>
         <div className="min-h-[calc(100vh-304px)]">{children}</div>
+        <CookieBanner />
         <div className="bg-[#035635]">
           <Footer></Footer>
           <Toaster />
