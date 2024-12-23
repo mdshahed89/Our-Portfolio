@@ -53,7 +53,7 @@ const AvailabilityModal = ({ fetchData }) => {
     <div className="mx-auto flex w-full items-center justify-end">
       <button
         onClick={() => setOpenModal(true)}
-        className="px-10 py-2 transition-all duration-300 ease-in-out active:scale-95 rounded-md font-medium bg-green-700 text-white"
+        className="px-1 md:px-10 py-2 transition-all duration-300 ease-in-out active:scale-95 rounded-md text-[13px] md:text-lg font-medium bg-green-700 text-white"
       >
         Angi tilgjengelighet
       </button>

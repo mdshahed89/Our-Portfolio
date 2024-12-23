@@ -1,9 +1,10 @@
 "use client";
 import { useContext } from "react";
 import { AuthContext } from "./AuthProvider";
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 
 const PrivateRoute = ({ children }) => {
+  const router = useRouter();
   const { user, loading } = useContext(AuthContext);
   if (loading & !user) {
     return (
@@ -18,7 +19,7 @@ const PrivateRoute = ({ children }) => {
     return children;
   }
 
-  return redirect("/login");
+  return router.push("/login");
 };
 
 export default PrivateRoute;

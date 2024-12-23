@@ -27,11 +27,13 @@ const AvalPage = () => {
     fetchData();
   }, []);
   return (
-    <div className="m-5">
-      <div className="h-[50px] flex justify-between items-center   px-5 text-white  bg-[#035635]">
+    <div className=" m-2 md:m-5">
+      <div className="h-[50px] flex justify-between items-center  px-2 md:px-5 text-white  bg-[#035635]">
         <div className="items-center flex gap-2">
           <FaUserFriends size={20} />
-          <h2 className="text-[15px] font-bold">Alle bestillinger</h2>
+          <h2 className="text-[13px] md:text-[15px] font-bold">
+            Alle bestillinger
+          </h2>
         </div>
         <div>
           <div className="">

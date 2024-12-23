@@ -91,7 +91,7 @@ const Page = () => {
   };
 
   return (
-    <div className="m-5">
+    <div className="m-2 md:m-5">
       <div className="h-[50px] flex gap-2 px-5 text-white items-center bg-[#035635]">
         <FaUserFriends size={20} />
         <h2 className="text-[15px] font-bold">Lag blogger</h2>
@@ -103,7 +103,7 @@ const Page = () => {
               <div className="flex flex-col">
                 <label htmlFor="title" className="text-xl mb-1">
                   Title{" "}
-                  <small className="text-red-500 text-sm">(Obligatorisk)</small>
+                  <small className="text-red-500 text-sm"> (Påkrevd)</small>
                 </label>
                 <input
                   type="text"

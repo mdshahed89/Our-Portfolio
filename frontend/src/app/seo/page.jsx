@@ -119,9 +119,12 @@ const page = () => {
 
       <div>
         <div className=" flex justify-center bg-[#04301eee] py-8 ">
-          <button className=" bg-[#fff] px-10 py-2 text-[#000] rounded-md font-medium ">
+          <Link
+            href={"/om-oss"}
+            className=" bg-[#fff] px-10 py-2 text-[#000] rounded-md font-medium "
+          >
             Ta kontakt for et uforpliktende tilbud.
-          </button>
+          </Link>
         </div>
       </div>
     </div>

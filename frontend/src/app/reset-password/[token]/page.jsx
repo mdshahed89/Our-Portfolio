@@ -53,12 +53,14 @@ const Page = () => {
   return (
     <div className="flex items-center h-screen bg-[#035635] justify-center">
       <div className="bg-white w-[90%] md:w-[80%] lg:w-[50%] rounded-xl p-2 md:p-5 mx-auto">
-        <h2 className="text-2xl text-center font-bold py-3">Reset Password</h2>
+        <h2 className="text-2xl text-center font-bold py-3">
+          Tilbakestill passord
+        </h2>
         <form onSubmit={handleSubmit} className="space-y-3">
           {/* New Password Field */}
           <div className="flex relative flex-col">
             <label htmlFor="password" className="text-lg mb-1">
-              New Password
+              Nytt passord
             </label>
             <input
               type={show ? "text" : "password"}
@@ -84,7 +86,7 @@ const Page = () => {
           {/* Confirm Password Field */}
           <div className="flex relative flex-col">
             <label htmlFor="confirm-password" className="text-lg mb-1">
-              Confirm Password
+              Bekreft passord
             </label>
             <input
               type={show1 ? "text" : "password"}
@@ -112,7 +114,7 @@ const Page = () => {
               type="submit"
               className="bg-[#035635] w-60 text-xl font-semibold text-white rounded-full p-2"
             >
-              Reset Password
+              Tilbakestill passord
             </button>
           </div>
         </form>

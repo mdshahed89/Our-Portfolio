@@ -1,12 +1,14 @@
 "use client";
 
 import axios from "axios";
-import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
 import { MdDelete } from "react-icons/md";
 import { FaDatabase } from "react-icons/fa";
 
 const ProjectCard = () => {
+  const [openModal, setOpenModal] = useState(false);
+  const [deleteId, setDeleteId] = useState(null);
+
   const [projects, setProject] = useState([]);
 
   const fetchData = async () => {
@@ -21,43 +23,21 @@ const ProjectCard = () => {
   }, []);
 
   const handleDelete = async (id) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-      customClass: {
-        popup: "custom-swal-popup",
-        title: "custom-swal-title",
-        confirmButton: "custom-swal-confirm-button",
-        cancelButton: "custom-swal-cancel-button",
-      },
-    }).then(async (result) => {
-      if (result.isConfirmed) {
-        await axios.delete(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/delete-project/${id}`
-        );
-        fetchData();
-        Swal.fire({
-          title: "Deleted!",
-          text: "Your file has been deleted.",
-          customClass: {
-            popup: "custom-swal-popup",
-            title: "custom-swal-title",
-          },
-          timer: 2000,
-          showConfirmButton: false,
-        });
-      }
-    });
+    try {
+      await axios.delete(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/delete-project/${id}`
+      );
+      fetchData();
+      setOpenModal(false);
+    } catch (error) {
+      console.error("Error deleting:", error);
+    }
   };
 
   return (
     <div>
       {projects.length > 0 ? (
-        <div className="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="mt-5 grid  lg:grid-cols-3 gap-5">
           {projects.map((item, index) => (
             <div
               key={index}
@@ -73,14 +53,47 @@ const ProjectCard = () => {
                   className="w-full h-full object-cover rounded-xl"
                 />
               </figure>
-              <button
-                onClick={() => {
-                  handleDelete(item._id);
-                }}
-                className="bg-white text-[#035635] transition-all duration-300 ease-in-out active:scale-95 rounded-xl top-5 right-5 p-2 absolute"
-              >
-                <MdDelete size={25} />
-              </button>
+              <div>
+                <button
+                  onClick={() => {
+                    setDeleteId(item._id);
+                    setOpenModal(true);
+                  }}
+                  className="bg-white text-[#035635] transition-all duration-300 ease-in-out active:scale-95 rounded-xl top-5 right-5 p-2 absolute"
+                >
+                  <MdDelete size={25} />
+                </button>
+
+                {openModal && (
+                  <div
+                    onClick={() => setOpenModal(false)}
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/20 backdrop-blur-sm"
+                  >
+                    <div
+                      onClick={(e) => e.stopPropagation()}
+                      className="w-80 md:w-96 rounded-lg  bg-white p-12 text-center shadow-lg"
+                    >
+                      <h6 className="text-lg font-medium py-4 text-gray-800">
+                        Er du sikker? Vil du slette den?
+                      </h6>
+                      <div className="mt-4 flex justify-center gap-4">
+                        <button
+                          onClick={() => handleDelete(deleteId)}
+                          className="rounded-md w-40 bg-red-600 px-4 py-2 text-white hover:bg-red-700"
+                        >
+                          Ja, Slett
+                        </button>
+                        <button
+                          onClick={() => setOpenModal(false)}
+                          className="rounded-md w-40 border border-gray-400 px-4 py-2 text-gray-600 hover:bg-gray-200"
+                        >
+                          Kansellere
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
 
               <div
                 className="absolute bottom-0 flex items-center justify-center w-full p-4 
@@ -98,7 +111,7 @@ const ProjectCard = () => {
           <p className="text-2xl font-bold text-gray-600">
             Ingen data tilgjengelig
           </p>
-          <p className="text-gray-500 mt-2">
+          <p className="text-gray-500 text-center mt-2">
             Det virker som det ikke er noen prosjekter å vise akkurat nå.
           </p>
         </div>

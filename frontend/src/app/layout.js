@@ -1,5 +1,6 @@
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import ScrollToTopButton from "./components/ScrollToTopButton";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
 export const metadata = {
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
         <div className="bg-[#035635]">
           <Footer></Footer>
           <Toaster />
+          <ScrollToTopButton />
         </div>
       </body>
     </html>

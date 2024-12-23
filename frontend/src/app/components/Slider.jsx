@@ -38,7 +38,7 @@ const Slider = () => {
                  hover:scale-125  hover:border-2 hover:border-[#7BDCB5] 
                  transition-transform duration-500 ease-in-out"
               >
-                <figure className="h-[300px] w-[400px] overflow-hidden">
+                <figure className="h-[250px] md:h-[300px] w-[300px] md:w-[400px] overflow-hidden">
                   <Image
                     loading="lazy"
                     placeholder="blur"
