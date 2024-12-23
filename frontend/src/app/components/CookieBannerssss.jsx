@@ -109,7 +109,7 @@ const CookieBanner = () => {
                 effektivt og utføre visse funksjoner. Du finner detaljert
                 informasjon om alle informasjonskapsler under hver
                 samtykkekategori nedenfor. Informasjonskapslene som er
-                kategorisert som "Nødvendige" lagres i nettleseren din da de er
+                kategorisert som &quot;Nødvendige&quot; lagres i nettleseren din da de er
                 avgjørende for å aktivere de grunnleggende funksjonene til
                 nettstedet. Vi bruker også tredjeparts informasjonskapsler som
                 hjelper oss med å analysere hvordan du bruker denne nettsiden,
@@ -132,7 +132,7 @@ const CookieBanner = () => {
                 effektivt og utføre visse funksjoner. Du finner detaljert
                 informasjon om alle informasjonskapsler under hver
                 samtykkekategori nedenfor. Informasjonskapslene som er
-                kategorisert som "Nødvendige" lagres i nettleseren din da de er
+                kategorisert som &quot;Nødvendige&quot; lagres i nettleseren din da de er
                 avgjørende for å aktivere de grunnleggende funksjonene til
                 nettstedet
                 <span

@@ -1,5 +1,4 @@
 import Booking from "./components/Booking";
-import CookieBanner from "./components/CookieBannerssss";
 import Hero from "./components/Hero";
 import OfferSection from "./components/OfferSection";
 import Reference from "./components/Reference";
@@ -27,7 +26,6 @@ export default function Home() {
       <div>
         <Reference title={"Referanser"}></Reference>
       </div>
-      {/* <CookieBanner /> */}
     </div>
   );
 }
