@@ -4,10 +4,20 @@ import Marquee from "react-fast-marquee";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
+import PageLoading from "./PageLoading";
 
 const Slider = () => {
   const [projects, setProject] = useState([]);
-  console.log(projects);
+  const [isClientReady, setIsClientReady] = useState(false)
+
+
+  useEffect(()=> {
+    setIsClientReady(true)
+  }, [])
+
+
+
+  // console.log(projects);
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await axios.get(
@@ -17,6 +27,10 @@ const Slider = () => {
     };
     fetchData();
   }, []);
+
+  if(!isClientReady){
+    return <PageLoading />
+  }
 
   return (
     <div>

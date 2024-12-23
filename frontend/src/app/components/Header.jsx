@@ -7,6 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { RxCross2 } from "react-icons/rx";
 import { usePathname } from "next/navigation";
+import PageLoading from "./PageLoading";
 const Header = () => {
   const pathName = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -14,6 +15,12 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
   const [isTooltipOpen1, setIsTooltipOpen1] = useState(false);
+  const [isClientReady, setIsClientReady] = useState(false)
+
+
+  useEffect(()=> {
+    setIsClientReady(true)
+  }, [])
   const toggleDropdown = (index) => {
     setDropdownOpen(dropdownOpen === index ? null : index);
   };
@@ -37,6 +44,10 @@ const Header = () => {
     pathName.includes("reset-password")
   ) {
     return;
+  }
+
+  if(!isClientReady){
+    return <PageLoading />
   }
 
   return (

@@ -9,13 +9,25 @@ import { MdDashboardCustomize } from "react-icons/md";
 import { VscGitPullRequestGoToChanges } from "react-icons/vsc";
 import { AuthContext } from "@/AuthProvider/AuthProvider";
 import { usePathname } from "next/navigation";
+import PageLoading from "./PageLoading";
 const Sidebar = () => {
   const pathName = usePathname();
   const { logout } = useContext(AuthContext);
   const [isActive, setActive] = useState(true);
+  const [isClientReady, setIsClientReady] = useState(false)
   const handleToggle = () => {
     setActive(!isActive);
   };
+
+  
+  
+    useEffect(()=> {
+      setIsClientReady(true)
+    }, [])
+
+    if(!isClientReady){
+      return <PageLoading />
+    }
 
   return (
     <div>
