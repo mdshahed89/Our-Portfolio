@@ -8,16 +8,12 @@ import PageLoading from "./PageLoading";
 
 const Slider = () => {
   const [projects, setProject] = useState([]);
-  const [isClientReady, setIsClientReady] = useState(false)
+  const [isClientReady, setIsClientReady] = useState(false);
 
+  useEffect(() => {
+    setIsClientReady(true);
+  }, []);
 
-  useEffect(()=> {
-    setIsClientReady(true)
-  }, [])
-
-
-
-  // console.log(projects);
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await axios.get(
@@ -28,8 +24,8 @@ const Slider = () => {
     fetchData();
   }, []);
 
-  if(!isClientReady){
-    return <PageLoading />
+  if (!isClientReady) {
+    return <PageLoading />;
   }
 
   return (
@@ -77,7 +73,9 @@ const Slider = () => {
           </Marquee>
         </div>
       ) : (
-        <div className="h-60"></div>
+        <div className="h-60">
+          <PageLoading />
+        </div>
       )}
     </div>
   );

@@ -39,7 +39,7 @@ const page = async () => {
 
       <div className=" grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 mt-10 gap-4 ">
         <Card
-          title="Nettside Design"
+          title="Webapplikasjon"
           time="45 min"
           availability={availability}
         />

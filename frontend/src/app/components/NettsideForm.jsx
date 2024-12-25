@@ -228,7 +228,7 @@ const NettsideForm = () => {
                     <option value="25,000 - 35,000 kr">
                       25,000 - 35,000 kr
                     </option>
-                    <option value="jet vet ikke">jet vet ikke</option>
+                    <option value="jet vet ikke">Jeg vet ikke</option>
                   </>
                 ) : pathName === "/nettbuttik" ? (
                   <>
@@ -242,7 +242,7 @@ const NettsideForm = () => {
                       35,000 - 50,000 KR
                     </option>
                     <option value="50,000+ kr">50,000+</option>
-                    <option value="jet vet ikke">jet vet ikke</option>
+                    <option value="jet vet ikke">Jeg vet ikke</option>
                   </>
                 ) : (
                   <>
@@ -254,7 +254,7 @@ const NettsideForm = () => {
                       75,000 kr - 1,25,000 kr
                     </option>
                     <option value="1,25,000+">1,25,000+ kr</option>
-                    <option value="I don't know">jet vet ikke</option>
+                    <option value="I don't know">Jeg vet ikke</option>
                   </>
                 )}
               </select>

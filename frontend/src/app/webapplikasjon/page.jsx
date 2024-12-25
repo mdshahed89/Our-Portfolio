@@ -1,6 +1,6 @@
 import Image from "next/image";
 import NettsideForm from "../components/NettsideForm";
-import Person from "@/assets/Person.webp";
+import Person from "@/assets/person.webp";
 const page = () => {
   return (
     <div>
@@ -9,6 +9,8 @@ const page = () => {
           <div>
             <figure>
               <Image
+                loading="lazy"
+                placeholder="blur"
                 src={Person}
                 alt=""
                 className="object-cover w-[400px] mx-auto lg:h-full lg:w-full"

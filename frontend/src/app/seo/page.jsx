@@ -45,9 +45,12 @@ const page = () => {
               </p>
             </div>
             <div className=" flex md:justify-start justify-center ">
-              <button className=" bg-[#000] px-10 py-2 rounded-md text-[#fff] font-medium ">
+              <Link
+                href="mailto:kontakt@sideson.no"
+                className=" bg-[#000] px-10 py-2 rounded-md text-[#fff] font-medium "
+              >
                 Ta kontakt for et uforpliktende tilbud.
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -120,7 +123,7 @@ const page = () => {
       <div>
         <div className=" flex justify-center bg-[#04301eee] py-8 ">
           <Link
-            href={"/om-oss"}
+            href="mailto:kontakt@sideson.no"
             className=" bg-[#fff] px-10 py-2 text-[#000] rounded-md font-medium "
           >
             Ta kontakt for et uforpliktende tilbud.

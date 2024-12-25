@@ -14,20 +14,17 @@ const Sidebar = () => {
   const pathName = usePathname();
   const { logout } = useContext(AuthContext);
   const [isActive, setActive] = useState(true);
-  const [isClientReady, setIsClientReady] = useState(false)
+  const [isClientReady, setIsClientReady] = useState(false);
   const handleToggle = () => {
     setActive(!isActive);
   };
+  useEffect(() => {
+    setIsClientReady(true);
+  }, []);
 
-  
-  
-    useEffect(()=> {
-      setIsClientReady(true)
-    }, [])
-
-    if(!isClientReady){
-      return <PageLoading />
-    }
+  if (!isClientReady) {
+    return <PageLoading />;
+  }
 
   return (
     <div>

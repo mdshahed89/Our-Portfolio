@@ -21,7 +21,7 @@ const Hero = () => {
         <div className="mt-5">
           <Link
             href="/nettside"
-            className="border-2 rounded w-[200px] md:w-[250px] lg:w-[300px] justify-center text-sm lg:text-xl font-medium flex items-center gap-1 md:gap-2 border-white p-1 md:p-3 transition-transform transform hover:scale-x-105 hover:origin-left group"
+            className="border-2 whitespace-none md:whitespace-normal rounded w-[205px] md:w-[250px] lg:w-[300px] justify-center text-sm lg:text-xl font-medium flex items-center gap-1 md:gap-2 border-white p-1 md:p-3 transition-transform transform hover:scale-x-105 hover:origin-left group"
           >
             Trenger du en nettside?
             <IoIosArrowRoundForward
