@@ -65,7 +65,7 @@ const OfferSection = () => {
               </p>
             </div>
           </div>
-          <div className="flex justify-center my-3 mt-6">
+          <div className="flex justify-center my-3 mt-12">
             <Link
               href={"/nettside"}
               className="w-60 bg-black text-white p-3 flex justify-center transition-all duration-300 ease-in-out active:scale-95 rounded-full"
@@ -124,7 +124,7 @@ const OfferSection = () => {
           </div>
           <div className="flex justify-center my-3 mt-6">
             <Link
-              href={"/om-oss"}
+              href={"/webapplikasjon"}
               className="w-60 bg-black flex justify-center transition-all duration-300 ease-in-out active:scale-95 text-white p-3 rounded-full"
             >
               Få Webapplikasjon

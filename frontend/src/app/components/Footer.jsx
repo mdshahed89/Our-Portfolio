@@ -39,25 +39,39 @@ const Footer = () => {
         </div>
         <div className="flex flex-col  gap-2 items-center">
           <Link
-            className="text-white transition-all duration-300 ease-in-out active:scale-95 font-semibold text-xl"
+            className="text-white hover:text-[#17DB4F] transition-all duration-300 ease-in-out active:scale-95 font-semibold text-xl"
             href={"https://www.instagram.com/sidesonenorge/"}
           >
             Instagram
           </Link>
           <Link
-            className="text-white transition-all duration-300 ease-in-out active:scale-95 font-semibold text-xl"
+            className="text-white hover:text-[#17DB4F] transition-all duration-300 ease-in-out active:scale-95 font-semibold text-xl"
             href={"https://www.facebook.com/groups/sidesone/"}
           >
             Facebook gruppe
           </Link>
         </div>
-        <div>
-          <p className="text-white font-semibold text-center text-xl">
-            Vilkår og betingelser <br /> Informasjonskapsler (Cookies)
-          </p>
-          <div className="pt-3 flex items-center justify-center">
+        <div className="space-y-4">
+          <div className="flex items-center justify-center">
             <Link
-              className="text-gray-300 transition-all duration-300 ease-in-out active:scale-95 font-semibold text-xl"
+              className="text-gray-200 hover:text-[#17DB4F] transition-all duration-300 ease-in-out active:scale-95 font-semibold text-xl"
+              href={"/vilkar-og-betingelser"}
+            >
+              Vilkår og betingelser
+            </Link>
+          </div>
+          <div className="flex items-center justify-center">
+            <Link
+              className="text-gray-200 hover:text-[#17DB4F] transition-all duration-300 ease-in-out active:scale-95 font-semibold text-xl"
+              href={"/informasjonskapsler-cookies"}
+            >
+              Informasjonskapsler (Cookies)
+            </Link>
+          </div>
+
+          <div className=" flex items-center justify-center">
+            <Link
+              className="text-gray-200 hover:text-[#17DB4F] transition-all duration-300 ease-in-out active:scale-95 font-semibold text-xl"
               href={"/privacy-policy"}
             >
               Privacy Policy

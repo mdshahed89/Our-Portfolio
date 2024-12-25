@@ -125,21 +125,21 @@ export const BookNowModal = ({ title, availability }) => {
             >
               <RxCross2 />
             </div>
-            <h2 className="pb-8 text-4xl backdrop-blur-sm">Book Now</h2>
+            <h2 className="pb-8 text-4xl backdrop-blur-sm">Bestill nå</h2>
             <div className="space-y-3">
               <div>
                 <label
                   htmlFor="email_navigate_ui_modal"
                   className="block mb-2 "
                 >
-                  Full Name*
+                  Fullt navn*
                 </label>
                 <div className="relative">
                   <input
                     id="fullName"
                     type="text"
                     value={bookingData.fullName}
-                    placeholder="Enter full name"
+                    placeholder="Skriv inn din fullt navn"
                     onChange={handleChange}
                     className="block w-full rounded-lg p-3 pl-10 outline-none border bg-white "
                   />
@@ -153,14 +153,14 @@ export const BookNowModal = ({ title, availability }) => {
                   htmlFor="password_navigate_ui_modal"
                   className="block mb-2"
                 >
-                  Email
+                  E-post
                 </label>
                 <div className="relative">
                   <input
                     id="email"
                     type="email"
                     value={bookingData.email}
-                    placeholder="Enter your email"
+                    placeholder="Skriv inn din E-post"
                     onChange={handleChange}
                     className="block w-full rounded-lg p-3 pl-10 outline-none border"
                   />
@@ -174,14 +174,14 @@ export const BookNowModal = ({ title, availability }) => {
                   htmlFor="password_navigate_ui_modal"
                   className="block mb-2"
                 >
-                  Phone No*
+                  Telefonnr*
                 </label>
                 <div className="relative">
                   <input
                     id="phoneNo"
                     type="number"
                     value={bookingData.phoneNo}
-                    placeholder="Enter your phone number"
+                    placeholder="Skriv inn telefonnummeret ditt"
                     onChange={handleChange}
                     className="block w-full rounded-lg p-3 pl-10 outline-none border"
                   />
@@ -195,7 +195,7 @@ export const BookNowModal = ({ title, availability }) => {
                   htmlFor="password_navigate_ui_modal"
                   className="block mb-2"
                 >
-                  Date & Time*
+                  Dato og tid*
                 </label>
                 <div className="relative">
                   <input
@@ -216,7 +216,7 @@ export const BookNowModal = ({ title, availability }) => {
               type="submit"
               className="relative py-2.5 px-10 w-full rounded-lg mt-10 text-white font-medium bg-green-700 "
             >
-              Book
+              Bok
             </button>
           </form>
         </div>

@@ -5,9 +5,9 @@ const page = () => {
     <div className="bg-gradient-to-b mt-20 from-blue-100 to-white min-h-screen py-12">
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
         <div className="bg-white shadow-lg rounded-lg p-8 md:p-12">
-          <h1 className="text-4xl font-extrabold text-[#035635] mb-6 text-center">
+          <h2 className="text-2xl md:text-4xl font-extrabold text-[#035635] mb-6 text-center">
             Personvern policy
-          </h1>
+          </h2>
           <p className="text-lg text-gray-700 mb-6">
             Denne personvernpolicyen forklarer hvordan nettstedet vårt bruker og
             beskytter informasjonen du gir oss ved bruk av nettstedet.

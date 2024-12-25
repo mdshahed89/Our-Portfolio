@@ -15,12 +15,11 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
   const [isTooltipOpen1, setIsTooltipOpen1] = useState(false);
-  const [isClientReady, setIsClientReady] = useState(false)
+  const [isClientReady, setIsClientReady] = useState(false);
 
-
-  useEffect(()=> {
-    setIsClientReady(true)
-  }, [])
+  useEffect(() => {
+    setIsClientReady(true);
+  }, []);
   const toggleDropdown = (index) => {
     setDropdownOpen(dropdownOpen === index ? null : index);
   };
@@ -46,8 +45,8 @@ const Header = () => {
     return;
   }
 
-  if(!isClientReady){
-    return <PageLoading />
+  if (!isClientReady) {
+    return <PageLoading />;
   }
 
   return (
@@ -387,7 +386,7 @@ const Header = () => {
                   onClick={() => setMenuOpen(false)}
                   href="/markedsforing"
                   className={`flex items-center pb-2 hover:text-[#17DB4F] cursor-pointer ${
-                    pathName === "/seo" && "text-[#17DB4F]"
+                    pathName === "/markedsforing" && "text-[#17DB4F]"
                   }
                   `}
                 >
