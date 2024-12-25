@@ -11,7 +11,11 @@ const Slider = () => {
   const [isClientReady, setIsClientReady] = useState(false);
 
   useEffect(() => {
-    setIsClientReady(true);
+    const timer = setTimeout(() => {
+      setIsClientReady(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
