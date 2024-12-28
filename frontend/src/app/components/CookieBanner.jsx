@@ -42,11 +42,11 @@ const CookieBanner = () => {
 
   return (
     isVisible && (
-      <div className="fixed bottom-16 md:left-16 bg-white text-black p-6 m-3 md:m-0 md:w-[30rem] rounded-md ">
-        <h3 className=" text-[1.3rem] font-semibold ">
+      <div className="fixed bottom-16 sm:left-16 bg-white text-black p-4 md:p-6 m-3 sm:m-0 sm:w-[30rem] rounded-md ">
+        <h3 className=" text-[1.1rem] md:text-[1.3rem] font-semibold ">
           Vi setter pris på personvernet ditt
         </h3>
-        <p className=" text-gray-500 my-4 ">
+        <p className=" text-sm md:text-lg text-gray-500 my-4 ">
           Vi bruker informasjonskapsler for å forbedre nettleseropplevelsen din,
           vise personlig tilpassede annonser eller innhold og analysere
           trafikken vår. Ved å klikke &quot;Godta alle&quot;, samtykker du til

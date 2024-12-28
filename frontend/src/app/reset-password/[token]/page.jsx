@@ -24,7 +24,7 @@ const Page = () => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      toast.error("Passwords do not match!");
+      toast.error("Passord stemmer ikke!");
       return;
     }
     console.log({
@@ -42,7 +42,7 @@ const Page = () => {
         }
       );
       if (response.data.modifiedCount > 0) {
-        toast.success("Password Changed");
+        toast.success("Passord endret");
         router.push("/login");
       }
     } catch (error) {

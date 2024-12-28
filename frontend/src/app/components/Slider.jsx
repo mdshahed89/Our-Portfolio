@@ -1,41 +1,23 @@
-"use client";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import Link from "next/link";
-import PageLoading from "./PageLoading";
 
-const Slider = () => {
-  const [projects, setProject] = useState([]);
-  const [isClientReady, setIsClientReady] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsClientReady(true);
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const { data } = await axios.get(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/get-project`
-      );
-      setProject(data.data);
-    };
-    fetchData();
-  }, []);
-
-  if (!isClientReady) {
-    return <PageLoading />;
+const Slider = async () => {
+  let projects = [];
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/get-project`
+    );
+    const data = await response.json();
+    projects = data.data || [];
+  } catch (error) {
+    console.error("Error fetching projects:", error);
   }
 
   return (
     <div>
       {projects.length > 0 ? (
-        <div className=" -translate-y-28 lg:-translate-y-40">
+        <div className=" -translate-y-[135px] lg:-translate-y-40">
           <Marquee
             speed={50}
             className="min-h-[400px] "
@@ -49,7 +31,7 @@ const Slider = () => {
                 key={index}
                 className="group relative mx-2 z-10 hover:z-50  flex flex-col items-center justify-center 
                  overflow-hidden rounded-xl bg-white shadow-lg 
-                 hover:scale-125  hover:border-2 hover:border-[#7BDCB5] 
+                 hover:scale-125  border-2 border-[#7BDCB5] 
                  transition-transform duration-500 ease-in-out"
               >
                 <figure className="h-[250px] md:h-[300px] w-[300px] md:w-[400px] overflow-hidden">
@@ -77,9 +59,7 @@ const Slider = () => {
           </Marquee>
         </div>
       ) : (
-        <div className="h-60">
-          <PageLoading />
-        </div>
+        <div className="h-60"></div>
       )}
     </div>
   );

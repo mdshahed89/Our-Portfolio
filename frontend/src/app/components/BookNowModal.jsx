@@ -39,10 +39,10 @@ export const BookNowModal = ({ title, availability }) => {
       const now = new Date().getTime();
 
       if (selectedTime < now) {
-        toast.error("You cannot select a past date and time.");
+        toast.error("Du kan ikke velge tidligere dato og klokkeslett.");
         return;
       } else if (selectedTime >= from && selectedTime <= to) {
-        toast.error("The selected date and time is not available.");
+        toast.error("Den valgte datoen og klokkeslettet er ikke tilgjengelig.");
         return;
       }
     }
@@ -72,7 +72,7 @@ export const BookNowModal = ({ title, availability }) => {
 
       if (response.ok) {
         const result = await response.json();
-        toast.success("Booking successfully");
+        toast.success("Bestilling vellykket");
         setBookingData({
           title,
           email: "",
@@ -81,14 +81,14 @@ export const BookNowModal = ({ title, availability }) => {
           dateAndTime: "",
         });
         setOpenModal(false);
-        console.log("Booking successful:", result);
+        // console.log("Booking successful:", result);
       } else {
-        console.log("Failed to book:", response.status, response.statusText);
-        toast.error("Failed to booking");
+        // console.log("Failed to book:", response.status, response.statusText);
+        toast.error("Kunne ikke bestille");
       }
     } catch (error) {
       console.log("Error:", error);
-      toast.error("Failed to send booking data");
+      toast.error("Kunne ikke sende bestillingsdata");
     }
   };
   // console.log(bookingData);

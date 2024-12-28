@@ -21,7 +21,7 @@ const Hero = () => {
         <div className="mt-5">
           <Link
             href="/nettside"
-            className="border-2 whitespace-none md:whitespace-normal rounded w-[205px] md:w-[250px] lg:w-[300px] justify-center text-sm lg:text-xl font-medium flex items-center gap-1 md:gap-2 border-white p-1 md:p-3 transition-transform transform hover:scale-x-105 hover:origin-left group"
+            className="border-2 px-2 md:px-0 whitespace-none md:whitespace-normal rounded w-[215px] md:w-[250px] lg:w-[300px] justify-center text-sm lg:text-xl font-medium flex items-center gap-1 md:gap-2 border-white p-1 md:p-3 transition-transform transform hover:scale-x-105 hover:origin-left group"
           >
             Trenger du en nettside?
             <IoIosArrowRoundForward
@@ -32,7 +32,7 @@ const Hero = () => {
         </div>
       </div>
       <div
-        className={` -mt-20  w-full lg:w-[500px] mx-auto lg:order-2 order-1 lg:pt-0  lg:mt-8 md:h-auto  h-[500px] bg-no-repeat  bg-hero-image`}
+        className={` -mt-20  w-full lg:w-[500px] mx-auto lg:order-2 order-1 lg:pt-0  lg:mt-8   h-[500px] lg:h-auto bg-no-repeat  bg-hero-image`}
       >
         {/* Content */}
       </div>

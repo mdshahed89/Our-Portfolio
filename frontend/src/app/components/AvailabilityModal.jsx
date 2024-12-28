@@ -41,11 +41,11 @@ const AvailabilityModal = ({ fetchData }) => {
         setEndDate("");
         setOpenModal(false);
       } else {
-        toast.error("Failed to save availability.");
+        toast.error("Kunne ikke lagre tilgjengelighet.");
       }
     } catch (error) {
       console.error("Error sending data:", error);
-      toast.error("An error occurred while saving availability.");
+      toast.error("Det oppsto en feil under lagring av tilgjengelighet.");
     }
   };
 

@@ -111,7 +111,7 @@ const NettsideForm = () => {
           formData
         );
         if (data === "Email sent successfully!") {
-          toast.success("Email sent successfully!");
+          toast.success("E-post sendt!");
           form.reset();
           setFile(null);
           setIsLoading(false);

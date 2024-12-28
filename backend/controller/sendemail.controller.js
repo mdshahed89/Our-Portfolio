@@ -119,7 +119,7 @@ export const sendEmail = async (req, res) => {
   transporter.sendMail(mailBody, (error, info) => {
     if (error) {
       console.log(error);
-      return res.status(500).send("Error sending email");
+      return res.status(500).send("Feil ved sending av e-post");
     } else {
       console.log(info.response);
       res.status(200).send("Email sent successfully!");
@@ -203,7 +203,7 @@ export const sendLogoEmail = async (req, res) => {
   transporter.sendMail(mailBody, (error, info) => {
     if (error) {
       console.log(error);
-      return res.status(500).send("Error sending email");
+      return res.status(500).send("Feil ved sending av e-post");
     } else {
       console.log(info.response);
       res.status(200).send("Email sent successfully!");
@@ -255,7 +255,7 @@ Hvis du ikke har bedt om denne endringen, kan du trygt ignorere denne e-posten.
   transporter.sendMail(mailBody, (error, info) => {
     if (error) {
       console.log(error);
-      return res.status(500).send("Error sending email");
+      return res.status(500).send("Feil ved sending av e-post");
     } else {
       console.log(info.response);
       res.status(200).send("Email sent successfully!");

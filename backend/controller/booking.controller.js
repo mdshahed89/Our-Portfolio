@@ -9,7 +9,7 @@ export const sendBookingData = async (req, res) => {
     if (!fullName || !email || !dateAndTime || !title) {
       return res.status(400).send({
         success: false,
-        message: "Fullname, email, Date & Time is required",
+        message: "Fullt navn, e-post, dato og klokkeslett er påkrevd",
       });
     }
 
@@ -26,20 +26,20 @@ export const sendBookingData = async (req, res) => {
     if (!savedBooking) {
       return res.status(400).send({
         success: false,
-        message: "Failed to send booking data",
+        message: "Kunne ikke sende bestillingsdata",
       });
     }
 
     return res.status(201).send({
       success: true,
-      message: "Booking Data sent successfully",
+      message: "Bestillingsdata ble sendt",
       booking: savedBooking,
     });
   } catch (error) {
     console.log(`Server error when sending Booking Data: ${error}`);
     return res.status(500).send({
       success: false,
-      message: "Server Error when sending Booking Data",
+      message: "Serverfeil ved sending av bestillingsdata",
     });
   }
 };
@@ -50,14 +50,14 @@ export const getAllBooking = async (req, res) => {
 
     return res.status(201).send({
       success: true,
-      message: "Booking Data sent successfully",
+      message: "Bestillingsdata ble sendt",
       bookings: allBooking,
     });
   } catch (error) {
     console.log(`Server error when getting all Booking Data: ${error}`);
     return res.status(500).send({
       success: false,
-      message: "Server Error when getting all Booking Data",
+      message: "Serverfeil ved henting av alle bestillingsdata",
     });
   }
 };

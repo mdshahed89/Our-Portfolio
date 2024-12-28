@@ -7,7 +7,7 @@ export const saveData = async (req, res) => {
     res.status(201).json({
       success: true,
       data: result,
-      message: "Project saved successfully.",
+      message: "Prosjektet er lagret.",
     });
   } catch (error) {
     res.status(500).json({
@@ -24,7 +24,7 @@ export const getData = async (req, res) => {
     res.status(201).json({
       success: true,
       data: result,
-      message: "Project Founded successfully.",
+      message: "Prosjekt grunnlagt vellykket.",
     });
   } catch (error) {
     res.status(500).json({
@@ -43,7 +43,7 @@ export const deleteProject = async (req, res) => {
     res.status(201).json({
       success: true,
       data: result,
-      message: "Project Deleted successfully.",
+      message: "Prosjekt slettet.",
     });
   } catch (error) {
     res.status(500).json({

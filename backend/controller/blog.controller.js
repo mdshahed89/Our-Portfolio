@@ -7,12 +7,12 @@ export const saveData = async (req, res) => {
     res.status(201).json({
       success: true,
       data: result,
-      message: "Blog saved successfully.",
+      message: "Bloggen er lagret.",
     });
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: "Somethings went wrong",
+      message: "Noe gikk galt",
       error: error.message,
     });
   }
@@ -24,12 +24,12 @@ export const getData = async (req, res) => {
     res.status(201).json({
       success: true,
       data: result,
-      message: "Blog found successfully.",
+      message: "Bloggen ble funnet.",
     });
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: "Somethings went wrong",
+      message: "Noe gikk galt",
       error: error.message,
     });
   }
@@ -42,18 +42,18 @@ export const getDetailsData = async (req, res) => {
     if (!result) {
       return res.status(404).json({
         success: false,
-        message: "Blog not found.",
+        message: "Finner ikke bloggen.",
       });
     }
     res.status(200).json({
       success: true,
       data: result,
-      message: "Blog found successfully.",
+      message: "Bloggen ble funnet.",
     });
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: "Something went wrong",
+      message: "Noe gikk galt",
       error: error.message,
     });
   }
