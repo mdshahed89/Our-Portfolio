@@ -17,7 +17,7 @@ const Slider = async () => {
   return (
     <div>
       {projects.length > 0 ? (
-        <div className=" -translate-y-[135px] lg:-translate-y-40">
+        <div className=" -translate-y-[135px] lg:-translate-y-60">
           <Marquee
             speed={50}
             className="min-h-[400px] "
