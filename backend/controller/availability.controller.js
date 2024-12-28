@@ -8,7 +8,7 @@ export const setAvailability = async (req, res) => {
     if (!startDate || !endDate) {
       return res.status(400).send({
         success: false,
-        message: "Start Date and End Date are required",
+        message: "Startdato og sluttdato er obligatorisk",
       });
     }
 
@@ -22,7 +22,7 @@ export const setAvailability = async (req, res) => {
 
       return res.status(201).send({
         success: true,
-        message: "Availability set successfully",
+        message: "Tilgjengelighet satt",
         availability: newAvailability,
       });
     } else {
@@ -35,7 +35,7 @@ export const setAvailability = async (req, res) => {
 
       return res.status(200).send({
         success: true,
-        message: "Availability updated successfully",
+        message: "Tilgjengelighet oppdatert",
         availability: updatedAvailability,
       });
     }
@@ -45,7 +45,7 @@ export const setAvailability = async (req, res) => {
     // 5. Handle Server Errors
     return res.status(500).send({
       success: false,
-      message: "Server Error when setting availability",
+      message: "Serverfeil ved innstilling av tilgjengelighet",
       error: error.message,
     });
   }
@@ -63,14 +63,14 @@ export const getAvailability = async (req, res) => {
 
     return res.status(200).send({
       success: true,
-      message: "Availability fetched successfully",
+      message: "Tilgjengelighet ble hentet",
       availability,
     });
   } catch (error) {
     console.log(`Server error when getting availability: ${error}`);
     return res.status(500).send({
       success: false,
-      message: "Server Error when getting availability",
+      message: "Serverfeil ved henting av tilgjengelighet",
     });
   }
 };

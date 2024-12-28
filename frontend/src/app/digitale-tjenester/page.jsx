@@ -3,6 +3,7 @@ import Service3 from "@/assets/A.jpg";
 import Service2 from "@/assets/B.png";
 import Service1 from "@/assets/C.jpg";
 import Image from "next/image";
+import Link from "next/link";
 
 const page = () => {
   return (
@@ -24,9 +25,12 @@ const page = () => {
               ønskede resultater.
             </p>
             <div className=" flex  ">
-              <button className=" px-10 py-2 rounded-full bg-[#000] text-[#fff] font-medium mt-8 ">
+              <Link
+                href={"/markedsforing"}
+                className=" px-10 py-2 rounded-full bg-[#000] text-[#fff] font-medium mt-8 "
+              >
                 Start din vekst!
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -67,9 +71,14 @@ const page = () => {
               riktig tekstformat, god struktur og andre tiltak som hjelper siden
               din å rangere høyere..
             </p>
-            <button className=" px-10 py-2 rounded-full bg-[#000] text-[#fff] font-medium mt-8 ">
-              Øk synligheten din!
-            </button>
+            <div className="pt-8">
+              <Link
+                href={"/seo"}
+                className=" px-10 py-2 rounded-full bg-[#000] text-[#fff] font-medium mt-8 "
+              >
+                Øk synligheten din!
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -78,22 +87,25 @@ const page = () => {
         <div className=" flex-1 md:order-1 order-2 py-5   ">
           <div className=" px-3  ">
             <h2 className=" text-[1.8rem] lg:text-[2.2rem] font-semibold ">
-              Markedsføring
+              Grafisk design
             </h2>
             <p className=" text-lg lg:text-xl text-gray-600 ">
-              Markedsføring handler om å bygge relasjoner med potensielle kunder
-              og skape verdi gjennom riktige kanaler. Hos Sidesone utvikler vi
-              helhetlige markedsføringsstrategier som inkluderer digital
-              annonsering, innholdsproduksjon og sosiale medier. Vi bruker
-              innsikt og analyser til å forstå målgruppen din og skape budskap
-              som treffer. Gjennom nøye planlegging og kreative kampanjer
-              hjelper vi deg med å øke synlighet, bygge engasjement og oppnå
-              ønskede resultater.
+              Grafisk design er kunsten å formidle budskap visuelt, ved hjelp av
+              designprinsipper som farger, typografi og layout. Dette gjør det
+              mulig å skape en sterk visuell identitet som resonnerer med
+              målgruppen din. Hos Sidesone kombinerer vi kreativitet og strategi
+              for å levere skreddersydde løsninger som logoer, visuelle
+              profiler, trykksaker og digitale design. Gjennom tett samarbeid
+              med deg utvikler vi design som ikke bare ser bra ut, men også
+              støtter merkevarens verdier og mål.
             </p>
             <div className=" flex  ">
-              <button className=" px-10 py-2 rounded-full bg-[#000] text-[#fff] font-medium mt-8 ">
+              <Link
+                href={"/logo"}
+                className=" px-10 py-2 rounded-full bg-[#000] text-[#fff] font-medium mt-8 "
+              >
                 Start din vekst!
-              </button>
+              </Link>
             </div>
           </div>
         </div>
