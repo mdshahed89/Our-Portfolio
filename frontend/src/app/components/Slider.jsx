@@ -17,10 +17,10 @@ const Slider = async () => {
   return (
     <div>
       {projects.length > 0 ? (
-        <div className=" -translate-y-[135px] lg:-translate-y-60">
+        <div className="  z-[100] -translate-y-20 lg:-translate-y-28">
           <Marquee
             speed={50}
-            className="min-h-[400px] "
+            className=" h-auto py-5 lg:min-h-[400px] "
             pauseOnHover={true}
             autoFill
           >

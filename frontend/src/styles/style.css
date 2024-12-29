@@ -1,7 +1,7 @@
 .bg-hero-image {
   background-image: url("../assets/Sidesone ansatt.webp");
   background-size: contain;
-  background-position: bottom center; /* Default for larger devices */
+  background-position: bottom right; /* Default for larger devices */
 }
 
 /* Media query for small devices (e.g., smartphones) */

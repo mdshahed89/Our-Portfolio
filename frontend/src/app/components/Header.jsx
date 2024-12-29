@@ -51,7 +51,7 @@ const Header = () => {
 
   return (
     <div
-      className={`fixed px-3 h-[112px] py-4 lg:px-0 top-0 w-full ${
+      className={`fixed px-3 h-[112px] z-[100] py-4 lg:px-0 top-0 w-full ${
         scrolled ? "bg-[#035635] shadow-xl" : "bg-[#035635]"
       } z-50`}
     >
