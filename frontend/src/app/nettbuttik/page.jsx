@@ -1,4 +1,4 @@
-import Person from "@/assets/person.webp";
+import Person from "@/assets/Person.webp";
 import NettsideForm from "@/app/components/NettsideForm";
 import Image from "next/image";
 

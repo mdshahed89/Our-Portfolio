@@ -1,6 +1,6 @@
 import Image from "next/image";
 import NettsideForm from "../components/NettsideForm";
-import Person from "@/assets/person.webp";
+import Person from "@/assets/Person.webp";
 const page = () => {
   return (
     <div>
