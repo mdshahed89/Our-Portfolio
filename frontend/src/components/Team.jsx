@@ -4,8 +4,8 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import coding from "@/assets/coding.webp";
 const Team = () => {
   return (
-    <div className="grid   lg:px-0 lg:grid-cols-2 my-16 text-white ">
-      <div className=" pt-[5rem] pb-[4rem] px-3">
+    <div className="grid  lg:px-0 lg:grid-cols-2 text-white ">
+      <div className=" flex flex-col justify-center py-[1rem] px-3">
         <h3 className="text-[34px]   pb-5 font-semibold">
           Teamet bak sidesone
         </h3>
@@ -42,7 +42,7 @@ const Team = () => {
           </Link>
         </div>
       </div>
-      <div className=" min-h-[50vh]">
+      <div className=" md:min-h-[50vh]">
         <figure className="w-full h-full overflow-hidden">
           <Image
             loading="lazy"
@@ -52,7 +52,7 @@ const Team = () => {
             alt={"Coding"}
             width={400}
             height={300}
-            className="w-full h-full object-cover "
+            className="w-full h-full object-contain md:object-cover "
           />
         </figure>
       </div>

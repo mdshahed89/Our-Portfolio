@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const page = () => {
   return (
-    <div className=" pt-[112px] lg:pt-[80px] flex flex-col md:gap-0 gap-5  ">
+    <div className=" pt-[112px] flex flex-col md:gap-0 gap-5  ">
       <div className=" flex items-center md:flex-row flex-col ">
         <div className=" flex-1 md:order-1 order-2 py-5   ">
           <div className=" px-3 ">
@@ -40,7 +40,7 @@ const page = () => {
             placeholder="blur"
             src={Service1}
             alt="Service Img"
-            className=" w-full h-full object-cover "
+            className=" w-full h-full object-contain lg:object-cover "
           />
         </div>
       </div>
@@ -51,7 +51,7 @@ const page = () => {
             placeholder="blur"
             src={Service2}
             alt="Service Img"
-            className=" w-full h-full object-cover "
+            className=" w-full h-full object-contain lg:object-cover "
           />
         </div>
         <div className=" flex-1  ">
@@ -115,7 +115,7 @@ const page = () => {
             placeholder="blur"
             src={Service3}
             alt="Service Img"
-            className=" w-full h-full object-cover "
+            className=" w-full h-full object-contain lg:object-cover "
           />
         </div>
       </div>

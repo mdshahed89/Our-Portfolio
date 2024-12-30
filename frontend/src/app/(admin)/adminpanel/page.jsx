@@ -1,5 +1,5 @@
 "use client";
-import AdminProfile from "@/app/components/AdminProfile";
+import AdminProfile from "@/components/AdminProfile";
 
 import { FaUserFriends } from "react-icons/fa";
 

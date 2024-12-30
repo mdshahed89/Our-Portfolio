@@ -3,7 +3,7 @@ import booking from "@/assets/Booking.webp";
 import Image from "next/image";
 const Booking = () => {
   return (
-    <div className=" lg:mb-0  mt-16  lg:px-0 grid lg:grid-cols-2 ">
+    <div className=" lg:mb-0  lg:px-0 grid lg:grid-cols-2 ">
       <div className="order-2 lg:order-1  ">
         <div className="w-full h-auto md:h-[700px] overflow-hidden ">
           <Image

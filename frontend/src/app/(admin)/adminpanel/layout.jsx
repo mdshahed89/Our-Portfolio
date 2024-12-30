@@ -1,4 +1,4 @@
-import Sidebar from "@/app/components/Sidebar";
+import Sidebar from "@/components/Sidebar";
 import AuthProvider from "@/AuthProvider/AuthProvider";
 import PrivateRoute from "@/AuthProvider/PrivateRoute";
 

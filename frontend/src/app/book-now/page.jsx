@@ -3,7 +3,7 @@ import { CiBookmarkPlus } from "react-icons/ci";
 import { TbFreezeColumn } from "react-icons/tb";
 import { CiClock2 } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
-import { BookNowModal } from "../components/BookNowModal";
+import { BookNowModal } from "../../components/BookNowModal";
 
 const page = async () => {
   let availability = null;

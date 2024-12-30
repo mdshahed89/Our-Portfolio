@@ -8,6 +8,8 @@ import Image from "next/image";
 import { RxCross2 } from "react-icons/rx";
 import { usePathname } from "next/navigation";
 import PageLoading from "./PageLoading";
+import Logo from "@/assets/logo.png"
+
 const Header = () => {
   const pathName = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -51,21 +53,16 @@ const Header = () => {
 
   return (
     <div
-      className={`fixed px-3 h-[112px] z-[100] py-4 lg:px-0 top-0 w-full ${
+      className={`fixed h-[112px] z-[100] py-4 lg:px-0 top-0 w-full ${
         scrolled ? "bg-[#035635] shadow-xl" : "bg-[#035635]"
       } z-50`}
     >
       <header className="text-white px-5 py-5 flex max-w-[1400px] mx-auto justify-between items-center">
-        <Link href={"/"}>
+        <Link href={"/"} className=" w-auto h-auto ">
           <Image
-            loading="lazy"
-            placeholder="blur"
-            src="/logo.png"
-            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA..."
-            alt="Logo"
-            height={221}
-            width={221}
-            className="object-contain"
+            src={Logo}
+            alt="Sidesone Logo"
+            className="w-[211px] h-[35px] object-contain"
           />
         </Link>
         <div className="lg:hidden" onClick={() => setMenuOpen(!menuOpen)}>

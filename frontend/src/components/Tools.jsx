@@ -42,12 +42,12 @@ const toolsData = [
 
 const Tools = () => {
   return (
-    <div className="grid lg:grid-cols-5 my-16  lg:justify-between px-3 lg:px-0 gap-5 ">
+    <div className="grid md:grid-cols-5 py-5 bg-[#fff]  lg:justify-between px-3 lg:px-0 gap-2 lg:gap-5 ">
       {toolsData.map((tool, index) => (
-        <div key={index} className="flex flex-col items-center  space-y-2">
-          <div className="flex items-center flex-col ">
-            <div className="w-[60px] h-[60px]">
-              <figure className="overflow-hidden w-[60px] h-[60px]">
+        <div key={index} className="flex flex-col md:items-center md:gap-3 ">
+          <div className="flex md:items-center flex-row md:flex-col gap-4 md:gap-1  ">
+            <div className=" md:mt-0 mt-1 md:w-[50px] w-[30px] h-[30px] md:h-[50px]">
+              <figure className="overflow-hidden w-[30px] h-[30px] md:w-[50px] md:h-[50px]">
                 <Image
                   src={tool.imgSrc}
                   blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA..."
@@ -58,14 +58,15 @@ const Tools = () => {
                 />
               </figure>
             </div>
-            <div className="text-center space-y-2 pt-2">
-              <h2 className="text-2xl font-semibold text-gray-900">
+            <div className=" md:pb-0 pb-8 md:mb-0 mb-4 md:text-center md:border-none border-b-2 border-[#000] ">
+              <h2 className=" text-lg md:text-2xl font-semibold text-gray-900">
                 {tool.title}
               </h2>
+              <p className="text-gray-600 md:hidden block text-lg">{tool.description}</p>
             </div>
           </div>
-          <div className="text-center">
-            <p className="text-gray-600 text-lg">{tool.description}</p>
+          <div className="text-center md:block hidden">
+            <p className="text-gray-600 text-xl">{tool.description}</p>
           </div>
         </div>
       ))}

@@ -1,5 +1,5 @@
 import Person from "@/assets/Person.webp";
-import NettsideForm from "@/app/components/NettsideForm";
+import NettsideForm from "@/components/NettsideForm";
 import Image from "next/image";
 
 const page = () => {

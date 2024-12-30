@@ -1,10 +1,10 @@
-import Booking from "./components/Booking";
-import Hero from "./components/Hero";
-import OfferSection from "./components/OfferSection";
-import Reference from "./components/Reference";
-import Slider from "./components/Slider";
-import Team from "./components/Team";
-import Tools from "./components/Tools";
+import Booking from "../components/Booking";
+import Hero from "../components/Hero";
+import OfferSection from "../components/OfferSection";
+import Reference from "../components/Reference";
+import Slider from "../components/Slider";
+import Team from "../components/Team";
+import Tools from "../components/Tools";
 
 export default function Home() {
   return (

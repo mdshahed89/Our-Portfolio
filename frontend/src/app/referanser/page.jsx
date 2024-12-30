@@ -1,4 +1,4 @@
-import AllProject from "../components/AllProject";
+import AllProject from "../../components/AllProject";
 
 const page = () => {
   return (

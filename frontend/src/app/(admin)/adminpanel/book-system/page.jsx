@@ -1,4 +1,4 @@
-import AvalPage from "@/app/components/AvalPage";
+import AvalPage from "@/components/AvalPage";
 
 const page = () => {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import LogoForm from "../components/LogoForm";
+import LogoForm from "../../components/LogoForm";
 
 const page = () => {
   return (

@@ -1,8 +1,8 @@
 
-import CookieBanner from "./components/CookieBanner";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import ScrollToTopButton from "./components/ScrollToTopButton";
+import CookieBanner from "../components/CookieBanner";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import ScrollToTopButton from "../components/ScrollToTopButton";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
 export const metadata = {
@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="no">
-      <body className={` antialiased font-Inter `}>
+      <body className={` antialiased font-averta `}>
         <div className="">
           <Header />
         </div>
