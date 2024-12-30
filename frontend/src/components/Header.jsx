@@ -52,12 +52,12 @@ const Header = () => {
   }
 
   return (
-    <div
+    <header
       className={`fixed h-[112px] z-[100] py-4 lg:px-0 top-0 w-full ${
         scrolled ? "bg-[#035635] shadow-xl" : "bg-[#035635]"
       } z-50`}
     >
-      <header className="text-white px-5 py-5 flex max-w-[1400px] mx-auto justify-between items-center">
+      <div className="text-white px-5 py-5 flex max-w-[1400px] mx-auto justify-between items-center">
         <Link href={"/"} className=" w-auto h-auto ">
           <Image
             src={Logo}
@@ -260,7 +260,7 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-      </header>
+      </div>
 
       {/* Sidebar */}
       <div
@@ -414,7 +414,7 @@ const Header = () => {
           </li>
         </ul>
       </div>
-    </div>
+    </header>
   );
 };
 
