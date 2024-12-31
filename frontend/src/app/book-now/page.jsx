@@ -13,7 +13,7 @@ const page = async () => {
       `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/availability/get-availability`,
       {
         method: "GET",
-        cache: "no-store", // Ensures fresh data for SSR
+        next: {revalidate: 60}, 
       }
     );
 
