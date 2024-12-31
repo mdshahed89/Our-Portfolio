@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 import { MdAddIcCall, MdEmail } from "react-icons/md";
+import Logo from "@/assets/logo.png"
 const Footer = () => {
   const pathName = usePathname();
   if (
@@ -18,14 +19,10 @@ const Footer = () => {
       <div className="grid lg:grid-cols-3 gap-5 justify-center lg:justify-between ">
         <div className="flex flex-col items-center lg:items-start justify-center gap-5 lg:justify-start">
           <Image
-            loading="lazy"
-            placeholder="blur"
-            src="/logo.png"
-            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA..."
-            alt="Logo"
-            height={190}
-            width={190}
-            className="object-contain"
+            src={Logo}
+            alt="Sidesone Logo"
+
+            className=" w-auto h-auto object-contain"
           />
           <h2 className="flex text-white font-semibold text-xl items-center gap-3">
             <MdEmail size={20} /> Kontakt@sidesone.no

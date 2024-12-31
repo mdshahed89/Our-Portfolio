@@ -34,7 +34,7 @@ const page = () => {
             </div>
           </div>
         </div>
-        <div className=" flex-1 w-full h-[33rem] lg:h-[30rem] md:order-2 order-1 ">
+        <div className=" flex-1 w-full h-auto md:h-[33rem] lg:h-[30rem] md:order-2 order-1 ">
           <Image
             loading="lazy"
             placeholder="blur"
@@ -45,7 +45,7 @@ const page = () => {
         </div>
       </div>
       <div className=" flex  items-center  md:flex-row flex-col ">
-        <div className=" flex-1 w-full h-[33rem] lg:h-[30rem] ">
+        <div className=" flex-1 w-full h-auto md:h-[33rem] lg:h-[30rem] ">
           <Image
             loading="lazy"
             placeholder="blur"
@@ -109,7 +109,7 @@ const page = () => {
             </div>
           </div>
         </div>
-        <div className=" flex-1 w-full h-[33rem] lg:h-[30rem] md:order-2 order-1 ">
+        <div className=" flex-1 w-full h-auto md:h-[33rem] lg:h-[30rem] md:order-2 order-1 ">
           <Image
             loading="lazy"
             placeholder="blur"

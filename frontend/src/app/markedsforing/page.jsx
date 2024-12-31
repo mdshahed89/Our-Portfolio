@@ -40,7 +40,7 @@ const page = () => {
           Markedsføring
         </h2>
         <div className=" flex gap-5 lg:flex-row flex-col items-stretch ">
-          <div className=" w-full  lg:w-[30%] xl:w-[30rem] h-[40rem] lg:max-h-[32rem]    ">
+          <div className=" w-full  lg:w-[30%] xl:w-[30rem] h-auto md:h-[40rem] lg:max-h-[32rem]    ">
             <Image
               loading="lazy"
               placeholder="blur"

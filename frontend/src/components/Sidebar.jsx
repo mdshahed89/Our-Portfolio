@@ -10,6 +10,7 @@ import { VscGitPullRequestGoToChanges } from "react-icons/vsc";
 import { AuthContext } from "@/AuthProvider/AuthProvider";
 import { usePathname } from "next/navigation";
 import PageLoading from "./PageLoading";
+import Logo from "@/assets//logo.png"
 const Sidebar = () => {
   const pathName = usePathname();
   const { logout } = useContext(AuthContext);
@@ -34,13 +35,9 @@ const Sidebar = () => {
             <Link href={"/"}>
               <Image
                 loading="lazy"
-                placeholder="blur"
-                src="/logo.png"
-                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA..."
-                alt="Logo"
-                height={180}
-                width={180}
-                className="object-contain"
+                src={Logo}
+                alt="Sidesone Logo"
+                className=" w-auto h-auto object-contain"
               />
             </Link>
           </div>
@@ -64,14 +61,9 @@ const Sidebar = () => {
             <div className="w-full flex px-4 py-2   items-center mx-auto">
               <Link href={"/"}>
                 <Image
-                  loading="lazy"
-                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA..."
-                  placeholder="blur"
-                  src="/logo.png"
-                  alt="Logo"
-                  height={180}
-                  width={180}
-                  className="object-contain"
+                  src={Logo}
+                  alt="Sidesone Logo"
+                  className="w-auto h-auto object-contain"
                 />
               </Link>
             </div>

@@ -69,13 +69,13 @@ const Page = () => {
         ) : (
           <>
             <h2 className="text-2xl text-center font-bold py-3">
-              {showForgetPassword ? "Glem passord" : "Login"}
+              {showForgetPassword ? "Glem passord" : "Logg inn"}
             </h2>
             {!showForgetPassword ? (
               <form onSubmit={handleLoginSubmit} className="space-y-3">
                 <div className="flex flex-col">
                   <label htmlFor="email" className="text-xl mb-1">
-                    Email
+                  E-post
                   </label>
                   <input
                     type="email"
@@ -87,7 +87,7 @@ const Page = () => {
                 </div>
                 <div className="flex relative flex-col">
                   <label htmlFor="password" className="text-xl mb-1">
-                    Password
+                  Passord
                   </label>
                   <input
                     type={show ? "text" : "password"}
@@ -122,7 +122,7 @@ const Page = () => {
                     type="submit"
                     className="bg-[#035635] transition-all duration-300 ease-in-out active:scale-95 w-60 text-xl font-semibold text-white rounded-full p-2"
                   >
-                    Login
+                    Logg inn
                   </button>
                 </div>
               </form>

@@ -11,7 +11,7 @@ import { HiLink } from "react-icons/hi2";
 const page = () => {
   return (
     <div className="  h-full mt-[160px]  ">
-      <div className=" flex items-center lg:flex-row flex-col lg:gap-0 gap-7 px-1 ">
+      <div className=" px-3 flex items-center lg:flex-row flex-col lg:gap-0 gap-7  ">
         <div className=" flex-1 lg:order-1 order-2  ">
           <div className=" flex flex-col gap-8 justify-between lg:px-3 ">
             <h2 className=" lg:text-[2rem] text-[1.7rem]  font-semibold ">
@@ -65,12 +65,12 @@ const page = () => {
         </div>
       </div>
 
-      <div className=" text-[#fff] bg-[#035635] py-10 mt-10 ">
+      <div className=" px-3 text-[#fff] bg-[#035635] py-10 mt-10 ">
         <div className=" flex lg:flex-row flex-col ">
           <h3 className=" md:px-3 text-[1.4rem] font-semibold lg:mb-6  flex-1 ">
             Hvordan gjør vi nettsiden din mer synlig på nett?
           </h3>
-          <h3 className=" md:px-3 px-1 text-[1.4rem] font-semibold lg:mb-6  flex-1 ">
+          <h3 className=" md:px-3  text-[1.2rem] font-light lg:mb-6  flex-1 ">
             Usikker hvor seo resultatene dine? så kan du sjekke de{" "}
             <Link href={`#`} className=" border-b-2 border-[#fff] ">
               her
@@ -86,7 +86,7 @@ const page = () => {
                 placeholder="blur"
                 src={Seo2}
                 alt="Seo img"
-                className=" w-full h-full object-cover rounded-md "
+                className=" w-full h-full object-cover rounded-md border-2 border-[#0ea76cd7] "
               />
             </div>
           </div>

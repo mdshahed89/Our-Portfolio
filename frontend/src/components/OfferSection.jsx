@@ -46,7 +46,7 @@ const OfferSection = () => {
       <div>
         <h2 className="font-medium px-4 py-3 text-[40px]">Hva vi tilbyr</h2>
       </div>
-      <div className=" gap-5 grid lg:grid-cols-3 grid-cols-1 ">
+      <div className=" gap-8 grid lg:grid-cols-3 grid-cols-1 ">
         <div className={` p-3 lg:p-5 rounded-sm lg:max-w-[520px] bg-[#7BDCB5]`}>
           <h2 className="text-[34px]  pb-5 text-[#1e293b] font-Montserrat font-semibold">Nettside</h2>
           <div className="lg:min-h-[180px]">

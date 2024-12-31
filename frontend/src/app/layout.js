@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="no">
-      <body className={` antialiased font-averta `}>
+      <body className={` antialiased  `}>
         <div className="">
           <Header />
         </div>
