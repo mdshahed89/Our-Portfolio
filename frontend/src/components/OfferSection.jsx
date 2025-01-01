@@ -51,7 +51,7 @@ const OfferSection = () => {
           <h2 className="text-[34px]  pb-5 text-[#1e293b] font-Montserrat font-semibold">Nettside</h2>
           <div className="lg:min-h-[180px]">
             <div
-              className={` text-[18px] md:text-xl flex flex-col gap-6 text-[#334155] leading-tight whitespace-pre-line`}
+              className={` text-[18px] md:text-xl flex  flex-col gap-6 text-[#334155] leading-tight whitespace-pre-line`}
             >
               <p className=" italic ">
                 Vi utvikler nettsider som er funksjonelle, moderne og

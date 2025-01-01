@@ -8,8 +8,13 @@ const Slider = async () => {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_BACKEND_URL}/get-project`
     );
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
     const data = await response.json();
-    projects = data.data || [];
+    projects = data?.data || [];
   } catch (error) {
     console.error("Error fetching projects:", error);
   }

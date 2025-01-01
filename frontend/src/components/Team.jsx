@@ -2,10 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import coding from "@/assets/coding.webp";
+import { TbUsersGroup } from "react-icons/tb";
 const Team = () => {
   return (
     <div className="grid  lg:px-0 lg:grid-cols-2 text-white ">
-      <div className=" flex flex-col justify-center py-[1rem] px-3">
+      <div className=" flex flex-col justify-center gap-3 p-2 md:p-3">
+        <div className=" bg-[#0b462ece] p-5 rounded-md ">
+        <TbUsersGroup className=" text-[2rem] mb-1 " />
         <h3 className="text-[34px]   pb-5 font-semibold">
           Teamet bak sidesone
         </h3>
@@ -18,8 +21,8 @@ const Team = () => {
           er, eller hvilken bransje du opererer i, er vårt mål alltid det samme:
           å levere løsninger som overgår forventningene.
         </p>
-        <br />
-        <br />
+        </div>
+        <div className=" bg-[#0b462ece] p-5 rounded-md  ">
         <p className="text-[20px] text-gray-100">
           Vi er en webutviklingsbedrift som setter samarbeid i sentrum. Gjennom
           tett dialog med kundene våre skreddersyr vi løsninger som er tilpasset
@@ -32,7 +35,7 @@ const Team = () => {
         <div className="flex justify-center items-center">
           <Link
             href="/om-oss"
-            className="border my-8 rounded-sm w-[280px] justify-center text-xl font-medium flex items-center gap-2 border-white p-3 transition-transform transform hover:scale-x-105 hover:origin-left group"
+            className="border-2 my-8 rounded-sm w-[280px] justify-center text-base lg:text-lg font-medium flex items-center gap-2 border-white p-3 transition-transform transform hover:scale-x-105 hover:origin-left group"
           >
             Les mer om sidesone
             <IoIosArrowRoundForward
@@ -40,6 +43,7 @@ const Team = () => {
               className="transition-transform transform group-hover:translate-x-2"
             />
           </Link>
+        </div>
         </div>
       </div>
       <div className=" md:min-h-[50vh]">
