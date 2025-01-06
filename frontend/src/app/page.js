@@ -14,11 +14,11 @@ export default function Home() {
       </div>
       <Slider></Slider>
       <OfferSection></OfferSection>
-      <div className="bg-[#035635]">
-        <Team></Team>
-      </div>
       <div>
         <Tools></Tools>
+      </div>
+      <div className="bg-[#035635]">
+        <Team></Team>
       </div>
       <div>
         <Booking></Booking>

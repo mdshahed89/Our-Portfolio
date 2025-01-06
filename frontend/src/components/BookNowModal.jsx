@@ -38,6 +38,18 @@ export const BookNowModal = ({ title, availability }) => {
       const to = new Date(toTime).getTime();
       const now = new Date().getTime();
 
+      // const selectedHours = new Date(e.target.value).getHours();
+      // if (selectedHours < 13 || selectedHours > 21) {
+      //   toast.error("Du kan bare velge tid mellom 13:00 og 21:00.");
+      //   return;
+      // }
+
+      // const selectedMinutes = new Date(e.target.value).getMinutes();
+      // if (selectedMinutes !== 0) {
+      //   toast.error("Du kan bare velge tid på hele timer (f.eks. 13:00, 14:00).");
+      //   return;
+      // }
+
       if (selectedTime < now) {
         toast.error("Du kan ikke velge tidligere dato og klokkeslett.");
         return;
@@ -68,7 +80,7 @@ export const BookNowModal = ({ title, availability }) => {
           body: JSON.stringify(bookingData),
         }
       );
-      console.log(response);
+      // console.log(response);
 
       if (response.ok) {
         const result = await response.json();
@@ -91,7 +103,7 @@ export const BookNowModal = ({ title, availability }) => {
       toast.error("Kunne ikke sende bestillingsdata");
     }
   };
-  // console.log(bookingData);
+  console.log(bookingData);
 
   return (
     <div className="mx-auto flex w-full items-center justify-end ">
@@ -197,15 +209,26 @@ export const BookNowModal = ({ title, availability }) => {
                 >
                   Dato og tid*
                 </label>
-                <div className="relative">
+                <div className="relative flex items-center gap-2">
                   <input
                     id="dateAndTime"
-                    type="datetime-local"
+                    type="date"
                     value={bookingData.dateAndTime}
                     onChange={handleChange}
-                    min={new Date().toISOString().slice(0, 16)}
+                    min={new Date().toISOString().split("T")[0]}
                     className="block w-full rounded-lg p-3 pl-10 outline-none border"
                   />
+                  <select
+    id="timePicker"
+    className="rounded-lg py-3 px-2 text-center outline-none border"
+  >
+    <option value="" disabled>Select Time</option>
+    {Array.from({ length: 9 }, (_, i) => i + 13).map((hour) => (
+      <option key={hour} value={`${hour}:00`}>
+        {`${hour}:00`}
+      </option>
+    ))}
+  </select>
                   <span className="absolute left-2 top-0 flex items-center h-full text-green-500 ">
                     <SlCalender />
                   </span>
@@ -216,7 +239,7 @@ export const BookNowModal = ({ title, availability }) => {
               type="submit"
               className="relative py-2.5 px-10 w-full rounded-lg mt-10 text-white font-medium bg-green-700 "
             >
-              Bok
+              Book
             </button>
           </form>
         </div>
