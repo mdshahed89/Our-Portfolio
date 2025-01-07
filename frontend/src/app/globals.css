@@ -3,14 +3,14 @@
 @font-face {
   font-family: 'Averta';
   src: url('/fonts/averta/AvertaDemoPE-Regular.otf') format('opentype');
-  font-weight: 400;
+  font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Averta';
   src: url('/fonts/averta/AvertaDemoPE-ExtraboldItalic.otf') format('opentype');
-  font-weight: 800;
+  font-weight: 600;
   font-style: italic;
 }
 
@@ -19,6 +19,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* body{
+  font-family: 'Averta';
+} */
+
+.processBg{
+  clip-path: polygon(51% 0, 100% 10%, 100% 43%, 100% 100%, 68% 100%, 32% 100%, 0 100%, 0% 43%, 0 9%);
+}
 
 .custom-swal-popup {
   background-color: white;
@@ -96,3 +104,6 @@
 .content ul {
   list-style-type: disc;
 }
+
+
+
