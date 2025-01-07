@@ -44,7 +44,7 @@ const Page = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
+
     const form = e.target;
     const title = form.title.value.trim();
     const url = form.url.value.trim();
@@ -67,6 +67,7 @@ const Page = () => {
         url,
         image: uploadedImageURL,
       };
+      setIsLoading(true);
 
       const { data } = await axios.post(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/save-project`,

@@ -1,7 +1,7 @@
 "use client";
 import { useContext } from "react";
 import { AuthContext } from "./AuthProvider";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const PrivateRoute = ({ children }) => {
   const router = useRouter();
@@ -14,6 +14,9 @@ const PrivateRoute = ({ children }) => {
         </div>
       </>
     );
+  }
+  if (typeof window === "undefined") {
+    return null;
   }
   if (user) {
     return children;

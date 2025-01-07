@@ -1,9 +1,10 @@
 "use client";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import BlogCard from "./BlogCard";
 import { FaDatabase } from "react-icons/fa";
-
+import { useRouter } from "next/navigation";
 const AllProject = () => {
   const [referencesData, setReferencesData] = useState([]);
 
@@ -42,3 +43,39 @@ const AllProject = () => {
 };
 
 export default AllProject;
+
+// export const SliderComponent = ({ item, index }) => {
+//   const router = useRouter();
+
+//   return (
+//     <div
+//       target="_blank"
+//       onClick={() => router.push(item?.url || "#")}
+//       className="group relative mx-2 z-10 hover:z-50 flex flex-col items-center justify-center
+//      overflow-hidden rounded-xl bg-red-500 shadow-lg
+//      lg:hover:scale-125 hover:scale-[1.15] border-2 border-[#7BDCB5]
+//      transition-transform duration-500 ease-in-out transform-gpu cursor-pointer"
+//     >
+//       <figure className="h-[250px] md:h-[300px] w-[300px] md:w-[400px] overflow-hidden">
+//         <Image
+//           loading="lazy"
+//           placeholder="blur"
+//           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA..."
+//           src={item.image}
+//           alt={item.title}
+//           width={400}
+//           height={300}
+//           className="w-full h-full object-cover rounded-md"
+//         />
+//       </figure>
+
+//       <div
+//         className="absolute bottom-0 flex items-center justify-center w-full p-4
+//        text-lg font-medium text-white bg-[#035635]
+//        opacity-60 group-hover:opacity-100 transition-opacity duration-500"
+//       >
+//         {item?.title}
+//       </div>
+//     </div>
+//   );
+// };
