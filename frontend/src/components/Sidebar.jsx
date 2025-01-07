@@ -10,7 +10,7 @@ import { VscGitPullRequestGoToChanges } from "react-icons/vsc";
 import { AuthContext } from "@/AuthProvider/AuthProvider";
 import { usePathname } from "next/navigation";
 import PageLoading from "./PageLoading";
-import Logo from "@/assets//logo.png"
+import Logo from "@/assets//logo.png";
 const Sidebar = () => {
   const pathName = usePathname();
   const { logout } = useContext(AuthContext);
@@ -29,7 +29,7 @@ const Sidebar = () => {
 
   return (
     <div>
-      <div className="bg-[#035635] w-full flex justify-between md:hidden">
+      <div className="bg-[#035635] w-full z-10 flex justify-between md:hidden">
         <div>
           <div className="block cursor-pointer p-4 font-bold">
             <Link href={"/"}>

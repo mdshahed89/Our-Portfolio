@@ -110,7 +110,7 @@ const Page = () => {
                             setDeleteId(reference._id);
                             setOpenModal(true);
                           }}
-                          className="bg-white text-[#035635] transition-all duration-300 ease-in-out active:scale-95 rounded-xl top-5 right-5 p-2 absolute"
+                          className="bg-slate-200 shadow-xl text-[#035635] transition-all duration-300 ease-in-out active:scale-95 rounded-xl top-5 right-5 p-2 absolute"
                         >
                           <MdDelete size={25} />
                         </button>

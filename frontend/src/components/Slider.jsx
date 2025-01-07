@@ -19,8 +19,6 @@ const Slider = async () => {
     console.error("Error fetching projects:", error);
   }
 
-  
-
   return (
     <div>
       {projects.length > 0 ? (
@@ -40,7 +38,6 @@ const Slider = async () => {
                  overflow-hidden  rounded-xl bg-red-500 shadow-lg 
                  lg:hover:scale-125 hover:scale-[1.15]  border-2 border-[#7BDCB5] 
                  transition-transform duration-500 ease-in-out transform-gpu "
-                 
               >
                 <figure className="h-[250px] md:h-[300px] w-[300px] md:w-[400px] overflow-hidden">
                   <Image

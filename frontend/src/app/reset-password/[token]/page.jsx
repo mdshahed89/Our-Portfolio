@@ -27,11 +27,11 @@ const Page = () => {
       toast.error("Passord stemmer ikke!");
       return;
     }
-    console.log({
-      token,
-      password,
-      confirmPassword,
-    });
+    // console.log({
+    //   token,
+    //   password,
+    //   confirmPassword,
+    // });
     try {
       const response = await axios.patch(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/reset-password`,
@@ -46,7 +46,8 @@ const Page = () => {
         router.push("/login");
       }
     } catch (error) {
-      toast.error(response.data.message);
+      toast.error(error.message);
+      console.log(error.message);
     }
   };
 

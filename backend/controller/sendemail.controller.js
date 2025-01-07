@@ -213,6 +213,7 @@ export const sendLogoEmail = async (req, res) => {
 
 export const sendResetEmail = async (req, res) => {
   const { email } = req.body;
+  console.log(email);
 
   const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
@@ -286,5 +287,42 @@ export const resetPassword = async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(400).send({ message: "Linker er utløpt, prøv igjen" });
+  }
+};
+
+export const changePassword = async (req, res) => {
+  const { oldEmail, password, newEmail } = req.body;
+  console.log({
+    oldEmail,
+    password,
+    newEmail,
+  });
+
+  // Find the user (Admin) by email and check if the password matches
+  const admin = await Admin.findOne({ email: oldEmail });
+  console.log(admin.password);
+
+  if (!admin) {
+    return res.status(400).send({ message: "Admin not found" });
+  }
+
+  const isPasswordMatch = await bcrypt.compare(password, admin.password);
+  console.log(isPasswordMatch);
+  if (!isPasswordMatch) {
+    return res.status(404).send({ message: "Feil passord" });
+  }
+
+  try {
+    // If the password matches, update the email
+    const updatedAdmin = await Admin.updateOne(
+      { email: oldEmail },
+      { $set: { email: newEmail } } // Update the email
+    );
+
+    console.log(updatedAdmin);
+    res.status(200).send(updatedAdmin);
+  } catch (err) {
+    console.error(err);
+    res.status(400).send({ message: "Noe gikk galt. Vennligst prøv igjen" });
   }
 };
