@@ -63,7 +63,7 @@ export const ProfilePasswordChange = () => {
       >
         <div
           onClick={(e) => e.stopPropagation()}
-          className={`absolute w-full rounded-lg bg-white drop-shadow-2xl sm:w-[400px] ${
+          className={`absolute w-full rounded-lg bg-white drop-shadow-2xl sm:w-[500px] ${
             openModal
               ? "opacity-1 translate-y-0 duration-300"
               : "-translate-y-20 opacity-0 duration-150"
@@ -84,7 +84,7 @@ export const ProfilePasswordChange = () => {
                   setOpenModal(false);
                   setEmailSent(false); // Reset state
                 }}
-                className="px-6 py-2 rounded-md font-medium bg-blue-700 text-white"
+                className="px-6 py-2 rounded-md font-medium bg-[#15803D] text-white"
               >
                 Close
               </button>

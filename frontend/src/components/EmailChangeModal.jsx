@@ -41,16 +41,12 @@ export const EmailChange = () => {
       console.log(data);
 
       if (data.modifiedCount > 0) {
-        toast.success("E-post sendt!");
+        toast.success("E-post endre vellykket");
         logout();
         setFormData({ oldEmail: "", email: "", password: "" });
-      } else {
-        toast.error("Failed to send email. Please try again.");
-        setEmailSent(false);
       }
     } catch (error) {
-      console.error("Error:", error);
-      toast.error("Something went wrong. Please try again.");
+      toast.error(error.data.message);
     }
   };
 
@@ -71,7 +67,7 @@ export const EmailChange = () => {
       >
         <div
           onClick={(e) => e.stopPropagation()}
-          className={`absolute w-full rounded-lg bg-white drop-shadow-2xl sm:w-[400px] ${
+          className={`absolute w-full rounded-lg bg-white drop-shadow-2xl sm:w-[500px] ${
             openModal
               ? "opacity-1 translate-y-0 duration-300"
               : "-translate-y-20 opacity-0 duration-150"

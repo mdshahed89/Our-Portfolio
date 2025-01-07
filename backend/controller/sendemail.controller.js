@@ -298,12 +298,11 @@ export const changePassword = async (req, res) => {
     newEmail,
   });
 
-  // Find the user (Admin) by email and check if the password matches
   const admin = await Admin.findOne({ email: oldEmail });
   console.log(admin.password);
 
   if (!admin) {
-    return res.status(400).send({ message: "Admin not found" });
+    return res.status(400).send({ message: "Finner ikke e-post" });
   }
 
   const isPasswordMatch = await bcrypt.compare(password, admin.password);
@@ -313,10 +312,9 @@ export const changePassword = async (req, res) => {
   }
 
   try {
-    // If the password matches, update the email
     const updatedAdmin = await Admin.updateOne(
       { email: oldEmail },
-      { $set: { email: newEmail } } // Update the email
+      { $set: { email: newEmail } }
     );
 
     console.log(updatedAdmin);
