@@ -45,15 +45,10 @@ const NettsideForm = () => {
 
   const options = [
     { name: "Jeg trenger Domene" },
-    {
-      name: "Jeg trenger Logo",
-    },
-    {
-      name: "Drift og vedlikehold",
-    },
-    {
-      name: "SEO",
-    },
+    { name: "Jeg trenger Logo" },
+    { name: "Drift og vedlikehold" },
+    { name: "SEO" },
+    ...(pathName === "/nettbuttik" ? [{ name: "Kobling mot leverandør" }] : []),
   ];
 
   const handleChange = (value) => {
@@ -261,6 +256,9 @@ const NettsideForm = () => {
             </div>
 
             <div className="flex flex-col">
+              <label htmlFor="budget" className="text-xl mb-1">
+                {pathName === "/nettbuttik" ? "Antal produkter" : "Antal sider"}
+              </label>
               <select
                 id="pages"
                 name="pages"
@@ -294,7 +292,7 @@ const NettsideForm = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-4">
             <div>
-              <h3 className="text-lg font-semibold mb-2">Valg</h3>
+              <h3 className="text-lg font-medium mb-2">Valg</h3>
               <div className="flex flex-col gap-4">
                 {options.map((option) => (
                   <div key={option.name} className="flex items-center gap-2">
@@ -313,7 +311,7 @@ const NettsideForm = () => {
                     >
                       {/* Custom Checkbox */}
                       <span
-                        className={`w-6 h-6 flex items-center justify-center border-2 rounded-md transition-all ${
+                        className={`w-6 h-6 flex border-green-400 items-center justify-center border-2 rounded-md transition-all ${
                           selectedValues.includes(option.name)
                             ? "bg-green-400 border-green-400 text-white"
                             : "bg-white border-gray-300"
@@ -329,7 +327,7 @@ const NettsideForm = () => {
             </div>
 
             <div className="">
-              <h3 className="text-lg font-semibold mb-2">
+              <h3 className="text-lg font-mediumd mb-2">
                 Hvis du har bilder eller logo kan du laste de opp her
               </h3>
               <div className="border border-dashed border-[#7BDCB5] rounded-lg p-4 flex flex-col items-center gap-3">

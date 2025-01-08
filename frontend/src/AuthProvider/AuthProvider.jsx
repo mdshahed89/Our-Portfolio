@@ -61,6 +61,7 @@ const AuthProvider = ({ children }) => {
     error,
     login,
     logout,
+    setUser,
   };
   if (loading) {
     return (
