@@ -4,7 +4,7 @@ export const sendBookingData = async (req, res) => {
   const { title, fullName, email, phoneNo, dateAndTime } = req.body;
 
   try {
-    console.log(title, fullName, email, dateAndTime);
+    // console.log(title, fullName, email, dateAndTime);
 
     if (!fullName || !email || !dateAndTime || !title) {
       return res.status(400).send({

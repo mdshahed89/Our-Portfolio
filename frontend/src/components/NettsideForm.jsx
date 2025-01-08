@@ -344,7 +344,7 @@ const NettsideForm = () => {
                     <div className="relative rounded-lg p-2">
                       <Image
                         loading="lazy"
-                        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA..."
+                        blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
                         placeholder="blur"
                         src={filePreview.url}
                         alt={filePreview.name}

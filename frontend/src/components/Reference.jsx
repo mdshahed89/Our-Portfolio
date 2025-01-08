@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import parse from "html-react-parser";
+import { MdArrowForward } from "react-icons/md";
 
 async function getReferencesData() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/get-blog`, {
@@ -69,10 +70,10 @@ export default async function Reference({ title }) {
                   </div>
                   <div>
                     <Link
-                      className="text-black p-3 transition-all duration-300 ease-in-out active:scale-95 font-medium text-lg"
+                      className="text-black group flex items-center gap-2 border-b-2 border-[#035635] w-fit p-3 transition-all duration-300 ease-in-out active:scale-95 font-medium text-lg"
                       href={`/referanser`}
                     >
-                      Se Prosjektet→
+                      Se Prosjektet <MdArrowForward className=" mt-1 group-hover:ml-2 transition-all duration-200 ease-linear " />
                     </Link>
                   </div>
                 </div>

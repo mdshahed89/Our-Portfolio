@@ -16,6 +16,8 @@ export const BookNowModal = ({ title, availability }) => {
     fullName: "",
     phoneNo: "",
     dateAndTime: "",
+    date: "",
+    time: "",
   });
 
   const [fromTime, setFromTime] = useState("");
@@ -31,39 +33,60 @@ export const BookNowModal = ({ title, availability }) => {
   // const fromTime = "2024-12-28T15:45";
   // const toTime = "2024-12-30T17:00";
 
+  const formattedStartDate = new Date(fromTime).toLocaleString("no-NO", {
+    dateStyle: "short",
+    timeStyle: "short",
+  });
+  const formattedEndDate = new Date(toTime).toLocaleString("no-NO", {
+    dateStyle: "short",
+    timeStyle: "short",
+  });
+
   const handleChange = (e) => {
-    if (e.target.id === "dateAndTime" && availability) {
-      const selectedTime = new Date(e.target.value).getTime();
-      const from = new Date(fromTime).getTime();
-      const to = new Date(toTime).getTime();
-      const now = new Date().getTime();
+    const { id, value } = e.target;
 
-      // const selectedHours = new Date(e.target.value).getHours();
-      // if (selectedHours < 13 || selectedHours > 21) {
-      //   toast.error("Du kan bare velge tid mellom 13:00 og 21:00.");
-      //   return;
-      // }
+    // Update the booking data
+    const updatedData = { ...bookingData, [id]: value };
 
-      // const selectedMinutes = new Date(e.target.value).getMinutes();
-      // if (selectedMinutes !== 0) {
-      //   toast.error("Du kan bare velge tid på hele timer (f.eks. 13:00, 14:00).");
-      //   return;
-      // }
+    // Combine date and time if both are available
+    if (id === "date" || id === "time") {
+      if (updatedData.date || updatedData.time) {
+        updatedData.dateAndTime = `${updatedData.date}T${updatedData.time}`;
 
-      if (selectedTime < now) {
-        toast.error("Du kan ikke velge tidligere dato og klokkeslett.");
-        return;
-      } else if (selectedTime >= from && selectedTime <= to) {
-        toast.error("Den valgte datoen og klokkeslettet er ikke tilgjengelig.");
-        return;
+        if (availability) {
+          const selectedDateTime = new Date(updatedData.dateAndTime).getTime();
+          const fromDateTime = new Date(fromTime).getTime();
+          const toDateTime = new Date(toTime).getTime();
+          const now = new Date().getTime();
+
+          // Validate that the selected date and time are not in the past
+          if (selectedDateTime < now) {
+            toast.error("Du kan ikke velge tidligere dato og klokkeslett."); // Cannot select past date/time
+            return;
+          }
+
+          // Validate that the selected date and time are outside the unavailable range
+          if (
+            selectedDateTime >= fromDateTime &&
+            selectedDateTime <= toDateTime
+          ) {
+            toast.error(
+              `Den valgte tiden er ikke tilgjengelig. Ugyldig periode: ${formattedStartDate} - ${formattedEndDate}`
+            );
+            return;
+          }
+        }
       }
     }
 
-    setBookingData({
-      ...bookingData,
-      [e.target.id]: e.target.value,
-    });
+    // Set the updated booking data
+    setBookingData(updatedData);
   };
+
+  // setBookingData({
+  //   ...bookingData,
+  //   [e.target.id]: e.target.value,
+  // });
 
   // console.log(process.env.NEXT_PUBLIC_BACKEND_URL);
 
@@ -91,11 +114,11 @@ export const BookNowModal = ({ title, availability }) => {
           fullName: "",
           phoneNo: "",
           dateAndTime: "",
+          date: "",
+          time: "",
         });
         setOpenModal(false);
-        // console.log("Booking successful:", result);
       } else {
-        // console.log("Failed to book:", response.status, response.statusText);
         toast.error("Kunne ikke bestille");
       }
     } catch (error) {
@@ -103,7 +126,8 @@ export const BookNowModal = ({ title, availability }) => {
       toast.error("Kunne ikke sende bestillingsdata");
     }
   };
-  console.log(bookingData);
+  console.log("bookingdata", bookingData);
+  console.log("availability", availability);
 
   return (
     <div className="mx-auto flex w-full items-center justify-end ">
@@ -152,6 +176,7 @@ export const BookNowModal = ({ title, availability }) => {
                     type="text"
                     value={bookingData.fullName}
                     placeholder="Skriv inn din fullt navn"
+                    required
                     onChange={handleChange}
                     className="block w-full rounded-lg p-3 pl-10 outline-none border bg-white "
                   />
@@ -172,6 +197,7 @@ export const BookNowModal = ({ title, availability }) => {
                     id="email"
                     type="email"
                     value={bookingData.email}
+                    required
                     placeholder="Skriv inn din E-post"
                     onChange={handleChange}
                     className="block w-full rounded-lg p-3 pl-10 outline-none border"
@@ -193,6 +219,7 @@ export const BookNowModal = ({ title, availability }) => {
                     id="phoneNo"
                     type="number"
                     value={bookingData.phoneNo}
+                    required
                     placeholder="Skriv inn telefonnummeret ditt"
                     onChange={handleChange}
                     className="block w-full rounded-lg p-3 pl-10 outline-none border"
@@ -211,24 +238,33 @@ export const BookNowModal = ({ title, availability }) => {
                 </label>
                 <div className="relative flex items-center gap-2">
                   <input
-                    id="dateAndTime"
+                    id="date"
                     type="date"
-                    value={bookingData.dateAndTime}
+                    value={bookingData.date}
+                    required
                     onChange={handleChange}
                     min={new Date().toISOString().split("T")[0]}
                     className="block w-full rounded-lg p-3 pl-10 outline-none border"
                   />
                   <select
-    id="timePicker"
-    className="rounded-lg py-3 px-2 text-center outline-none border"
-  >
-    <option value="" disabled>Select Time</option>
-    {Array.from({ length: 9 }, (_, i) => i + 13).map((hour) => (
-      <option key={hour} value={`${hour}:00`}>
-        {`${hour}:00`}
-      </option>
-    ))}
-  </select>
+                    id="time"
+                    onChange={handleChange}
+                    required
+                    value={bookingData.time}
+                    className="rounded-lg py-3 px-2 text-center outline-none border"
+                  >
+                    <option value="" disabled>
+                      Select Time
+                    </option>
+                    {Array.from({ length: 13 }, (_, i) =>
+                      (i + 9).toString().padStart(2, "0")
+                    ).map((hour) => (
+                      <option key={hour} value={`${hour}:00`}>
+                        {`${hour}:00`}
+                      </option>
+                    ))}
+                  </select>
+
                   <span className="absolute left-2 top-0 flex items-center h-full text-green-500 ">
                     <SlCalender />
                   </span>

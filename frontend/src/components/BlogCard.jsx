@@ -38,7 +38,7 @@ const BlogCard = ({ reference }) => {
                 placeholder="blur"
                 src={`${reference?.coverImage}`}
                 alt={`${reference?.title}` || "Blog Image"}
-                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA..."
+                blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
                 width={400}
                 height={230}
                 className="object-cover h-full w-full"

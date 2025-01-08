@@ -63,7 +63,7 @@ const Tools = () => {
     //           <figure className="overflow-hidden w-[30px] h-[30px] md:w-[50px] md:h-[50px]">
     //             <Image
     //               src={tool.imgSrc}
-    //               blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA..."
+    //               blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
     //               loading="lazy"
     //               placeholder="blur"
     //               alt={tool.imgAlt}
