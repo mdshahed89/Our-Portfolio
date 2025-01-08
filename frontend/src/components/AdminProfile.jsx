@@ -1,8 +1,9 @@
 "use client";
 import { AuthContext } from "@/AuthProvider/AuthProvider";
 import { useContext } from "react";
-import { ProfilePasswordChange } from "./ProfilePasswordChange";
-import { EmailChange } from "./emailChangeModal";
+import { ProfilePasswordChange } from "@/components/ProfilePasswordChange";
+import { EmailChangeModal } from "@/components/EmailChangeModal";
+
 
 const AdminProfile = () => {
   const { user, loading } = useContext(AuthContext);
@@ -21,7 +22,7 @@ const AdminProfile = () => {
         <div className="flex justify-center">
           <div className="flex  items-center md:gap-5 justify-center">
             <ProfilePasswordChange />
-            <EmailChange />
+            <EmailChangeModal />
           </div>
         </div>
       </div>
