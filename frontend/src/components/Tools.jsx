@@ -15,8 +15,8 @@ import ProcessIcon1 from "@/assets/ProcessIcon1.png"
 import ProcessIcon2 from "@/assets/ProcessIcon2.png"
 import ProcessIcon3 from "@/assets/ProcessIcon3.png"
 import ProcessIcon4 from "@/assets/ProcessIcon4.png"
-import { FaLaptopCode } from "react-icons/fa";
-import { MdArrowForward, MdDevices, MdSecurity } from "react-icons/md";
+import { FaChartLine, FaLaptopCode, FaPaintBrush } from "react-icons/fa";
+import { MdArrowForward, MdCampaign, MdDevices, MdSecurity } from "react-icons/md";
 
 const toolsData = [
   {
@@ -135,35 +135,36 @@ const Tools = () => {
       <div className=" max-w-[1400px] mx-auto px-2 md:px-3 my-[8rem] ">
         <div className=" text-center w-full mb-[2rem] flex justify-center flex-col items-center  ">
           <h2 className=" text-[1.7rem] sm:text-[2rem] md:text-[2.8rem] flex xl:flex-row flex-col w-fit xl:gap-3 ">
-            Disse er tilleggstjenester med{" "}
+          Disse er tilleggstjenester med{" "}
             <span className=" text-[#035635] border-b-4 border-[#035635]  mt-1 h-fit py-1 px-2 w-fit mx-auto leading-none rounded-sm ">
               ekstra kostnad
             </span>
           </h2>
-          <p className=" text-gray-500 mt-4 text-base md:text-lg ">
-            Uansett om du velger en nettside, nettbutikk eller webapplikasjon,
-            får du disse grunnleggende tjenestene inkludert for en komplett og
-            profesjonell løsning.
+          <p className=" text-gray-500 mt-4 text-base md:text-lg max-w-[60rem] ">
+          For deg som ønsker ekstra funksjonalitet eller skreddersydde løsninger, tilbyr vi disse tilleggstjenestene. Merk at noen kostnader er engangsbeløp, mens andre kan være løpende på månedlig basis
           </p>
         </div>
         <div className=" grid sm:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-2 ">
           <Card
-            icon={<FaLaptopCode />}
-            title="Avansert Seo"
-            description="Dybdeoptimalisering for bedre synlighet og rangering på søkemotorer."
-            btn="Les mer"
-          />
-          <Card
-            icon={<AiOutlineTool />}
+            icon={<MdCampaign />}
             title="Markedsføring"
             description="Strategier og kampanjer for å nå ut til målgruppen din på ulike plattformer."
             btn="Les mer"
+            path="/markedsforing"
           />
           <Card
-            icon={<MdDevices />}
+            icon={<FaChartLine />}
+            title="Avansert Seo"
+            description="Dybdeoptimalisering for bedre synlighet og rangering på søkemotorer."
+            btn="Les mer"
+            path="/seo"
+          />
+          <Card
+            icon={<FaPaintBrush />}
             title="Grafisk design"
             description="Design av logo, visuelle profiler og annet grafisk materiale for merkevaren din."
             btn="Les mer"
+            path="/logo"
           />
         </div>
       </div>
@@ -174,10 +175,10 @@ const Tools = () => {
 
 export default Tools;
 
-const Card = ({ icon, title, description, btn }) => {
+const Card = ({ icon, title, description, btn, path }) => {
   return (
     <div className=" bg-[#F5F5F7]  p-4 rounded-md ">
-      <div className=" text-[1.8rem] text-[#035635] w-[3rem] h-[3rem] flex items-center justify-center p-2 rounded-full bg-[#d3d3d3] ">
+      <div className=" text-[2rem] text-[#035635] w-[3.5rem] h-[3.5rem] flex items-center justify-center p-2 rounded-full bg-[#d3d3d3] ">
         {/* <Image src={icon} alt="Web Icon" loading="lazy" className=" w-full h-full  object-cover " /> */}
         {icon}
       </div>
@@ -187,7 +188,7 @@ const Card = ({ icon, title, description, btn }) => {
         </h3>
         <p className=" mt-2 text-gray-700 text-lg ">{description}</p>
         <div className={` ${btn ? "" : "hidden"} group hover:text-[#035635] transition-all duration-300 ease-linear border-b-2 border-[#035635] w-fit mt-5 flex items-center gap-1  `}>
-        <Link href={`#`} className=" text-[1.2rem] font-light  " >{btn}</Link>
+        <Link href={`${path}`} className=" text-[1.2rem] font-light  " >{btn}</Link>
         <MdArrowForward className=" mt-1 group-hover:ml-2 transition-all duration-200 ease-linear " />
         </div>
       </div>
@@ -220,7 +221,7 @@ const ProcessCard = ({title, description, icon}) => {
       <h3 className=" relative z-30 text-[1.5rem] font-medium leading-tight ">{title}</h3>
       <p className=" relative z-30 text-lg mt-4 text-gray-600 ">{description}</p>
       <div className=" absolute -bottom-8  right-0 z-10 ">
-        <Image src={icon} alt="Process Icon" className=" w-fit h-[8rem] object-contain  " />
+        <Image src={icon} alt="Process Icon" className=" w-fit h-[8rem] object-contain opacity-50  " />
       </div>
     </div>
   )

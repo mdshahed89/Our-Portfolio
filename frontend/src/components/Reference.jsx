@@ -33,9 +33,9 @@ export default async function Reference({ title }) {
   return (
     <div>
       {referencesData.length > 0 && (
-        <div className="pb-10 px-3 lg:px-5 ">
+        <div className="pb-10 mt-6 px-3 lg:px-5 ">
           <div className="mx-auto">
-            <h2 className="text-[25px] lg:text-[56px] py-3 font-semibold">
+            <h2 className="text-[2rem] lg:text-[3rem] py-3 font-medium">
               {title}
             </h2>
           </div>

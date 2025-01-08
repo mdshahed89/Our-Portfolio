@@ -219,41 +219,41 @@ const NettsideForm = () => {
               >
                 {pathName === "/nettside" ? (
                   <>
-                    <option value="8,000  - 15,000 kr">
-                      8,000 - 15,000 kr
+                    <option value="8000 - 15000kr">
+                    8000 - 15000kr
                     </option>
-                    <option value="15,000 - 25,000 kr">
-                      15,000 kr - 25,000 kr
+                    <option value="15000 - 25000kr">
+                    15000 - 25000kr
                     </option>
-                    <option value="25,000 - 35,000 kr">
-                      25,000 - 35,000 kr
+                    <option value="25000 - 35000kr">
+                    25000 - 35000kr
                     </option>
                     <option value="jet vet ikke">Jeg vet ikke</option>
                   </>
                 ) : pathName === "/nettbuttik" ? (
                   <>
-                    <option value="15,000 - 25,000 kr">
-                      15,000 kr - 25,000 kr
+                    <option value="15000kr - 25000kr">
+                    15000kr - 25000kr
                     </option>
-                    <option value="25,000 - 35,000 kr">
-                      25,000 - 35,000 kr
+                    <option value="25000 - 35000kr">
+                    25000 - 35000kr
                     </option>
-                    <option value="35,000 - 50,000 Kr">
-                      35,000 - 50,000 KR
+                    <option value="35000kr - 50000kr">
+                    35000kr - 50000kr
                     </option>
-                    <option value="50,000+ kr">50,000+</option>
+                    {/* <option value="50,000+ kr">50,000+</option> */}
                     <option value="jet vet ikke">Jeg vet ikke</option>
                   </>
                 ) : (
                   <>
                     {" "}
-                    <option value="30,000 - 75,000 kr">
-                      30,000 - 75,000 kr
+                    <option value="30 000kr - 75 0000kr">
+                    30 000kr - 75 0000kr
                     </option>
-                    <option value="75,000 - 1,25,000 kr">
-                      75,000 kr - 1,25,000 kr
+                    <option value="75 000 - 125 000kr">
+                    75 000 - 125 000kr
                     </option>
-                    <option value="1,25,000+">1,25,000+ kr</option>
+                    <option value="1,25,000+">125 000+</option>
                     <option value="I don't know">Jeg vet ikke</option>
                   </>
                 )}
@@ -261,6 +261,7 @@ const NettsideForm = () => {
             </div>
 
             <div className="flex flex-col">
+              <label htmlFor="" className=" text-xl mb-1 ">Antall sider</label>
               <select
                 id="pages"
                 name="pages"
@@ -272,7 +273,7 @@ const NettsideForm = () => {
                     <option value="1">1</option>
                     <option value="1 - 5">1 - 5</option>
                     <option value="10 +">10 +</option>
-                    <option value="jet vet ikke">jet vet ikke</option>
+                    <option value="jet vet ikke">Jeg not jet</option>
                   </>
                 ) : pathName === "/nettbuttik" ? (
                   <>
@@ -280,13 +281,13 @@ const NettsideForm = () => {
                     <option value="10 - 20">10 - 20</option>
                     <option value="20 - 50">20 - 50</option>
                     <option value="50+">50+</option>
-                    <option value="jet vet ikke">jet vet ikke</option>
+                    <option value="jet vet ikke">Jeg not jet</option>
                   </>
                 ) : (
                   <>
                     <option value="5-10">5-10</option>
                     <option value="10+">10+</option>
-                    <option value="jet vet ikke">jet vet ikke</option>
+                    <option value="jet vet ikke">Jeg not jet</option>
                   </>
                 )}
               </select>

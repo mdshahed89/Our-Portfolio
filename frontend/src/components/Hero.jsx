@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <div className=" relative h-[680px] lg:h-[750px] max-w-[1400px]  mx-auto text-white flex flex-col lg:flex-row  lg:justify-between ">
       <div className="  flex mt-[130px] md:mt-[140px] lg:mt-[170px]  flex-col z-50  px-3 max-w-[40rem] lg:max-w-[55rem] ">
-        <div className="   ">
+        <div className="  md:mt-7 ">
           <h1 className=" text-[34px] md:text-[45px] lg:text-[62px] leading-tight font-semibold ">
             Øk vekst og synlighet med en profesjonell nettside
           </h1>

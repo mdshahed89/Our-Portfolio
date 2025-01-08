@@ -32,32 +32,29 @@ const toolsData = [
 const page = () => {
   return (
     <div>
-      <div className="px-3 max-w-[1400px] mx-auto lg:px-0">
-        <div className="flex flex-col  md:flex-row items-center mt-[110px] lg:mt-[142px]  justify-evenly">
-          <div className="md:w-[50%]">
-            <div className="flex md:h-[500px] items-center md:items-end justify-center">
+      <div className=" max-w-[1400px] mx-auto">
+        <div className="flex flex-col md:h-[40rem]  md:flex-row items-center mt-[110px] lg:mt-[142px]  justify-between">
+          <div className="md:w-[35%] ">
+            <div className="flex w-full md:h-full items-center md:items-end justify-center">
               <Image
                 loading="lazy"
                 placeholder="blur"
                 blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA..."
                 src={HomeImg}
                 alt="Person"
-                className="w-full md:w-[350px]  object-contain"
+                className=" w-auto  md:w-full h-auto md:scale-[1.15] z-10 object-contain"
               />
             </div>
           </div>
-          <div className="md:w-[50%]  md:px-3 lg:pr-10">
-            <h2 className="text-[16px]  text-center md:text-start md:text-[28px] lg:text-[40px] font-semibold">
-              «Å utvikle digitale løsninger <br className="hidden lg:flex" />{" "}
-              som både ser bra ut og skaper
-              <br className="hidden lg:flex" />
-              resultater for kundene våre, er
-              <br className="hidden lg:flex" /> det som driver oss hver dag.»
+          <div className="md:w-[55%] w-full md:mt-0 -mt-[13rem] z-50 md:bg-transparent bg-slate-50 md:py-0 py-3 md:pr-3 pr-0 md:px-0 px-2  ">
+            <h2 className="text-[1rem]  text-center md:text-start md:text-[1.8rem] lg:text-[2.3rem] font-semibold">
+              «Å utvikle digitale løsninger som både ser bra ut og skaper
+              resultater for kundene våre, er det som driver oss hver dag.»
             </h2>
           </div>
         </div>
       </div>
-      <div className="bg-[#035635]">
+      <div className="bg-[#035635] z-50 relative">
         <div className="grid  items-center  lg:grid-cols-2 mb-16 text-white ">
           <div className=" py-5 px-3">
             <h2 className="text-[30px] pb-5  font-semibold">

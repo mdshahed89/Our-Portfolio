@@ -1,7 +1,7 @@
 import React from "react";
 import Service3 from "@/assets/A.jpg";
 import Service2 from "@/assets/B.png";
-import Service1 from "@/assets/C.jpg";
+import Service1 from "@/assets/C.webp";
 import Image from "next/image";
 import Link from "next/link";
 
