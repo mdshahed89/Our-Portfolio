@@ -11,12 +11,17 @@ import {
   AiOutlineThunderbolt,
   AiOutlineTool,
 } from "react-icons/ai";
-import ProcessIcon1 from "@/assets/ProcessIcon1.png"
-import ProcessIcon2 from "@/assets/ProcessIcon2.png"
-import ProcessIcon3 from "@/assets/ProcessIcon3.png"
-import ProcessIcon4 from "@/assets/ProcessIcon4.png"
+import ProcessIcon1 from "@/assets/ProcessIcon1.png";
+import ProcessIcon2 from "@/assets/ProcessIcon2.png";
+import ProcessIcon3 from "@/assets/ProcessIcon3.png";
+import ProcessIcon4 from "@/assets/ProcessIcon4.png";
 import { FaChartLine, FaLaptopCode, FaPaintBrush } from "react-icons/fa";
-import { MdArrowForward, MdCampaign, MdDevices, MdSecurity } from "react-icons/md";
+import {
+  MdArrowForward,
+  MdCampaign,
+  MdDevices,
+  MdSecurity,
+} from "react-icons/md";
 
 const toolsData = [
   {
@@ -135,13 +140,16 @@ const Tools = () => {
       <div className=" max-w-[1400px] mx-auto px-2 md:px-3 my-[8rem] ">
         <div className=" text-center w-full mb-[2rem] flex justify-center flex-col items-center  ">
           <h2 className=" text-[1.7rem] sm:text-[2rem] md:text-[2.8rem] flex xl:flex-row flex-col w-fit xl:gap-3 ">
-          Disse er tilleggstjenester med{" "}
+            Disse er tilleggstjenester med{" "}
             <span className=" text-[#035635] border-b-4 border-[#035635]  mt-1 h-fit py-1 px-2 w-fit mx-auto leading-none rounded-sm ">
               ekstra kostnad
             </span>
           </h2>
           <p className=" text-gray-500 mt-4 text-base md:text-lg max-w-[60rem] ">
-          For deg som ønsker ekstra funksjonalitet eller skreddersydde løsninger, tilbyr vi disse tilleggstjenestene. Merk at noen kostnader er engangsbeløp, mens andre kan være løpende på månedlig basis
+            For deg som ønsker ekstra funksjonalitet eller skreddersydde
+            løsninger, tilbyr vi disse tilleggstjenestene. Merk at noen
+            kostnader er engangsbeløp, mens andre kan være løpende på månedlig
+            basis
           </p>
         </div>
         <div className=" grid sm:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-2 ">
@@ -187,42 +195,170 @@ const Card = ({ icon, title, description, btn, path }) => {
           {title}
         </h3>
         <p className=" mt-2 text-gray-700 text-lg ">{description}</p>
-        <div className={` ${btn ? "" : "hidden"} group hover:text-[#035635] transition-all duration-300 ease-linear border-b-2 border-[#035635] w-fit mt-5 flex items-center gap-1  `}>
-        <Link href={`${path}`} className=" text-[1.2rem] font-light  " >{btn}</Link>
-        <MdArrowForward className=" mt-1 group-hover:ml-2 transition-all duration-200 ease-linear " />
+        <div
+          className={` ${
+            btn ? "" : "hidden"
+          } group hover:text-[#035635] transition-all duration-300 ease-linear border-b-2 border-[#035635] w-fit mt-5 flex items-center gap-1  `}
+        >
+          <Link href={`${path}`} className=" text-[1.2rem] font-light  ">
+            {btn}
+          </Link>
+          <MdArrowForward className=" mt-1 group-hover:ml-2 transition-all duration-200 ease-linear " />
         </div>
       </div>
     </div>
   );
 };
 
-
 const Process = () => {
-  return(
+  return (
     <div className=" bg-[#7BDCB5] min-h-[100vh] flex flex-col justify-center md:processBg md:px-3 px-2 py-[2rem] ">
       <div className=" text-center text-[2rem] md:text-[2.8rem] lg:text-[3.5rem] leading-tight font-semibold ">
         <h2>Prosessen med oss er kjempeenkel, vi skreddersyr løsningen.</h2>
         <h2 className=" text-[#fff] ">Du slipper stress.</h2>
       </div>
       <div className=" max-w-[1400px] mt-[5rem] lg:mt-[10rem] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 ">
-        <ProcessCard title="Send inn kontaktskjema" description="Vi vil deretter ta kontakt med deg for å tilby hjelp og veiledning i å finne den optimale løsningen som passer best for deg" icon={ProcessIcon1} />
-        <ProcessCard title="Del dine ønsker og behov for din nye nettside" description="Når du har valgt din nettsidepakke, sender du over informasjon om hva du ønsker å ha med på din nye nettside." icon={ProcessIcon2} />
-        <ProcessCard title="Vi lager din nye nettside" description="Vårt team designer en attraktiv og brukervennlig nettside for dine kunder. Vi skriver også teksten basert på den informasjonen du deler med oss." icon={ProcessIcon3} />
-        <ProcessCard title="Du godkjenner, vi lanserer" description="Vi samarbeider med deg gjennom hele prosessen, og vi lanserer ikke nettsiden før du er fornøyd og har gitt din godkjennelse." icon={ProcessIcon4} />
-        
+        <div className="relative">
+          <div className="absolute hidden lg:block -top-20 -right-36 z-50">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 180 120"
+              className="w-48 h-32 stroke-white fill-none"
+            >
+              {/* Curved dashed line */}
+              <path
+                d="M5,70 C50,40 80,40 100,60"
+                className="stroke-white"
+                strokeWidth="2"
+                strokeDasharray="5,5" /* Adjust dash spacing for better visibility */
+                fill="none"
+              />
+              {/* Arrowhead */}
+              <path
+                d="M95,57 L106,63 L96,69 Z"
+                className="fill-white"
+                stroke="white"
+                strokeWidth="1"
+                transform="rotate(50, 100, 70)"
+              />
+            </svg>
+          </div>
+          <ProcessCard
+            title="Send inn kontaktskjema"
+            description="Vi vil deretter ta kontakt med deg for å tilby hjelp og veiledning i å finne den optimale løsningen som passer best for deg"
+            icon={ProcessIcon1}
+          />
+        </div>
+        <div className="relative">
+          <div className="absolute hidden lg:block -top-20 -right-36 z-50">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 180 120"
+              className="w-48 h-32 stroke-white fill-none"
+            >
+              {/* Curved dashed line */}
+              <path
+                d="M5,70 C50,40 80,40 100,60"
+                className="stroke-white"
+                strokeWidth="2"
+                strokeDasharray="5,5" /* Adjust dash spacing for better visibility */
+                fill="none"
+              />
+              {/* Arrowhead */}
+              <path
+                d="M95,57 L106,63 L96,69 Z"
+                className="fill-white"
+                stroke="white"
+                strokeWidth="1"
+                transform="rotate(50, 100, 70)"
+              />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 180 120"
+              className="w-48 h-32 stroke-white fill-none"
+            >
+              {/* Curved dashed line */}
+              <path
+                d="M5,70 C50,40 80,40 100,60"
+                className="stroke-white"
+                strokeWidth="2"
+                strokeDasharray="5,5" /* Adjust dash spacing for better visibility */
+                fill="none"
+              />
+              {/* Arrowhead */}
+              <path
+                d="M95,57 L106,63 L96,69 Z"
+                className="fill-white"
+                stroke="white"
+                strokeWidth="1"
+                transform="rotate(50, 100, 70)"
+              />
+            </svg>
+          </div>
+          <ProcessCard
+            title="Del dine ønsker og behov for din nye nettside"
+            description="Når du har valgt din nettsidepakke, sender du over informasjon om hva du ønsker å ha med på din nye nettside."
+            icon={ProcessIcon2}
+          />
+        </div>
+        <div className="relative">
+          <div className="absolute hidden lg:block -top-20 -right-36 z-50">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 180 120"
+              className="w-48 h-32 stroke-white fill-none"
+            >
+              {/* Curved dashed line */}
+              <path
+                d="M5,70 C50,40 80,40 100,60"
+                className="stroke-white"
+                strokeWidth="2"
+                strokeDasharray="5,5" /* Adjust dash spacing for better visibility */
+                fill="none"
+              />
+              {/* Arrowhead */}
+              <path
+                d="M95,57 L106,63 L96,69 Z"
+                className="fill-white"
+                stroke="white"
+                strokeWidth="1"
+                transform="rotate(50, 100, 70)"
+              />
+            </svg>
+          </div>
+          <ProcessCard
+            title="Vi lager din nye nettside"
+            description="Vårt team designer en attraktiv og brukervennlig nettside for dine kunder. Vi skriver også teksten basert på den informasjonen du deler med oss."
+            icon={ProcessIcon3}
+          />
+        </div>
+        <ProcessCard
+          title="Du godkjenner, vi lanserer"
+          description="Vi samarbeider med deg gjennom hele prosessen, og vi lanserer ikke nettsiden før du er fornøyd og har gitt din godkjennelse."
+          icon={ProcessIcon4}
+        />
       </div>
     </div>
-  )
-}
+  );
+};
 
-const ProcessCard = ({title, description, icon}) => {
-  return(
-    <div className=" bg-[#fff] relative text-center py-6 px-4 rounded-lg overflow-hidden ">
-      <h3 className=" relative z-30 text-[1.5rem] font-medium leading-tight ">{title}</h3>
-      <p className=" relative z-30 text-lg mt-4 text-gray-600 ">{description}</p>
+const ProcessCard = ({ title, description, icon }) => {
+  return (
+    <div className=" bg-[#fff] h-full relative text-center py-6 px-4 rounded-lg overflow-hidden ">
+      <h3 className=" relative z-30 text-[1.5rem] font-medium leading-tight ">
+        {title}
+      </h3>
+      <p className=" relative z-30 text-lg mt-4 text-gray-600 ">
+        {description}
+      </p>
       <div className=" absolute -bottom-8  right-0 z-10 ">
-        <Image src={icon} alt="Process Icon" className=" w-fit h-[8rem] object-contain opacity-50  " />
+        <Image
+          src={icon}
+          alt="Process Icon"
+          className=" w-fit h-[8rem] object-contain opacity-50  "
+        />
       </div>
     </div>
-  )
-}
+  );
+};

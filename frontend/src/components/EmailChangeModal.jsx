@@ -1,5 +1,5 @@
 "use client";
-
+import { FaUser } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { MdAlternateEmail } from "react-icons/md";
@@ -10,11 +10,13 @@ import { AuthContext } from "@/AuthProvider/AuthProvider";
 
 export const EmailChangeModal = () => {
   const [openModal, setOpenModal] = useState(false);
-  const { logout } = useContext(AuthContext);
+  const { user, setUser } = useContext(AuthContext);
   const [formData, setFormData] = useState({
-    oldEmail: "", // Added oldEmail field
+    name: user?.name || "",
+    oldEmail: "",
     email: "",
     password: "",
+    confirmPassword: "",
   });
 
   const handleChange = (e) => {
@@ -27,26 +29,45 @@ export const EmailChangeModal = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(formData.oldEmail, formData.email);
+    // Check if passwords match
+    if (formData.password !== formData.confirmPassword) {
+      toast.error("Passordene stemmer ikke overens");
+      return;
+    }
 
     try {
       const { data } = await axios.patch(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/change-password`,
         {
+          name: formData.name,
           oldEmail: formData.oldEmail,
           newEmail: formData.email,
           password: formData.password,
+          confirmPassword: formData.confirmPassword,
         }
       );
       console.log(data);
 
       if (data.modifiedCount > 0) {
-        toast.success("E-post endre vellykket");
-        logout();
-        setFormData({ oldEmail: "", email: "", password: "" });
+        toast.success("E-post endret vellykket");
+        const updatedUser = {
+          ...user,
+          email: formData.email,
+          name: formData.name,
+        };
+        setUser(updatedUser);
+        localStorage.setItem("user", JSON.stringify(updatedUser));
+        setOpenModal(false);
+        setFormData({
+          name: "",
+          oldEmail: "",
+          email: "",
+          password: "",
+          confirmPassword: "",
+        });
       }
     } catch (error) {
-      toast.error(error.data.message);
+      toast.error(error?.response?.data?.message || "En feil oppstod");
     }
   };
 
@@ -75,7 +96,7 @@ export const EmailChangeModal = () => {
         >
           <form
             onSubmit={handleSubmit}
-            className="px-5 pb-5 pt-3 lg:pb-10 lg:pt-5 lg:px-10"
+            className="px-5 pb-5 pt-3 lg:pb-8 lg:pt-5 lg:px-10"
           >
             <div
               onClick={() => setOpenModal(false)}
@@ -83,13 +104,33 @@ export const EmailChangeModal = () => {
             >
               <RxCross2 />
             </div>
-            <h2 className="pb-8 text-2xl text-green-600 font-semibold">
+            <h2 className="pb-5 text-2xl text-green-600 font-medium">
               Endre e-post
             </h2>
-            <div className="space-y-3">
+            <div className="space-y-1">
+              {/* Name Field */}
+              <div>
+                <label htmlFor="name" className="block mb-1">
+                  Navn
+                </label>
+                <div className="relative">
+                  <input
+                    id="name"
+                    type="text"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Skriv inn ditt navn"
+                    className="block w-full rounded-lg p-3 pl-10 outline-none border"
+                  />
+                  <span className="absolute left-2 top-0 flex items-center h-full text-green-600">
+                    <FaUser />
+                  </span>
+                </div>
+              </div>
+
               {/* Old Email Field */}
               <div>
-                <label htmlFor="oldEmail" className="block mb-2">
+                <label htmlFor="oldEmail" className="block mb-1">
                   E-post (nåværende)
                 </label>
                 <div className="relative">
@@ -110,7 +151,7 @@ export const EmailChangeModal = () => {
 
               {/* New Email Field */}
               <div>
-                <label htmlFor="email" className="block mb-2">
+                <label htmlFor="email" className="block mb-1">
                   Ny e-post
                 </label>
                 <div className="relative">
@@ -131,7 +172,7 @@ export const EmailChangeModal = () => {
 
               {/* Password Field */}
               <div>
-                <label htmlFor="password" className="block mb-2">
+                <label htmlFor="password" className="block mb-1">
                   Passord
                 </label>
                 <div className="relative">
@@ -141,6 +182,27 @@ export const EmailChangeModal = () => {
                     value={formData.password}
                     onChange={handleChange}
                     placeholder="Skriv inn passordet ditt"
+                    className="block w-full rounded-lg p-3 pl-10 outline-none border"
+                    required
+                  />
+                  <span className="absolute left-2 top-0 flex items-center h-full text-green-600">
+                    <RiLockPasswordLine />
+                  </span>
+                </div>
+              </div>
+
+              {/* Confirm Password Field */}
+              <div>
+                <label htmlFor="confirmPassword" className="block mb-1">
+                  Bekreft passord
+                </label>
+                <div className="relative">
+                  <input
+                    id="confirmPassword"
+                    type="password"
+                    value={formData.confirmPassword}
+                    onChange={handleChange}
+                    placeholder="Bekreft passordet ditt"
                     className="block w-full rounded-lg p-3 pl-10 outline-none border"
                     required
                   />

@@ -45,15 +45,10 @@ const NettsideForm = () => {
 
   const options = [
     { name: "Jeg trenger Domene" },
-    {
-      name: "Jeg trenger Logo",
-    },
-    {
-      name: "Drift og vedlikehold",
-    },
-    {
-      name: "SEO",
-    },
+    { name: "Jeg trenger Logo" },
+    { name: "Drift og vedlikehold" },
+    { name: "SEO" },
+    ...(pathName === "/nettbuttik" ? [{ name: "Kobling mot leverandør" }] : []),
   ];
 
   const handleChange = (value) => {
@@ -219,28 +214,16 @@ const NettsideForm = () => {
               >
                 {pathName === "/nettside" ? (
                   <>
-                    <option value="8000 - 15000kr">
-                    8000 - 15000kr
-                    </option>
-                    <option value="15000 - 25000kr">
-                    15000 - 25000kr
-                    </option>
-                    <option value="25000 - 35000kr">
-                    25000 - 35000kr
-                    </option>
+                    <option value="8000 - 15000kr">8000 - 15000kr</option>
+                    <option value="15000 - 25000kr">15000 - 25000kr</option>
+                    <option value="25000 - 35000kr">25000 - 35000kr</option>
                     <option value="jet vet ikke">Jeg vet ikke</option>
                   </>
                 ) : pathName === "/nettbuttik" ? (
                   <>
-                    <option value="15000kr - 25000kr">
-                    15000kr - 25000kr
-                    </option>
-                    <option value="25000 - 35000kr">
-                    25000 - 35000kr
-                    </option>
-                    <option value="35000kr - 50000kr">
-                    35000kr - 50000kr
-                    </option>
+                    <option value="15000kr - 25000kr">15000kr - 25000kr</option>
+                    <option value="25000 - 35000kr">25000 - 35000kr</option>
+                    <option value="35000kr - 50000kr">35000kr - 50000kr</option>
                     {/* <option value="50,000+ kr">50,000+</option> */}
                     <option value="jet vet ikke">Jeg vet ikke</option>
                   </>
@@ -248,10 +231,10 @@ const NettsideForm = () => {
                   <>
                     {" "}
                     <option value="30 000kr - 75 0000kr">
-                    30 000kr - 75 0000kr
+                      30 000kr - 75 0000kr
                     </option>
                     <option value="75 000 - 125 000kr">
-                    75 000 - 125 000kr
+                      75 000 - 125 000kr
                     </option>
                     <option value="1,25,000+">125 000+</option>
                     <option value="I don't know">Jeg vet ikke</option>
@@ -261,7 +244,9 @@ const NettsideForm = () => {
             </div>
 
             <div className="flex flex-col">
-              <label htmlFor="" className=" text-xl mb-1 ">Antall sider</label>
+              <label htmlFor="budget" className="text-xl mb-1">
+                {pathName === "/nettbuttik" ? "Antal produkter" : "Antal sider"}
+              </label>
               <select
                 id="pages"
                 name="pages"
@@ -295,7 +280,7 @@ const NettsideForm = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-4">
             <div>
-              <h3 className="text-lg font-semibold mb-2">Valg</h3>
+              <h3 className="text-lg font-medium mb-2">Valg</h3>
               <div className="flex flex-col gap-4">
                 {options.map((option) => (
                   <div key={option.name} className="flex items-center gap-2">
@@ -314,7 +299,7 @@ const NettsideForm = () => {
                     >
                       {/* Custom Checkbox */}
                       <span
-                        className={`w-6 h-6 flex items-center justify-center border-2 rounded-md transition-all ${
+                        className={`w-6 h-6 flex border-green-400 items-center justify-center border-2 rounded-md transition-all ${
                           selectedValues.includes(option.name)
                             ? "bg-green-400 border-green-400 text-white"
                             : "bg-white border-gray-300"
@@ -330,7 +315,7 @@ const NettsideForm = () => {
             </div>
 
             <div className="">
-              <h3 className="text-lg font-semibold mb-2">
+              <h3 className="text-lg font-mediumd mb-2">
                 Hvis du har bilder eller logo kan du laste de opp her
               </h3>
               <div className="border border-dashed border-[#7BDCB5] rounded-lg p-4 flex flex-col items-center gap-3">
