@@ -152,7 +152,7 @@ const Tools = () => {
             basis
           </p>
         </div>
-        <div className=" grid sm:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-2 ">
+        <div className=" grid grid-cols-1 md:grid-cols-3 gap-2 ">
           <Card
             icon={<MdCampaign />}
             title="Markedsføring"
