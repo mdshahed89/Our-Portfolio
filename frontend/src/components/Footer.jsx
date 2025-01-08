@@ -22,27 +22,27 @@ const Footer = () => {
             src={Logo}
             alt="Sidesone Logo"
 
-            className=" w-auto h-auto object-contain"
+            className=" w-[12rem] h-auto object-contain"
           />
-          <h2 className="flex text-white font-semibold text-xl items-center gap-3">
+          <h2 className="flex text-white  text-xl items-center gap-3">
             <MdEmail size={20} /> Kontakt@sidesone.no
           </h2>
-          <h2 className="flex text-white font-semibold text-xl items-center gap-3">
+          <h2 className="flex text-white text-xl items-center gap-3">
             <MdAddIcCall size={20} /> +47 13 65 07
           </h2>
-          <h2 className="text-white font-semibold text-xl">
+          <h2 className="text-white text-xl">
             Sidesone AS, org.nr. 932 244 721
           </h2>
         </div>
         <div className="flex flex-col  gap-2 items-center">
           <Link
-            className="text-white hover:text-[#17DB4F] transition-all duration-300 ease-in-out active:scale-95 font-semibold text-xl"
+            className="text-white hover:text-[#17DB4F] transition-all duration-300 ease-in-out active:scale-95 text-xl"
             href={"https://www.instagram.com/sidesonenorge/"}
           >
             Instagram
           </Link>
           <Link
-            className="text-white hover:text-[#17DB4F] transition-all duration-300 ease-in-out active:scale-95 font-semibold text-xl"
+            className="text-white hover:text-[#17DB4F] transition-all duration-300 ease-in-out active:scale-95 text-xl"
             href={"https://www.facebook.com/groups/sidesone/"}
           >
             Facebook gruppe
@@ -51,7 +51,7 @@ const Footer = () => {
         <div className="space-y-4">
           <div className="flex items-center justify-center">
             <Link
-              className="text-gray-200 hover:text-[#17DB4F] transition-all duration-300 ease-in-out active:scale-95 font-semibold text-xl"
+              className="text-gray-200 hover:text-[#17DB4F] transition-all duration-300 ease-in-out active:scale-95 text-xl"
               href={"/vilkar-og-betingelser"}
             >
               Vilkår og betingelser
@@ -59,7 +59,7 @@ const Footer = () => {
           </div>
           <div className="flex items-center justify-center">
             <Link
-              className="text-gray-200 hover:text-[#17DB4F] transition-all duration-300 ease-in-out active:scale-95 font-semibold text-xl"
+              className="text-gray-200 hover:text-[#17DB4F] transition-all duration-300 ease-in-out active:scale-95 text-xl"
               href={"/informasjonskapsler-cookies"}
             >
               Informasjonskapsler (Cookies)
@@ -68,7 +68,7 @@ const Footer = () => {
 
           <div className=" flex items-center justify-center">
             <Link
-              className="text-gray-200 hover:text-[#17DB4F] transition-all duration-300 ease-in-out active:scale-95 font-semibold text-xl"
+              className="text-gray-200 hover:text-[#17DB4F] transition-all duration-300 ease-in-out active:scale-95 text-xl"
               href={"/privacy-policy"}
             >
               Privacy Policy

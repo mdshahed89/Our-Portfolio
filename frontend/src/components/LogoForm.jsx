@@ -108,7 +108,7 @@ const LogoForm = () => {
           <div className="">
             <div className="flex flex-col w-full">
               <label htmlFor="description" className="text-xl mb-1">
-                Beskriv hvordan du ønsker at nettsiden din skal være
+                Beskriv hvordan du ønsker at Logoen din skal være
               </label>
               <textarea
                 id="description"

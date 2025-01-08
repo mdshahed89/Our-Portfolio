@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { AuthContext } from "@/AuthProvider/AuthProvider";
 
-export const EmailChange = () => {
+export const EmailChangeModal = () => {
   const [openModal, setOpenModal] = useState(false);
   const { user, setUser } = useContext(AuthContext);
   const [formData, setFormData] = useState({
