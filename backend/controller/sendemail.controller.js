@@ -67,7 +67,9 @@ export const sendEmail = async (req, res) => {
            <td style="padding: 8px;">${info.budget || "N/A"}</td>
           </tr>
           <tr>
-            <td style="padding: 8px; font-weight: bold; background-color: #f2f2f2;">Antal sider</td>
+            <td style="padding: 8px; font-weight: bold; background-color: #f2f2f2;">${
+              info.path === "/nettbuttik" ? "Antal produkter" : "Antal sider"
+            }</td>
             
           </tr>
           <tr style="background-color: #ffffff;">
@@ -291,22 +293,25 @@ export const resetPassword = async (req, res) => {
 };
 
 export const changePassword = async (req, res) => {
-  const { oldEmail, password, newEmail } = req.body;
+  const { oldEmail, password, newEmail, confirmPassword, name } = req.body;
   console.log({
     oldEmail,
     password,
     newEmail,
+    confirmPassword,
+    name,
   });
 
   const admin = await Admin.findOne({ email: oldEmail });
-  console.log(admin.password);
 
   if (!admin) {
     return res.status(400).send({ message: "Finner ikke e-post" });
   }
-
+  if (password !== confirmPassword) {
+    return res.status(400).send({ message: "Passord stemmer ikke" });
+  }
   const isPasswordMatch = await bcrypt.compare(password, admin.password);
-  console.log(isPasswordMatch);
+
   if (!isPasswordMatch) {
     return res.status(404).send({ message: "Feil passord" });
   }
@@ -314,7 +319,7 @@ export const changePassword = async (req, res) => {
   try {
     const updatedAdmin = await Admin.updateOne(
       { email: oldEmail },
-      { $set: { email: newEmail } }
+      { $set: { email: newEmail, name: name } }
     );
 
     console.log(updatedAdmin);
