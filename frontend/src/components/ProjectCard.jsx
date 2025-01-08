@@ -37,12 +37,12 @@ const ProjectCard = () => {
   return (
     <div>
       {projects.length > 0 ? (
-        <div className="mt-5 grid  lg:grid-cols-3 gap-5">
+        <div className="mt-5 flex flex-wrap gap-5">
           {projects.map((item, index) => (
             <div
               key={index}
-              className="group relative mx-2 z-10 hover:z-50 flex flex-col items-center justify-center 
-                 overflow-hidden rounded-xl bg-white shadow-lg 
+              className="group relative mx-2 shadow-lg   hover:shadow-lg  flex flex-col items-center justify-center 
+                 overflow-hidden rounded-xl bg-white 
                  transition-transform duration-500 ease-in-out"
             >
               <figure className="h-[300px] w-[400px] overflow-hidden">
@@ -59,7 +59,7 @@ const ProjectCard = () => {
                     setDeleteId(item._id);
                     setOpenModal(true);
                   }}
-                  className="bg-white text-[#035635] transition-all duration-300 ease-in-out active:scale-95 rounded-xl top-5 right-5 p-2 absolute"
+                  className="bg-slate-200 shadow-xl text-[#035635] transition-all duration-300 ease-in-out active:scale-95 rounded-xl top-5 right-5 p-2 absolute"
                 >
                   <MdDelete size={25} />
                 </button>

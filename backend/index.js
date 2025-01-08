@@ -17,7 +17,7 @@ app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ limit: "10mb", extended: true }));
 const corsOptions = {
   origin: [process.env.FRONTEND_URL],
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
 };
@@ -32,7 +32,6 @@ app.get("/", (req, res) => {
   });
 });
 
-
 app.use(admin);
 app.use(project);
 app.use(sendEmail);
@@ -40,12 +39,10 @@ app.use(blog);
 app.use("/api/book", bookingRoutes);
 app.use("/api/availability", availabilityRoutes);
 
-
-
 if (process.env.NODE_ENV !== "production") {
   app.listen(process.env.PORT || 5000, () => {
     console.log(`Server is running on port ${process.env.PORT || 5000}`);
   });
 }
 
-export default app
+export default app;
