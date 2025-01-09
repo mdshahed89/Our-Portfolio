@@ -1,22 +1,34 @@
 // "use client";
-import Image from "next/image";
 import axios from "axios";
 import BlogCard from "./BlogCard";
 import { FaDatabase } from "react-icons/fa";
+
+const fetchReferencesData = async () => {
+  try {
+    const { data } = await axios.get(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/get-blog`
+    );
+    return data.data;
+  } catch (error) {
+    console.error("Failed to fetch references data:", error);
+    return [];
+  }
+};
+
 const AllProject = async () => {
   // const [referencesData, setReferencesData] = useState([]);
-  let referencesData = []
+  const referencesData = await fetchReferencesData();
 
   // const fetchData = async () => {
-    try {
-      const { data } = await axios.get(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/get-blog`
-      );
-      referencesData = data.data
-    } catch (error) {
-      console.log(`Failed to fetch projects`);
+    // try {
+    //   const { data } = await axios.get(
+    //     `${process.env.NEXT_PUBLIC_BACKEND_URL}/get-blog`
+    //   );
+    //   referencesData = data.data
+    // } catch (error) {
+    //   console.log(`Failed to fetch projects`);
       
-    }
+    // }
   // };
 
   // useEffect(() => {
