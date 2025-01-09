@@ -204,7 +204,7 @@ const NettsideForm = () => {
           <div className="grid grid-cols-1 items-end md:grid-cols-2 gap-4">
             <div className="flex flex-col">
               <label htmlFor="budget" className="text-xl mb-1">
-                Budget <small className="text-red-500 text-sm">(Påkrevd)</small>
+              Budsjett <small className="text-red-500 text-sm">(Påkrevd)</small>
               </label>
               <select
                 id="budget"
@@ -245,7 +245,7 @@ const NettsideForm = () => {
 
             <div className="flex flex-col">
               <label htmlFor="budget" className="text-xl mb-1">
-                {pathName === "/nettbuttik" ? "Antal produkter" : "Antal sider"}
+                {pathName === "/nettbuttik" ? "Antall produkter" : "Antall sider"}
               </label>
               <select
                 id="pages"
@@ -258,7 +258,7 @@ const NettsideForm = () => {
                     <option value="1">1</option>
                     <option value="1 - 5">1 - 5</option>
                     <option value="10 +">10 +</option>
-                    <option value="jet vet ikke">Jeg not jet</option>
+                    <option value="jet vet ikke">Jeg vet ikke</option>
                   </>
                 ) : pathName === "/nettbuttik" ? (
                   <>
@@ -272,7 +272,7 @@ const NettsideForm = () => {
                   <>
                     <option value="5-10">5-10</option>
                     <option value="10+">10+</option>
-                    <option value="jet vet ikke">Jeg not jet</option>
+                    <option value="jet vet ikke">Jeg vet ikke</option>
                   </>
                 )}
               </select>

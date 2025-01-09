@@ -1,23 +1,27 @@
-"use client";
+// "use client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import axios from "axios";
 import BlogCard from "./BlogCard";
 import { FaDatabase } from "react-icons/fa";
-import { useRouter } from "next/navigation";
-const AllProject = () => {
-  const [referencesData, setReferencesData] = useState([]);
+const AllProject = async () => {
+  // const [referencesData, setReferencesData] = useState([]);
+  let referencesData = []
 
-  const fetchData = async () => {
-    const { data } = await axios.get(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/get-blog`
-    );
-    setReferencesData(data.data);
-  };
+  // const fetchData = async () => {
+    try {
+      const { data } = await axios.get(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/get-blog`
+      );
+      referencesData = data.data
+    } catch (error) {
+      console.log(`Failed to fetch projects`);
+      
+    }
+  // };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
   return (
     <div className="pb-10">

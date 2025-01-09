@@ -23,15 +23,11 @@ const BlogCard = ({ reference }) => {
 
   return (
     <div>
-      <div className="bg-white overflow-hidden">
+      <div className="bg-white overflow-hidden rounded-md ">
         <div>
           <Link href={`/referanser/${reference?._id}`}>
             <figure
-              style={{
-                height: "230px",
-                width: "100%",
-                overflow: "hidden",
-              }}
+              className=" w-full h-auto lg:h-[350px]  "
             >
               <Image
                 loading="lazy"
@@ -46,7 +42,7 @@ const BlogCard = ({ reference }) => {
             </figure>
           </Link>
         </div>
-        <div className="px-3 py-3 space-y-3">
+        <div className="px-3 py-3 space-y-3 pb-[2rem]">
           <h2 className="text-2xl font-semibold">
             {reference?.title || "Untitled Blog"}
           </h2>

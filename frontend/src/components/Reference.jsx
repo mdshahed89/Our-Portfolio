@@ -43,17 +43,17 @@ export default async function Reference({ title }) {
 
           <div className="grid lg:grid-cols-3 items-center justify-center gap-5">
             {referencesData.slice(0, 3).map((reference, index) => (
-              <div key={index} className="overflow-hidden">
+              <div key={index} className="overflow-hidden bg-[#F5F5F7] rounded-md group ">
                 <div>
                   <Link href={`/referanser/${reference?._id}`}>
-                    <figure className="h-[230px] w-full overflow-hidden">
+                    <figure className="h-[350px] w-full overflow-hidden">
                       <Image
                         loading="lazy"
                         src={reference?.coverImage}
                         alt={reference?.title || "Blog Image"}
                         width={400}
                         height={230}
-                        className="object-cover h-full w-full"
+                        className="object-cover h-full w-full group-hover:scale-110 transition-scale duration-300 ease-in-out"
                       />
                     </figure>
                   </Link>
@@ -70,7 +70,7 @@ export default async function Reference({ title }) {
                   </div>
                   <div>
                     <Link
-                      className="text-black group flex items-center gap-2 border-b-2 border-[#035635] w-fit p-3 transition-all duration-300 ease-in-out active:scale-95 font-medium text-lg"
+                      className="text-black group flex items-center gap-2 border-b-2 border-[#035635] w-fit px-3 pb-1 transition-all duration-300 ease-in-out active:scale-95 font-medium text-lg"
                       href={`/referanser`}
                     >
                       Se Prosjektet <MdArrowForward className=" mt-1 group-hover:ml-2 transition-all duration-200 ease-linear " />
