@@ -14,7 +14,7 @@ const app = express();
 dotenv.config();
 dbConnect();
 const corsOptions = {
-  origin: ['https://sidesone.no', 'http://localhost:3001'],
+  origin: ['https://sidesone.no', 'http://localhost:3001', 'https://sidesone-ten.vercel.app'],
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
