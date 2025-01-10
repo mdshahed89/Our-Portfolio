@@ -17,9 +17,9 @@ const AdminProfile = () => {
   return (
     <div className="flex items-center min-h-[80vh]  justify-center">
       <div className="bg-[#035635] space-y-1 py-10  rounded-xl md:w-[70%] mx-auto ">
-        <h2 className="font-bold text-2xl text-center text-white">
+        <h3 className="font-bold text-2xl text-center text-white">
           {user?.name}
-        </h2>
+        </h3>
         <h3 className="font-semibold text-xl text-center text-white">
           {user?.email}
         </h3>

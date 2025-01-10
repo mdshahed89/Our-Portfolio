@@ -72,9 +72,9 @@ const page = () => {
           </h3>
           <h3 className=" md:px-3  text-[1.2rem] font-light lg:mb-6  flex-1 ">
             Usikker hvor seo resultatene dine? så kan du sjekke de{" "}
-            <Link href={`#`} className=" border-b-2 border-[#fff] ">
+            <span className=" border-b-2 border-[#fff] ">
               her
-            </Link>
+            </span>
             .
           </h3>
         </div>

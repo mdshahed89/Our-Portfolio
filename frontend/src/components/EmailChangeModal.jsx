@@ -104,9 +104,9 @@ export const EmailChangeModal = () => {
             >
               <RxCross2 />
             </div>
-            <h2 className="pb-5 text-2xl text-green-600 font-medium">
+            <h3 className="pb-5 text-2xl text-green-600 font-medium">
               Endre e-post
-            </h2>
+            </h3>
             <div className="space-y-1">
               {/* Name Field */}
               <div>

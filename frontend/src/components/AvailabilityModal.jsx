@@ -78,9 +78,9 @@ const AvailabilityModal = ({ fetchData }) => {
             className="px-5 pb-5 pt-3 lg:pb-10 lg:pt-5 lg:px-10"
           >
             <div className="flex justify-between items-center mb-5">
-              <h2 className="text-2xl font-semibold">
+              <h3 className="text-2xl font-semibold">
                 Velg Start- og sluttdato
-              </h2>
+              </h3>
               <button
                 type="button"
                 onClick={() => setOpenModal(false)}

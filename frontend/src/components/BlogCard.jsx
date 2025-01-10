@@ -43,12 +43,12 @@ const BlogCard = ({ reference }) => {
           </Link>
         </div>
         <div className="px-3 py-3 space-y-3 pb-[2rem]">
-          <h2 className="text-2xl font-semibold">
+          <h3 className="text-2xl font-semibold">
             {reference?.title || "Untitled Blog"}
-          </h2>
-          <h2 className="text-sm font-medium text-gray-600">
+          </h3>
+          <h4 className="text-sm font-medium text-gray-600">
             {formatDate(reference?.createdAt)}
-          </h2>
+          </h4>
           <div className="line-clamp-3 py-2 text-[20px] text-gray-600">
             {sliceContent(getParagraphContent(reference?.content).join(" "))}
           </div>

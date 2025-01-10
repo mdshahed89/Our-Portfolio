@@ -24,19 +24,21 @@ const Footer = () => {
 
             className=" w-[12rem] h-auto object-contain"
           />
-          <h2 className="flex text-white  text-xl items-center gap-3">
+          <p className="flex text-white  text-xl items-center gap-3">
             <MdEmail size={20} /> Kontakt@sidesone.no
-          </h2>
-          <h2 className="flex text-white text-xl items-center gap-3">
+          </p>
+          <p className="flex text-white text-xl items-center gap-3">
             <MdAddIcCall size={20} /> +47 13 65 07
-          </h2>
-          <h2 className="text-white text-xl">
+          </p>
+          <p className="text-white text-xl">
             Sidesone AS, org.nr. 932 244 721
-          </h2>
+          </p>
         </div>
         <div className="flex flex-col  gap-2 items-center">
           <Link
             className="text-white hover:text-[#17DB4F] transition-all duration-300 ease-in-out active:scale-95 text-xl"
+            target="_blank"
+            rel="nofollow"
             href={"https://www.instagram.com/sidesonenorge/"}
           >
             Instagram
@@ -44,6 +46,8 @@ const Footer = () => {
           <Link
             className="text-white hover:text-[#17DB4F] transition-all duration-300 ease-in-out active:scale-95 text-xl"
             href={"https://www.facebook.com/groups/sidesone/"}
+            rel="nofollow"
+            target="_blank"
           >
             Facebook gruppe
           </Link>

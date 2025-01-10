@@ -13,8 +13,6 @@ import blog from "./routes/blog.route.js";
 const app = express();
 dotenv.config();
 dbConnect();
-app.use(express.json({ limit: "10mb" }));
-app.use(express.urlencoded({ limit: "10mb", extended: true }));
 const corsOptions = {
   origin: [process.env.FRONTEND_URL],
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
@@ -22,8 +20,13 @@ const corsOptions = {
   credentials: true,
 };
 
+
 app.use(cors(corsOptions));
 app.options("*", cors(corsOptions));
+app.use(express.json({ limit: "10mb" }));
+app.use(express.urlencoded({ limit: "10mb", extended: true }));
+console.log();
+
 app.use(cookieParser());
 
 app.get("/", (req, res) => {
