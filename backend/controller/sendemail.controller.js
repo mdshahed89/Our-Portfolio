@@ -124,7 +124,7 @@ export const sendEmail = async (req, res) => {
       return res.status(500).send("Feil ved sending av e-post");
     } else {
       console.log(info.response);
-      res.status(200).send("Email sent successfully!");
+      return res.status(200).send("Email sent successfully!");
     }
   });
 };
@@ -208,7 +208,7 @@ export const sendLogoEmail = async (req, res) => {
       return res.status(500).send("Feil ved sending av e-post");
     } else {
       console.log(info.response);
-      res.status(200).send("Email sent successfully!");
+      return res.status(200).send("Email sent successfully!");
     }
   });
 };
@@ -261,7 +261,7 @@ Hvis du ikke har bedt om denne endringen, kan du trygt ignorere denne e-posten.
       return res.status(500).send("Feil ved sending av e-post");
     } else {
       console.log(info.response);
-      res.status(200).send("Email sent successfully!");
+      return res.status(200).send("Email sent successfully!");
     }
   });
 };
@@ -285,10 +285,10 @@ export const resetPassword = async (req, res) => {
       { $set: { password: hashedPassword } }
     );
     console.log(result);
-    res.status(200).send(result);
+    return res.status(200).send(result);
   } catch (err) {
     console.error(err);
-    res.status(400).send({ message: "Linker er utløpt, prøv igjen" });
+    return res.status(400).send({ message: "Linker er utløpt, prøv igjen" });
   }
 };
 
@@ -323,9 +323,11 @@ export const changePassword = async (req, res) => {
     );
 
     console.log(updatedAdmin);
-    res.status(200).send(updatedAdmin);
+    return res.status(200).send(updatedAdmin);
   } catch (err) {
     console.error(err);
-    res.status(400).send({ message: "Noe gikk galt. Vennligst prøv igjen" });
+    return res
+      .status(400)
+      .send({ message: "Noe gikk galt. Vennligst prøv igjen" });
   }
 };

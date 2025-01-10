@@ -3,9 +3,11 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { FaDatabase, FaUserFriends } from "react-icons/fa";
+import { FaDatabase, FaEdit, FaUserFriends } from "react-icons/fa";
 import parse from "html-react-parser";
 import { MdDelete } from "react-icons/md";
+import toast from "react-hot-toast";
+import { CiEdit } from "react-icons/ci";
 const Page = () => {
   const [openModal, setOpenModal] = useState(false);
   const [deleteId, setDeleteId] = useState(null);
@@ -47,7 +49,7 @@ const Page = () => {
       fetchData();
       setOpenModal(false);
     } catch (error) {
-      console.error("Error deleting:", error);
+      toast.error(error);
     }
   };
 
@@ -56,12 +58,12 @@ const Page = () => {
       <div className="h-[50px] flex justify-between items-center px-5 text-white bg-[#035635]">
         <div className="items-center flex gap-2">
           <FaUserFriends size={20} />
-          <h2 className="text-[15px] font-bold">Alle Blogg</h2>
+          <h2 className="text-[15px] font-medium">Alle Blogg</h2>
         </div>
         <div>
           <Link
             href={"/adminpanel/createblog"}
-            className="px-2 md:px-10 py-2 rounded-md font-medium transition-all duration-300 ease-in-out active:scale-95 bg-green-700 text-white"
+            className="px-2 md:px-10 py-2 rounded-md font-medium transition-all duration-300 ease-in-out active:scale-95 bg-white text-green-700"
           >
             skape Blogg
           </Link>
@@ -105,14 +107,21 @@ const Page = () => {
                         />
                       </figure>
                       <div>
+                        <Link
+                          href={`/adminpanel/blogs/${reference._id}`}
+                          className="bg-slate-100 shadow-xl text-black transition-all duration-300 ease-in-out active:scale-95 rounded-md top-5 right-20 p-2 absolute"
+                        >
+                          <CiEdit className="text-[1.5rem]" />
+                        </Link>
+
                         <button
                           onClick={() => {
                             setDeleteId(reference._id);
                             setOpenModal(true);
                           }}
-                          className="bg-slate-200 shadow-xl text-[#035635] transition-all duration-300 ease-in-out active:scale-95 rounded-xl top-5 right-5 p-2 absolute"
+                          className="bg-slate-100 shadow-xl text-black transition-all duration-300 ease-in-out active:scale-95 rounded-xl top-5 right-5 p-2 absolute"
                         >
-                          <MdDelete size={25} />
+                          <MdDelete className="text-[1.5rem]" />
                         </button>
 
                         {openModal && (

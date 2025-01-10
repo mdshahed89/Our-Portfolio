@@ -1,6 +1,7 @@
 "use client";
 import { AuthContext } from "@/AuthProvider/AuthProvider";
 import axios from "axios";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useContext, useState } from "react";
 import toast from "react-hot-toast";
@@ -56,7 +57,13 @@ const Page = () => {
   };
 
   return (
-    <div className="flex items-center h-screen justify-center">
+    <div className="flex items-center relative  h-screen justify-center">
+      <Link
+        href={"/"}
+        className="bg-white absolute top-10 left-4 md:left-[10%] lg:left-[25%] transition-all duration-300 ease-in-out active:scale-95 w-60 flex justify-center text-xl font-semibold text-green-700 rounded-full p-2"
+      >
+        tilbake
+      </Link>
       <div className="bg-white w-[90%] md:w-[80%] lg:w-[50%] rounded-xl p-2 md:p-5 mx-auto">
         {emailSent ? (
           <div className="text-center space-y-4">
@@ -75,7 +82,7 @@ const Page = () => {
               <form onSubmit={handleLoginSubmit} className="space-y-3">
                 <div className="flex flex-col">
                   <label htmlFor="email" className="text-xl mb-1">
-                  E-post
+                    E-post
                   </label>
                   <input
                     type="email"
@@ -87,7 +94,7 @@ const Page = () => {
                 </div>
                 <div className="flex relative flex-col">
                   <label htmlFor="password" className="text-xl mb-1">
-                  Passord
+                    Passord
                   </label>
                   <input
                     type={show ? "text" : "password"}

@@ -1,23 +1,26 @@
 "use client";
 import { FaUserFriends } from "react-icons/fa";
 import Image from "next/image";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { RxCross2 } from "react-icons/rx";
 import ReactQuill from "react-quill-new";
 import "react-quill-new/dist/quill.snow.css";
 import { uploadFile } from "@/AuthProvider/imageUpload";
 import axios from "axios";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { AuthContext } from "@/AuthProvider/AuthProvider";
-
-const Page = () => {
+import toast from "react-hot-toast";
+const page = () => {
   const { user } = useContext(AuthContext);
+  const { id } = useParams();
   const [isLoading, setIsLoading] = useState(false);
   const [value, setValue] = useState("");
   const [filePreview, setFilePreview] = useState([]);
   const [file, setFile] = useState(null);
   const [errors, setErrors] = useState({});
+  const [title, setTitle] = useState("");
   const router = useRouter();
+
   const modules = {
     toolbar: [
       [{ header: [1, 2, 3, false] }],
@@ -27,6 +30,29 @@ const Page = () => {
       ["image", "link"],
     ],
   };
+
+  const fetchBlogData = async () => {
+    try {
+      const { data } = await axios.get(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/single-blog/${id}`
+      );
+      console.log(data);
+      if (data.success) {
+        const { title, content, coverImage } = data.data;
+        setTitle(title || "");
+        setValue(content || "");
+        setFilePreview(
+          coverImage ? [{ name: coverImage, url: coverImage }] : []
+        );
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchBlogData();
+  }, [id]);
 
   const handleFileUpload = (event) => {
     const selectedFile = event.target.files[0];
@@ -60,33 +86,35 @@ const Page = () => {
     e.preventDefault();
     setIsLoading(true);
     const form = e.target;
-    const title = form.title.value;
     const content = value;
     const coverImage = filePreview.length > 0 ? filePreview : null;
 
     try {
-      const uploadedImageURL = await uploadFile(file);
+      let uploadedImageURL = "";
+      if (file) {
+        uploadedImageURL = await uploadFile(file);
+      }
+
       const formData = {
         author: user.name,
         title,
         content,
-        coverImage: uploadedImageURL,
+        coverImage: uploadedImageURL || coverImage[0]?.url,
       };
-      console.log(formData);
 
-      const { data } = await axios.post(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/save-blog`,
+      const { data } = await axios.patch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/update-blog/${id}`,
         formData
       );
       if (data.success === true) {
         setIsLoading(false);
-        toast.success("Bloggen ble opprettet");
+        toast.success("Bloggen ble oppdatert");
         router.push("/adminpanel/blogs");
       }
       setErrors({});
     } catch (error) {
       setIsLoading(false);
-      toast.error(error);
+      toast.error(error.message || "Something went wrong");
       setErrors((prev) => ({ ...prev, file: "Image upload failed." }));
     }
   };
@@ -95,7 +123,7 @@ const Page = () => {
     <div className="m-2 md:m-5">
       <div className="h-[50px] flex gap-2 px-5 text-white items-center bg-[#035635]">
         <FaUserFriends size={20} />
-        <h2 className="text-[15px] font-bold">Lag blogger</h2>
+        <h2 className="text-[15px] font-bold">oppdater bloggen</h2>
       </div>
       <div className="my-5">
         <form onSubmit={handleSubmit}>
@@ -110,6 +138,8 @@ const Page = () => {
                   type="text"
                   id="title"
                   name="title"
+                  value={title} // Use value from state
+                  onChange={(e) => setTitle(e.target.value)} // Handle title change
                   className="rounded-full px-2 bg-transparent border border-[#7BDCB5] outline-none focus:border-dashed p-2 mt-1"
                   required
                 />
@@ -165,7 +195,6 @@ const Page = () => {
                       multiple
                       className="hidden"
                       onChange={handleFileUpload}
-                      required
                     />
                     {errors.file && (
                       <span className="text-red-500 text-sm">
@@ -192,15 +221,13 @@ const Page = () => {
             <div className="flex items-center gap-5">
               <button
                 type="submit"
-                className="bg-[#035635] px-10 py-2 transition-all duration-300 ease-in-out active:scale-95 text-xl font-medium  rounded-full text-white"
+                className="bg-[#035635] px-10 py-2 transition-all duration-300 ease-in-out active:scale-95 text-xl font-medium rounded-full text-white"
               >
                 Send inn
               </button>
-              <div>
-                {isLoading && (
-                  <div className="w-10 h-10 animate-[spin_1s_linear_infinite] rounded-full border-double border-4 border-r-0 border-l-0 border-b-green-400 border-t-green-700"></div>
-                )}
-              </div>
+              {isLoading && (
+                <div className="w-10 h-10 animate-[spin_1s_linear_infinite] rounded-full border-double border-4 border-r-0 border-l-0 border-b-green-400 border-t-green-700"></div>
+              )}
             </div>
           </div>
         </form>
@@ -209,4 +236,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default page;
