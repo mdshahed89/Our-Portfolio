@@ -284,7 +284,7 @@ const NettsideForm = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-4">
             <div>
-              <h3 className="text-lg font-medium mb-2">Valg</h3>
+              <h4 className="text-lg font-medium mb-2">Valg</h4>
               <div className="flex flex-col gap-4">
                 {options.map((option) => (
                   <div key={option.name} className="flex items-center gap-2">
@@ -319,9 +319,9 @@ const NettsideForm = () => {
             </div>
 
             <div className="">
-              <h3 className="text-lg font-mediumd mb-2">
+              <h4 className="text-lg font-mediumd mb-2">
                 Hvis du har bilder eller logo kan du laste de opp her
-              </h3>
+              </h4>
               <div className="border border-dashed border-[#7BDCB5] rounded-lg p-4 flex flex-col items-center gap-3">
                 {filePreview ? (
                   <div>

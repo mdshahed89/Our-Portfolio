@@ -7,11 +7,11 @@ import "./globals.css";
 import { Toaster } from "react-hot-toast";
 export const metadata = {
   title: "Sidesone - Profesjonelle nettsider, nettbutikker og webapper",
-  description: "Sidesone skaper moderne, brukervennlige nettsider, nettbutikker og skreddersydde webapplikasjoner. Øk synlighet og vekst med rask lastetid, sikkerhet og responsive design. 100% fornøydgaranti! Kontakt oss i dag.",
+  description: "Sidesone skaper moderne, brukervennlige nettsider, nettbutikker og skreddersydde webapplikasjoner. Øk synlighet og vekst med rask lastetid, sikkerhet og responsive design.",
   openGraph: {
     title: "Sidesone - Profesjonelle nettsider, nettbutikker og webapper",
     description:
-      "Sidesone skaper moderne, brukervennlige nettsider, nettbutikker og skreddersydde webapplikasjoner. Øk synlighet og vekst med rask lastetid, sikkerhet og responsive design. 100% fornøydgaranti! Kontakt oss i dag.",
+      "Sidesone skaper moderne, brukervennlige nettsider, nettbutikker og skreddersydde webapplikasjoner. Øk synlighet og vekst med rask lastetid, sikkerhet og responsive design.",
     url: "https://sidesone.no/",
     images: [
       {
@@ -27,7 +27,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Sidesone - Profesjonelle nettsider, nettbutikker og webapper",
     description:
-      "Sidesone skaper moderne, brukervennlige nettsider, nettbutikker og skreddersydde webapplikasjoner. Øk synlighet og vekst med rask lastetid, sikkerhet og responsive design. 100% fornøydgaranti! Kontakt oss i dag.",
+      "Sidesone skaper moderne, brukervennlige nettsider, nettbutikker og skreddersydde webapplikasjoner. Øk synlighet og vekst med rask lastetid, sikkerhet og responsive design.",
     images: ["/twitterCard-sidesone.png"],
   },
 };
@@ -39,7 +39,6 @@ export default function RootLayout({ children }) {
     <html lang="no">
       <head>
       <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png"></link>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="preload" href="/fonts/averta/AvertaDemoPE-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
       <link rel="preload" href="/fonts/averta/AvertaDemoPE-ExtraboldItalic.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <script type="application/ld+json">

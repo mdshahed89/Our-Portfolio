@@ -13,17 +13,20 @@ import blog from "./routes/blog.route.js";
 const app = express();
 dotenv.config();
 dbConnect();
-app.use(express.json({ limit: "10mb" }));
-app.use(express.urlencoded({ limit: "10mb", extended: true }));
 const corsOptions = {
-  origin: [process.env.FRONTEND_URL],
+  origin: ['https://sidesone.no', 'http://localhost:3001', 'https://sidesone-ten.vercel.app'],
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
 };
 
+
 app.use(cors(corsOptions));
 app.options("*", cors(corsOptions));
+app.use(express.json({ limit: "10mb" }));
+app.use(express.urlencoded({ limit: "10mb", extended: true }));
+console.log();
+
 app.use(cookieParser());
 
 app.get("/", (req, res) => {

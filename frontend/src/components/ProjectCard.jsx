@@ -79,9 +79,9 @@ const ProjectCard = () => {
                       onClick={(e) => e.stopPropagation()}
                       className="w-80 md:w-96 rounded-lg  bg-white p-12 text-center shadow-lg"
                     >
-                      <h6 className="text-lg font-medium py-4 text-gray-800">
+                      <h5 className="text-lg font-medium py-4 text-gray-800">
                         Er du sikker? Vil du slette den?
-                      </h6>
+                      </h5>
                       <div className="mt-4 flex justify-center gap-4">
                         <button
                           onClick={() => handleDelete(deleteId)}

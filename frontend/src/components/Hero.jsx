@@ -10,9 +10,9 @@ const Hero = () => {
           <h1 className=" text-[34px] md:text-[45px] lg:text-[62px] leading-tight font-semibold ">
             Øk vekst og synlighet med en profesjonell nettside
           </h1>
-          <h3 className="text-[20px] mt-3 md:text-[24px] lg:text-[30px] text-[#e9e9e9] font-medium leading-tight ">
+          <p className="text-[20px] mt-3 md:text-[24px] lg:text-[30px] text-[#e9e9e9] font-medium leading-tight ">
             Hos sidesone kan du spre dine digitale vinger!
-          </h3>
+          </p>
         </div>
 
         <div className=" mt-14 md:mt-5">

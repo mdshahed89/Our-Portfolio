@@ -60,35 +60,6 @@ const toolsData = [
 
 const Tools = () => {
   return (
-    // <div className="grid md:grid-cols-5 py-5 bg-[#fff]  lg:justify-between px-3 lg:px-0 gap-2 lg:gap-5 ">
-    //   {toolsData.map((tool, index) => (
-    //     <div key={index} className="flex flex-col md:items-center md:gap-3 ">
-    //       <div className="flex md:items-center flex-row md:flex-col gap-4 md:gap-1  ">
-    //         <div className=" md:mt-0 mt-1 md:w-[50px] w-[30px] h-[30px] md:h-[50px]">
-    //           <figure className="overflow-hidden w-[30px] h-[30px] md:w-[50px] md:h-[50px]">
-    //             <Image
-    //               src={tool.imgSrc}
-    //               blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
-    //               loading="lazy"
-    //               placeholder="blur"
-    //               alt={tool.imgAlt}
-    //               className="h-full w-full object-contain"
-    //             />
-    //           </figure>
-    //         </div>
-    //         <div className=" md:pb-0 pb-8 md:mb-0 mb-4 md:text-center md:border-none border-b-2 border-[#000] ">
-    //           <h2 className=" text-lg md:text-2xl font-semibold text-gray-900">
-    //             {tool.title}
-    //           </h2>
-    //           <p className="text-gray-600 md:hidden block text-lg">{tool.description}</p>
-    //         </div>
-    //       </div>
-    //       <div className="text-center md:block hidden">
-    //         <p className="text-gray-600 text-xl">{tool.description}</p>
-    //       </div>
-    //     </div>
-    //   ))}
-    // </div>
     <>
       <div className=" max-w-[1400px] mx-auto px-2 md:px-3 my-[8rem] ">
         <div className=" text-center w-full mb-[2rem] flex justify-center flex-col items-center  ">

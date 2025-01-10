@@ -22,17 +22,17 @@ const Booking = () => {
         <div className="space-y-5 leading-tight">
           <h3 className="text-[40px] lg:text-[56px] font-medium">Spørsmål?</h3>
           <div>
-          <h3 className="text-[24px] lg:text-[32px] font-medium">
+          <p className="text-[24px] lg:text-[32px] font-medium">
             Ring oss: +47 13 65 07
-          </h3>
-          <h3 className="text-[24px] lg:text-[32px] font-medium">
+          </p>
+          <p className="text-[24px] lg:text-[32px] font-medium">
             Mail oss: Kontakt@sidesone.no
-          </h3>
+          </p>
           </div>
-          <h3 className="text-[24px] lg:text-[32px] font-medium">Eller</h3>
-          <h3 className="text-[24px] lg:text-[32px] font-medium">
+          <p className="text-[24px] lg:text-[32px] font-medium">Eller</p>
+          <p className="text-[24px] lg:text-[32px] font-medium">
             Book en konsultasjon
-          </h3>
+          </p>
           <div className="flex justify-center py-5 lg:my-3 mt-6">
             <Link
               href={"/book-now"}
