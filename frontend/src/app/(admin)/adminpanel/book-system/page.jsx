@@ -116,9 +116,9 @@ export const GetBookedData = () => {
                     setDeleteId(item._id);
                     setOpenModal(true);
                   }}
-                  className="bg-slate-200  text-[#035635] transition-all duration-300 ease-in-out active:scale-95 rounded-xl top-5 right-5 p-2 absolute"
+                  className="bg-slate-100  text-[#000] transition-all duration-300 ease-in-out active:scale-95 rounded-md top-5 right-5 p-2 absolute"
                 >
-                  <MdDelete size={25} />
+                  <MdDelete className="text-[1.5rem]" />
                 </button>
 
                 {openModal && (
