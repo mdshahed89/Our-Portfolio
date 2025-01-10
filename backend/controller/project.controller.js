@@ -21,7 +21,7 @@ export const saveData = async (req, res) => {
 export const getData = async (req, res) => {
   try {
     const result = await Project.find();
-    res.status(201).json({
+    res.status(200).json({
       success: true,
       data: result,
       message: "Prosjekt grunnlagt vellykket.",
@@ -40,7 +40,7 @@ export const deleteProject = async (req, res) => {
     const { id } = req.params;
     const result = await Project.findByIdAndDelete(id);
     console.log(result);
-    res.status(201).json({
+    res.status(200).json({
       success: true,
       data: result,
       message: "Prosjekt slettet.",
