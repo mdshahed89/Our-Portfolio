@@ -71,7 +71,7 @@ export const ProfilePasswordChange = () => {
         >
           {emailSent ? (
             <div className="p-5 text-center space-y-4">
-              <h2 className="text-2xl font-semibold text-green-600">
+              <h2 className="text-2xl font-bold text-green-600">
                 E-post sendt!
               </h2>
               <p className="text-gray-700 text-lg font-medium">
@@ -100,9 +100,9 @@ export const ProfilePasswordChange = () => {
               >
                 <RxCross2 />
               </div>
-              <h3 className="pb-8 text-2xl text-green-600 font-semibold">
+              <h2 className="pb-8 text-2xl text-green-600 font-semibold">
                 Glem passord
-              </h3>
+              </h2>
               <div className="space-y-3">
                 <div>
                   <label htmlFor="email" className="block mb-2">

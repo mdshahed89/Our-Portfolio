@@ -3,14 +3,14 @@ const GetAvailability = ({ availabilityData }) => {
     <div className="">
       <div className="flex items-center p-2 rounded-xl gap-2  text-gray-500">
         {availabilityData && (
-          <h4 className="text-lg uppercase font-medium">
+          <h3 className="text-lg uppercase font-medium">
             Utilgjengelig :{" "}
             <span>
               {new Date(availabilityData?.startDate).toLocaleString()}
             </span>
             {" - "}
             <span>{new Date(availabilityData?.endDate).toLocaleString()}</span>
-          </h4>
+          </h3>
         )}
       </div>
     </div>

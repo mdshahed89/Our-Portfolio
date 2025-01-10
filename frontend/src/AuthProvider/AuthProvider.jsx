@@ -1,6 +1,7 @@
 "use client";
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
+import toast from "react-hot-toast";
 export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
@@ -26,8 +27,12 @@ const AuthProvider = ({ children }) => {
 
       setToken(token);
       setUser(user);
+      if (user) {
+        toast.success("logget på Successfullty");
+      }
       setError("");
     } catch (err) {
+      toast.error(err.response?.data?.message);
       setError(err.response?.data?.message || "Login failed");
     } finally {
       setLoading(false);
@@ -37,6 +42,7 @@ const AuthProvider = ({ children }) => {
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
+    toast.success("Logg ut vellykket");
     setToken(null);
     setUser(null);
     setLoading(false);

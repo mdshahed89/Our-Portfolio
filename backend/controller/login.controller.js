@@ -19,7 +19,7 @@ export const adminData = async (req, res) => {
     expiresIn: "1h",
   });
   console.log(user.name);
-  res.status(200).send({
+  return res.status(200).send({
     message: "Innlogging vellykket",
     token,
     user: {

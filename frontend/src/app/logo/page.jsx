@@ -1,5 +1,5 @@
+import { LogoForm } from "@/components/NettsideForm";
 import React from "react";
-import LogoForm from "../../components/LogoForm";
 
 const page = () => {
   return (
