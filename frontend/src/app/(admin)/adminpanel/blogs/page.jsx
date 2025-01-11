@@ -85,7 +85,10 @@ const Page = () => {
           ) : (
             <div className="grid  lg:grid-cols-3 gap-2 lg:gap-4">
               {referencesData.map((reference) => (
-                <div key={reference._id} className="bg-white overflow-hidden">
+                <div
+                  key={reference._id}
+                  className="bg-[#F5F5F7] overflow-hidden"
+                >
                   <div>
                     <div className="relative">
                       <figure
@@ -103,7 +106,7 @@ const Page = () => {
                           blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
                           width={400}
                           height={230}
-                          className="object-cover h-full w-full"
+                          className="object-cover h-full w-full "
                         />
                       </figure>
                       <div>
@@ -119,7 +122,7 @@ const Page = () => {
                             setDeleteId(reference._id);
                             setOpenModal(true);
                           }}
-                          className="bg-slate-100 shadow-xl text-black transition-all duration-300 ease-in-out active:scale-95 rounded-xl top-5 right-5 p-2 absolute"
+                          className="bg-slate-100 shadow-xl text-black transition-all duration-300 ease-in-out active:scale-95 rounded-md top-5 right-5 p-2 absolute"
                         >
                           <MdDelete className="text-[1.5rem]" />
                         </button>

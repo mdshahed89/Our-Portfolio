@@ -1,30 +1,25 @@
-import Booking from "../components/Booking";
-import Hero from "../components/Hero";
-import OfferSection from "../components/OfferSection";
-import Reference from "../components/Reference";
-import Slider from "../components/Slider";
-import Team from "../components/Team";
-import Tools from "../components/Tools";
+import Reference, { Slider } from "../components/Reference";
+import Tools, { Booking, Hero, OfferSection, Team } from "../components/Tools";
 
 export default function Home() {
   return (
     <div>
       <div className="bg-[#035635]  ">
-        <Hero></Hero>
+        <Hero />
       </div>
-      <Slider></Slider>
-      <OfferSection></OfferSection>
+      <Slider />
+      <OfferSection />
       <div>
-        <Tools></Tools>
+        <Tools />
       </div>
       <div className="bg-[#035635]">
-        <Team></Team>
+        <Team />
       </div>
       <div>
-        <Booking></Booking>
+        <Booking />
       </div>
       <div>
-        <Reference title={"Referanser"}></Reference>
+        <Reference title={"Referanser"} />
       </div>
     </div>
   );

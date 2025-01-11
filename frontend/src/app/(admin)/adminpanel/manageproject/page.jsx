@@ -1,6 +1,6 @@
+import { ProjectCard } from "@/components/AdminProfile";
 import Link from "next/link";
 import { FaUserFriends } from "react-icons/fa";
-import ProjectCard from "@/components/ProjectCard";
 const page = () => {
   return (
     <div className="m-2 md:m-5">

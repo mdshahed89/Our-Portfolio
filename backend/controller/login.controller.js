@@ -5,7 +5,7 @@ const jwtSecret = "kbsdkfbuiusd237448973644382";
 
 export const adminData = async (req, res) => {
   const { email, password } = req.body;
-  console.log(email, password);
+  // console.log(email, password);
   const user = await Admin.findOne({ email });
 
   if (!user) {

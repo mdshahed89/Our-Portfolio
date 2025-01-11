@@ -7,8 +7,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { RxCross2 } from "react-icons/rx";
 import { usePathname } from "next/navigation";
-import PageLoading from "./PageLoading";
-import Logo from "@/assets/logo.png"
+import Logo from "@/assets/logo.png";
+import { PageLoading } from "./Tools";
 
 const Header = () => {
   const pathName = usePathname();

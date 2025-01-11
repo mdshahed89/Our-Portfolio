@@ -61,7 +61,7 @@ export const getDetailsData = async (req, res) => {
 
 export const getSingleData = async (req, res) => {
   const id = req.params.id;
-  console.log(id);
+  // console.log(id);
   try {
     const result = await Blog.findById(id);
     if (!result) {
@@ -70,7 +70,7 @@ export const getSingleData = async (req, res) => {
         message: "Finner ikke bloggen.",
       });
     }
-    console.log(result);
+    // console.log(result);
     return res.status(200).json({
       success: true,
       data: result,
