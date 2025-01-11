@@ -9,8 +9,8 @@ import { MdDashboardCustomize } from "react-icons/md";
 import { VscGitPullRequestGoToChanges } from "react-icons/vsc";
 import { AuthContext } from "@/AuthProvider/AuthProvider";
 import { usePathname } from "next/navigation";
-import PageLoading from "./PageLoading";
 import Logo from "@/assets//logo.png";
+import { PageLoading } from "./Tools";
 const Sidebar = () => {
   const pathName = usePathname();
   const { logout } = useContext(AuthContext);

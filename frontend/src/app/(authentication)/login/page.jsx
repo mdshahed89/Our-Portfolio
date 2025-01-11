@@ -27,8 +27,8 @@ const Page = () => {
       await login(email, password);
       router.push("/adminpanel");
     } catch (error) {
-      console.log(error);
-      console.log("Invalid credentials");
+      toast.error(error);
+      // console.log("Invalid credentials");
     }
   };
 
@@ -51,7 +51,7 @@ const Page = () => {
       }
       form.reset();
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       setEmailSent(false);
     }
   };
@@ -60,9 +60,9 @@ const Page = () => {
     <div className="flex items-center relative  h-screen justify-center">
       <Link
         href={"/"}
-        className="bg-white absolute top-10 left-4 md:left-[10%] lg:left-[25%] transition-all duration-300 ease-in-out active:scale-95 w-60 flex justify-center text-xl font-semibold text-green-700 rounded-full p-2"
+        className="bg-white absolute top-10 left-4 md:left-[10%] lg:left-[25%] transition-all duration-300 ease-in-out active:scale-95 py-2 px-5 flex justify-center text-xl font-semibold text-green-700 rounded-full p-2"
       >
-        tilbake
+        Tilbake
       </Link>
       <div className="bg-white w-[90%] md:w-[80%] lg:w-[50%] rounded-xl p-2 md:p-5 mx-auto">
         {emailSent ? (

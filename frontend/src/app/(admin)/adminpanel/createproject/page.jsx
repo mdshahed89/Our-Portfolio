@@ -15,7 +15,7 @@ const Page = () => {
 
   const handleFileUpload = (event) => {
     const selectedFile = event.target.files[0];
-    const maxSize = 2 * 1024 * 1024;
+    const maxSize = 5 * 1024 * 1024;
 
     if (selectedFile) {
       if (selectedFile.size <= maxSize) {
@@ -179,7 +179,7 @@ const Page = () => {
                 <span className="text-red-500 text-sm">{errors.file}</span>
               )}
               <p className="text-sm text-gray-500 mt-2">
-                Max. file size: 2 MB.
+                Max. file size: 5 MB.
               </p>
             </div>
 
