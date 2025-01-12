@@ -3,26 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import parse from "html-react-parser";
 import toast from "react-hot-toast";
-const page = () => {
-  return (
-    <div className="bg-[#EDFCF7] min-h-[100vh] px-3 lg:px-5 ">
-      <div className="">
-        <div className="pt-40 pb-5">
-          <div className="text-[#1E293B] text-[40px] md:text-[76px] font-bold">
-            Prosjekter
-          </div>
-        </div>
-        <div>
-          <AllProject />
-        </div>
-      </div>
-    </div>
-  );
-};
+const page = async () => {
 
-export default page;
-
-const AllProject = async () => {
   let referencesData = [];
 
   try {
@@ -36,8 +18,29 @@ const AllProject = async () => {
     const data = await response.json();
     referencesData = data?.data || [];
   } catch (error) {
-    toast.error(error);
+    console.log(error)
   }
+
+  return (
+    <div className="bg-[#EDFCF7] min-h-[100vh] px-3 lg:px-5 ">
+      <div className="">
+        <div className="pt-40 pb-5">
+          <div className="text-[#1E293B] text-[40px] md:text-[76px] font-bold">
+            Prosjekter
+          </div>
+        </div>
+        <div>
+          <AllProject referencesData={referencesData} />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default page;
+
+const AllProject = ({referencesData}) => {
+
   return (
     <div className="pb-10">
       {referencesData.length === 0 ? (
@@ -61,7 +64,7 @@ const AllProject = async () => {
   );
 };
 
-export const BlogCard = ({ reference }) => {
+const BlogCard = ({ reference }) => {
   function formatDate(isoDate) {
     const date = new Date(isoDate);
     const options = { year: "numeric", month: "long", day: "numeric" };
