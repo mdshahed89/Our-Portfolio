@@ -3,10 +3,10 @@ import Seo1 from "@/assets/seo.png";
 import Seo2 from "@/assets/s2.webp";
 import Image from "next/image";
 import Link from "next/link";
-import { RiSearcdivLine } from "react-icons/ri";
 import { IoKeyOutline } from "react-icons/io5";
 import { AiOutlineFontSize } from "react-icons/ai";
 import { HiLink } from "react-icons/hi2";
+import { RiSearchLine } from "react-icons/ri";
 
 const page = () => {
   return (
@@ -59,8 +59,8 @@ const page = () => {
             loading="lazy"
             placeholder="blur"
             src={Seo1}
-            alt="Seo img"
-            className=" w-full h-full object-cover rounded-md "
+            alt="Seo"
+            className=" w-full h-full object-contain rounded-md "
           />
         </div>
       </div>
@@ -95,7 +95,7 @@ const page = () => {
             <div className=" flex flex-col gap-8 justify-between md:px-3 px-1 ">
               <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 2xl:grid-cols-2 gap-5  ">
                 <Group
-                  icon={<RiSearcdivLine />}
+                  icon={<RiSearchLine />}
                   title="Teknisk SEO"
                   description="Sørg for at nettsiden er teknisk optimalisert med rask lastetid, mobilvennlighet, sikkerhet (HTTPS), og korrekt strukturert data som hjelper søkemotorer å forstå innholdet."
                 />

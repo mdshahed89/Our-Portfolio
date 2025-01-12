@@ -10,7 +10,7 @@ import axios from "axios";
 import { useParams, useRouter } from "next/navigation";
 import { AuthContext } from "@/AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
-const page = () => {
+const Page = () => {
   const { user } = useContext(AuthContext);
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(false);
@@ -236,4 +236,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
