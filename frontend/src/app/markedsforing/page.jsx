@@ -34,7 +34,7 @@ const page = () => {
   ];
 
   return (
-    <div className="  mt-[120px] max-w-[1400px] mx-auto px-3 ">
+    <div className="  mt-[120px] 2xl:max-w-[1400px] max-w-[1200px] mx-auto px-3 ">
       <div>
         <div className=" text-[2.5rem] font-semibold text-center mb-4 ">
           Markedsføring

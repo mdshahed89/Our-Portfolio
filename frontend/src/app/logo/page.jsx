@@ -3,7 +3,7 @@ import React from "react";
 
 const page = () => {
   return (
-    <div className=" min-h-[100vh] px-3 lg:px-0 max-w-[1400px] mx-auto mt-[150px] ">
+    <div className=" min-h-[100vh] px-3 lg:px-0 2xl:max-w-[1400px] max-w-[1200px] mx-auto mt-[150px] ">
       <div className="space-y-10">
         <h3 className="text-3xl md:text-4xl text-gray-700 font-medium">
           Vi Lager Logoer som Passer Dine Behov

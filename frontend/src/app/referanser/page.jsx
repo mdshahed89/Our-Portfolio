@@ -81,11 +81,11 @@ export const BlogCard = ({ reference }) => {
   }
 
   return (
-    <div>
-      <div className="bg-white overflow-hidden rounded-md ">
+    <div className=" h-full  ">
+      <div className="bg-white h-full overflow-hidden rounded-md ">
         <div>
           <Link href={`/referanser/${reference?._id}`}>
-            <figure className=" w-full h-auto lg:h-[350px]  ">
+            <figure className=" w-full h-auto md:h-[350px]  ">
               <Image
                 loading="lazy"
                 placeholder="blur"

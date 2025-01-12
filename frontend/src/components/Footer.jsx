@@ -15,7 +15,7 @@ const Footer = () => {
     return;
   }
   return (
-    <footer className="px-3 lg:px-0 max-w-[1400px] mx-auto py-16">
+    <footer className="px-3 lg:px-0 2xl:max-w-[1400px] max-w-[1200px] mx-auto py-16">
       <div className="grid lg:grid-cols-3 gap-5 justify-center lg:justify-between ">
         <div className="flex flex-col items-center lg:items-start justify-center gap-5 lg:justify-start">
           <Image

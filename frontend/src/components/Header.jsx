@@ -57,7 +57,7 @@ const Header = () => {
         scrolled ? "bg-[#035635] shadow-xl" : "bg-[#035635]"
       } z-50`}
     >
-      <div className="text-white px-5 py-5 flex max-w-[1400px] mx-auto justify-between items-center">
+      <div className="text-white px-5 py-5 flex 2xl:max-w-[1400px] max-w-[1200px] mx-auto justify-between items-center">
         <Link href={"/"} className=" w-auto h-auto ">
           <Image
             src={Logo}

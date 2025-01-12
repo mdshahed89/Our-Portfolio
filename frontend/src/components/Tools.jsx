@@ -32,9 +32,9 @@ import NewImg3 from "@/assets/newImg3.webp";
 const Tools = () => {
   return (
     <>
-      <div className=" max-w-[1400px] mx-auto px-2 md:px-3 my-[8rem] ">
-        <div className=" text-center w-full mb-[2rem] flex justify-center flex-col items-center  ">
-          <div className=" text-[1.7rem] sm:text-[2rem] md:text-[2.8rem] flex xl:flex-row flex-col w-fit xl:gap-3 ">
+      <div className="  px-2 md:px-3 my-[8rem] ">
+        <div className=" max-w-[1200px] mx-auto text-center w-full mb-[2rem] flex justify-center flex-col items-center  ">
+          <div className=" text-[1.7rem] sm:text-[2rem] md:text-[2.6rem] flex xl:flex-row flex-col w-fit xl:gap-3 ">
             Disse tjenestene nedenfor er{" "}
             <span className=" bg-[#035635] mt-1 text-[#fff] px-3 w-fit mx-auto leading-tight rounded-sm ">
               inkludert i alle nettsidepakker
@@ -46,7 +46,7 @@ const Tools = () => {
             profesjonell løsning.
           </p>
         </div>
-        <div className=" grid sm:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-2 ">
+        <div className=" 2xl:max-w-[1400px] max-w-[1200px] mx-auto grid sm:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-2 ">
           <Card
             icon={<FaLaptopCode />}
             title="Nettsideutvikling"
@@ -79,7 +79,7 @@ const Tools = () => {
           />
         </div>
       </div>
-      <div className=" max-w-[1400px] mx-auto px-2 md:px-3 my-[8rem] ">
+      <div className=" 2xl:max-w-[1400px] max-w-[1200px] mx-auto px-2 md:px-3 my-[8rem] ">
         <div className=" text-center w-full mb-[2rem] flex justify-center flex-col items-center  ">
           <div className=" text-[1.7rem] sm:text-[2rem] md:text-[2.8rem] flex xl:flex-row flex-col w-fit xl:gap-3 ">
             Disse er tilleggstjenester med{" "}
@@ -154,12 +154,12 @@ const Card = ({ icon, title, description, btn, path }) => {
 
 const Process = () => {
   return (
-    <div className=" bg-[#7BDCB5] min-h-[100vh] flex flex-col justify-center md:processBg md:px-3 px-2 py-[2rem] ">
-      <div className=" text-center text-[2rem] md:text-[2.8rem] lg:text-[3.5rem] leading-tight font-semibold ">
+    <div className=" bg-[#7BDCB5] min-h-[1000px] flex flex-col justify-center md:processBg md:px-3 px-2 py-[2rem] ">
+      <div className=" text-center text-[2rem] md:text-[2.8rem] lg:text-[3rem] leading-tight font-semibold ">
         <div>Prosessen med oss er kjempeenkel, vi skreddersyr løsningen.</div>
         <div className=" text-[#fff] ">Du slipper stress.</div>
       </div>
-      <div className=" max-w-[1400px] mt-[5rem] lg:mt-[10rem] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 ">
+      <div className=" 2xl:max-w-[1400px] max-w-[1200px] mt-[5rem] lg:mt-[10rem] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 ">
         <div className="relative">
           <div className="absolute hidden lg:block -top-20 -right-36 z-50">
             <svg
@@ -215,20 +215,20 @@ const Process = () => {
                 transform="rotate(50, 100, 70)"
               />
             </svg>
-            <svg
+            {/* <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 180 120"
               className="w-48 h-32 stroke-white fill-none"
             >
-              {/* Curved dashed line */}
+             
               <path
                 d="M5,70 C50,40 80,40 100,60"
                 className="stroke-white"
                 strokeWidth="2"
-                strokeDasharray="5,5" /* Adjust dash spacing for better visibility */
+                strokeDasharray="5,5"
                 fill="none"
               />
-              {/* Arrowhead */}
+              
               <path
                 d="M95,57 L106,63 L96,69 Z"
                 className="fill-white"
@@ -236,7 +236,7 @@ const Process = () => {
                 strokeWidth="1"
                 transform="rotate(50, 100, 70)"
               />
-            </svg>
+            </svg> */}
           </div>
           <ProcessCard
             title="Del dine ønsker og behov for din nye nettside"
@@ -315,7 +315,7 @@ export const Team = () => {
             <h3 className="text-[34px]   pb-5 font-semibold">
               Teamet bak sidesone
             </h3>
-            <p className="text-[20px] text-gray-100 leading-8">
+            <p className=" text-[20px] text-gray-100 leading-normal 2xl:leading-8">
               Hos Sidesone er vi eksperter på å skape digitale løsninger som
               gjør en forskjell for både enkeltpersoner og bedrifter. Vi forstår
               at behovene kan variere - fra små bedrifter og gründere som
@@ -327,7 +327,7 @@ export const Team = () => {
             </p>
           </div>
           <div className=" bg-[#0b462ece] p-5 rounded-md  ">
-            <p className="text-[20px] text-gray-100 leading-8">
+            <p className=" text-[16px] 2xl:text-[20px] text-gray-100 leading-normal 2xl:leading-8">
             Vi utvikler profesjonelle nettsider, nettbutikker og webapper, og tilbyr et bredt spekter av tjenester, inkludert markedsføring, SEO og grafisk design. Vi setter samarbeid i sentrum og skreddersyr løsninger som er tilpasset dine spesifikke behov. Gjennom tett dialog følger vi deg nøye opp gjennom hele prosessen - fra de første planleggingsmøtene til lansering og langt inn i driftsfasen. For oss er det ikke bare viktig å levere et ferdig produkt; vi ønsker å bygge langsiktige relasjoner og være en pålitelig partner du kan stole på.
             </p>
             <div className="flex justify-center items-center">
@@ -344,7 +344,7 @@ export const Team = () => {
             </div>
           </div>
         </div>
-        <div className=" md:min-h-[50vh]">
+        <div className=" md:min-h-[50vh] md:px-0 px-2">
           <figure className="w-full h-full flex items-center justify-center overflow-hidden">
             <Image
               loading="lazy"
@@ -353,7 +353,7 @@ export const Team = () => {
               src={coding}
               alt={"Coding"}
               
-              className="w-auto h-auto object-contain md:object-contain rounded-md "
+              className="lg:w-full w-auto lg:h-full h-auto object-contain lg:object-cover rounded-md "
             />
           </figure>
         </div>
@@ -367,7 +367,7 @@ const Satisfaction = () => {
   return (
     <div className=" relative bg-[#fff] text-center leading-tight pt-[1rem] pb-[2rem] ">
       <div className=" flex justify-center ">
-        <div className=" absolute z-10 max-w-[1400px] -bottom-[15%] md:-bottom-[55%]  w-full mx-auto flex justify-end  ">
+        <div className=" absolute z-10 2xl:max-w-[1400px] max-w-[1200px] -bottom-[15%] md:-bottom-[55%]  w-full mx-auto flex justify-end  ">
           <Image
             src={SatisfactionIcon}
             alt="Satisfaction Icon"
@@ -438,7 +438,7 @@ export const Booking = () => {
 
 export const Hero = () => {
   return (
-    <div className=" relative h-[680px] lg:h-[750px] max-w-[1400px]  mx-auto text-white flex flex-col lg:flex-row  lg:justify-between ">
+    <div className=" relative h-[680px] lg:h-[750px] 2xl:max-w-[1400px] max-w-[1200px]  mx-auto text-white flex flex-col lg:flex-row  lg:justify-between ">
       <div className="  flex mt-[130px] md:mt-[140px] lg:mt-[170px]  flex-col z-50  px-3 max-w-[40rem] lg:max-w-[55rem] ">
         <div className="  md:mt-7 ">
           <h1 className=" text-[34px] md:text-[45px] lg:text-[62px] leading-tight font-semibold ">
@@ -473,7 +473,7 @@ export const Hero = () => {
 
 export const OfferSection = () => {
   return (
-    <div className=" max-w-[1400px] mx-auto px-2 md:px-3 -mt-16 lg:-mt-28 mb-[3rem] ">
+    <div className=" 2xl:2xl:max-w-[1400px] max-w-[1200px] max-w-[1200px] mx-auto px-2 md:px-3 -mt-16 lg:-mt-28 mb-[3rem] ">
       <h3 className=" text-[2.8rem] mb-4 ">Hva vi tilbyr</h3>
       <div className=" grid grid-cols-1 md:grid-cols-3 gap-7 md:gap-4 ">
         <Card2

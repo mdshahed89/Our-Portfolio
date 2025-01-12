@@ -32,7 +32,7 @@ const page = async () => {
   }
 
   return (
-    <div className=" mt-[10rem] max-w-[1400px] mx-auto md:px-3 px-2 ">
+    <div className=" mt-[10rem] 2xl:max-w-[1400px] max-w-[1200px] mx-auto md:px-3 px-2 ">
       <h3 className=" text-[1.5rem] font-semibold ">
         Tilgjengelig - 4 Tjenester
       </h3>

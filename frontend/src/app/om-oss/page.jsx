@@ -32,7 +32,7 @@ const toolsData = [
 const page = () => {
   return (
     <div>
-      <div className=" max-w-[1400px] mx-auto">
+      <div className=" 2xl:max-w-[1400px] max-w-[1200px] mx-auto">
         <div className="flex flex-col md:h-[40rem]  md:flex-row items-center mt-[110px] lg:mt-[142px]  justify-between">
           <div className="md:w-[35%] ">
             <div className="flex w-full md:h-full items-center md:items-end justify-center">
