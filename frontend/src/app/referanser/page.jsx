@@ -8,9 +8,9 @@ const page = () => {
     <div className="bg-[#EDFCF7] min-h-[100vh] px-3 lg:px-5 ">
       <div className="">
         <div className="pt-40 pb-5">
-          <h1 className="text-[#1E293B] text-[40px] md:text-[76px] font-bold">
+          <div className="text-[#1E293B] text-[40px] md:text-[76px] font-bold">
             Prosjekter
-          </h1>
+          </div>
         </div>
         <div>
           <AllProject />
@@ -100,12 +100,12 @@ export const BlogCard = ({ reference }) => {
           </Link>
         </div>
         <div className="px-3 py-3 space-y-3 pb-[2rem]">
-          <h2 className="text-2xl font-semibold">
+          <div className="text-2xl font-semibold">
             {reference?.title || "Untitled Blog"}
-          </h2>
-          <h2 className="text-sm font-medium text-gray-600">
+          </div>
+          <div className="text-sm font-medium text-gray-600">
             {formatDate(reference?.createdAt)}
-          </h2>
+          </div>
           <div className="line-clamp-3 py-2 text-[20px] text-gray-600">
             {sliceContent(getParagraphContent(reference?.content).join(" "))}
           </div>

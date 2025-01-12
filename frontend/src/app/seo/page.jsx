@@ -3,7 +3,7 @@ import Seo1 from "@/assets/seo.png";
 import Seo2 from "@/assets/s2.webp";
 import Image from "next/image";
 import Link from "next/link";
-import { RiSearch2Line } from "react-icons/ri";
+import { RiSearcdivLine } from "react-icons/ri";
 import { IoKeyOutline } from "react-icons/io5";
 import { AiOutlineFontSize } from "react-icons/ai";
 import { HiLink } from "react-icons/hi2";
@@ -14,9 +14,9 @@ const page = () => {
       <div className=" px-3 flex items-center lg:flex-row flex-col lg:gap-0 gap-7  ">
         <div className=" flex-1 lg:order-1 order-2  ">
           <div className=" flex flex-col gap-8 justify-between lg:px-3 ">
-            <h2 className=" lg:text-[2rem] text-[1.7rem]  font-semibold ">
+            <div className=" lg:text-[2rem] text-[1.7rem]  font-semibold ">
               Søkemotoroptimalisering
-            </h2>
+            </div>
             <div>
               <h3 className=" text-[1.2rem] lg:text-[1.4rem] font-semibold ">
                 Hva er SEO, og hvordan jobber Sidesone med det?
@@ -95,7 +95,7 @@ const page = () => {
             <div className=" flex flex-col gap-8 justify-between md:px-3 px-1 ">
               <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 2xl:grid-cols-2 gap-5  ">
                 <Group
-                  icon={<RiSearch2Line />}
+                  icon={<RiSearcdivLine />}
                   title="Teknisk SEO"
                   description="Sørg for at nettsiden er teknisk optimalisert med rask lastetid, mobilvennlighet, sikkerhet (HTTPS), og korrekt strukturert data som hjelper søkemotorer å forstå innholdet."
                 />

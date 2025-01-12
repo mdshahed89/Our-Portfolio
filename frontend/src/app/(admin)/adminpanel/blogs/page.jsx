@@ -58,7 +58,7 @@ const Page = () => {
       <div className="h-[50px] flex justify-between items-center px-5 text-white bg-[#035635]">
         <div className="items-center flex gap-2">
           <FaUserFriends size={20} />
-          <h2 className="text-[15px] font-medium">Alle Blogg</h2>
+          <h3 className="text-[15px] font-medium">Alle Blogg</h3>
         </div>
         <div>
           <Link
@@ -87,16 +87,17 @@ const Page = () => {
               {referencesData.map((reference) => (
                 <div
                   key={reference._id}
-                  className="bg-[#F5F5F7] overflow-hidden"
+                  className=" overflow-hidden"
                 >
                   <div>
                     <div className="relative">
                       <figure
-                        style={{
-                          height: "230px",
-                          width: "100%",
-                          overflow: "hidden",
-                        }}
+                        // style={{
+                        //   height: "300px",
+                        //   width: "100%",
+                        //   overflow: "hidden",
+                        // }}
+                        className=" h-[300px] w-full overflow-hidden "
                       >
                         <Image
                           loading="lazy"
@@ -160,12 +161,12 @@ const Page = () => {
                     </div>
                   </div>
                   <div className="px-3 py-3 space-y-3">
-                    <h2 className="text-2xl font-semibold">
+                    <h3 className="text-2xl font-semibold">
                       {reference?.title || "Untitled Blog"}
-                    </h2>
-                    <h2 className="text-sm font-medium text-gray-600">
+                    </h3>
+                    <p className="text-sm font-medium text-gray-600">
                       {formatDate(reference?.createdAt)}
-                    </h2>
+                    </p>
                     <div className="line-clamp-3 py-2 text-[20px] text-gray-600">
                       {sliceContent(
                         getParagraphContent(reference?.content).join(" ")

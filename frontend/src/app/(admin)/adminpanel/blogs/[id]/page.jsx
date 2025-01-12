@@ -123,7 +123,7 @@ const page = () => {
     <div className="m-2 md:m-5">
       <div className="h-[50px] flex gap-2 px-5 text-white items-center bg-[#035635]">
         <FaUserFriends size={20} />
-        <h2 className="text-[15px] font-bold">oppdater bloggen</h2>
+        <div className="text-[15px] font-semibold">oppdater bloggen</div>
       </div>
       <div className="my-5">
         <form onSubmit={handleSubmit}>
@@ -147,7 +147,7 @@ const page = () => {
             </div>
 
             <div className="md:w-[30%]">
-              <h3 className="text-lg font-medium mb-2">Cover Image</h3>
+              <label htmlFor="" className="text-lg font-medium mb-2">Cover Image</label>
               <div className="border border-dashed border-[#7BDCB5] rounded-lg p-4 flex flex-col items-center gap-3">
                 {filePreview.length > 0 ? (
                   <div>

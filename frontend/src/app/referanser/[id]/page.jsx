@@ -58,7 +58,7 @@ const DetailsPage = () => {
 
   return (
     <div className="mt-40 mx-auto p-4">
-      <h2 className="text-3xl font-bold mb-4">{blog.title}</h2>
+      <div className="text-3xl font-bold mb-4">{blog.title}</div>
       <div className="flex text-blue-600 items-center mb-6">
         <span className="text-sm font-bold">{formatDate(blog?.createdAt)}</span>
       </div>
@@ -84,10 +84,10 @@ const DetailsPage = () => {
             href={`/referanser/${previousBlog._id}`}
             className=" text-gray-600  hover:text-[#129e66] transition-all ease-out delay-100 "
           >
-            <h2 className="flex uppercase font-medium text-sm items-center gap-3">
+            <div className="flex uppercase font-medium text-sm items-center gap-3">
               <FaLongArrowAltLeft />
               Previous
-            </h2>
+            </div>
             {previousBlog.title}
           </Link>
         )}
@@ -96,10 +96,10 @@ const DetailsPage = () => {
             href={`/referanser/${nextBlog._id}`}
             className="text-gray-600 ml-auto hover:text-[#129e66] transition-all ease-out delay-100"
           >
-            <h2 className="flex uppercase font-medium text-sm items-center gap-3">
+            <div className="flex uppercase font-medium text-sm items-center gap-3">
               Next
               <FaLongArrowAltRight />
-            </h2>
+            </div>
             {nextBlog.title}
           </Link>
         )}

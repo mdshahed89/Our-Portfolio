@@ -36,7 +36,7 @@ const Sidebar = () => {
               <Image
                 loading="lazy"
                 src={Logo}
-                alt="Sidesone Logo"
+                alt="Sidesone"
                 className=" w-auto h-auto object-contain"
               />
             </Link>
@@ -62,7 +62,7 @@ const Sidebar = () => {
               <Link href={"/"}>
                 <Image
                   src={Logo}
-                  alt="Sidesone Logo"
+                  alt="Sidesone"
                   className="w-auto h-auto object-contain"
                 />
               </Link>

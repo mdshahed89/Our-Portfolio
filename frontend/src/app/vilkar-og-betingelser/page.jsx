@@ -3,9 +3,9 @@ const page = () => {
     <div className="bg-gradient-to-b mt-20 from-blue-100 to-white min-h-screen py-12">
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
         <div className="bg-white shadow-lg rounded-lg p-8 md:p-12">
-          <h2 className="text-2xl md:text-[35px] text-gray-600 font-semibold">
+          <div className="text-2xl md:text-[35px] text-gray-600 font-semibold">
             Vilkår og betingelser for Sidesone AS
-          </h2>
+          </div>
           <h3 className="font-medium py-2 text-gray-800 text-xl md:text-2xl">
             Generell informasjon
           </h3>

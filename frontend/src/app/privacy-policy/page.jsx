@@ -5,18 +5,18 @@ const page = () => {
     <div className="bg-gradient-to-b mt-20 from-blue-100 to-white min-h-screen py-12">
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
         <div className="bg-white shadow-lg rounded-lg p-8 md:p-12">
-          <h2 className="text-2xl md:text-4xl font-extrabold text-[#035635] mb-6 text-center">
+          <div className="text-2xl md:text-4xl font-extrabold text-[#035635] mb-6 text-center">
             Personvern policy
-          </h2>
+          </div>
           <p className="text-lg text-gray-700 mb-6">
             Denne personvernpolicyen forklarer hvordan nettstedet vårt bruker og
             beskytter informasjonen du gir oss ved bruk av nettstedet.
           </p>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-semibold text-[#035635] mb-4">
+            <div className="text-2xl font-semibold text-[#035635] mb-4">
               Informasjon vi samler inn
-            </h2>
+            </div>
             <ul className="list-disc list-inside space-y-2 text-gray-600">
               <li>Ditt navn og kontaktinformasjon</li>
               <li>Demografisk informasjon</li>
@@ -25,9 +25,9 @@ const page = () => {
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-semibold text-[#035635] mb-4">
+            <div className="text-2xl font-semibold text-[#035635] mb-4">
               Hvordan vi bruker informasjonen
-            </h2>
+            </div>
             <ul className="list-disc list-inside space-y-2 text-gray-600">
               <li>Interne registre</li>
               <li>Forbedring av produkter og tjenester</li>
@@ -42,9 +42,9 @@ const page = () => {
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-semibold text-[#035635] mb-4">
+            <div className="text-2xl font-semibold text-[#035635] mb-4">
               Sikkerhet
-            </h2>
+            </div>
             <p className="text-gray-600">
               Vi er opptatt av å sikre at informasjonen din er trygg. Vi har
               innført passende fysiske, elektroniske og ledelsesmessige
@@ -53,9 +53,9 @@ const page = () => {
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-semibold text-[#035635] mb-4">
+            <div className="text-2xl font-semibold text-[#035635] mb-4">
               Cookies
-            </h2>
+            </div>
             <p className="text-gray-600 mb-4">
               Cookies er små filer som plasseres på harddisken din etter
               tillatelse. Disse hjelper oss med å analysere netttrafikk og gir
@@ -69,9 +69,9 @@ const page = () => {
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-semibold text-[#035635] mb-4">
+            <div className="text-2xl font-semibold text-[#035635] mb-4">
               Lenker til andre nettsteder
-            </h2>
+            </div>
             <p className="text-gray-600">
               Nettstedet vårt kan inneholde lenker til andre nettsteder. Når du
               forlater vårt nettsted, er vi ikke ansvarlige for personvernet
@@ -81,9 +81,9 @@ const page = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-[#035635] mb-4">
+            <div className="text-2xl font-semibold text-[#035635] mb-4">
               Kontroll over din personlige informasjon
-            </h2>
+            </div>
             <ul className="list-disc list-inside space-y-2 text-gray-600">
               <li>
                 Du kan begrense innsamling og bruk av din personlige informasjon

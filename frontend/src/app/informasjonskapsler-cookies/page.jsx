@@ -3,9 +3,9 @@ const page = () => {
     <div className="bg-gradient-to-b mt-20 from-blue-100 to-white min-h-screen py-12">
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
         <div className="bg-white shadow-lg rounded-lg p-8 md:p-12">
-          <h2 className="text-3xl font-semibold text-gray-800 mb-5">
+          <div className="text-3xl font-semibold text-gray-800 mb-5">
             Informasjonskapsler (Cookies)
-          </h2>
+          </div>
           <ol className="list-decimal list-inside text-gray-700 space-y-5">
             <li>
               <span className="font-bold">Hva er cookies?</span>

@@ -61,7 +61,7 @@ const Header = () => {
         <Link href={"/"} className=" w-auto h-auto ">
           <Image
             src={Logo}
-            alt="Sidesone Logo"
+            alt="Sidesone"
             className="w-[211px] h-[35px] object-contain"
           />
         </Link>

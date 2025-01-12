@@ -22,9 +22,9 @@ export const sendEmail = async (req, res) => {
     subject: "Ny Innlevering Detaljer",
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9;">
-        <h2 style="color: #333; text-align: center;">Ny ${
+        <h3 style="color: #333; text-align: center;">Ny ${
           info.path
-        } Innlevering Detaljer</h2>
+        } Innlevering Detaljer</h3>
         
         <table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px;">
           <tr style="background-color: #f2f2f2;">
@@ -147,7 +147,7 @@ export const sendLogoEmail = async (req, res) => {
     subject: "New Submission Details",
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9;">
-        <h2 style="color: #333; text-align: center;">New Submission Details</h2>
+        <h3 style="color: #333; text-align: center;">New Submission Details</h3>
         
         <p style="color: #555; font-size: 16px;">Hi [Name],</p>
         <p style="color: #555; font-size: 16px;">
@@ -235,7 +235,7 @@ export const sendResetEmail = async (req, res) => {
     subject: "Glem passord",
     html: `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
-      <h2 style="color: #333;">Password Reset Request</h2>
+      <h3 style="color: #333;">Password Reset Request</h3>
       <p style="color: #555; font-size: 16px;">Hi,</p>
       <p style="color: #555; font-size: 16px;">
        Du ba om å tilbakestille passordet ditt. Klikk på knappen nedenfor for å tilbakestille passordet ditt. Denne lenken utløper om 5 minutter.

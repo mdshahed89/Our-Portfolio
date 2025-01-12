@@ -18,19 +18,19 @@ const page = () => {
             </figure>
           </div>
           <div className="text-center">
-            <h2 className="text-lg font-medium  text-gray-500">
+            <div className="text-lg font-medium  text-gray-500">
               Send oss dine krav, så tar vi kontakt med deg innen 1 arbeidsdag!
-            </h2>
+            </div>
           </div>
           <div className="bg-[#F9F9F9] flex flex-col gap-8 items-center justify-between p-5">
             <div className="flex justify-between gap-5">
               <div className="flex items-start">
-                <h2 className="text-4xl font-bold text-[#7BDCB5]">1</h2>
+                <div className="text-4xl font-bold text-[#7BDCB5]">1</div>
               </div>
               <div>
-                <h2 className="text-lg font-semibold text-gray-500">
+                <div className="text-lg font-semibold text-gray-500">
                   Send inn kontaktskjema
-                </h2>
+                </div>
                 <p>
                   Vi vil deretter ta kontakt med deg for å tilby hjelp og
                   veiledning i å finne den optimale løsningen som passer best
@@ -40,12 +40,12 @@ const page = () => {
             </div>
             <div className="flex  gap-4">
               <div className="flex items-start">
-                <h2 className="text-4xl font-bold text-[#7BDCB5]">2</h2>
+                <div className="text-4xl font-bold text-[#7BDCB5]">2</div>
               </div>
               <div>
-                <h2 className="text-lg font-semibold text-gray-500">
+                <div className="text-lg font-semibold text-gray-500">
                   Del dine ønsker og behov for din nye nettside
-                </h2>
+                </div>
                 <p>
                   Når du har valgt din nettsidepakke, sender du over informasjon
                   om hva du ønsker å ha med på din nye nettside.
@@ -54,12 +54,12 @@ const page = () => {
             </div>
             <div className="flex  gap-4">
               <div className="flex items-start">
-                <h2 className="text-4xl font-bold text-[#7BDCB5]">3</h2>
+                <div className="text-4xl font-bold text-[#7BDCB5]">3</div>
               </div>
               <div>
-                <h2 className="text-lg font-semibold text-gray-500">
+                <div className="text-lg font-semibold text-gray-500">
                   Vi lager din nye nettside
-                </h2>
+                </div>
                 <p>
                   Vårt team designer en attraktiv og brukervennlig nettside for
                   dine kunder. Vi skriver også teksten basert på den
@@ -69,12 +69,12 @@ const page = () => {
             </div>
             <div className="flex  gap-4">
               <div className="flex items-start">
-                <h2 className="text-4xl font-bold text-[#7BDCB5]">4</h2>
+                <div className="text-4xl font-bold text-[#7BDCB5]">4</div>
               </div>
               <div>
-                <h2 className="text-lg font-semibold text-gray-500">
+                <div className="text-lg font-semibold text-gray-500">
                   Du godkjenner, vi lanserer
-                </h2>
+                </div>
                 <p>
                   Vi samarbeider med deg gjennom hele prosessen, og vi lanserer
                   ikke nettsiden før du er fornøyd og har gitt din godkjennelse.
@@ -89,10 +89,10 @@ const page = () => {
         </div>
         <div className="lg:w-[58%]">
           <div>
-            <h2 className="text-3xl font-semibold">
+            <div className="text-3xl font-semibold">
               Fortell oss om din nye
               <span className="text-[#7BDCB5]"> webapplikasjon</span>
-            </h2>
+            </div>
             <p className="pt-8 text-lg font-normal">
               Når det gjelder webapplikasjoner, utvikler vi kraftige og
               brukervennlige løsninger som er skreddersydd for dine behov. Vi

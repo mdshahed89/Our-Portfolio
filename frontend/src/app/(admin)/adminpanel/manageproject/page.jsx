@@ -7,7 +7,7 @@ const page = () => {
       <div className="h-[50px] flex justify-between items-center   px-5 text-white  bg-[#035635]">
         <div className="items-center flex gap-2">
           <FaUserFriends size={20} />
-          <h2 className="text-[15px] font-medium">Alle Prosjekt</h2>
+          <div className="text-[15px] font-medium">Alle Prosjekt</div>
         </div>
         <div>
           <Link

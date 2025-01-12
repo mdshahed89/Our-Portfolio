@@ -9,6 +9,7 @@ import { uploadFile } from "@/AuthProvider/imageUpload";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { AuthContext } from "@/AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Page = () => {
   const { user } = useContext(AuthContext);
@@ -95,7 +96,7 @@ const Page = () => {
     <div className="m-2 md:m-5">
       <div className="h-[50px] flex gap-2 px-5 text-white items-center bg-[#035635]">
         <FaUserFriends size={20} />
-        <h2 className="text-[15px] font-bold">Lag blogger</h2>
+        <h4 className="text-[15px] font-semibold">Lag blogger</h4>
       </div>
       <div className="my-5">
         <form onSubmit={handleSubmit}>

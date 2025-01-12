@@ -1,8 +1,3 @@
-import T1 from "@/assets/T1.png";
-import T2 from "@/assets/T2.png";
-import T3 from "@/assets/T3.png";
-import T4 from "@/assets/T4.png";
-import T5 from "@/assets/T5.png";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -32,52 +27,19 @@ import NewImg1 from "@/assets/newImg1.webp";
 import NewImg2 from "@/assets/newImg2.webp";
 import NewImg3 from "@/assets/newImg3.webp";
 
-const toolsData = [
-  {
-    imgSrc: <AiOutlineCode />,
-    imgAlt: "Nettsideutvikling",
-    title: "Nettsideutvikling",
-    description: "Lage dynamiske nettsider for din digitale suksesss",
-  },
-  {
-    imgSrc: T2,
-    imgAlt: "Driftsavtale",
-    title: "Driftsavtale",
-    description:
-      "Stabile og pålitelige driftsavtaler som sikrer nettsiden din.",
-  },
-  {
-    imgSrc: T3,
-    imgAlt: "Responsive design",
-    title: "Responsive design",
-    description:
-      "Responsivt design for best mulig brukeropplevelse på alle enheter.",
-  },
-  {
-    imgSrc: T4,
-    imgAlt: "Vedlikehold",
-    title: "Vedlikehold",
-    description: "Vedlikehold som sikrer stabilitet og optimal ytelse.",
-  },
-  {
-    imgSrc: T5,
-    imgAlt: "SEO",
-    title: "SEO",
-    description: "SEO som forbedrer synligheten og rangeringen på nettet.",
-  },
-];
+
 
 const Tools = () => {
   return (
     <>
       <div className=" max-w-[1400px] mx-auto px-2 md:px-3 my-[8rem] ">
         <div className=" text-center w-full mb-[2rem] flex justify-center flex-col items-center  ">
-          <h2 className=" text-[1.7rem] sm:text-[2rem] md:text-[2.8rem] flex xl:flex-row flex-col w-fit xl:gap-3 ">
+          <div className=" text-[1.7rem] sm:text-[2rem] md:text-[2.8rem] flex xl:flex-row flex-col w-fit xl:gap-3 ">
             Disse tjenestene nedenfor er{" "}
             <span className=" bg-[#035635] mt-1 text-[#fff] px-3 w-fit mx-auto leading-tight rounded-sm ">
               inkludert i alle nettsidepakker
             </span>
-          </h2>
+          </div>
           <p className=" text-gray-500 mt-4 text-base md:text-lg ">
             Uansett om du velger en nettside, nettbutikk eller webapplikasjon,
             får du disse grunnleggende tjenestene inkludert for en komplett og
@@ -119,12 +81,12 @@ const Tools = () => {
       </div>
       <div className=" max-w-[1400px] mx-auto px-2 md:px-3 my-[8rem] ">
         <div className=" text-center w-full mb-[2rem] flex justify-center flex-col items-center  ">
-          <h2 className=" text-[1.7rem] sm:text-[2rem] md:text-[2.8rem] flex xl:flex-row flex-col w-fit xl:gap-3 ">
+          <div className=" text-[1.7rem] sm:text-[2rem] md:text-[2.8rem] flex xl:flex-row flex-col w-fit xl:gap-3 ">
             Disse er tilleggstjenester med{" "}
             <span className=" text-[#035635] border-b-4 border-[#035635]  mt-1 h-fit py-1 px-2 w-fit mx-auto leading-none rounded-sm ">
               ekstra kostnad
             </span>
-          </h2>
+          </div>
           <p className=" text-gray-500 mt-4 text-base md:text-lg max-w-[60rem] ">
             For deg som ønsker ekstra funksjonalitet eller skreddersydde
             løsninger, tilbyr vi disse tilleggstjenestene. Merk at noen
@@ -194,8 +156,8 @@ const Process = () => {
   return (
     <div className=" bg-[#7BDCB5] min-h-[100vh] flex flex-col justify-center md:processBg md:px-3 px-2 py-[2rem] ">
       <div className=" text-center text-[2rem] md:text-[2.8rem] lg:text-[3.5rem] leading-tight font-semibold ">
-        <h2>Prosessen med oss er kjempeenkel, vi skreddersyr løsningen.</h2>
-        <h2 className=" text-[#fff] ">Du slipper stress.</h2>
+        <div>Prosessen med oss er kjempeenkel, vi skreddersyr løsningen.</div>
+        <div className=" text-[#fff] ">Du slipper stress.</div>
       </div>
       <div className=" max-w-[1400px] mt-[5rem] lg:mt-[10rem] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 ">
         <div className="relative">
@@ -347,13 +309,13 @@ export const Team = () => {
   return (
     <>
       <div className="grid  lg:px-0 lg:grid-cols-2 text-white ">
-        <div className=" flex flex-col justify-center gap-3 p-2 md:p-3">
+        <div className=" flex flex-col justify-center gap-5 p-2 md:p-3">
           <div className=" bg-[#0b462ece] p-5 rounded-md ">
             <TbUsersGroup className=" text-[2rem] mb-1 " />
             <h3 className="text-[34px]   pb-5 font-semibold">
               Teamet bak sidesone
             </h3>
-            <p className="text-[20px] text-gray-100">
+            <p className="text-[20px] text-gray-100 leading-8">
               Hos Sidesone er vi eksperter på å skape digitale løsninger som
               gjør en forskjell for både enkeltpersoner og bedrifter. Vi forstår
               at behovene kan variere - fra små bedrifter og gründere som
@@ -365,40 +327,33 @@ export const Team = () => {
             </p>
           </div>
           <div className=" bg-[#0b462ece] p-5 rounded-md  ">
-            <p className="text-[20px] text-gray-100">
-              Vi er en webutviklingsbedrift som setter samarbeid i sentrum.
-              Gjennom tett dialog med kundene våre skreddersyr vi løsninger som
-              er tilpasset deres spesifikke behov. Vi følger deg nøye opp
-              gjennom hele prosessen - fra de første planleggingsmøtene til
-              lansering og langt inn i driftsfasen. For oss er det ikke bare
-              viktig å levere et ferdig produkt; vi ønsker å bygge langsiktige
-              relasjoner og være en partner som du kan stole på.
+            <p className="text-[20px] text-gray-100 leading-8">
+            Vi utvikler profesjonelle nettsider, nettbutikker og webapper, og tilbyr et bredt spekter av tjenester, inkludert markedsføring, SEO og grafisk design. Vi setter samarbeid i sentrum og skreddersyr løsninger som er tilpasset dine spesifikke behov. Gjennom tett dialog følger vi deg nøye opp gjennom hele prosessen - fra de første planleggingsmøtene til lansering og langt inn i driftsfasen. For oss er det ikke bare viktig å levere et ferdig produkt; vi ønsker å bygge langsiktige relasjoner og være en pålitelig partner du kan stole på.
             </p>
             <div className="flex justify-center items-center">
               <Link
                 href="/om-oss"
-                className="border-2 my-8 rounded-sm w-[280px] justify-center text-base lg:text-lg font-medium flex items-center gap-2 border-white p-3 transition-transform transform hover:scale-x-105 hover:origin-left group"
+                className="border-2 my-8 rounded-md w-[280px] justify-center text-base lg:text-lg font-medium flex items-center gap-2 border-[#d1d1d1] hover:border-white px-3 py-1 transition-transform transform hover:origin-left group"
               >
                 Les mer om sidesone
                 <IoIosArrowRoundForward
                   size={30}
-                  className="transition-transform transform group-hover:translate-x-2"
+                  className="transition-transform transform mt-1 group-hover:translate-x-2"
                 />
               </Link>
             </div>
           </div>
         </div>
         <div className=" md:min-h-[50vh]">
-          <figure className="w-full h-full overflow-hidden">
+          <figure className="w-full h-full flex items-center justify-center overflow-hidden">
             <Image
               loading="lazy"
               placeholder="blur"
               blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
               src={coding}
               alt={"Coding"}
-              width={400}
-              height={300}
-              className="w-full h-full object-contain md:object-cover "
+              
+              className="w-auto h-auto object-contain md:object-contain rounded-md "
             />
           </figure>
         </div>
@@ -412,24 +367,24 @@ const Satisfaction = () => {
   return (
     <div className=" relative bg-[#fff] text-center leading-tight pt-[1rem] pb-[2rem] ">
       <div className=" flex justify-center ">
-        <div className=" absolute z-10 max-w-[1400px] -bottom-[40%] md:-bottom-[55%]  w-full mx-auto flex justify-end  ">
+        <div className=" absolute z-10 max-w-[1400px] -bottom-[15%] md:-bottom-[55%]  w-full mx-auto flex justify-end  ">
           <Image
             src={SatisfactionIcon}
             alt="Satisfaction Icon"
             loading="lazy"
-            className=" w-[17rem] object-contain opacity-30  "
+            className=" w-[6rem] md:w-[17rem] object-contain opacity-30  "
           />
         </div>
       </div>
-      <h2 className=" text-[2rem] sm:text-[3rem] md:text-[4rem] font-medium relative z-50 ">
+      <div className=" text-[2rem] sm:text-[3rem] md:text-[4rem] font-medium relative z-50 ">
         100% Fornøydgaranti
-      </h2>
+      </div>
       <p className=" text-lg text-gray-500 mt-5 relative z-50 ">
         Vi er dedikerte til å levere et resultat du er stolt av. Derfor tilbyr
-        vi en garanti for at du blir helt fornøyd med nettsiden.Du kan gjøre
+        vi en garanti for at du blir helt fornøyd med nettsiden. Du kan gjør endringer og justeringer til du er 100% tilfreds, før vi går live.
       </p>
-      <p className=" text-lg text-gray-500 relative z-50 ">
-        endringer og justeringer til du er 100% tilfreds, før vi går live.
+      <p className=" text-lg text-gray-500 relative z-50 mt-2 ">
+        
       </p>
     </div>
   );
@@ -519,8 +474,8 @@ export const Hero = () => {
 export const OfferSection = () => {
   return (
     <div className=" max-w-[1400px] mx-auto px-2 md:px-3 -mt-16 lg:-mt-28 mb-[3rem] ">
-      <h2 className=" text-[2.8rem] mb-4 ">Hva vi tilbyr</h2>
-      <div className=" grid grid-cols-1 md:grid-cols-3 gap-4 ">
+      <h3 className=" text-[2.8rem] mb-4 ">Hva vi tilbyr</h3>
+      <div className=" grid grid-cols-1 md:grid-cols-3 gap-7 md:gap-4 ">
         <Card2
           img={NewImg1}
           title="Nettside"

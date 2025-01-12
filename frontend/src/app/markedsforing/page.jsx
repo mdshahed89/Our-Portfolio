@@ -36,9 +36,9 @@ const page = () => {
   return (
     <div className="  mt-[120px] max-w-[1400px] mx-auto px-3 ">
       <div>
-        <h2 className=" text-[2.5rem] font-semibold text-center mb-4 ">
+        <div className=" text-[2.5rem] font-semibold text-center mb-4 ">
           Markedsføring
-        </h2>
+        </div>
         <div className=" flex gap-5 lg:flex-row flex-col items-stretch ">
           <div className=" w-full  lg:w-[30%] xl:w-[30rem] h-auto md:h-[40rem] lg:max-h-[32rem]    ">
             <Image
@@ -81,9 +81,9 @@ const page = () => {
 
       <div className=" mt-16 mb-10 ">
         <div className=" text-center ">
-          <h2 className=" text-[1.7rem] md:text-[2.2rem] leading-tight mb-3 font-semibold ">
+          <div className=" text-[1.7rem] md:text-[2.2rem] leading-tight mb-3 font-semibold ">
             Velg den pakken som passe dine behov
-          </h2>
+          </div>
           <p className=" text-gray-600 font-medium ">
             Choose from our range of flexible pricing options that cater to your
             specific needs.
@@ -121,7 +121,7 @@ const Package = ({ packages, title, price }) => {
         <h3 className=" text-[1.4rem] text-[#e6e6e6] font-bold pt-5 pb-8 ">
           {title}
         </h3>
-        <h2 className=" text-[2.2rem] font-semibold pt-7 pb-14 ">{price}</h2>
+        <div className=" text-[2.2rem] font-semibold pt-7 pb-14 ">{price}</div>
         <div className=" flex flex-col gap-4  ">
           {packages.map((pck, idx) => (
             <div key={idx} className=" flex items-start gap-2 text-[1.2rem] ">

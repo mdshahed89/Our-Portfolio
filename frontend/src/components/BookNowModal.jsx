@@ -161,7 +161,7 @@ export const BookNowModal = ({ title, availability }) => {
             >
               <RxCross2 />
             </div>
-            <h2 className="pb-8 text-4xl backdrop-blur-sm">Bestill nå</h2>
+            <div className="pb-8 text-4xl backdrop-blur-sm">Bestill nå</div>
             <div className="space-y-3">
               <div>
                 <label

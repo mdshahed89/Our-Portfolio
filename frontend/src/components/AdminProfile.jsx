@@ -110,9 +110,9 @@ export const ProfilePasswordChange = () => {
         >
           {emailSent ? (
             <div className="p-5 text-center space-y-4">
-              <h2 className="text-2xl font-bold text-green-600">
+              <div className="text-2xl font-bold text-green-600">
                 E-post sendt!
-              </h2>
+              </div>
               <p className="text-gray-700 text-lg font-medium">
                 Vennligst sjekk e-postinnboksen eller søppelpostmappen for
                 tilbakestillingskoblingen. Det kan ta noen minutter å komme
@@ -139,9 +139,9 @@ export const ProfilePasswordChange = () => {
               >
                 <RxCross2 />
               </div>
-              <h2 className="pb-8 text-2xl text-green-600 font-semibold">
+              <div className="pb-8 text-2xl text-green-600 font-semibold">
                 Glem passord
-              </h2>
+              </div>
               <div className="space-y-3">
                 <div>
                   <label htmlFor="email" className="block mb-2">
@@ -273,9 +273,9 @@ export const EmailChangeModal = () => {
             >
               <RxCross2 />
             </div>
-            <h2 className="pb-5 text-2xl text-green-600 font-medium">
+            <div className="pb-5 text-2xl text-green-600 font-medium">
               Endre e-post
-            </h2>
+            </div>
             <div className="space-y-1">
               {/* Name Field */}
               <div>

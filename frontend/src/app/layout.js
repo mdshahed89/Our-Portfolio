@@ -7,11 +7,11 @@ import "./globals.css";
 import { Toaster } from "react-hot-toast";
 export const metadata = {
   title: "Sidesone - Profesjonelle nettsider, nettbutikker og webapper",
-  description: "Sidesone skaper moderne, brukervennlige nettsider, nettbutikker og skreddersydde webapplikasjoner. Øk synlighet og vekst med rask lastetid, sikkerhet og responsive design.",
+  description: "Sidesone utvikler moderne nettsider, nettbutikker og webapplikasjoner med rask lastetid, høy sikkerhet og responsivt design for økt synlighet og vekst.",
   openGraph: {
     title: "Sidesone - Profesjonelle nettsider, nettbutikker og webapper",
     description:
-      "Sidesone skaper moderne, brukervennlige nettsider, nettbutikker og skreddersydde webapplikasjoner. Øk synlighet og vekst med rask lastetid, sikkerhet og responsive design.",
+      "Sidesone utvikler moderne nettsider, nettbutikker og webapplikasjoner med rask lastetid, høy sikkerhet og responsivt design for økt synlighet og vekst.",
     url: "https://sidesone.no/",
     images: [
       {
@@ -27,7 +27,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Sidesone - Profesjonelle nettsider, nettbutikker og webapper",
     description:
-      "Sidesone skaper moderne, brukervennlige nettsider, nettbutikker og skreddersydde webapplikasjoner. Øk synlighet og vekst med rask lastetid, sikkerhet og responsive design.",
+      "Sidesone utvikler moderne nettsider, nettbutikker og webapplikasjoner med rask lastetid, høy sikkerhet og responsivt design for økt synlighet og vekst.",
     images: ["/twitterCard-sidesone.png"],
   },
 };

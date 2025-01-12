@@ -20,7 +20,7 @@ const Footer = () => {
         <div className="flex flex-col items-center lg:items-start justify-center gap-5 lg:justify-start">
           <Image
             src={Logo}
-            alt="Sidesone Logo"
+            alt="Sidesone"
 
             className=" w-[12rem] h-auto object-contain"
           />

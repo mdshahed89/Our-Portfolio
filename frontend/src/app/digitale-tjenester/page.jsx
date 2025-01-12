@@ -11,9 +11,9 @@ const page = () => {
       <div className=" flex items-center md:flex-row flex-col ">
         <div className=" flex-1 md:order-1 order-2 py-5   ">
           <div className=" px-3 ">
-            <h2 className=" text-[1.8rem] lg:text-[2.2rem] font-semibold ">
+            <div className=" text-[1.8rem] lg:text-[2.2rem] font-semibold ">
               Markedsføring
-            </h2>
+            </div>
             <p className=" text-lg lg:text-xl text-gray-600 ">
               Markedsføring handler om å bygge relasjoner med potensielle kunder
               og skape verdi gjennom riktige kanaler. Hos Sidesone utvikler vi
@@ -56,9 +56,9 @@ const page = () => {
         </div>
         <div className=" flex-1  ">
           <div className=" px-3 py-5 ">
-            <h2 className=" text-[1.8rem] lg:text-[2.2rem] font-semibold ">
+            <div className=" text-[1.8rem] lg:text-[2.2rem] font-semibold ">
               Søkemotoroptimalisering
-            </h2>
+            </div>
             <p className=" text-lg lg:text-xl text-gray-600 ">
               Hva er SEO, og hvordan jobber Sidesone med det?
             </p>
@@ -86,9 +86,9 @@ const page = () => {
       <div className=" flex items-center md:flex-row flex-col ">
         <div className=" flex-1 md:order-1 order-2 py-5   ">
           <div className=" px-3  ">
-            <h2 className=" text-[1.8rem] lg:text-[2.2rem] font-semibold ">
+            <div className=" text-[1.8rem] lg:text-[2.2rem] font-semibold ">
               Grafisk design
-            </h2>
+            </div>
             <p className=" text-lg lg:text-xl text-gray-600 ">
               Grafisk design er kunsten å formidle budskap visuelt, ved hjelp av
               designprinsipper som farger, typografi og layout. Dette gjør det

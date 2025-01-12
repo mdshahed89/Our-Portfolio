@@ -60,14 +60,14 @@ const Page = () => {
     <div className="flex items-center relative  h-screen justify-center">
       <Link
         href={"/"}
-        className="bg-white absolute top-10 left-4 md:left-[10%] lg:left-[25%] transition-all duration-300 ease-in-out active:scale-95 py-2 px-5 flex justify-center text-xl font-semibold text-green-700 rounded-full p-2"
+        className="bg-white absolute top-10 left-5 transition-all duration-300 ease-in-out active:scale-95 py-1 px-7 flex justify-center text-xl font-semibold text-[#000] rounded-full p-2"
       >
         Tilbake
       </Link>
       <div className="bg-white w-[90%] md:w-[80%] lg:w-[50%] rounded-xl p-2 md:p-5 mx-auto">
         {emailSent ? (
           <div className="text-center space-y-4">
-            <h2 className="text-2xl font-bold text-green-600">E-post sendt!</h2>
+            <div className="text-2xl font-bold text-green-600">E-post sendt!</div>
             <p className="text-gray-700 text-lg font-medium">
               Vennligst sjekk e-postinnboksen eller søppelpostmappen for
               tilbakestillingskoblingen.Det kan ta noen minutter å komme frem.
@@ -75,9 +75,9 @@ const Page = () => {
           </div>
         ) : (
           <>
-            <h2 className="text-2xl text-center font-bold py-3">
+            <div className="text-2xl text-center font-bold py-3">
               {showForgetPassword ? "Glem passord" : "Logg inn"}
-            </h2>
+            </div>
             {!showForgetPassword ? (
               <form onSubmit={handleLoginSubmit} className="space-y-3">
                 <div className="flex flex-col">

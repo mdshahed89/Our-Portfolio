@@ -31,9 +31,9 @@ const Page = () => {
       <div className="h-[50px] flex justify-between items-center  px-2 md:px-5 text-white  bg-[#035635]">
         <div className="items-center flex gap-2">
           <FaUserFriends size={20} />
-          <h2 className="text-[13px] md:text-[15px] font-medium">
+          <h3 className="text-[13px] md:text-[15px] font-medium">
             Alle bestillinger
-          </h2>
+          </h3>
         </div>
         <div>
           <div className="">
@@ -275,9 +275,9 @@ export const AvailabilityModal = ({ fetchData }) => {
             className="px-5 pb-5 pt-3 lg:pb-10 lg:pt-5 lg:px-10"
           >
             <div className="flex justify-between items-center mb-5">
-              <h2 className="text-2xl font-semibold">
+              <h3 className="text-2xl font-semibold">
                 Velg Start- og sluttdato
-              </h2>
+              </h3>
               <button
                 type="button"
                 onClick={() => setOpenModal(false)}
