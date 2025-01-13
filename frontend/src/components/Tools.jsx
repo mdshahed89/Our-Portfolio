@@ -27,8 +27,6 @@ import NewImg1 from "@/assets/newImg1.webp";
 import NewImg2 from "@/assets/newImg2.webp";
 import NewImg3 from "@/assets/newImg3.webp";
 
-
-
 const Tools = () => {
   return (
     <>
@@ -309,8 +307,8 @@ export const Team = () => {
   return (
     <>
       <div className="grid  lg:px-0 lg:grid-cols-2 text-white ">
-        <div className=" flex flex-col justify-center gap-5 p-2 md:p-3">
-          <div className=" bg-[#0b462ece] p-5 rounded-md ">
+        <div className=" flex flex-col justify-center gap-5 pt-2 md:p-3">
+          <div className=" bg-[#0b462ece] p-5 rounded-md mx-2 ">
             <TbUsersGroup className=" text-[2rem] mb-1 " />
             <h3 className="text-[34px]   pb-5 font-semibold">
               Teamet bak sidesone
@@ -326,9 +324,17 @@ export const Team = () => {
               overgår forventningene.
             </p>
           </div>
-          <div className=" bg-[#0b462ece] p-5 rounded-md  ">
-            <p className=" text-[16px] 2xl:text-[20px] text-gray-100 leading-normal 2xl:leading-8">
-            Vi utvikler profesjonelle nettsider, nettbutikker og webapper, og tilbyr et bredt spekter av tjenester, inkludert markedsføring, SEO og grafisk design. Vi setter samarbeid i sentrum og skreddersyr løsninger som er tilpasset dine spesifikke behov. Gjennom tett dialog følger vi deg nøye opp gjennom hele prosessen - fra de første planleggingsmøtene til lansering og langt inn i driftsfasen. For oss er det ikke bare viktig å levere et ferdig produkt; vi ønsker å bygge langsiktige relasjoner og være en pålitelig partner du kan stole på.
+          <div className=" bg-[#0b462ece] p-5 rounded-md mx-2  ">
+            <p className=" text-[20px] text-gray-100 leading-normal 2xl:leading-8">
+              Vi utvikler profesjonelle nettsider, nettbutikker og webapper, og
+              tilbyr et bredt spekter av tjenester, inkludert markedsføring, SEO
+              og grafisk design. Vi setter samarbeid i sentrum og skreddersyr
+              løsninger som er tilpasset dine spesifikke behov. Gjennom tett
+              dialog følger vi deg nøye opp gjennom hele prosessen - fra de
+              første planleggingsmøtene til lansering og langt inn i
+              driftsfasen. For oss er det ikke bare viktig å levere et ferdig
+              produkt; vi ønsker å bygge langsiktige relasjoner og være en
+              pålitelig partner du kan stole på.
             </p>
             <div className="flex justify-center items-center">
               <Link
@@ -344,7 +350,7 @@ export const Team = () => {
             </div>
           </div>
         </div>
-        <div className=" md:min-h-[50vh] md:px-0 px-2">
+        <div className=" md:min-h-[50vh] ">
           <figure className="w-full h-full flex items-center justify-center overflow-hidden">
             <Image
               loading="lazy"
@@ -352,8 +358,7 @@ export const Team = () => {
               blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
               src={coding}
               alt={"Coding"}
-              
-              className="lg:w-full w-auto lg:h-full h-auto object-contain lg:object-cover rounded-md "
+              className="lg:w-full w-auto lg:h-full h-auto object-contain lg:object-cover md:rounded-md "
             />
           </figure>
         </div>
@@ -381,11 +386,10 @@ const Satisfaction = () => {
       </div>
       <p className=" text-lg text-gray-500 mt-5 relative z-50 ">
         Vi er dedikerte til å levere et resultat du er stolt av. Derfor tilbyr
-        vi en garanti for at du blir helt fornøyd med nettsiden. Du kan gjør endringer og justeringer til du er 100% tilfreds, før vi går live.
+        vi en garanti for at du blir helt fornøyd med nettsiden. Du kan gjør
+        endringer og justeringer til du er 100% tilfreds, før vi går live.
       </p>
-      <p className=" text-lg text-gray-500 relative z-50 mt-2 ">
-        
-      </p>
+      <p className=" text-lg text-gray-500 relative z-50 mt-2 "></p>
     </div>
   );
 };
