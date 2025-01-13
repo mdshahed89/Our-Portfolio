@@ -1,4 +1,5 @@
 
+import { Messanger } from "@/components/BookNowModal";
 import CookieBanner from "../components/CookieBanner";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -6,6 +7,7 @@ import ScrollToTopButton from "../components/ScrollToTopButton";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
 export const metadata = {
+  metadataBase: new URL("https://sidesone.no"),
   title: "Sidesone - Profesjonelle nettsider, nettbutikker og webapper",
   description: "Sidesone utvikler moderne nettsider, nettbutikker og webapplikasjoner med rask lastetid, høy sikkerhet og responsivt design for økt synlighet og vekst.",
   openGraph: {
@@ -34,6 +36,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 
+  const pageId = "61557221282774";
 
   return (
     <html lang="no">
@@ -62,6 +65,7 @@ export default function RootLayout({ children }) {
           <Toaster />
           <ScrollToTopButton />
         </div>
+        <Messanger pageId={pageId} />
       </body>
     </html>
   );

@@ -79,16 +79,8 @@ export const BookNowModal = ({ title, availability }) => {
       }
     }
 
-    // Set the updated booking data
     setBookingData(updatedData);
   };
-
-  // setBookingData({
-  //   ...bookingData,
-  //   [e.target.id]: e.target.value,
-  // });
-
-  // console.log(process.env.NEXT_PUBLIC_BACKEND_URL);
 
   const sendBookingData = async (e) => {
     e.preventDefault();
@@ -103,7 +95,6 @@ export const BookNowModal = ({ title, availability }) => {
           body: JSON.stringify(bookingData),
         }
       );
-      // console.log(response);
 
       if (response.ok) {
         const result = await response.json();
@@ -281,5 +272,41 @@ export const BookNowModal = ({ title, availability }) => {
         </div>
       </div>
     </div>
+  );
+};
+
+export const Messanger = ({pageId}) => {
+  useEffect(() => {
+    // Initialize the Facebook SDK
+    window.fbAsyncInit = function () {
+      FB.init({
+        xfbml: true, // Parses the page for social plugins
+        version: 'v16.0', // Replace with the latest version
+      });
+    };
+
+    // Load the Facebook SDK script
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    })(document, 'script', 'facebook-jssdk');
+  }, []);
+
+  return (
+    <>
+      {/* Facebook Chat Plugin */}
+      <div
+        className="fb-customerchat"
+        attribution="setup_tool"
+        page_id={pageId} // Replace with your Facebook Page ID
+        theme_color="#0084ff" // Optional: Customize the chat color
+        logged_in_greeting="Hi! How can we help you?"
+        logged_out_greeting="Hi! Please log in to chat with us."
+      ></div>
+    </>
   );
 };
