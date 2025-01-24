@@ -10,6 +10,12 @@ import { FaCheck } from "react-icons/fa";
 
 const NettsideForm = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState({});
+  const [filePreviews, setFilePreviews] = useState([]);
+  const [selectedFiles, setSelectedFiles] = useState([]);
+  const [selectedValues, setSelectedValues] = useState([]);
+  const maxSize = 10 * 1024 * 1024; // 10 MB
+
   const pathName = usePathname();
   const path =
     pathName === "/nettside"
@@ -17,32 +23,6 @@ const NettsideForm = () => {
       : pathName === "/nettbuttik"
       ? "Nettbuttik"
       : "Webapplikasjon";
-  const [filePreview, setFilePreview] = useState("");
-  const [selectedValues, setSelectedValues] = useState([]);
-  const [file, setFile] = useState(null);
-  const [errors, setErrors] = useState({});
-  const handleFileUpload = (event) => {
-    const selectedFile = event.target.files[0];
-    const maxSize = 5 * 1024 * 1024;
-
-    if (selectedFile) {
-      if (selectedFile.size <= maxSize) {
-        setFilePreview({
-          name: selectedFile.name,
-          url: URL.createObjectURL(selectedFile),
-        });
-        setFile(selectedFile);
-        setErrors((prev) => ({ ...prev, file: null }));
-      } else {
-        setErrors((prev) => ({
-          ...prev,
-          file: "File size must be less than 2 MB.",
-        }));
-        setFilePreview(null);
-        setFile(null);
-      }
-    }
-  };
 
   const options = [
     { name: "Jeg trenger Domene" },
@@ -52,23 +32,45 @@ const NettsideForm = () => {
     ...(pathName === "/nettbuttik" ? [{ name: "Kobling mot leverandør" }] : []),
   ];
 
+  const handleFileUpload = (event) => {
+    const files = Array.from(event.target.files);
+    const validFiles = [];
+    const previews = [];
+
+    files.forEach((file) => {
+      if (file.size <= maxSize) {
+        previews.push({
+          name: file.name,
+          url: URL.createObjectURL(file),
+        });
+        validFiles.push(file);
+      } else {
+        setErrors((prev) => ({
+          ...prev,
+          file: `File size of ${file.name} exceeds 10 MB.`,
+        }));
+      }
+    });
+
+    setFilePreviews((prev) => [...prev, ...previews]);
+    setSelectedFiles((prev) => [...prev, ...validFiles]);
+  };
+
+  const handleRemoveFile = (index) => {
+    setFilePreviews((prev) => prev.filter((_, i) => i !== index));
+    setSelectedFiles((prev) => prev.filter((_, i) => i !== index));
+  };
+
   const handleChange = (value) => {
     setSelectedValues((prev) =>
-      prev.includes(value)
-        ? prev.filter((item) => item !== value)
-        : [...prev, value]
+      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
     );
   };
 
-  const handleClearFile = () => {
-    setFilePreview(null);
-    setFile(null);
-    setErrors((prev) => ({ ...prev, file: null }));
-  };
-
   const handleSubmit = async (e) => {
-    setIsLoading(true);
     e.preventDefault();
+    setIsLoading(true);
+
     const form = e.target;
     const firstName = form.firstName.value;
     const lastName = form.lastName.value;
@@ -80,44 +82,56 @@ const NettsideForm = () => {
     const description = form.description.value;
 
     const newErrors = {};
-    if (!file) newErrors.file = "Cover Image is required.";
+    if (!selectedFiles.length)
+      newErrors.file = "At least one file is required.";
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
+      setIsLoading(false);
       return;
     }
+
     try {
-      const uploadedImageURL = await uploadFile(file);
-      console.log(uploadedImageURL);
-      if (uploadedImageURL) {
-        const formData = {
-          path,
-          firstName,
-          lastName,
-          email,
-          phone,
-          budget,
-          firma,
-          pages,
-          vlag: selectedValues,
-          description,
-          image: uploadedImageURL,
-        };
-        const { data } = await axios.post(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/send-email`,
-          formData
-        );
-        if (data === "Email sent successfully!") {
-          toast.success("E-post sendt!");
-          form.reset();
-          setFile(null);
-          setIsLoading(false);
-          setFilePreview(null);
-          setSelectedValues([]);
-          setErrors({});
-        }
+      if (!Array.isArray(selectedFiles) || selectedFiles.length === 0) {
+        throw new Error("No files selected or invalid file input.");
+      }
+
+      const uploadedFileURLs = await Promise.all(
+        selectedFiles.map((file) => uploadFile(file))
+      );
+
+      console.log("Uploaded File URLs:", uploadedFileURLs);
+
+      const formData = {
+        path,
+        firstName,
+        lastName,
+        email,
+        phone,
+        firma,
+        budget,
+        pages,
+        vlag: selectedValues,
+        description,
+        images: uploadedFileURLs,
+      };
+
+      const { data } = await axios.post(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/send-email`,
+        formData
+      );
+
+      if (data === "Email sent successfully!") {
+        toast.success("E-post sendt!");
+        form.reset();
+        setSelectedFiles([]);
+        setFilePreviews([]);
+        setSelectedValues([]);
+        setErrors({});
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
+      toast.error("Noe gikk galt, prøv igjen.");
+    } finally {
       setIsLoading(false);
     }
   };
@@ -319,18 +333,16 @@ const NettsideForm = () => {
             </div>
 
             <div className="">
-              <h4 className="text-lg font-mediumd mb-2">
+              <h4 className="text-lg font-medium mb-2">
                 Hvis du har bilder eller logo kan du laste de opp her
               </h4>
               <div className="border border-dashed border-[#7BDCB5] rounded-lg p-4 flex flex-col items-center gap-3">
-                {filePreview ? (
-                  <div>
-                    <div className="flex justify-end">
-                      <button type="button" onClick={handleClearFile}>
-                        <RxCross2 className="text-2xl" />
-                      </button>
-                    </div>
-                    <div className="relative rounded-lg p-2">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full">
+                  {filePreviews.map((filePreview, index) => (
+                    <div
+                      key={index}
+                      className="relative rounded-lg overflow-hidden w-full h-32"
+                    >
                       <Image
                         loading="lazy"
                         blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
@@ -339,33 +351,40 @@ const NettsideForm = () => {
                         alt={filePreview.name}
                         width={100}
                         height={100}
-                        className="w-full h-32 object-cover rounded-md"
+                        className="w-full h-full object-cover rounded-md"
                       />
+                      <button
+                        type="button"
+                        className="absolute top-1 right-1 bg-white text-red-500 rounded-full p-1 shadow-md"
+                        onClick={() => handleRemoveFile(index)}
+                      >
+                        <RxCross2 className="text-lg" />
+                      </button>
                     </div>
+                  ))}
+                </div>
+                <div className="flex flex-col gap-5 items-center justify-center w-full mt-4">
+                  <div className="text-center text-gray-500">
+                    Dra og slipp filer her, eller
                   </div>
-                ) : (
-                  <div className="flex flex-col gap-5 items-center justify-center">
-                    <div className="text-center text-gray-500">
-                      Dra og slipp filer her, eller
-                    </div>
-                    <button
-                      type="button"
-                      className="bg-[#035635] text-white py-2 px-4 rounded-full"
-                      onClick={() =>
-                        document.getElementById("file-input").click()
-                      }
-                    >
-                      Velg filer
-                    </button>
-                    <input
-                      id="file-input"
-                      type="file"
-                      accept="image/*"
-                      className="hidden"
-                      onChange={handleFileUpload}
-                    />
-                  </div>
-                )}
+                  <button
+                    type="button"
+                    className="bg-[#035635] text-white py-2 px-4 rounded-full"
+                    onClick={() =>
+                      document.getElementById("file-input").click()
+                    }
+                  >
+                    Velg filer
+                  </button>
+                  <input
+                    id="file-input"
+                    type="file"
+                    accept="image/*"
+                    className="hidden"
+                    multiple
+                    onChange={handleFileUpload}
+                  />
+                </div>
               </div>
               {errors.file && (
                 <span className="text-red-500 text-sm">{errors.file}</span>
