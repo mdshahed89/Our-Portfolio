@@ -96,12 +96,19 @@ export const sendEmail = async (req, res) => {
           </tr>
           <tr style="background-color: #ffffff;">
           <td style="padding: 8px;">
-              ${
-                info.image
-                  ? `<a href="${info.image}" target="_blank" style="color: #007BFF;">Last opp bilde</a>`
-                  : "N/A"
-              }
-            </td> 
+  ${
+    Array.isArray(info.images) && info.images.length > 0
+      ? info.images
+          .map(
+            (link, index) =>
+              `<a href="${link}" target="_blank" style="color: #007BFF; ">
+bilder ${index + 1}</a>`
+          )
+          .join(", ")
+      : "N/A"
+  }
+</td>
+
           </tr>
           <tr style="background-color: #f2f2f2;">
             <td style="padding: 8px; font-weight: bold;">Beskriv hvordan du ønsker at nettsiden din skal være</td>

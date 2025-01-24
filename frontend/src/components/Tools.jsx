@@ -453,7 +453,7 @@ export const Hero = () => {
           </p>
         </div>
 
-        <div className=" mt-14 md:mt-5">
+        <div className="flex flex-col md:flex-row md:items-center gap-5 mt-14 md:mt-5">
           <Link
             href="/nettside"
             className="border-2 px-2 md:px-0 whitespace-none md:whitespace-normal rounded w-fit md:w-[250px] lg:w-[300px] justify-center text-base lg:text-lg font-medium flex items-center gap-1 md:gap-2 border-white p-2 md:p-2 transition-transform transform hover:scale-x-105 hover:origin-left group"
@@ -463,6 +463,12 @@ export const Hero = () => {
               size={30}
               className="transition-transform transform group-hover:translate-x-2"
             />
+          </Link>
+          <Link
+            href={"/book-now"}
+            className="border-2 px-2 md:px-0 whitespace-none md:whitespace-normal rounded w-fit md:w-[180px] border-[#17DB50] justify-center text-base lg:text-lg font-medium flex items-center gap-1 md:gap-2 bg-[#17DB50] p-2 md:p-2 transition-transform transform hover:scale-x-105 hover:origin-left group"
+          >
+            Book Møte
           </Link>
         </div>
       </div>
@@ -477,7 +483,7 @@ export const Hero = () => {
 
 export const OfferSection = () => {
   return (
-    <div className=" 2xl:2xl:max-w-[1400px] max-w-[1200px] max-w-[1200px] mx-auto px-2 md:px-3 -mt-16 lg:-mt-28 mb-[3rem] ">
+    <div className=" 2xl:2xl:max-w-[1400px] max-w-[1200px]  mx-auto px-2 md:px-3 -mt-16 lg:-mt-28 mb-[3rem] ">
       <h3 className=" text-[2.8rem] mb-4 ">Hva vi tilbyr</h3>
       <div className=" grid grid-cols-1 md:grid-cols-3 gap-7 md:gap-4 ">
         <Card2

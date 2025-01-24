@@ -92,7 +92,7 @@ const page = () => {
           <div>
             <h3 className="text-3xl font-semibold">
               Fortell oss om din nye{" "}
-              <span className="text-[#7BDCB5]">nettbuttik</span>
+              <span className="text-[#7BDCB5]">nettbuttikk</span>
             </h3>
             <p className="pt-8 text-lg font-normal">
               Når det gjelder nettbutikker, utvikler vi brukervennlige og
