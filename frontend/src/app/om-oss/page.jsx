@@ -33,7 +33,29 @@ const page = () => {
   return (
     <div>
       <div className=" 2xl:max-w-[1400px] max-w-[1200px] mx-auto">
-        <div className="flex flex-col md:h-[40rem]  md:flex-row items-center mt-[110px] lg:mt-[142px]  justify-between">
+
+        <div className="flex md:h-[40rem]   items-center mt-[142px]  justify-between">
+          <div className="md:w-[35%] w-[80%] ">
+            <div className="flex w-full md:h-full items-center md:items-end justify-center">
+              <Image
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
+                src={HomeImg}
+                alt="Person"
+                className=" w-auto  md:w-full h-auto scale-125 md:scale-[1.15] z-10 object-contain"
+              />
+            </div>
+          </div>
+          <div className="md:w-[55%] w-full  z-50 md:bg-transparent md:py-0 py-3 md:pr-3 pr-0 md:px-0 px-2  ">
+            <div className="text-[1rem]  text-center md:text-start md:text-[1.8rem] lg:text-[2.3rem] font-semibold">
+              «Å utvikle digitale løsninger som både ser bra ut og skaper
+              resultater for kundene våre, er det som driver oss hver dag.»
+            </div>
+          </div>
+        </div>
+
+        {/* <div className="flex flex-col md:h-[40rem]  md:flex-row items-center mt-[110px] lg:mt-[142px]  justify-between">
           <div className="md:w-[35%] ">
             <div className="flex w-full md:h-full items-center md:items-end justify-center">
               <Image
@@ -52,7 +74,7 @@ const page = () => {
               resultater for kundene våre, er det som driver oss hver dag.»
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="bg-[#035635] z-50 relative">
         <div className="grid  items-center  lg:grid-cols-2 mb-16 text-white ">

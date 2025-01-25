@@ -21,13 +21,14 @@ export const saveData = async (req, res) => {
 export const getData = async (req, res) => {
   try {
     const result = await Project.find();
-    return  res.status(200).json({
+    return  res.status(200).send({
       success: true,
       data: result,
       message: "Prosjekt grunnlagt vellykket.",
     });
   } catch (error) {
-    return res.status(500).json({
+    console.log(`Error in getdata controller: ${error}`);
+    return res.status(500).send({
       success: false,
       message: "Somethings went wrong",
       error: error.message,

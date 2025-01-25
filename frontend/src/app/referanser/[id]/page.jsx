@@ -1,60 +1,61 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 
-const DetailsPage = () => {
+const DetailsPage = ({ params }) => {
+  const { id } = React.use(params);
+
+  const [blog, setBlog] = useState(null);
+  // const [allBlogs, setAllBlogs] = useState([]);
+  const [otherData, setOtherData] = useState(null);
+
+  useEffect(() => {
+    const fetchBlogDetails = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/get-details/${id}`
+        );
+        
+        setBlog(response.data?.data);
+        setOtherData(response.data?.otherData);
+      } catch (error) {
+        console.log("Error fetching the blog details:", error?.message);
+      }
+    };
+
+    // const fetchAllBlogs = async () => {
+    //   try {
+    //     const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/get-blog`);
+    //     setAllBlogs(response.data?.data);
+    //   } catch (error) {
+    //     console.error("Error fetching all blogs:", error?.message);
+    //   }
+    // };
+
+    fetchBlogDetails();
+    // fetchAllBlogs();
+  }, [id]);
+
   function formatDate(isoDate) {
     const date = new Date(isoDate);
     const options = { year: "numeric", month: "long", day: "numeric" };
     return date.toLocaleDateString("en-US", options);
   }
 
-  const { id } = useParams();
-  const router = useRouter();
-
-  const [blog, setBlog] = useState(null);
-  const [allBlogs, setAllBlogs] = useState([]);
-
-  useEffect(() => {
-    // Fetch blog details
-    const fetchBlogDetails = async () => {
-      try {
-        const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/get-details/${id}`
-        );
-        setBlog(response.data.data);
-      } catch (error) {
-        console.error("Error fetching the blog details:", error.message);
-      }
-    };
-
-    // Fetch all blogs
-    const fetchAllBlogs = async () => {
-      try {
-        const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/get-blog`);
-        setAllBlogs(response.data.data);
-      } catch (error) {
-        console.error("Error fetching all blogs:", error.message);
-      }
-    };
-
-    fetchBlogDetails();
-    fetchAllBlogs();
-  }, [id]);
-
-  if (!blog || allBlogs.length === 0) {
-    return <div>Loading...</div>;
+  if (!blog) {
+    return <div>Blog not found</div>;
   }
 
-  const currentIndex = allBlogs.findIndex((b) => b._id === id);
+  // const currentIndex = allBlogs.findIndex((b) => b._id === id);
 
-  const previousBlog = currentIndex > 0 ? allBlogs[currentIndex - 1] : null;
-  const nextBlog =
-    currentIndex < allBlogs.length - 1 ? allBlogs[currentIndex + 1] : null;
+  // const previousBlog = currentIndex > 0 ? allBlogs[currentIndex - 1] : null;
+  // const nextBlog =
+  //   currentIndex < allBlogs.length - 1 ? allBlogs[currentIndex + 1] : null;
+
+  console.log(otherData);
 
   return (
     <div className="mt-40 mx-auto p-4">
@@ -76,31 +77,29 @@ const DetailsPage = () => {
         ></div>
       </div>
 
-      {/* Navigation Buttons */}
-      <hr />
-      <div className="flex justify-between my-8 ">
-        {previousBlog && (
+      <div className="flex justify-between my-8 border-t pt-5 ">
+        {otherData?.previousBlogId && (
           <Link
-            href={`/referanser/${previousBlog._id}`}
+            href={`/referanser/${otherData?.previousBlogId}`}
             className=" text-gray-600  hover:text-[#129e66] transition-all ease-out delay-100 "
           >
             <div className="flex uppercase font-medium text-sm items-center gap-3">
               <FaLongArrowAltLeft />
               Previous
             </div>
-            {previousBlog.title}
+            {otherData?.previousBlogTitle}
           </Link>
         )}
-        {nextBlog && (
+        {otherData?.nextBlogId && (
           <Link
-            href={`/referanser/${nextBlog._id}`}
+            href={`/referanser/${otherData?.nextBlogId}`}
             className="text-gray-600 ml-auto hover:text-[#129e66] transition-all ease-out delay-100"
           >
             <div className="flex uppercase font-medium text-sm items-center gap-3">
               Next
               <FaLongArrowAltRight />
             </div>
-            {nextBlog.title}
+            {otherData?.nextBlogTitle}
           </Link>
         )}
       </div>

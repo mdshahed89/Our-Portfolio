@@ -3,7 +3,7 @@ import Link from "next/link";
 import { MdArrowForward } from "react-icons/md";
 import Marquee from "react-fast-marquee";
 async function getReferencesData() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/get-blog`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/get-three-blog`, {
     next: { revalidate: 60 },
   });
 
@@ -30,6 +30,9 @@ export default async function Reference({ title }) {
       : plainText;
   }
 
+  // console.log(referencesData);
+  
+
   return (
     <div>
       {referencesData.length > 0 && (
@@ -42,21 +45,24 @@ export default async function Reference({ title }) {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
             {referencesData.slice(0, 3).map((reference, index) => (
-              <div key={index} className="overflow-hidden group ">
-                <div>
-                  <Link href={`/referanser/${reference?._id}`}>
-                    <figure className="w-full h-auto md:h-[350px]">
-                      <Image
-                        loading="lazy"
-                        src={reference?.coverImage}
-                        alt={reference?.title || "Blog Image"}
-                        width={400}
-                        height={230}
-                        className="object-cover h-full w-full"
-                      />
-                    </figure>
-                  </Link>
-                </div>
+              <div key={index} className="overflow-hidden group w-full h-full ">
+                <Link
+                  href={`/referanser/${reference?._id}`}
+                  className=" w-full h-full "
+                >
+                  <div className=" relative w-full h-[300px] lg:[250px] xl:h-[350px] ">
+                    <Image
+                      loading="lazy"
+                      src={reference?.coverImage}
+                      alt={reference?.title || "Blog Image"}
+                      fill
+                      // width={16}
+                      // height={9}
+                      className="w-full h-full object-cover "
+                    />
+                  </div>
+                </Link>
+
                 <div className="px-3 py-3 space-y-3">
                   <div className="text-2xl font-semibold">
                     {reference?.title || "Untitled Blog"}

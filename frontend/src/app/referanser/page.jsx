@@ -2,14 +2,13 @@ import { FaDatabase } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
 import parse from "html-react-parser";
-import toast from "react-hot-toast";
 const page = async () => {
 
   let referencesData = [];
 
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/get-blog`
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/get-client-blogs`
     );
 
     if (!response.ok) {
@@ -20,6 +19,9 @@ const page = async () => {
   } catch (error) {
     console.log(error)
   }
+
+  console.log(referencesData);
+  
 
   return (
     <div className="bg-[#EDFCF7] min-h-[100vh] px-3 lg:px-5 ">
