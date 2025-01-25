@@ -453,10 +453,10 @@ export const Hero = () => {
           </p>
         </div>
 
-        <div className="flex flex-col md:flex-row md:items-center gap-5 mt-14 md:mt-5">
+        <div className="flex flex-col md:flex-row md:items-center mt-14 md:mt-5">
           <Link
             href="/nettside"
-            className="border-2 px-2 md:px-0 whitespace-none md:whitespace-normal rounded w-[240px] md:w-[250px] lg:w-[300px] justify-center text-base lg:text-lg font-medium flex items-center gap-1 md:gap-2 hover:border-white border-[#dadada] h-[3rem] transition-transform transform  group"
+            className="border-2 px-2 md:px-0 whitespace-none md:whitespace-normal rounded w-fit md:w-[250px] lg:w-[300px] justify-center text-base lg:text-lg font-medium flex items-center gap-1 md:gap-2 hover:border-white border-[#dadada] h-[3rem] transition-transform transform  group"
           >
             Trenger du en nettside?
             <IoIosArrowRoundForward
