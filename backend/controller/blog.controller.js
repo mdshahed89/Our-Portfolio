@@ -71,7 +71,6 @@ export const getDetailsData = async (req, res) => {
   const id = req.params.id;
 
   try {
-    // Fetch the current blog
     const currentBlog = await Blog.findById(id);
     if (!currentBlog) {
       return res.status(404).json({
@@ -91,9 +90,6 @@ export const getDetailsData = async (req, res) => {
       .sort({ createdAt: 1 })
       .select("_id title");
 
-      // console.log(previousBlog);
-      
-
     return res.status(200).json({
       success: true,
       data: currentBlog,
@@ -107,7 +103,7 @@ export const getDetailsData = async (req, res) => {
     });
   } catch (error) {
     console.log(`Error in blog details controller: ${error}`);
-    
+
     return res.status(500).send({
       success: false,
       message: "Noe gikk galt",

@@ -453,7 +453,7 @@ export const Hero = () => {
           </p>
         </div>
 
-        <div className="flex flex-col md:flex-row md:items-center gap-5 mt-6 md:mt-5">
+        <div className="flex flex-col md:flex-row md:items-center gap-5 mt-14 md:mt-5">
           <Link
             href="/nettside"
             className="border-2 px-2 md:px-0 whitespace-none md:whitespace-normal rounded w-[240px] md:w-[250px] lg:w-[300px] justify-center text-base lg:text-lg font-medium flex items-center gap-1 md:gap-2 hover:border-white border-[#dadada] h-[3rem] transition-transform transform  group"
@@ -464,12 +464,12 @@ export const Hero = () => {
               className="transition-transform transform group-hover:translate-x-2"
             />
           </Link>
-          <Link
+          {/* <Link
             href={"/book-now"}
             className="border-2 px-2 md:px-0 whitespace-none md:whitespace-normal rounded w-[240px] border-[#17DB50] justify-center text-base lg:text-lg font-medium flex items-center gap-1 md:gap-2 bg-[#17DB50] hover:bg-transparent h-[3rem] transition-all duration-300 ease-in-out transform group"
           >
             Book Møte
-          </Link>
+          </Link> */}
         </div>
       </div>
       <div className=" absolute h-full w-full flex items-end justify-end  ">

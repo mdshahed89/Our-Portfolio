@@ -22,7 +22,7 @@ const page = async () => {
     console.log(error)
   }
 
-  console.log(referencesData);
+  // console.log(referencesData);
   
 
   return (

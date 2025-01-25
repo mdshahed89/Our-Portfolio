@@ -74,7 +74,7 @@ const Header = () => {
             menuOpen ? "block" : "hidden"
           }`}
         >
-          <ul className="flex items-center pt-2 space-x-8">
+          <ul className="flex items-center pt-2 space-x-8 ">
             <li className="relative group">
               <Tooltip
                 title={
@@ -258,6 +258,20 @@ const Header = () => {
                 <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-[#17DB4F] transition-all duration-300 group-hover:w-full"></span>
               </div>
             </li>
+            <li className="relative group">
+              <div className="cursor-pointer pb-2">
+                <Link
+                  className={`${
+                    pathName === "/book-now" && "bg-transparent"
+                  } bg-[#17DB50] hover:bg-transparent border-2 border-[#17DB50] px-4 font-medium text-lg py-1 rounded-sm transition-all duration-300 ease-in-out  `}
+                  href="/book-now"
+                >
+                  {" "}
+                  Book Møte
+                </Link>
+                {/* <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-[#17DB4F] transition-all duration-300 group-hover:w-full"></span> */}
+              </div>
+            </li>
           </ul>
         </nav>
       </div>
@@ -410,6 +424,17 @@ const Header = () => {
               className="flex items-center pb-2 hover:text-[#17DB4F]"
             >
               Prosjekter
+            </Link>
+          </li>
+          <li className="relative group">
+            <Link
+              href="/book-now"
+              onClick={() => setMenuOpen(false)}
+              className={` ${
+                pathName === "/book-now" && "bg-transparent"
+              } flex items-center w-fit  bg-[#17DB4F] border-2 rounded-sm px-7 py-1 border-[#17DB4F] hover:bg-transparent transition-colors duration-300 ease-in-out `}
+            >
+              Book Møte
             </Link>
           </li>
         </ul>

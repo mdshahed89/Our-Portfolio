@@ -85,7 +85,7 @@ const DetailsPage = ({ params }) => {
           >
             <div className="flex uppercase font-medium text-sm items-center gap-3">
               <FaLongArrowAltLeft />
-              Previous
+              Tidligere
             </div>
             {otherData?.previousBlogTitle}
           </Link>
@@ -93,10 +93,10 @@ const DetailsPage = ({ params }) => {
         {otherData?.nextBlogId && (
           <Link
             href={`/referanser/${otherData?.nextBlogId}`}
-            className="text-gray-600 ml-auto hover:text-[#129e66] transition-all ease-out delay-100"
+            className="text-gray-600 ml-auto hover:text-[#129e66] transition-all ease-out delay-100 flex items-end flex-col"
           >
             <div className="flex uppercase font-medium text-sm items-center gap-3">
-              Next
+            Neste
               <FaLongArrowAltRight />
             </div>
             {otherData?.nextBlogTitle}
