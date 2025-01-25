@@ -8,7 +8,9 @@ const page = async () => {
 
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/get-client-blogs`
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/get-client-blogs`, {
+        next: {revalidate: 60}
+      }
     );
 
     if (!response.ok) {
