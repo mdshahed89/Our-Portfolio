@@ -2,8 +2,8 @@
 const nextConfig = {
   experimental: {
     turbo: {},
-    optimizeCss: true,
   },
+  output: "standalone",
   images: {
     remotePatterns: [
       {
