@@ -8,7 +8,7 @@ async function getReferencesData() {
   });
 
   if (!res.ok) {
-    throw new Error("Kunne ikke hente referansedata");
+    throw new Error("Kunne ikke hente referansedata")
   }
 
   const data = await res.json();
