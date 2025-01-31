@@ -3,7 +3,7 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { FaDatabase, FaEdit, FaUserFriends } from "react-icons/fa";
+import { FaDatabase, FaUserFriends } from "react-icons/fa";
 import parse from "html-react-parser";
 import { MdDelete } from "react-icons/md";
 import toast from "react-hot-toast";

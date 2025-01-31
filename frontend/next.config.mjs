@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    turbo: {},
+    optimizeCss: true,
+  },
   images: {
     remotePatterns: [
       {

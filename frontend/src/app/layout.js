@@ -1,4 +1,5 @@
 import { Messanger } from "@/components/BookNowModal";
+// const Messanger = dynamic(() => import("../components/BookNowModal"));
 import CookieBanner from "../components/CookieBanner";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -35,7 +36,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const pageId = "61557221282774";
+  const pageId = "277983682055245";
 
   return (
     <html lang="no">
@@ -59,7 +60,7 @@ export default function RootLayout({ children }) {
           type="font/woff2"
           crossOrigin="anonymous"
         />
-        <script type="application/ld+json">
+        {/* <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebSite",
@@ -67,7 +68,28 @@ export default function RootLayout({ children }) {
             url: "https://sidesone.no",
             description: metadata.description,
           })}
-        </script>
+        </script> */}
+        <script type="application/ld+json">
+  {JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Sidesone",
+    "url": "https://sidesone.no",
+    "logo": "https://sidesone.no/logo.png",
+    "description": metadata.description,
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+47 13 65 07",
+      "contactType": "customer service",
+      "areaServed": "NO",
+      "availableLanguage": ["Norwegian", "English"]
+    },
+    "sameAs": [
+      "https://www.facebook.com/groups/sidesone/",
+      "https://www.instagram.com/sidesoneas/"
+    ]
+  })}
+</script>
       </head>
       <body className={` antialiased font-averta  `}>
         <div className="">
@@ -80,7 +102,7 @@ export default function RootLayout({ children }) {
           <Toaster />
           <ScrollToTopButton />
         </div>
-        {/* <Messanger pageId={pageId} /> */}
+         <Messanger pageId={pageId} /> 
       </body>
     </html>
   );
