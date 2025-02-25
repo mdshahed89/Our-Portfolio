@@ -70,26 +70,26 @@ export default function RootLayout({ children }) {
           })}
         </script> */}
         <script type="application/ld+json">
-  {JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Sidesone",
-    "url": "https://sidesone.no",
-    "logo": "https://sidesone.no/logo.png",
-    "description": metadata.description,
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+47 13 65 07",
-      "contactType": "customer service",
-      "areaServed": "NO",
-      "availableLanguage": ["Norwegian", "English"]
-    },
-    "sameAs": [
-      "https://www.facebook.com/groups/sidesone/",
-      "https://www.instagram.com/sidesoneas/"
-    ]
-  })}
-</script>
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Sidesone",
+            url: "https://sidesone.no",
+            logo: "https://sidesone.no/logo.png",
+            description: metadata.description,
+            contactPoint: {
+              "@type": "ContactPoint",
+              telephone: "+47 13 65 07",
+              contactType: "customer service",
+              areaServed: "NO",
+              availableLanguage: ["Norwegian", "English"],
+            },
+            sameAs: [
+              "https://www.facebook.com/groups/sidesone/",
+              "https://www.instagram.com/sidesoneas/",
+            ],
+          })}
+        </script>
       </head>
       <body className={` antialiased font-averta  `}>
         <div className="">
@@ -102,7 +102,7 @@ export default function RootLayout({ children }) {
           <Toaster />
           <ScrollToTopButton />
         </div>
-         <Messanger pageId={pageId} /> 
+        <Messanger pageId={pageId} />
       </body>
     </html>
   );

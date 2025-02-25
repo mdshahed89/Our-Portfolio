@@ -53,7 +53,7 @@ export const getOnlyThreeBlog = async (req, res) => {
 export const getBlogsForClient = async (req, res) => {
   try {
     const result = await Blog.find();
-    return res.status(201).json({
+    return res.status(200).json({
       success: true,
       data: result,
       message: "Bloggen ble funnet.",
