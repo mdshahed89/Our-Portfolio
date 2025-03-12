@@ -92,14 +92,31 @@ const NettsideForm = () => {
 
     try {
       if (!Array.isArray(selectedFiles) || selectedFiles.length === 0) {
-        throw new Error("No files selected or invalid file input.");
+        // throw new Error("No files selected or invalid file input.");
+        console.log("No file selected or invalid file input");
+      return
       }
 
-      const uploadedFileURLs = await Promise.all(
-        selectedFiles.map((file) => uploadFile(file))
-      );
+      // const uploadedFileURLs = await Promise.all(
+      //   selectedFiles.map((file) => uploadFile(file))
+      // );
 
-      console.log("Uploaded File URLs:", uploadedFileURLs);
+      const convertToBase64 = (file) => {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.readAsDataURL(file);
+          reader.onload = () => resolve(reader.result);
+          reader.onerror = (error) => reject(error);
+        });
+      };
+  
+      const base64Images = await Promise.all(
+        selectedFiles.map((file) => convertToBase64(file))
+      );
+  
+      // console.log("Base64 Encoded Images:", base64Images);
+
+      // return;
 
       const formData = {
         path,
@@ -112,7 +129,7 @@ const NettsideForm = () => {
         pages,
         vlag: selectedValues,
         description,
-        images: uploadedFileURLs,
+        images: base64Images,
       };
 
       const { data } = await axios.post(

@@ -517,6 +517,7 @@ export const ProjectModal = ({ id, setLoad }) => {
   const [openModal, setOpenModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [filePreview, setFilePreview] = useState(null);
+  const [imageUrl, setImageUrl] = useState("")
   const [file, setFile] = useState(null);
   // console.log(file);
   const [errors, setErrors] = useState({});
@@ -552,10 +553,16 @@ export const ProjectModal = ({ id, setLoad }) => {
 
   const handleFileUpload = (event) => {
     const selectedFile = event.target.files[0];
-    const maxSize = 5 * 1024 * 1024; // 2MB limit
-
+    const maxSize = 5 * 1024 * 1024;
+  
     if (selectedFile) {
       if (selectedFile.size <= maxSize) {
+        const reader = new FileReader();
+        reader.readAsDataURL(selectedFile);
+        reader.onloadend = () => {
+          setImageUrl(reader.result);
+        };
+  
         setFilePreview({
           name: selectedFile.name,
           url: URL.createObjectURL(selectedFile),
@@ -565,7 +572,7 @@ export const ProjectModal = ({ id, setLoad }) => {
       } else {
         setErrors((prev) => ({
           ...prev,
-          file: "File size must be less than 2 MB.",
+          file: "File size must be less than 5 MB.",
         }));
         setFilePreview(null);
         setFile(null);
@@ -577,6 +584,7 @@ export const ProjectModal = ({ id, setLoad }) => {
     setFilePreview(null);
     setFile(null);
     setErrors((prev) => ({ ...prev, file: null }));
+    setImageUrl("")
   };
 
   const handleSubmit = async (e) => {
@@ -599,14 +607,14 @@ export const ProjectModal = ({ id, setLoad }) => {
     }
 
     try {
-      const uploadedImageURL = file
-        ? await uploadFile(file)
-        : projectData.image;
-      // console.log("Upload File", uploadedImageURL);
+      // const uploadedImageURL = file
+      //   ? await uploadFile(file)
+      //   : projectData.image;
       const formData = {
         title,
         url,
-        image: uploadedImageURL,
+        imageUrl: imageUrl,
+        image: projectData?.image,
       };
       // console.log(formData);
       setIsLoading(true);

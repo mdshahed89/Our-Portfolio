@@ -3,9 +3,37 @@ import jwt from "jsonwebtoken";
 import Admin from "../models/login.model.js";
 const jwtSecret = "kbsdkfbuiusd237448973644382";
 import bcrypt from "bcryptjs";
+import cloudinary from "../utils/cloudinary.js";
+
 export const sendEmail = async (req, res) => {
   const info = req.body;
-  console.log(info);
+
+  const images = info.images;
+
+  let uploadedImages = [];
+
+  if (Array.isArray(images) && images.length > 0) {
+    uploadedImages = await Promise.all(
+      images.map(async (image) => {
+        if (image.startsWith("data:image")) {
+          const result = await cloudinary.uploader.upload(image, {
+            folder: "SIDESONE",
+            resource_type: "image",
+            overwrite: false, 
+          });
+          return result.secure_url;
+        }
+        return null; 
+      })
+    );
+
+    uploadedImages = uploadedImages.filter((url) => url !== null);
+  }
+
+  // console.log(uploadedImages);
+  
+
+  // console.log(info);
   const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 587,
@@ -97,8 +125,8 @@ export const sendEmail = async (req, res) => {
           <tr style="background-color: #ffffff;">
           <td style="padding: 8px;">
   ${
-    Array.isArray(info.images) && info.images.length > 0
-      ? info.images
+    Array.isArray(uploadedImages) && uploadedImages.length > 0
+      ? uploadedImages
           .map(
             (link, index) =>
               `<a href="${link}" target="_blank" style="color: #007BFF; ">

@@ -9,6 +9,7 @@ import { FaUserFriends } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { MdDelete } from "react-icons/md";
 import { SlCalender } from "react-icons/sl";
+import { RxCross1 } from "react-icons/rx";
 const Page = () => {
   const [availabilityData, setAvailabilityData] = useState([]);
 
@@ -67,7 +68,7 @@ export const GetBookedData = () => {
       setBookData(response.data?.bookings || []);
     } catch (error) {
       toast.error(error);
-      setError("Noe gikk galt under henting av bokdata.");
+      // setError("Noe gikk galt under henting av bokdata.");
     }
   };
   useEffect(() => {
@@ -274,26 +275,26 @@ export const AvailabilityModal = ({ fetchData }) => {
             onSubmit={handleSubmit}
             className="px-5 pb-5 pt-3 lg:pb-10 lg:pt-5 lg:px-10"
           >
-            <div className="flex justify-between items-center mb-5">
-              <h3 className="text-2xl font-semibold">
+            <div className="flex justify-between items-center mb-10 text-black ">
+              <h3 className="text-xl font-medium ">
                 Velg Start- og sluttdato
               </h3>
               <button
                 type="button"
                 onClick={() => setOpenModal(false)}
-                className="text-2xl cursor-pointer"
+                className="text-xl cursor-pointer"
               >
-                &times;
+                <RxCross1 />
               </button>
             </div>
 
             {/* Start Date */}
-            <div>
+            <div className=" mb-2 ">
               <label
                 htmlFor="startDate"
                 className="block mb-2 font-medium text-gray-700"
               >
-                Startdato og klokkeslett:
+                Startdato og klokkeslett
               </label>
               <div className="relative">
                 <input
@@ -316,7 +317,7 @@ export const AvailabilityModal = ({ fetchData }) => {
                 htmlFor="endDate"
                 className="block mb-2 font-medium text-gray-700"
               >
-                Sluttdato og klokkeslett:
+                Sluttdato og klokkeslett
               </label>
               <div className="relative">
                 <input

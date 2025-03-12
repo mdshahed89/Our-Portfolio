@@ -1,4 +1,4 @@
-import { Messanger } from "@/components/BookNowModal";
+import CustomChatButton, { Messanger } from "@/components/BookNowModal";
 // const Messanger = dynamic(() => import("../components/BookNowModal"));
 import CookieBanner from "../components/CookieBanner";
 import Footer from "../components/Footer";
@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import ScrollToTopButton from "../components/ScrollToTopButton";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
+import Script from "next/script";
 export const metadata = {
   metadataBase: new URL("https://sidesone.no"),
   title: "Sidesone - Profesjonelle nettsider, nettbutikker og webapper",
@@ -36,10 +37,9 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const pageId = "277983682055245";
 
   return (
-    <html lang="no">
+    <html lang="no" className=" scroll-smooth scroll-pt-[5rem] ">
       <head>
         <link
           rel="apple-touch-icon"
@@ -91,7 +91,16 @@ export default function RootLayout({ children }) {
           })}
         </script>
       </head>
+      
       <body className={` antialiased font-averta  `}>
+      <Script
+        strategy="afterInteractive"
+        src="https://embed.tawk.to/67d0cb645481cc190de701fe/1im3pl0fh"
+        charset="UTF-8"
+        crossOrigin="anonymous"
+      />
+
+        
         <div className="">
           <Header />
         </div>
@@ -100,9 +109,9 @@ export default function RootLayout({ children }) {
         <div className="bg-[#035635]">
           <Footer />
           <Toaster />
-          <ScrollToTopButton />
+          {/* <ScrollToTopButton /> */}
         </div>
-        <Messanger pageId={pageId} />
+        <CustomChatButton />
       </body>
     </html>
   );

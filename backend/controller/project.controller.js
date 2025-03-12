@@ -1,12 +1,42 @@
 import Project from "../models/createProject.model.js";
+import cloudinary from "../utils/cloudinary.js";
+
 export const saveData = async (req, res) => {
   try {
-    const project = req.body;
+    const {title, url, image} = req.body;
 
-    const result = await Project.create(project);
+    let imageUrl = ""
+
+    if (image) {
+      const result = await cloudinary.uploader.upload(image, {
+        folder: "SIDESONE",
+      });
+      imageUrl = result.secure_url;
+    }
+
+    if(!imageUrl){
+      return res.status(400).send({
+        success: false,
+        message: "Failed to upload image"
+      })
+    }
+
+    const newProject = await Project.create({
+      title,
+      url, 
+      image: imageUrl
+    });
+
+    if(!newProject){
+      return res.status(400).send({
+        success: false,
+        message: "Failed to create new project"
+      })
+    }
+
     return res.status(201).json({
       success: true,
-      data: result,
+      data: newProject,
       message: "Prosjektet er lagret.",
     });
   } catch (error) {
@@ -55,10 +85,27 @@ export const getSingleData = async (req, res) => {
 };
 export const updateSingleData = async (req, res) => {
   const { id } = req.params;
-  const payload = req.body;
+  const {title, url, imageUrl, image} = req.body;
 
   try {
+
     const isProjectExists = await Project.findById(id);
+
+    let uploadedUrl = ""
+
+    if (image) {
+      const result = await cloudinary.uploader.upload(imageUrl, {
+        folder: "SIDESONE",
+      });
+      uploadedUrl = result.secure_url;
+    }
+
+    if(!uploadedUrl){
+      return res.status(400).send({
+        success: false,
+        message: "Failed to upload image"
+      })
+    }
 
     if (!isProjectExists) {
       return res.status(404).json({
@@ -66,7 +113,11 @@ export const updateSingleData = async (req, res) => {
         message: "Finner ikke prosjektet",
       });
     }
-    const updatedProject = await Project.findByIdAndUpdate(id, payload, {
+    const updatedProject = await Project.findByIdAndUpdate(id, {
+      title,
+      url,
+      image: uploadedUrl ? uploadedUrl : image
+    }, {
       new: true,
     });
     return res.status(200).json({

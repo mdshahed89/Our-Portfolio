@@ -16,6 +16,7 @@ const Page = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [value, setValue] = useState("");
   const [filePreview, setFilePreview] = useState([]);
+  const [imageUrl, setImageUrl] = useState("")
   const [file, setFile] = useState(null);
   const [errors, setErrors] = useState({});
   const [title, setTitle] = useState("");
@@ -57,29 +58,37 @@ const Page = () => {
   const handleFileUpload = (event) => {
     const selectedFile = event.target.files[0];
     const maxSize = 5 * 1024 * 1024;
-
+  
     if (selectedFile) {
       if (selectedFile.size <= maxSize) {
+        const reader = new FileReader();
+        reader.readAsDataURL(selectedFile);
+        reader.onloadend = () => {
+          setImageUrl(reader.result);
+        };
+  
         setFile(selectedFile);
-        setFilePreview([
-          ...filePreview,
+        setFilePreview((prev) => [
+          ...prev,
           { name: selectedFile.name, url: URL.createObjectURL(selectedFile) },
         ]);
         setErrors((prev) => ({ ...prev, file: null }));
       } else {
         setErrors((prev) => ({
           ...prev,
-          file: "Filstørrelsen må være mindre enn 2 MB.",
+          file: "Filstørrelsen må være mindre enn 5 MB.",
         }));
       }
     }
   };
+  
 
   const handleClearFile = (index) => {
     const updatedFilePreview = filePreview.filter((_, i) => i !== index);
     setFilePreview(updatedFilePreview);
     setFile(null);
     setErrors((prev) => ({ ...prev, file: null }));
+    setImageUrl("")
   };
 
   const handleSubmit = async (e) => {
@@ -90,16 +99,16 @@ const Page = () => {
     const coverImage = filePreview.length > 0 ? filePreview : null;
 
     try {
-      let uploadedImageURL = "";
-      if (file) {
-        uploadedImageURL = await uploadFile(file);
-      }
+      // let uploadedImageURL = "";
+      // if (file) {
+      //   uploadedImageURL = await uploadFile(file);
+      // }
 
       const formData = {
         author: user.name,
         title,
         content,
-        coverImage: uploadedImageURL || coverImage[0]?.url,
+        coverImage: imageUrl || coverImage[0]?.url,
       };
 
       const { data } = await axios.patch(

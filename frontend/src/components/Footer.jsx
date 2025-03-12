@@ -2,9 +2,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
-import { MdAddIcCall, MdEmail } from "react-icons/md";
-import Logo from "@/assets/logo.png"
+import React, { useState } from "react";
+import { MdAddIcCall, MdEmail, MdOutlineKeyboardArrowDown } from "react-icons/md";
+import Logo from "@/assets/logo.png";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
 const Footer = () => {
   const pathName = usePathname();
   if (
@@ -15,69 +16,179 @@ const Footer = () => {
     return;
   }
   return (
-    <footer className="px-3 lg:px-0 2xl:max-w-[1400px] max-w-[1200px] mx-auto py-16">
-      <div className="grid lg:grid-cols-3 gap-5 justify-center lg:justify-between ">
-        <div className="flex flex-col items-center lg:items-start justify-center gap-5 lg:justify-start">
-          <Image
-            src={Logo}
-            alt="Sidesone"
-
-            className=" w-[12rem] h-auto object-contain"
-          />
-          <p className="flex text-white  text-xl items-center gap-3">
-            <MdEmail size={20} /> Kontakt@sidesone.no
-          </p>
-          <p className="flex text-white text-xl items-center gap-3">
-            <MdAddIcCall size={20} /> +47 13 65 07
-          </p>
-          <p className="text-white text-xl">
-            Sidesone AS, org.nr. 932 244 721
-          </p>
+    <footer className="px-3 2xl:max-w-[1400px] max-w-[1200px] mx-auto py-16 ">
+      <div className=" hidden lg:grid grid-cols-2 lg:grid-cols-4 gap-5  ">
+        <div className=" text-[#fff] flex  ">
+          <div className=" flex flex-col gap-8 ">
+            <h3 className=" text-[1.5rem] font-medium relative before:absolute before:h-1 before:-bottom-2 before:w-12 before:bg-[#fff]   ">
+              Konakt
+            </h3>
+            <div className=" flex flex-col gap-3 text-lg ">
+              <p className="">Kontakt@sidesone.no</p>
+              <p className="">+47 13 65 07</p>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col  gap-2 items-center">
-          <Link
-            className="text-white hover:text-[#17DB4F] transition-all duration-300 ease-in-out active:scale-95 text-xl"
-            target="_blank"
-            rel="nofollow"
-            href={"https://www.instagram.com/sidesonenorge/"}
-          >
-            Instagram
-          </Link>
-          <Link
-            className="text-white hover:text-[#17DB4F] transition-all duration-300 ease-in-out active:scale-95 text-xl"
-            href={"https://www.facebook.com/groups/sidesone/"}
-            rel="nofollow"
-            target="_blank"
-          >
-            Facebook gruppe
-          </Link>
+        <div className=" text-[#fff] flex justify-end lg:justify-start  ">
+          <div className=" flex flex-col gap-8 ">
+            <h3 className=" text-[1.5rem] font-medium  relative before:absolute before:h-1 before:-bottom-2 before:w-12 before:bg-[#fff]   ">
+              Tjenester
+            </h3>
+            <div className=" flex flex-col gap-3 text-lg ">
+              <Link
+                href={`/nettside`}
+                className=" hover:text-[#17DB4F] cursor-pointer transition-colors duration-300 ease-in-out "
+              >
+                Nettside
+              </Link>
+              <Link
+                href={`nettbuttik`}
+                className=" hover:text-[#17DB4F] cursor-pointer transition-colors duration-300 ease-in-out "
+              >
+                Nettbutikk
+              </Link>
+              <Link
+                href={`/webapplikasjon`}
+                className=" hover:text-[#17DB4F] cursor-pointer transition-colors duration-300 ease-in-out "
+              >
+                Webapp
+              </Link>
+              <Link
+                href={`/seo`}
+                className=" hover:text-[#17DB4F] cursor-pointer transition-colors duration-300 ease-in-out "
+              >
+                SEO
+              </Link>
+              <Link
+                href={`/markedsforing`}
+                className=" hover:text-[#17DB4F] cursor-pointer transition-colors duration-300 ease-in-out "
+              >
+                Markedsføring
+              </Link>
+              <Link
+                href={`/logo`}
+                className=" hover:text-[#17DB4F] cursor-pointer transition-colors duration-300 ease-in-out "
+              >
+                Grafisk design
+              </Link>
+            </div>
+          </div>
         </div>
-        <div className="space-y-4">
-          <div className="flex items-center justify-center">
+        <div className=" text-[#fff] flex  md:mt-0 mt-5 ">
+          <div className=" flex flex-col gap-8 ">
+            <h3 className=" text-[1.5rem] font-medium  relative before:absolute before:h-1 before:-bottom-2 before:w-12 before:bg-[#fff]   ">
+              Snarveier
+            </h3>
+            <div className=" flex flex-col gap-3 text-lg ">
+              <Link
+                href={`/referanser`}
+                className=" hover:text-[#17DB4F] cursor-pointer transition-colors duration-300 ease-in-out "
+              >
+                Blogg
+              </Link>
+              <Link
+                href={`/om-oss`}
+                className=" hover:text-[#17DB4F] cursor-pointer transition-colors duration-300 ease-in-out "
+              >
+                Om Oss
+              </Link>
+              <Link
+                href={"https://www.facebook.com/groups/sidesone/"}
+                rel="nofollow"
+                target="_blank"
+                className=" hover:text-[#17DB4F] cursor-pointer transition-colors duration-300 ease-in-out "
+              >
+                Facebook Greppe
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div className=" text-[#fff] flex flex-col items-end gap-5 lg:justify-start  md:mt-0 mt-5 ">
+          <div className=" flex flex-col gap-3  ">
+            {/* <div className=" border border-[#fff] w-[14rem] py-2 text-center cursor-pointer ">
+              Abonner på nyhetsbrev
+            </div> */}
+            <Newsletter />
             <Link
-              className="text-gray-200 hover:text-[#17DB4F] transition-all duration-300 ease-in-out active:scale-95 text-xl"
-              href={"/vilkar-og-betingelser"}
+              href={"/book-now"}
+              className=" border border-[#fff] w-[14rem] py-2 text-center cursor-pointer "
             >
-              Vilkår og betingelser
+              Book møte
             </Link>
           </div>
-          <div className="flex items-center justify-center">
-            <Link
-              className="text-gray-200 hover:text-[#17DB4F] transition-all duration-300 ease-in-out active:scale-95 text-xl"
-              href={"/informasjonskapsler-cookies"}
-            >
-              Informasjonskapsler (Cookies)
-            </Link>
-          </div>
+        </div>
 
-          <div className=" flex items-center justify-center">
+        {/* <div className=" flex items-center justify-center">
             <Link
               className="text-gray-200 hover:text-[#17DB4F] transition-all duration-300 ease-in-out active:scale-95 text-xl"
               href={"/privacy-policy"}
             >
-              Privacy Policy
+              Personvernpolicy
+            </Link>
+          </div> */}
+      </div>
+
+      <div className=" lg:hidden block ">
+        <div className=" flex flex-col gap-3 text-[#fff]  ">
+          {/* <div className=" border border-[#fff] w-full py-2 text-center cursor-pointer ">
+            Abonner på nyhetsbrev
+          </div> */}
+          <Newsletter />
+          <Link
+            href={"/book-now"}
+            className=" border border-[#fff] w-full py-2 text-center cursor-pointer "
+          >
+            Book møte
+          </Link>
+        </div>
+        <ResponsiveMenu />
+      </div>
+
+      <div className=" mt-[3rem] pb-[2rem] border-b border-[#197533] ">
+        <Image
+          src={Logo}
+          alt="Sidesone"
+          className=" w-[12rem] h-auto object-contain"
+        />
+      </div>
+
+      <div className=" mt-[1rem] flex items-start justify-between ">
+        <div className=" flex md:items-center gap-5 md:flex-row flex-col text-[#fff] ">
+          <p className=" ">Sidesone AS, org.nr. 932 244 721</p>
+          <div className=" flex items-center gap-5 ">
+            <Link
+              href={`/vilkar-og-betingelser`}
+              className=" border-b border-[#1e8b3d] pb-1 mt-1 "
+            >
+              Vilkår og betingelser
+            </Link>
+            <Link
+              href={`/informasjonskapsler-cookies`}
+              className=" border-b border-[#1e8b3d] pb-1 mt-1 "
+            >
+              Cookies
             </Link>
           </div>
+        </div>
+        <div className=" flex items-center gap-4 ">
+          <Link
+            onClick={() => setMenuOpen(false)}
+            href={"https://www.facebook.com/groups/sidesone/"}
+            rel="nofollow"
+            target="_blank"
+            className=" p-2 rounded-full border-2 border-[#219642] hover:border-[#17DB50] transition-colors duration-300 ease-in-out text-[#fff] text-[1.3rem] "
+          >
+            <FaFacebookF />
+          </Link>
+          <Link
+            onClick={() => setMenuOpen(false)}
+            target="_blank"
+            rel="nofollow"
+            href={"https://www.instagram.com/sidesonenorge/"}
+            className=" p-2 rounded-full border-2 border-[#219642] hover:border-[#17DB50] transition-colors duration-300 ease-in-out text-[#fff] text-[1.3rem] "
+          >
+            <FaInstagram />
+          </Link>
         </div>
       </div>
     </footer>
@@ -85,3 +196,192 @@ const Footer = () => {
 };
 
 export default Footer;
+
+import { FiPlus } from "react-icons/fi";
+import { Newsletter } from "@/modals/Modal";
+
+
+const ResponsiveMenu = () => {
+
+  const pathName = usePathname();
+  const [dropdownOpen, setDropdownOpen] = useState(null);
+
+  const toggleDropdown = (index) => {
+    setDropdownOpen(dropdownOpen === index ? null : index);
+  };
+
+  return (
+    <div>
+      <ul className="flex flex-col mt-7 space-y-6 text-[#fff] ">
+        {/* Dropdown 1 */}
+        <li className="relative group border-b border-[#17DB4F] py-2 ">
+          <div>
+            <div
+              className={`flex items-center justify-between pb-2 text-[1.5rem]  
+                `}
+              onClick={() => toggleDropdown(0)}
+            >
+              Tjenester
+              <FiPlus
+                className={`ml-2  transition-transform duration-300 ${
+                  dropdownOpen === 0 ? "rotate-180" : "rotate-0"
+                }`}
+              />
+            </div>
+          </div>
+          <ul
+            className={`flex flex-col gap-2 border-l-2 border-[#17DB4F] text-[1.3rem] pl-4 mt-2 transition-all duration-200 ease-in-out ${
+              dropdownOpen === 0 ? "block" : "hidden"
+            }`}
+          >
+            <li>
+              <Link
+                href="/nettside"
+                className={`block py-2  hover:text-[#17DB4F] cursor-pointer ${
+                  pathName === "/nettside" && "text-[#17DB4F]"
+                }
+                  `}
+              >
+                Nettside
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/nettbuttik"
+                className={`block py-2  hover:text-[#17DB4F] cursor-pointer ${
+                  pathName === "/nettbuttik" && "text-[#17DB4F]"
+                }
+                  `}
+              >
+                Nettbutikk
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/webapplikasjon"
+                className={`block py-2  hover:text-[#17DB4F] cursor-pointer ${
+                  pathName === "/webapplikasjon" && "text-[#17DB4F]"
+                }
+                  `}
+              >
+                Webapp
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/seo"
+                className={`block py-2  hover:text-[#17DB4F] cursor-pointer ${
+                  pathName === "/seo" && "text-[#17DB4F]"
+                }
+                  `}
+              >
+                SEO
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/markedsforing"
+                className={`block py-2  hover:text-[#17DB4F] cursor-pointer ${
+                  pathName === "/markedsforing" && "text-[#17DB4F]"
+                }
+                  `}
+              >
+                Markedsføring
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/logo"
+                className={`block py-2  hover:text-[#17DB4F] cursor-pointer ${
+                  pathName === "/logo" && "text-[#17DB4F]"
+                }
+                  `}
+              >
+                Grafisk design
+              </Link>
+            </li>
+          </ul>
+        </li>
+
+        {/* Dropdown 2 */}
+        <li className="relative group border-b border-[#17DB4F] py-2">
+          <div>
+            <div
+              className={`flex items-center justify-between pb-2 text-[1.5rem] 
+              `}
+              onClick={() => toggleDropdown(1)}
+            >
+              Snarveier
+              <FiPlus
+                className={`ml-2 transition-transform duration-300 ${
+                  dropdownOpen === 1 ? "rotate-180" : "rotate-0"
+                }`}
+              />
+            </div>
+          </div>
+          <ul
+            className={`flex flex-col gap-2 text-[1.3rem] border-l-2 border-[#17DB4F] pl-4 mt-2 transition-all duration-200 ease-in-out ${
+              dropdownOpen === 1 ? "block" : "hidden"
+            }`}
+          >
+            <li>
+              <Link
+                href="/referanser"
+                className={`flex items-center pb-2 hover:text-[#17DB4F] cursor-pointer ${
+                  pathName === "/referanser" && "text-[#17DB4F]"
+                }
+                  `}
+              >
+                Blogg
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/om-oss"
+                className={`flex items-center pb-2 hover:text-[#17DB4F] cursor-pointer ${
+                  pathName === "/om-oss" && "text-[#17DB4F]"
+                }
+                  `}
+              >
+                Om Oss
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={"https://www.facebook.com/groups/sidesone/"}
+                rel="nofollow"
+                target="_blank"
+                className={`flex items-center pb-2 hover:text-[#17DB4F] cursor-pointer
+                  `}
+              >
+                Facebook Greppe
+              </Link>
+            </li>
+          </ul>
+        </li>
+
+        {/* Other Links */}
+        <li className="relative group border-b border-[#17DB4F] py-2">
+          <Link
+            href="/om-oss"
+            className={`flex items-center pb-2 hover:text-[#17DB4F] text-[1.5rem]  ${
+              pathName === "/om-oss" && "text-[#17DB4F]"
+            }`}
+          >
+            Hvem er vi?
+          </Link>
+        </li>
+        <li className="relative group border-b border-[#17DB4F] py-2">
+          <Link
+            href="/referanser"
+            className={`flex items-center pb-2 hover:text-[#17DB4F] text-[1.5rem]  ${
+              pathName === "/referanser" && "text-[#17DB4F]"
+            } `}
+          >
+            Prosjekter
+          </Link>
+        </li>
+      </ul>
+    </div>
+  );
+};

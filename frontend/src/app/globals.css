@@ -21,14 +21,38 @@
 }
 
 
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* body{
-  font-family: 'Averta';
+
+/* #tawkchat-minimized-box {
+  display: none !important;
+}
+#tawk-root {
+  visibility: hidden !important;
+}
+
+.tawk-button-container {
+  display: none !important;
+}
+
+.tawk-min-container{
+  display: none !important;
 } */
+
+.tawk-button-container {
+  display: none !important;
+}
+
+/* Hide the default close button */
+.tawk-button-close {
+  display: none !important;
+}
+
+.slick-slide > div {
+  margin: 0 8px;
+}
 
 .processBg{
   clip-path: polygon(51% 0, 100% 10%, 100% 43%, 100% 100%, 68% 100%, 32% 100%, 0 100%, 0% 43%, 0 9%);
@@ -111,5 +135,30 @@
   list-style-type: disc;
 }
 
+::-webkit-scrollbar {
+  width: 7px;
+}
 
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #17DB4F; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #17DB4F; 
+}
+
+.slick-dots li button:before {
+  color: gray !important; /* Change to your desired color */
+}
+
+/* Change active dot color */
+.slick-dots li.slick-active button:before {
+  color: #035635 !important; /* Change to your desired active color */
+}
 

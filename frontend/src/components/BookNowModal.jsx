@@ -275,38 +275,72 @@ export const BookNowModal = ({ title, availability }) => {
   );
 };
 
-export const Messanger = ({pageId}) => {
+
+// import { useEffect, useState } from 'react';
+import MessageIcon from "@/assets/MessageIcon.jpg"
+import MessageIcon1 from "@/assets/MessageIcon1.jpg"
+import MessageIcon2 from "@/assets/MessageIcon2.jpg"
+import MessageIcon3 from "@/assets/MessageIcon3.png"
+import Image from "next/image";
+
+const CustomChatButton = () => {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
   useEffect(() => {
-    // Initialize the Facebook SDK
-    window.fbAsyncInit = function () {
-      FB.init({
-        xfbml: true, // Parses the page for social plugins
-        version: 'v16.0', // Replace with the latest version
-      });
+    if (window.Tawk_API) {
+      if (isChatOpen) {
+        window.Tawk_API.maximize(); // Open the chat
+      } else {
+        window.Tawk_API.minimize(); // Close the chat
+      }
+    }
+  }, [isChatOpen]);
+
+  useEffect(() => {
+    // Polling mechanism to check the chat state
+    const checkChatState = () => {
+      if (window.Tawk_API) {
+        const isMaximized = window.Tawk_API.isChatMaximized();
+        if (isMaximized !== isChatOpen) {
+          setIsChatOpen(isMaximized);
+        }
+      }
     };
 
-    // Load the Facebook SDK script
-    (function (d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s);
-      js.id = id;
-      js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-      fjs.parentNode.insertBefore(js, fjs);
-    })(document, 'script', 'facebook-jssdk');
-  }, []);
+    // Check the chat state every 500ms
+    const interval = setInterval(checkChatState, 500);
+
+    // Cleanup the interval on component unmount
+    return () => clearInterval(interval);
+  }, [isChatOpen]);
+
+  const toggleChat = () => {
+    setIsChatOpen(true); // Open the chat and hide the custom button
+  };
 
   return (
     <>
-      {/* Facebook Chat Plugin */}
-      <div
-        className="fb-customerchat"
-        attribution="setup_tool"
-        page_id={pageId} // Replace with your Facebook Page ID
-        theme_color="#0084ff" // Optional: Customize the chat color
-        logged_in_greeting="Hi! How can we help you?"
-        logged_out_greeting="Hi! Please log in to chat with us."
-      ></div>
+      {/* Show the custom button only when the chat is closed */}
+      {!isChatOpen && (
+        <div
+          onClick={toggleChat}
+          className=" fixed bottom-5 right-5 z-50 flex items-center cursor-pointer transition-all duration-300 ease-in-out "
+        >
+          {/* Open Chat */}
+          {/* <Image src={MessageIcon1} alt="SidesoneImg" className="  w-[4rem] -mr-3  h-[4rem] object-cover rounded-full " /> */}
+          <div className=" relative bg-[#035635] rounded-full z-50 text-[#fff] ">
+            <div className=" absolute text-center z-50 w-full h-full left-0 top-0 flex flex-col items-center justify-center font-semibold bg-black/30 rounded-full  ">
+            <p>Chat</p>
+            <p>Support</p>
+            </div>
+          <Image src={MessageIcon3} alt="SidesoneImg" className="  w-[5rem]  h-[5rem] object-cover rounded-full scale-90 " />
+          </div>
+          {/* <Image src={MessageIcon2} alt="SidesoneImg" className="  w-[4rem]  -ml-3  h-[4rem] object-cover rounded-full " /> */}
+        </div>
+      )}
     </>
   );
 };
+
+export default CustomChatButton;
+

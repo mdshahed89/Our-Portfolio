@@ -18,7 +18,7 @@ import {
   MdSecurity,
 } from "react-icons/md";
 import "@/styles//style.css";
-import { IoIosArrowRoundForward } from "react-icons/io";
+import { IoIosArrowRoundForward, IoIosStar } from "react-icons/io";
 import coding from "@/assets/coding.webp";
 import { TbUsersGroup } from "react-icons/tb";
 import SatisfactionIcon from "@/assets/SatisfactionIcon.png";
@@ -126,15 +126,17 @@ export default Tools;
 const Card = ({ icon, title, description, btn, path }) => {
   return (
     <div className=" bg-[#F5F5F7]  p-4 rounded-md ">
-      <div className=" text-[2rem] text-[#035635] w-[3.5rem] h-[3.5rem] flex items-center justify-center p-2 rounded-full bg-[#d3d3d3] ">
+      <div className=" text-[2rem] text-[#035635] w-[2.8rem] md:w-[3.5rem] h-[2.8rem] md:h-[3.5rem] flex items-center justify-center p-2 rounded-full bg-[#d3d3d3] ">
         {/* <Image src={icon} alt="Web Icon" loading="lazy" className=" w-full h-full  object-cover " /> */}
         {icon}
       </div>
       <div>
-        <h3 className=" mt-1 text-[1.5rem] font-semibold text-[#035635] ">
+        <h3 className=" mt-1 text-[1.3rem] md:text-[1.5rem] font-semibold text-[#035635] ">
           {title}
         </h3>
-        <p className=" mt-2 text-gray-700 text-lg ">{description}</p>
+        <p className=" mt-2 text-gray-700 text-base md:text-lg ">
+          {description}
+        </p>
         <div
           className={` ${
             btn ? "" : "hidden"
@@ -363,36 +365,65 @@ export const Team = () => {
           </figure>
         </div>
       </div>
-      <Satisfaction />
     </>
   );
 };
 
-const Satisfaction = () => {
-  return (
-    <div className=" relative bg-[#fff] text-center leading-tight pt-[1rem] pb-[2rem] ">
-      <div className=" flex justify-center ">
-        <div className=" absolute z-10 2xl:max-w-[1400px] max-w-[1200px] -bottom-[15%] md:-bottom-[55%]  w-full mx-auto flex justify-end  ">
-          <Image
-            src={SatisfactionIcon}
-            alt="Satisfaction Icon"
-            loading="lazy"
-            className=" w-[6rem] md:w-[17rem] object-contain opacity-30  "
-          />
-        </div>
+// const Satisfaction = () => {
+//   return (
+//     <div className=" relative bg-[#fff] text-center leading-tight pt-[1rem] pb-[2rem] ">
+//       <div className=" flex justify-center ">
+//         <div className=" absolute z-10 2xl:max-w-[1400px] max-w-[1200px] -bottom-[15%] md:-bottom-[55%]  w-full mx-auto flex justify-end  ">
+//           <Image
+//             src={SatisfactionIcon}
+//             alt="Satisfaction Icon"
+//             loading="lazy"
+//             className=" w-[6rem] md:w-[17rem] object-contain opacity-30  "
+//           />
+//         </div>
+//       </div>
+//       <div className=" text-[2rem] sm:text-[3rem] md:text-[4rem] font-medium relative z-50 ">
+//         100% Fornøydgaranti
+//       </div>
+//       <p className=" text-lg text-gray-500 mt-5 relative z-50 ">
+//         Vi er dedikerte til å levere et resultat du er stolt av. Derfor tilbyr
+//         vi en garanti for at du blir helt fornøyd med nettsiden. Du kan gjør
+//         endringer og justeringer til du er 100% tilfreds, før vi går live.
+//       </p>
+//       <p className=" text-lg text-gray-500 relative z-50 mt-2 "></p>
+//     </div>
+//   );
+// };
+
+export const Review = async () => {
+
+  let reviews = [];
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/review/get-all-review`
+    );
+
+    if (!response.ok) {
+      console.log("Faield to get projects");
+      return;
+    }
+
+    const data = await response.json();
+    reviews = data?.reviews || [];
+  } catch (error) {
+    console.error("Error fetching projects:", error);
+  }
+
+  return(
+    <section id="reviews" className=" py-16 ">
+      <div className=" flex flex-col max-w-[30rem] mx-auto text-center  ">
+      <h2 className=" text-[2.5rem] font-medium ">Klientanmeldelser</h2>
+      <p className=" text-xl ">Se hva våre fornøyde kunder sier om sin opplevelse med oss.</p>
       </div>
-      <div className=" text-[2rem] sm:text-[3rem] md:text-[4rem] font-medium relative z-50 ">
-        100% Fornøydgaranti
-      </div>
-      <p className=" text-lg text-gray-500 mt-5 relative z-50 ">
-        Vi er dedikerte til å levere et resultat du er stolt av. Derfor tilbyr
-        vi en garanti for at du blir helt fornøyd med nettsiden. Du kan gjør
-        endringer og justeringer til du er 100% tilfreds, før vi går live.
-      </p>
-      <p className=" text-lg text-gray-500 relative z-50 mt-2 "></p>
-    </div>
-  );
-};
+      <ReviewComponent reviews={reviews} />
+    </section>
+  )
+}
 
 export const Booking = () => {
   return (
@@ -429,9 +460,10 @@ export const Booking = () => {
           <div className="flex justify-center py-5 lg:my-3 mt-6">
             <Link
               href={"/book-now"}
-              className="w-60 bg-black transition-all duration-300 ease-in-out active:scale-95 text-white p-3 rounded-full"
+              className="w-60 bg-black transition-all flex items-center gap-4 justify-center duration-300 ease-in-out active:scale-95 text-white p-3 rounded-full"
             >
               Book Møte
+              <div className="w-2 h-2 bg-[#17DB4F] rounded-full animate-[ping_2s_ease-in-out_infinite]"></div>
             </Link>
           </div>
         </div>
@@ -439,6 +471,9 @@ export const Booking = () => {
     </div>
   );
 };
+
+import { FcGoogle } from "react-icons/fc";
+import ReviewComponent from "./ReviewComponent";
 
 export const Hero = () => {
   return (
@@ -453,23 +488,30 @@ export const Hero = () => {
           </p>
         </div>
 
-        <div className="flex flex-col md:flex-row md:items-center mt-14 md:mt-5">
+        <div className="flex flex-col gap-6 mt-14 md:mt-5">
           <Link
             href="/nettside"
-            className="border-2 px-2 md:px-0 whitespace-none md:whitespace-normal rounded w-fit md:w-[250px] lg:w-[300px] justify-center text-base lg:text-lg font-medium flex items-center gap-1 md:gap-2 hover:border-white border-[#dadada] h-[3rem] transition-transform transform  group"
+            className="border-2 px-2 md:px-0 whitespace-none md:whitespace-normal rounded w-fit md:w-[250px] lg:w-[300px] justify-center text-base lg:text-lg font-medium flex items-center gap-2 md:gap-4 hover:border-white border-[#dadada] md:h-[3rem] h-[2.8rem] transition-transform transform  group"
           >
             Trenger du en nettside?
-            <IoIosArrowRoundForward
-              size={30}
-              className="transition-transform transform group-hover:translate-x-2"
-            />
+            <MdArrowForward className="transition-transform md:text-[1.5rem] mt-1 text-[1.2rem] transform group-hover:translate-x-2" />
           </Link>
-          {/* <Link
-            href={"/book-now"}
-            className="border-2 px-2 md:px-0 whitespace-none md:whitespace-normal rounded w-[240px] border-[#17DB50] justify-center text-base lg:text-lg font-medium flex items-center gap-1 md:gap-2 bg-[#17DB50] hover:bg-transparent h-[3rem] transition-all duration-300 ease-in-out transform group"
-          >
-            Book Møte
-          </Link> */}
+          <Link href={"#reviews"} className=" text-[1.4rem] group w-fit ">
+            <div className=" flex items-center gap-2 ">
+              <FcGoogle />
+              <h5>5/5 Google reviews</h5>
+            </div>
+            <div className=" flex items-center gap-4 mt-1 ">
+              <div className=" flex items-center gap-1 text-yellow-400 ">
+                <IoIosStar />
+                <IoIosStar />
+                <IoIosStar />
+                <IoIosStar />
+                <IoIosStar />
+              </div>
+              <MdArrowForward className=" group-hover:ml-3 transition-all duration-100 ease-linear " />
+            </div>
+          </Link>
         </div>
       </div>
       <div className=" absolute h-full w-full flex items-end justify-end  ">
@@ -484,8 +526,8 @@ export const Hero = () => {
 export const OfferSection = () => {
   return (
     <div className=" 2xl:2xl:max-w-[1400px] max-w-[1200px]  mx-auto px-2 md:px-3 -mt-16 lg:-mt-28 mb-[3rem] ">
-      <h3 className=" text-[2.8rem] mb-4 ">Hva vi tilbyr</h3>
-      <div className=" grid grid-cols-1 md:grid-cols-3 gap-7 md:gap-4 ">
+      <h3 className=" text-[2rem] md:text-[2.8rem] mb-4 ">Hva vi tilbyr</h3>
+      <div className=" grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-4 ">
         <Card2
           img={NewImg1}
           title="Nettside"
@@ -528,15 +570,15 @@ const Card2 = ({ img, title, description, btn, path }) => {
           className="w-full h-full object-cover group-hover:scale-110 rounded-t-md transition-scale duration-300 ease-in-out"
         />
       </div>
-      <div className="p-3 flex flex-col justify-between flex-grow ">
+      <div className=" px-2 pt-2 pb-4 flex flex-col justify-between flex-grow ">
         <div>
-          <h3 className="text-[2rem] font-medium">{title}</h3>
-          <p className="text-lg text-gray-500">{description}</p>
+          <h3 className=" text-[1.7rem] md:text-[2rem] font-medium">{title}</h3>
+          <p className="  md:text-lg text-gray-500">{description}</p>
         </div>
         <div
           className={`${
             btn ? "" : "hidden"
-          } group hover:text-[#035635] transition-all duration-300 ease-linear border-b-2 border-[#035635] w-fit mt-5 flex items-center gap-1`}
+          } group hover:text-[#035635] transition-all duration-300 ease-linear border-b-2 border-[#035635] w-fit mt-3 md:mt-5 flex items-center gap-1`}
         >
           <div className="text-[1.1rem] font-light">{btn}</div>
           <MdArrowForward className="mt-1 group-hover:ml-2 transition-all duration-200 ease-linear" />

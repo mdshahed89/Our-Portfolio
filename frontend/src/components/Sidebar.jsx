@@ -5,12 +5,13 @@ import { AiOutlineBars } from "react-icons/ai";
 import { FaUserCog } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
-import { MdDashboardCustomize } from "react-icons/md";
+import { MdDashboardCustomize, MdRateReview } from "react-icons/md";
 import { VscGitPullRequestGoToChanges } from "react-icons/vsc";
 import { AuthContext } from "@/AuthProvider/AuthProvider";
 import { usePathname } from "next/navigation";
 import Logo from "@/assets//logo.png";
 import { PageLoading } from "./Tools";
+import { HiMiniNewspaper } from "react-icons/hi2";
 const Sidebar = () => {
   const pathName = usePathname();
   const { logout } = useContext(AuthContext);
@@ -113,6 +114,34 @@ const Sidebar = () => {
                   >
                     <VscGitPullRequestGoToChanges className="w-5  h-5" />
                     <span className="mx-3 font-medium">Bestilling Ledelse</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/adminpanel/review"
+                    className={`flex w-full ${
+                      pathName === "/adminpanel/review"
+                        ? "bg-slate-50  text-[#035635]"
+                        : "text-white"
+                    }
+                       rounded-md items-center px-4 py-2 mt-5  hover:bg-slate-50  hover:text-[#035635] transition-colors duration-300 transform`}
+                  >
+                    <MdRateReview className="w-5  h-5" />
+                    <span className="mx-3 font-medium">Vurdering</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/adminpanel/newsletter"
+                    className={`flex w-full ${
+                      pathName === "/adminpanel/newsletter"
+                        ? "bg-slate-50  text-[#035635]"
+                        : "text-white"
+                    }
+                       rounded-md items-center px-4 py-2 mt-5  hover:bg-slate-50  hover:text-[#035635] transition-colors duration-300 transform`}
+                  >
+                    <HiMiniNewspaper className="w-5  h-5" />
+                    <span className="mx-3 font-medium">Nyhetsbrev</span>
                   </Link>
                 </li>
               </ul>

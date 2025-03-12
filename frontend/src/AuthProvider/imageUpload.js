@@ -11,6 +11,5 @@ export const uploadFile = async (file) => {
     return res.data.secure_url;
   } catch (error) {
     console.log("Error uploading file:", error);
-    throw new Error("Failed to upload the image.");
   }
 };

@@ -1,5 +1,5 @@
 import Reference, { Slider } from "../components/Reference";
-import Tools, { Booking, Hero, OfferSection, Team } from "../components/Tools";
+import Tools, { Booking, Hero, OfferSection, Review, Team } from "../components/Tools";
 
 export default function Home() {
   return (
@@ -14,6 +14,9 @@ export default function Home() {
       </div>
       <div className="bg-[#035635]">
         <Team />
+      </div>
+      <div>
+        <Review />
       </div>
       <div>
         <Booking />

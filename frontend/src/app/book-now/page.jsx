@@ -18,7 +18,9 @@ const page = async () => {
     );
 
     if (!response.ok) {
-      throw new Error("Failed to fetch data");
+      // throw new Error("Failed to fetch data");
+      console.log("Faield to fetch data");
+      return
     }
 
     const data = await response.json();
@@ -32,7 +34,7 @@ const page = async () => {
   }
 
   return (
-    <div className=" mt-[10rem] 2xl:max-w-[1400px] max-w-[1200px] mx-auto md:px-3 px-2 ">
+    <div className=" mt-[10rem] pb-[2rem] 2xl:max-w-[1400px] max-w-[1200px] mx-auto md:px-3 px-2 ">
       <h3 className=" text-[1.5rem] font-semibold ">
         Tilgjengelig - 4 Tjenester
       </h3>

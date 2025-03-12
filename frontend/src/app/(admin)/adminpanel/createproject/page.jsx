@@ -10,15 +10,22 @@ const Page = () => {
   const navigate = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [filePreview, setFilePreview] = useState(null);
+  const [imageUrl, setImageUrl] = useState("")
   const [file, setFile] = useState(null);
   const [errors, setErrors] = useState({});
 
   const handleFileUpload = (event) => {
     const selectedFile = event.target.files[0];
     const maxSize = 5 * 1024 * 1024;
-
+  
     if (selectedFile) {
       if (selectedFile.size <= maxSize) {
+        const reader = new FileReader();
+        reader.readAsDataURL(selectedFile);
+        reader.onloadend = () => {
+          setImageUrl(reader.result);
+        };
+  
         setFilePreview({
           name: selectedFile.name,
           url: URL.createObjectURL(selectedFile),
@@ -28,7 +35,7 @@ const Page = () => {
       } else {
         setErrors((prev) => ({
           ...prev,
-          file: "File size must be less than 2 MB.",
+          file: "File size must be less than 5 MB.",
         }));
         setFilePreview(null);
         setFile(null);
@@ -40,6 +47,7 @@ const Page = () => {
     setFilePreview(null);
     setFile(null);
     setErrors((prev) => ({ ...prev, file: null }));
+    setImageUrl("")
   };
 
   const handleSubmit = async (e) => {
@@ -53,7 +61,7 @@ const Page = () => {
 
     if (!title) newErrors.title = "Title is required.";
     if (!url) newErrors.url = "Project Live URL is required.";
-    if (!file) newErrors.file = "Cover Image is required.";
+    if (!imageUrl) newErrors.file = "Cover Image is required.";
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -61,11 +69,11 @@ const Page = () => {
     }
 
     try {
-      const uploadedImageURL = await uploadFile(file);
+      // const uploadedImageURL = await uploadFile(file);
       const formData = {
         title,
         url,
-        image: uploadedImageURL,
+        image: imageUrl,
       };
       setIsLoading(true);
 
@@ -84,6 +92,10 @@ const Page = () => {
       setErrors((prev) => ({ ...prev, file: "Image upload failed." }));
     }
   };
+
+
+  // console.log("urll",imageUrl);
+  
 
   return (
     <div className="m-2 md:m-5">

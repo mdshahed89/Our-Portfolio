@@ -2,13 +2,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { MdArrowForward } from "react-icons/md";
 import Marquee from "react-fast-marquee";
+import AImg from "@/assets/A.jpg"
+
 async function getReferencesData() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/get-three-blog`, {
-    next: { revalidate: 60 },
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/get-three-blog`,
+    {
+      next: { revalidate: 60 },
+    }
+  );
 
   if (!res.ok) {
-    throw new Error("Kunne ikke hente referansedata")
+    // throw new Error("Kunne ikke hente referansedata")
+    console.log("Faield to fetch fetch three blogs");
+    return;
   }
 
   const data = await res.json();
@@ -31,7 +38,6 @@ export default async function Reference({ title }) {
   }
 
   // console.log(referencesData);
-  
 
   return (
     <div>
@@ -100,10 +106,13 @@ export const Slider = async () => {
     );
 
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      console.log("Faield to get projects");
+      return;
     }
 
     const data = await response.json();
+    // console.log(data);
+    
     projects = data?.data || [];
   } catch (error) {
     console.error("Error fetching projects:", error);
@@ -125,16 +134,16 @@ export const Slider = async () => {
                 href={`${item?.url || "#"}`}
                 key={index}
                 className="group relative mx-2 z-10 hover:z-50  flex flex-col items-center justify-center 
-                 overflow-hidden  rounded-xl bg-red-500 shadow-lg 
+                 overflow-hidden  rounded-xl  shadow-lg 
                  lg:hover:scale-125 hover:scale-[1.15]  border-2 border-[#7BDCB5] 
                  transition-transform duration-500 ease-in-out transform-gpu "
               >
-                <figure className="h-[250px] md:h-[300px] w-[300px] md:w-[400px] overflow-hidden">
+                <figure className="h-[230px] md:h-[300px] w-[290px] md:w-[400px] overflow-hidden">
                   <Image
                     loading="lazy"
                     placeholder="blur"
                     blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNmM2Y0ZjUiLz48L3N2Zz4="
-                    src={item.image}
+                    src={item.image || AImg}
                     alt={item.title}
                     width={400}
                     height={300}

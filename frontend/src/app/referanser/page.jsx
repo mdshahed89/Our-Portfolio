@@ -2,6 +2,7 @@ import { FaDatabase } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
 import parse from "html-react-parser";
+import BlogPageProjects from "@/components/BlogPageProjects";
 const page = async () => {
 
   let referencesData = [];
@@ -14,7 +15,8 @@ const page = async () => {
     );
 
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      console.log("Faield to client blogs");
+      return
     }
     const data = await response.json();
     referencesData = data?.data || [];
@@ -22,21 +24,49 @@ const page = async () => {
     console.log(error)
   }
 
+  let projects = [];
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/get-project`
+    );
+
+    if (!response.ok) {
+      console.log("Faield to get projects");
+      return;
+    }
+
+    const data = await response.json();
+    // console.log(data);
+    
+    projects = data?.data || [];
+  } catch (error) {
+    console.error("Error fetching projects:", error);
+  }
+
   // console.log(referencesData);
   
 
   return (
-    <div className="bg-[#EDFCF7] min-h-[100vh] px-3 lg:px-5 ">
-      <div className="">
-        <div className="pt-40 pb-5">
+    <div className="mt-[112px]">
+      <div className=" bg-[#035635] py-[5rem] text-[#fff]  ">
+        <div className=" max-w-[40rem] mx-auto text-center ">
+        <h2 className=" text-[3rem] ">Bloggs</h2>
+        <p className=" text-[#ebebeb] text-lg ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit dolorum vero facilis doloribus facere minima architecto, deserunt velit aliquid! Incidunt.</p>
+        </div>
+      </div>
+      <div className=" px-3 lg:px-5 mt-10 ">
+        <BlogPageProjects projects={projects} />
+      </div>
+      <div className="bg-[#fff] min-h-[100vh] px-3 lg:px-5 mt-20 ">
+        {/* <div className=" pb-5">
           <div className="text-[#1E293B] text-[40px] md:text-[76px] font-bold">
             Prosjekter
           </div>
-        </div>
+        </div> */}
         <div>
           <AllProject referencesData={referencesData} />
         </div>
-      </div>
+    </div>
     </div>
   );
 };
@@ -121,3 +151,7 @@ const BlogCard = ({ reference }) => {
     </div>
   );
 };
+
+
+
+

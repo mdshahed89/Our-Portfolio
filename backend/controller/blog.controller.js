@@ -1,12 +1,44 @@
 import Blog from "../models/blog.model.js";
+import cloudinary from "../utils/cloudinary.js";
+
 
 export const saveData = async (req, res) => {
   try {
-    const blog = req.body;
-    const result = await Blog.create(blog);
+    const { author, title, content, coverImage } = req.body;
+
+    let imageUrl = "";
+
+    if (coverImage) {
+      const result = await cloudinary.uploader.upload(coverImage, {
+        folder: "SIDESONE",
+      });
+      imageUrl = result.secure_url;
+    }
+
+    if(!imageUrl){
+      return res.status(400).send({
+        success: false,
+        message: "Failed to upload image"
+      })
+    }
+
+    const newBlog = await Blog.create({
+      author,
+      title,
+      content,
+      coverImage: imageUrl
+    });
+
+    if(!newBlog){
+      return res.status(400).send({
+        success: false,
+        message: "Failed to create new project"
+      })
+    }
+
     return res.status(201).json({
       success: true,
-      data: result,
+      data: newBlog,
       message: "Bloggen er lagret.",
     });
   } catch (error) {
@@ -21,10 +53,10 @@ export const saveData = async (req, res) => {
 export const getData = async (req, res) => {
   try {
     const result = await Blog.find();
-    return res.status(201).json({
+    return res.status(200).json({
       success: true,
       data: result,
-      message: "Bloggen ble funnet.",
+      message: "Blog fetched successfully",
     });
   } catch (error) {
     return res.status(500).json({
@@ -161,12 +193,29 @@ export const updateData = async (req, res) => {
   const { title, content, coverImage } = req.body;
 
   try {
+
+    let imageUrl = "";
+
+    if (coverImage) {
+      const result = await cloudinary.uploader.upload(coverImage, {
+        folder: "SIDESONE",
+      });
+      imageUrl = result.secure_url;
+    }
+
+    if(!imageUrl){
+      return res.status(400).send({
+        success: false,
+        message: "Failed to upload image"
+      })
+    }
+
     const updatedBlogPost = await Blog.findByIdAndUpdate(
       req.params.id,
       {
         title: title,
         content: content,
-        coverImage: coverImage,
+        coverImage: imageUrl,
       },
       { new: true }
     );

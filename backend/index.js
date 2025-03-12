@@ -5,6 +5,8 @@ import cookieParser from "cookie-parser";
 import dbConnect from "./utils/dbConfig.js";
 import bookingRoutes from "./routes/booking.route.js";
 import availabilityRoutes from "./routes/availability.route.js";
+import newsLettersRoutes from "./routes/newsletter.route.js"
+import reviewRoutes from "./routes/review.route.js"
 import admin from "./routes/login.route.js";
 import project from "./routes/project.route.js";
 import sendEmail from "./routes/sendemail.route.js";
@@ -25,7 +27,7 @@ app.use(cors(corsOptions));
 app.options("*", cors(corsOptions));
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ limit: "10mb", extended: true }));
-console.log();
+// console.log();
 
 app.use(cookieParser());
 
@@ -42,6 +44,8 @@ app.use(sendEmail);
 app.use(blog);
 app.use("/api/book", bookingRoutes);
 app.use("/api/availability", availabilityRoutes);
+app.use("/api/newsletter", newsLettersRoutes);
+app.use("/api/review", reviewRoutes);
 
 const PORT = process.env.PORT || 8000;
 

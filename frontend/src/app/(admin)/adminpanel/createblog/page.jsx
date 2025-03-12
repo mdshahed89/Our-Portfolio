@@ -15,6 +15,7 @@ const Page = () => {
   const { user } = useContext(AuthContext);
   const [isLoading, setIsLoading] = useState(false);
   const [value, setValue] = useState("");
+  const [imageUrl, setImageUrl] = useState("")
   const [filePreview, setFilePreview] = useState([]);
   const [file, setFile] = useState(null);
   const [errors, setErrors] = useState({});
@@ -32,29 +33,37 @@ const Page = () => {
   const handleFileUpload = (event) => {
     const selectedFile = event.target.files[0];
     const maxSize = 5 * 1024 * 1024;
-
+  
     if (selectedFile) {
       if (selectedFile.size <= maxSize) {
+        const reader = new FileReader();
+        reader.readAsDataURL(selectedFile);
+        reader.onloadend = () => {
+          setImageUrl(reader.result);
+        };
+  
         setFile(selectedFile);
-        setFilePreview([
-          ...filePreview,
+        setFilePreview((prev) => [
+          ...prev,
           { name: selectedFile.name, url: URL.createObjectURL(selectedFile) },
         ]);
         setErrors((prev) => ({ ...prev, file: null }));
       } else {
         setErrors((prev) => ({
           ...prev,
-          file: "Filstørrelsen må være mindre enn 2 MB.",
+          file: "Filstørrelsen må være mindre enn 5 MB.",
         }));
       }
     }
   };
+  
 
   const handleClearFile = (index) => {
     const updatedFilePreview = filePreview.filter((_, i) => i !== index);
     setFilePreview(updatedFilePreview);
     setFile(null);
     setErrors((prev) => ({ ...prev, file: null }));
+    setImageUrl("")
   };
 
   const handleSubmit = async (e) => {
@@ -66,12 +75,12 @@ const Page = () => {
     const coverImage = filePreview.length > 0 ? filePreview : null;
 
     try {
-      const uploadedImageURL = await uploadFile(file);
+      // const uploadedImageURL = await uploadFile(file);
       const formData = {
         author: user.name,
         title,
         content,
-        coverImage: uploadedImageURL,
+        coverImage: imageUrl,
       };
       console.log(formData);
 
@@ -91,6 +100,9 @@ const Page = () => {
       setErrors((prev) => ({ ...prev, file: "Image upload failed." }));
     }
   };
+
+  // console.log("ii",imageUrl);
+  
 
   return (
     <div className="m-2 md:m-5">

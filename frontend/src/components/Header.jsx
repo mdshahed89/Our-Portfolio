@@ -1,6 +1,11 @@
 "use client";
 import Tooltip from "@mui/material/Tooltip";
-import { FaChevronDown, FaBars } from "react-icons/fa";
+import {
+  FaChevronDown,
+  FaBars,
+  FaFacebookF,
+  FaInstagram,
+} from "react-icons/fa";
 import { useState, useEffect } from "react";
 import MenuItem from "@mui/material/MenuItem";
 import Link from "next/link";
@@ -9,6 +14,7 @@ import { RxCross2 } from "react-icons/rx";
 import { usePathname } from "next/navigation";
 import Logo from "@/assets/logo.png";
 import { PageLoading } from "./Tools";
+import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 
 const Header = () => {
   const pathName = usePathname();
@@ -278,166 +284,201 @@ const Header = () => {
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 right-0 w-64 lg:hidden h-full bg-[#035635] text-white p-5 transition-all duration-300 ${
+        className={`fixed top-0 right-0 w-full lg:hidden  bg-[#035635] text-white p-5 transition-all duration-300 h-[100vh] overflow-y-auto flex flex-col justify-between ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex justify-end">
-          <button onClick={() => setMenuOpen(false)}>
-            <RxCross2 className="text-2xl cursor-pointer" />
-          </button>
-        </div>
-        <ul className="flex flex-col mt-7 space-y-8">
-          {/* Dropdown 1 */}
-          <li className="relative group">
-            <Link href={"/nettside"}>
-              <div
-                className={`flex items-center pb-2 hover:text-[#17DB4F] cursor-pointer ${
-                  pathName === "/nettside" && "text-[#17DB4F]"
-                }
+        <div className="   ">
+          <div className="flex justify-end">
+            <button onClick={() => setMenuOpen(false)}>
+              <RxCross2 className="text-[2rem] cursor-pointer" />
+            </button>
+          </div>
+          <ul className="flex flex-col mt-7 space-y-6 ">
+            {/* Dropdown 1 */}
+            <li className="relative group border-b border-[#17DB4F] py-2 ">
+              <Link href={"/nettside"}>
+                <div
+                  className={`flex items-center justify-between pb-2 hover:text-[#17DB4F] cursor-pointer text-[2rem]  ${
+                    pathName === "/nettside" && "text-[#17DB4F]"
+                  }
                 `}
-                onClick={() => toggleDropdown(0)}
-              >
-                Nettside
-                <FaChevronDown
-                  className={`ml-2 text-sm transition-transform duration-300 ${
-                    dropdownOpen === 0 ? "rotate-180" : "rotate-0"
-                  }`}
-                />
-              </div>
-            </Link>
-            <ul
-              className={`flex flex-col pl-2 mt-2 transition-all duration-200 ease-in-out ${
-                dropdownOpen === 0 ? "block" : "hidden"
-              }`}
-            >
-              <li>
-                <Link
-                  onClick={() => setMenuOpen(false)}
-                  href="/nettside"
-                  className="block py-2 hover:bg-green-100"
+                  onClick={() => toggleDropdown(0)}
                 >
                   Nettside
-                </Link>
-              </li>
-              <li>
-                <Link
-                  onClick={() => setMenuOpen(false)}
-                  href="/nettbuttik"
-                  className={`block py-2 hover:bg-green-100 hover:text-[#17DB4F] cursor-pointer ${
-                    pathName === "/nettbuttik" && "text-[#17DB4F]"
-                  }
-                  `}
-                >
-                  Nettbutikk
-                </Link>
-              </li>
-              <li>
-                <Link
-                  onClick={() => setMenuOpen(false)}
-                  href="/webapplikasjon"
-                  className={`block py-2 hover:bg-green-100 hover:text-[#17DB4F] cursor-pointer ${
-                    pathName === "/webapplikasjon" && "text-[#17DB4F]"
-                  }
-                  `}
-                >
-                  Webapplikasjon
-                </Link>
-              </li>
-            </ul>
-          </li>
-
-          {/* Dropdown 2 */}
-          <li className="relative group">
-            <Link href="/digitale-tjenester">
-              <div
-                className={`flex items-center pb-2 hover:text-[#17DB4F] cursor-pointer ${
-                  pathName === "/digitale-tjenester" && "text-[#17DB4F]"
-                }
-              `}
-                onClick={() => toggleDropdown(1)}
+                  <MdOutlineKeyboardArrowDown
+                    className={`ml-2  transition-transform duration-300 ${
+                      dropdownOpen === 0 ? "rotate-180" : "rotate-0"
+                    }`}
+                  />
+                </div>
+              </Link>
+              <ul
+                className={`flex flex-col gap-2 border-l-2 border-[#17DB4F] text-[1.5rem] pl-4 mt-2 transition-all duration-200 ease-in-out ${
+                  dropdownOpen === 0 ? "block" : "hidden"
+                }`}
               >
-                Digitale Tjenester
-                <FaChevronDown
-                  className={`ml-2 text-sm transition-transform duration-300 ${
-                    dropdownOpen === 1 ? "rotate-180" : "rotate-0"
-                  }`}
-                />
-              </div>
-            </Link>
-            <ul
-              className={`flex flex-col pl-2 mt-2 transition-all duration-200 ease-in-out ${
-                dropdownOpen === 1 ? "block" : "hidden"
-              }`}
-            >
-              <li>
-                <Link
-                  href="/seo"
-                  className={`flex items-center pb-2 hover:text-[#17DB4F] cursor-pointer ${
-                    pathName === "/seo" && "text-[#17DB4F]"
-                  }
+                <li>
+                  <Link
+                    onClick={() => setMenuOpen(false)}
+                    href="/nettside"
+                    className={`block py-2  hover:text-[#17DB4F] cursor-pointer ${
+                      pathName === "/nettside" && "text-[#17DB4F]"
+                    }
                   `}
-                >
-                  Seo
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/logo"
-                  className={`flex items-center pb-2 hover:text-[#17DB4F] cursor-pointer ${
-                    pathName === "/logo" && "text-[#17DB4F]"
-                  }
+                  >
+                    Nettside
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    onClick={() => setMenuOpen(false)}
+                    href="/nettbuttik"
+                    className={`block py-2  hover:text-[#17DB4F] cursor-pointer ${
+                      pathName === "/nettbuttik" && "text-[#17DB4F]"
+                    }
                   `}
-                >
-                  Logo
-                </Link>
-              </li>
-              <li>
-                <Link
-                  onClick={() => setMenuOpen(false)}
-                  href="/markedsforing"
-                  className={`flex items-center pb-2 hover:text-[#17DB4F] cursor-pointer ${
-                    pathName === "/markedsforing" && "text-[#17DB4F]"
-                  }
+                  >
+                    Nettbutikk
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    onClick={() => setMenuOpen(false)}
+                    href="/webapplikasjon"
+                    className={`block py-2  hover:text-[#17DB4F] cursor-pointer ${
+                      pathName === "/webapplikasjon" && "text-[#17DB4F]"
+                    }
                   `}
-                >
-                  Markedsføring
-                </Link>
-              </li>
-            </ul>
-          </li>
+                  >
+                    Webapplikasjon
+                  </Link>
+                </li>
+              </ul>
+            </li>
 
-          {/* Other Links */}
-          <li className="relative group">
+            {/* Dropdown 2 */}
+            <li className="relative group border-b border-[#17DB4F] py-2">
+              <Link href="/digitale-tjenester">
+                <div
+                  className={`flex items-center justify-between pb-2 hover:text-[#17DB4F] cursor-pointer text-[2rem] ${
+                    pathName === "/digitale-tjenester" && "text-[#17DB4F]"
+                  }
+              `}
+                  onClick={() => toggleDropdown(1)}
+                >
+                  Digitale Tjenester
+                  <MdOutlineKeyboardArrowDown
+                    className={`ml-2 transition-transform duration-300 ${
+                      dropdownOpen === 1 ? "rotate-180" : "rotate-0"
+                    }`}
+                  />
+                </div>
+              </Link>
+              <ul
+                className={`flex flex-col gap-2 text-[1.5rem] border-l-2 border-[#17DB4F] pl-4 mt-2 transition-all duration-200 ease-in-out ${
+                  dropdownOpen === 1 ? "block" : "hidden"
+                }`}
+              >
+                <li>
+                  <Link
+                    onClick={() => setMenuOpen(false)}
+                    href="/seo"
+                    className={`flex items-center pb-2 hover:text-[#17DB4F] cursor-pointer ${
+                      pathName === "/seo" && "text-[#17DB4F]"
+                    }
+                  `}
+                  >
+                    Seo
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    onClick={() => setMenuOpen(false)}
+                    href="/logo"
+                    className={`flex items-center pb-2 hover:text-[#17DB4F] cursor-pointer ${
+                      pathName === "/logo" && "text-[#17DB4F]"
+                    }
+                  `}
+                  >
+                    Logo
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    onClick={() => setMenuOpen(false)}
+                    href="/markedsforing"
+                    className={`flex items-center pb-2 hover:text-[#17DB4F] cursor-pointer ${
+                      pathName === "/markedsforing" && "text-[#17DB4F]"
+                    }
+                  `}
+                  >
+                    Markedsføring
+                  </Link>
+                </li>
+              </ul>
+            </li>
+
+            {/* Other Links */}
+            <li className="relative group border-b border-[#17DB4F] py-2">
+              <Link
+                href="/om-oss"
+                onClick={() => setMenuOpen(false)}
+                className={`flex items-center pb-2 hover:text-[#17DB4F] text-[2rem]  ${
+                  pathName === "/om-oss" && "text-[#17DB4F]"
+                }`}
+              >
+                Hvem er vi?
+              </Link>
+            </li>
+            <li className="relative group border-b border-[#17DB4F] py-2">
+              <Link
+                href="/referanser"
+                onClick={() => setMenuOpen(false)}
+                className={`flex items-center pb-2 hover:text-[#17DB4F] text-[2rem]  ${
+                  pathName === "/referanser" && "text-[#17DB4F]"
+                } `}
+              >
+                Prosjekter
+              </Link>
+            </li>
+            <li className="relative group pt-[2rem] ">
+              <Link
+                href="/book-now"
+                onClick={() => setMenuOpen(false)}
+                className={` ${
+                  pathName === "/book-now" && "bg-transparent"
+                } flex items-center justify-center  bg-[#17DB4F] border-2 py-1 px-7 w-full text-[1.3rem] text-center rounded-full  border-[#17DB4F] hover:bg-transparent transition-colors duration-300 ease-in-out `}
+              >
+                Book Møte
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        <div className=" flex flex-col items-center gap-4 pt-[3rem] ">
+          <h4 className=" text-[1.6rem] ">Følg oss</h4>
+          <div className=" flex items-center gap-4 ">
             <Link
-              href="/om-oss"
-              onClick={() => setMenuOpen(false)}
-              className="flex items-center pb-2 hover:text-[#17DB4F]"
+            onClick={() => setMenuOpen(false)}
+              href={"https://www.facebook.com/groups/sidesone/"}
+              rel="nofollow"
+              target="_blank"
+              className=" p-2 rounded-full border-2 border-[#17DB50] text-[#fff] text-[1.5rem] "
             >
-              Hvem er vi?
+              <FaFacebookF />
             </Link>
-          </li>
-          <li className="relative group">
             <Link
-              href="/referanser"
-              onClick={() => setMenuOpen(false)}
-              className="flex items-center pb-2 hover:text-[#17DB4F]"
+            onClick={() => setMenuOpen(false)}
+              target="_blank"
+              rel="nofollow"
+              href={"https://www.instagram.com/sidesonenorge/"}
+              className=" p-2 rounded-full border-2 border-[#17DB50] text-[#fff] text-[1.5rem] "
             >
-              Prosjekter
+              <FaInstagram />
             </Link>
-          </li>
-          <li className="relative group">
-            <Link
-              href="/book-now"
-              onClick={() => setMenuOpen(false)}
-              className={` ${
-                pathName === "/book-now" && "bg-transparent"
-              } flex items-center w-fit  bg-[#17DB4F] border-2 rounded-sm px-7 py-1 border-[#17DB4F] hover:bg-transparent transition-colors duration-300 ease-in-out `}
-            >
-              Book Møte
-            </Link>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
     </header>
   );
