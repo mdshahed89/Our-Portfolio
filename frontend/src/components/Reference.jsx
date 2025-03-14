@@ -130,8 +130,7 @@ export const Slider = async () => {
           >
             {projects?.map((item, index) => (
               <Link
-                target="_blank"
-                href={`${item?.url || "#"}`}
+                href={`${item?._id ? `/prosjekter/${item?._id}` : "#"}`}
                 key={index}
                 className="group relative mx-2 z-10 hover:z-50  flex flex-col items-center justify-center 
                  overflow-hidden  rounded-xl  shadow-lg 
@@ -143,7 +142,7 @@ export const Slider = async () => {
                     loading="lazy"
                     placeholder="blur"
                     blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNmM2Y0ZjUiLz48L3N2Zz4="
-                    src={item.image || AImg}
+                    src={item.coverImg || AImg}
                     alt={item.title}
                     width={400}
                     height={300}

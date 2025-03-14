@@ -275,12 +275,11 @@ export const BookNowModal = ({ title, availability }) => {
   );
 };
 
-
 // import { useEffect, useState } from 'react';
-import MessageIcon from "@/assets/MessageIcon.jpg"
-import MessageIcon1 from "@/assets/MessageIcon1.jpg"
-import MessageIcon2 from "@/assets/MessageIcon2.jpg"
-import MessageIcon3 from "@/assets/MessageIcon3.png"
+import MessageIcon from "@/assets/MessageIcon.jpg";
+import MessageIcon1 from "@/assets/MessageIcon1.jpg";
+import MessageIcon2 from "@/assets/MessageIcon2.jpg";
+import MessageIcon3 from "@/assets/MessageIcon3.png";
 import Image from "next/image";
 
 const CustomChatButton = () => {
@@ -329,11 +328,14 @@ const CustomChatButton = () => {
           {/* Open Chat */}
           {/* <Image src={MessageIcon1} alt="SidesoneImg" className="  w-[4rem] -mr-3  h-[4rem] object-cover rounded-full " /> */}
           <div className=" relative bg-[#035635] rounded-full z-50 text-[#fff] ">
-            <div className=" absolute text-center z-50 w-full h-full left-0 top-0 flex flex-col items-center justify-center font-semibold bg-black/30 rounded-full  ">
-            <p>Chat</p>
-            <p>Support</p>
+            <div className=" absolute text-center text-sm z-50 w-full h-full left-0 top-0 flex flex-col items-center justify-center font-semibold bg-black/30 rounded-full  ">
+              <p>Chatstøtte</p>
             </div>
-          <Image src={MessageIcon3} alt="SidesoneImg" className="  w-[5rem]  h-[5rem] object-cover rounded-full scale-90 " />
+            <Image
+              src={MessageIcon3}
+              alt="SidesoneImg"
+              className="  w-[5rem]  h-[5rem] object-cover rounded-full scale-90 "
+            />
           </div>
           {/* <Image src={MessageIcon2} alt="SidesoneImg" className="  w-[4rem]  -ml-3  h-[4rem] object-cover rounded-full " /> */}
         </div>
@@ -343,4 +345,3 @@ const CustomChatButton = () => {
 };
 
 export default CustomChatButton;
-

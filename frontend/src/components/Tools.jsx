@@ -416,9 +416,9 @@ export const Review = async () => {
 
   return(
     <section id="reviews" className=" py-16 ">
-      <div className=" flex flex-col max-w-[30rem] mx-auto text-center  ">
-      <h2 className=" text-[2.5rem] font-medium ">Klientanmeldelser</h2>
-      <p className=" text-xl ">Se hva våre fornøyde kunder sier om sin opplevelse med oss.</p>
+      <div className=" flex flex-col max-w-[30rem] px-2 mx-auto text-center  ">
+      <h2 className=" text-[2rem] md:text-[2.5rem] font-medium ">Klientanmeldelser</h2>
+      <p className=" text-lg md:text-xl ">Se hva våre fornøyde kunder sier om sin opplevelse med oss.</p>
       </div>
       <ReviewComponent reviews={reviews} />
     </section>
@@ -496,7 +496,7 @@ export const Hero = () => {
             Trenger du en nettside?
             <MdArrowForward className="transition-transform md:text-[1.5rem] mt-1 text-[1.2rem] transform group-hover:translate-x-2" />
           </Link>
-          <Link href={"#reviews"} className=" text-[1.4rem] group w-fit ">
+          <Link href={"#reviews"} className=" text-[1.1rem] md:text-[1.4rem] group w-fit ">
             <div className=" flex items-center gap-2 ">
               <FcGoogle />
               <h5>5/5 Google reviews</h5>

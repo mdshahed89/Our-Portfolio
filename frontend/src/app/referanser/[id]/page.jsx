@@ -55,7 +55,7 @@ const DetailsPage = ({ params }) => {
   // const nextBlog =
   //   currentIndex < allBlogs.length - 1 ? allBlogs[currentIndex + 1] : null;
 
-  console.log(otherData);
+  // console.log(otherData);
 
   return (
     <div className="mt-40 mx-auto p-4">
@@ -69,7 +69,7 @@ const DetailsPage = ({ params }) => {
           alt={blog.title}
           width={500}
           height={500}
-          className="w-full h-[400px] object-cover rounded-md mb-4"
+          className="w-auto mx-auto h-[400px] object-cover rounded-md mb-4"
         />
         <div
           className="content pt-5"

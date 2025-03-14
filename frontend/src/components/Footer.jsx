@@ -153,9 +153,9 @@ const Footer = () => {
       </div>
 
       <div className=" mt-[1rem] flex items-start justify-between ">
-        <div className=" flex md:items-center gap-5 md:flex-row flex-col text-[#fff] ">
+        <div className=" flex md:items-center gap-8 md:gap-5 md:flex-row flex-col text-[#fff] ">
           <p className=" ">Sidesone AS, org.nr. 932 244 721</p>
-          <div className=" flex items-center gap-5 ">
+          <div className=" hidden md:flex items-center gap-5 ">
             <Link
               href={`/vilkar-og-betingelser`}
               className=" border-b border-[#1e8b3d] pb-1 mt-1 "
@@ -168,9 +168,15 @@ const Footer = () => {
             >
               Cookies
             </Link>
+            <Link
+              href={"/privacy-policy"}
+              className=" border-b border-[#1e8b3d] pb-1 mt-1 "
+            >
+              Personvernpolicy
+            </Link>
           </div>
         </div>
-        <div className=" flex items-center gap-4 ">
+        <div className=" flex items-center h-auto gap-4 ">
           <Link
             onClick={() => setMenuOpen(false)}
             href={"https://www.facebook.com/groups/sidesone/"}
@@ -191,6 +197,26 @@ const Footer = () => {
           </Link>
         </div>
       </div>
+      <div className=" flex text-[#fff] md:hidden items-center gap-5 ">
+            <Link
+              href={`/vilkar-og-betingelser`}
+              className=" border-b border-[#1e8b3d] pb-1 mt-1 "
+            >
+              Vilkår og betingelser
+            </Link>
+            <Link
+              href={`/informasjonskapsler-cookies`}
+              className=" border-b border-[#1e8b3d] pb-1 mt-1 "
+            >
+              Cookies
+            </Link>
+            <Link
+              href={"/privacy-policy"}
+              className=" border-b border-[#1e8b3d] pb-1 mt-1 "
+            >
+              Personvernpolicy
+            </Link>
+          </div>
     </footer>
   );
 };

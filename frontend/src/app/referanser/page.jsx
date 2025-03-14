@@ -50,11 +50,14 @@ const page = async () => {
     <div className="mt-[112px]">
       <div className=" bg-[#035635] py-[5rem] text-[#fff]  ">
         <div className=" max-w-[40rem] mx-auto text-center ">
-        <h2 className=" text-[3rem] ">Bloggs</h2>
-        <p className=" text-[#ebebeb] text-lg ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit dolorum vero facilis doloribus facere minima architecto, deserunt velit aliquid! Incidunt.</p>
+        <h2 className=" text-[3rem] ">Prosjekter og Blogger</h2>
+        <p className=" text-[#ebebeb] text-lg ">Oppdag våre nyeste prosjekter og innsiktsfulle blogginnlegg, som viser innovative ideer, utviklingsprosesser og bransjetrender.</p>
         </div>
       </div>
-      <div className=" px-3 lg:px-5 mt-10 ">
+      <div className=" px-3 lg:px-5 mt-2 ">
+        <div className=" text-[3rem] text-center mb-7 font-medium ">
+          <h2>Prosjekter</h2>
+        </div>
         <BlogPageProjects projects={projects} />
       </div>
       <div className="bg-[#fff] min-h-[100vh] px-3 lg:px-5 mt-20 ">
@@ -64,6 +67,9 @@ const page = async () => {
           </div>
         </div> */}
         <div>
+        <div className=" text-[3rem] text-center mb-7 font-medium ">
+          <h2>Blogger</h2>
+        </div>
           <AllProject referencesData={referencesData} />
         </div>
     </div>

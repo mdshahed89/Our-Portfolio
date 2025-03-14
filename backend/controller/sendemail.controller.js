@@ -19,11 +19,11 @@ export const sendEmail = async (req, res) => {
           const result = await cloudinary.uploader.upload(image, {
             folder: "SIDESONE",
             resource_type: "image",
-            overwrite: false, 
+            overwrite: false,
           });
           return result.secure_url;
         }
-        return null; 
+        return null;
       })
     );
 
@@ -31,7 +31,6 @@ export const sendEmail = async (req, res) => {
   }
 
   // console.log(uploadedImages);
-  
 
   // console.log(info);
   const transporter = nodemailer.createTransport({
@@ -365,4 +364,61 @@ export const changePassword = async (req, res) => {
       .status(400)
       .send({ message: "Noe gikk galt. Vennligst prøv igjen" });
   }
+};
+
+export const sendContactEmai = async (req, res) => {
+  const { name, email, message } = req.body;
+
+  // console.log(uploadedImages);
+
+  // console.log(info);
+  const transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false,
+    auth: {
+      user: process.env.SIDESONE_EMAIL,
+      pass: process.env.SIDESONE_EMAIL_PASS,
+    },
+  });
+
+  const mailBody = {
+    from: process.env.SIDESONE_EMAIL,
+    to: process.env.SIDESONE_EMAIL,
+    subject: "Ny kontaktskjema-innsending",
+    text: `Du har mottatt en ny melding via kontaktskjemaet.
+  
+    Navn: ${name}
+    E-post: ${email}
+    Melding:
+    ${message}
+    `,
+    html: `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #28a745; border-radius: 8px;">
+        <h2 style="background-color: #28a745; color: #fff; padding: 10px; text-align: center; border-radius: 5px;">Ny melding fra kontaktskjema</h2>
+        <p style="font-size: 16px;"><strong>Navn:</strong> ${name}</p>
+        <p style="font-size: 16px;"><strong>E-post:</strong> <a href="mailto:${email}" style="color: #28a745; text-decoration: none;">${email}</a></p>
+        <p style="font-size: 16px;"><strong>Melding:</strong></p>
+        <p style="background-color: #e6f4ea; padding: 10px; border-radius: 5px; font-style: italic;">${message}</p>
+        <hr>
+        <p style="text-align: center; font-size: 14px; color: #666;">Denne e-posten ble sendt fra kontaktskjemaet på nettsiden din.</p>
+      </div>
+    `,
+  };
+
+  transporter.sendMail(mailBody, (error, info) => {
+    if (error) {
+      console.log(error);
+      return res.status(500).send({
+        success: true,
+        message: "Failed to send email"
+      });
+    } else {
+      console.log(info.response, "email sent successfully");
+      return res.status(200).send({
+        success: true,
+        message: "Email sent successfully!"
+      });
+    }
+  });
 };

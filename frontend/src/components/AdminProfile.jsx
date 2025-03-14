@@ -424,6 +424,9 @@ export const ProjectCard = () => {
     }
   };
 
+  // console.log(projects);
+  
+
   return (
     <div>
       {projects.length > 0 ? (
@@ -438,7 +441,7 @@ export const ProjectCard = () => {
               <figure className="h-[300px] w-[400px] overflow-hidden">
                 <Image
                   loading="lazy"
-                  src={item.image}
+                  src={item?.coverImg}
                   alt={item.title}
                   width={400}
                   height={300}
