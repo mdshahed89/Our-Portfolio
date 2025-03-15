@@ -89,7 +89,7 @@ const ReviewComponent = ({ reviews }) => {
         <div className=" whitespace-nowrap flex items-center gap-2 "><p>Powered by</p> <Image src={GoogleLogo} alt="Google Logo" className=" mt-1 h-[2rem] w-[4rem] object-cover " /></div>
       </div>
       <div className=" w-full lg:w-[75%] overflow-x-hidden overflow-hidden h-auto lgpy-10 ">
-        {reviews.length > 0 ? (
+        {Array.isArray(reviews) && reviews.length > 0 ? (
           <Slider {...settings} className=" py-5 grid grid-cols-3 ">
             {reviews.map((review, idx) => (
               <div key={idx} className="  h-full ">
@@ -98,7 +98,9 @@ const ReviewComponent = ({ reviews }) => {
             ))}
           </Slider>
         ) : (
-          <p>Loading reviews...</p>
+          <div className=" relative h-[20rem] ">
+            <FetchDataLoading />
+          </div>
         )}
       </div>
     </div>
@@ -112,6 +114,7 @@ import { BiSolidQuoteAltLeft, BiSolidQuoteAltRight } from "react-icons/bi";
 import { IoIosStarOutline } from "react-icons/io";
 import { FaRegStarHalfStroke } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
+import { FetchDataLoading, FetchLoading } from "./Loading";
 
 
 const ReviewCard = ({ review }) => {

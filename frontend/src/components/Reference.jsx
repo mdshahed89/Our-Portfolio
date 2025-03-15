@@ -107,11 +107,10 @@ export const Slider = async () => {
 
     if (!response.ok) {
       console.log("Faield to get projects");
-      return;
+      return [];
     }
 
     const data = await response.json();
-    // console.log(data);
     
     projects = data?.data || [];
   } catch (error) {

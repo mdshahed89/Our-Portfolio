@@ -93,12 +93,12 @@ export default function RootLayout({ children }) {
       </head>
       
       <body className={` antialiased font-averta  `}>
-      <Script
+      {/* <Script
         strategy="afterInteractive"
         src="https://embed.tawk.to/67d0cb645481cc190de701fe/1im3pl0fh"
         charset="UTF-8"
         crossOrigin="anonymous"
-      />
+      /> */}
 
         
         <div className="">
@@ -109,9 +109,9 @@ export default function RootLayout({ children }) {
         <div className="bg-[#035635]">
           <Footer />
           <Toaster />
-          {/* <ScrollToTopButton /> */}
+          <ScrollToTopButton />
         </div>
-        <CustomChatButton />
+        {/* <CustomChatButton /> */}
       </body>
     </html>
   );

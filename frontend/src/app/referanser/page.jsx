@@ -32,7 +32,7 @@ const page = async () => {
 
     if (!response.ok) {
       console.log("Faield to get projects");
-      return;
+      return [];
     }
 
     const data = await response.json();
