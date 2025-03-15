@@ -200,6 +200,7 @@ export default function ReviewForm({ setOpenModal }) {
   const [preview, setPreview] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const [error, setError] = useState("")
 
   const ratings = [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
 
@@ -347,15 +348,16 @@ export default function ReviewForm({ setOpenModal }) {
             <span className="text-gray-600">Choose Image</span>
           </div>
           {preview && (
-            <div className="mt-3 flex items-start ">
-              <img
+            <div className="mt-3 relative w-16 h-16 flex items-start ">
+              <Image
                 src={preview}
                 alt="Preview"
+                fill
                 className="w-16 h-16 object-cover rounded"
               />
               <button
                 type="button"
-                className=" text-red-500 bg-red-100 text-[1.3rem] ml-2 p-1 rounded-md "
+                className=" text-red-500 absolute z-50 right-0 top-0 bg-red-100 text-[1.3rem] ml-2 p-1 rounded-full "
                 onClick={handleRemoveImage}
               >
                 <RxCross2 />

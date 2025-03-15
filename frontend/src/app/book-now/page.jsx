@@ -19,7 +19,7 @@ const page = async () => {
 
     if (!response.ok) {
       // throw new Error("Failed to fetch data");
-      console.log("Faield to fetch data");
+      console.log("Faield to fetch availability data");
       return
     }
 

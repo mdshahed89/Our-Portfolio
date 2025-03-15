@@ -404,15 +404,18 @@ export const Review = async () => {
     );
 
     if (!response.ok) {
-      console.log("Faield to get projects");
-      return;
+      console.log("Faield to all reviews on home page");
+      return [];
     }
 
     const data = await response.json();
     reviews = data?.reviews || [];
   } catch (error) {
-    console.error("Error fetching projects:", error);
+    console.error("Error fetching all reviews on home hape:", error);
   }
+
+  // console.log(reviews);
+  
 
   return(
     <section id="reviews" className=" py-16 ">

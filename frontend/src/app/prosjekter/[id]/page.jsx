@@ -7,8 +7,6 @@ import Konsulenttorget from "@/assets/R2.png";
 const page = async ({ params }) => {
   const { id } = await params;
 
-  // console.log("id",id);
-
   let project = {};
   try {
     const response = await fetch(
@@ -17,18 +15,16 @@ const page = async ({ params }) => {
 
     if (!response.ok) {
       console.log("Faield to get projects");
-      return;
+      return {};
     }
 
     const data = await response.json();
-    // console.log(data);
 
     project = data?.data || [];
   } catch (error) {
     console.error("Error fetching projects:", error);
   }
 
-  // console.log(project);
 
   return (
     <div className=" mt-[120px] py-5 ">

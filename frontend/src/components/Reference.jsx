@@ -13,13 +13,12 @@ async function getReferencesData() {
   );
 
   if (!res.ok) {
-    // throw new Error("Kunne ikke hente referansedata")
     console.log("Faield to fetch fetch three blogs");
-    return;
+    return [];
   }
 
   const data = await res.json();
-  return data.data || [];
+  return data?.data || [];
 }
 
 export default async function Reference({ title }) {

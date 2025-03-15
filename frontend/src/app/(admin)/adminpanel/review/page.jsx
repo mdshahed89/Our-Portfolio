@@ -10,7 +10,7 @@ const fetchReviews = async () => {
   try {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/review/get-all-review`,
-      { cache: "no-store" }
+      // { cache: "no-store" }
     );
 
     if (!response.ok) {
