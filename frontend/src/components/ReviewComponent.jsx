@@ -141,7 +141,7 @@ const ReviewCard = ({ review }) => {
         </div>
         <div>
           <h4>{review?.name}</h4>
-          <h4>5 Months Ago</h4>
+          <h4>5 Måneder Siden</h4>
         </div>
       </div>
 

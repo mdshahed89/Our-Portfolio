@@ -7,6 +7,7 @@ import ScrollToTopButton from "../components/ScrollToTopButton";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import Script from "next/script";
+import Chatbot from "@/components/CustomChatbot";
 export const metadata = {
   metadataBase: new URL("https://sidesone.no"),
   title: "Sidesone - Profesjonelle nettsider, nettbutikker og webapper",
@@ -112,6 +113,7 @@ export default function RootLayout({ children }) {
           <ScrollToTopButton />
         </div>
         {/* <CustomChatButton /> */}
+        <Chatbot />
       </body>
     </html>
   );

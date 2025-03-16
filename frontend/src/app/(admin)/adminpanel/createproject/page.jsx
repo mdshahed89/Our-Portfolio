@@ -309,6 +309,7 @@ const ProjectDetails = ({ projectData, setProjectData }) => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const [formData, setFormData] = useState({
+    projectName: "",
     projectStart: "",
     projectEnd: "",
     type: "",
@@ -416,6 +417,7 @@ const ProjectDetails = ({ projectData, setProjectData }) => {
       if (response.ok) {
         toast.success("Project added successfully");
         setFormData({
+          projectName: "",
           projectStart: "",
           projectEnd: "",
           type: "",

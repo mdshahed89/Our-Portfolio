@@ -139,7 +139,7 @@ export const Newsletter = () => {
   );
 };
 
-export const AddReviewModal = ({}) => {
+export const AddReviewModal = ({fetchReviews}) => {
   const [openModal, setOpenModal] = useState(false);
 
   return (
@@ -148,7 +148,7 @@ export const AddReviewModal = ({}) => {
         onClick={() => setOpenModal(true)}
         className="px-1 md:px-10 py-2 flex items-center gap-2 transition-all duration-300 ease-in-out active:scale-95 rounded-md text-[13px] md:text-lg font-medium bg-white text-green-700"
       >
-        Add Review
+        Legg til anmeldelse
       </button>
 
       <div
@@ -166,7 +166,7 @@ export const AddReviewModal = ({}) => {
           }`}
         >
           <div className=" flex items-center justify-between px-4 py-3 text-[1.5rem] ">
-            <h4>Add Review</h4>
+            <h4>Legg til anmeldelse</h4>
             <div
               onClick={() => setOpenModal(false)}
               className=" bg-slate-50 p-1 cursor-pointer rounded-full text-[1.5rem] "
@@ -175,7 +175,7 @@ export const AddReviewModal = ({}) => {
             </div>
           </div>
 
-          <ReviewForm setOpenModal={setOpenModal} />
+          <ReviewForm setOpenModal={setOpenModal} fetchReviews={fetchReviews} />
         </div>
       </div>
     </div>
@@ -188,11 +188,11 @@ import { ButtonLoading } from "@/components/Loading";
 import { IoTrashBin } from "react-icons/io5";
 import axios from "axios";
 
-export default function ReviewForm({ setOpenModal }) {
+export default function ReviewForm({ setOpenModal, fetchReviews }) {
   const [formData, setFormData] = useState({
     name: "",
     message: "",
-    date: "",
+    time: "",
     rating: "",
     image: "",
   });
@@ -238,7 +238,7 @@ export default function ReviewForm({ setOpenModal }) {
       !formData.name ||
       !formData.rating ||
       !formData.message ||
-      !formData.date ||
+      !formData.time ||
       !formData.image
     ) {
       setError("Vennligst fyll ut alle feltene.");
@@ -260,10 +260,11 @@ export default function ReviewForm({ setOpenModal }) {
 
       if (response.ok) {
         toast.success("Review added successfully");
+        fetchReviews()
         setFormData({
           name: "",
           message: "",
-          date: "",
+          time: "",
           rating: "",
           image: "",
         });
@@ -331,9 +332,10 @@ export default function ReviewForm({ setOpenModal }) {
         </div>
 
         <input
-          type="date"
-          value={formData.date}
-          onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+          type="text"
+          value={formData.time}
+          placeholder="5 måned siden"
+          onChange={(e) => setFormData({ ...formData, time: e.target.value })}
           className="w-full p-2 border rounded-md mb-2 outline-none focus:border-[#17DB4F] transition-colors duration-300 ease-in-out"
         />
 
@@ -345,7 +347,7 @@ export default function ReviewForm({ setOpenModal }) {
               className="absolute inset-0 opacity-0 cursor-pointer"
               onChange={handleImageChange}
             />
-            <span className="text-gray-600">Choose Image</span>
+            <span className="text-gray-600">Velg bilde</span>
           </div>
           {preview && (
             <div className="mt-3 relative w-16 h-16 flex items-start ">
@@ -370,7 +372,7 @@ export default function ReviewForm({ setOpenModal }) {
           type="submit"
           className="w-full relative h-[2.5rem] flex items-center justify-center bg-[#17DB4F] font-medium text-white rounded"
         >
-          {loading ? <ButtonLoading /> : "Submit"}
+          {loading ? <ButtonLoading /> : "Legg til anmeldelse"}
         </button>
       </form>
     </div>
@@ -392,7 +394,7 @@ export const ReviewDeleteModal = ({ fetchReviews, id }) => {
 
       if (response.data?.success) {
         toast.success("Review deleted successfully");
-        // fetchReviews();
+        fetchReviews();
         setOpenModal(false);
       } else {
         toast.success(response.data.message);
@@ -408,7 +410,7 @@ export const ReviewDeleteModal = ({ fetchReviews, id }) => {
     <div className="">
       <button
         onClick={() => setOpenModal(true)}
-        className="absolute top-4 right-4 text-[1.3rem] text-red-500 "
+        className="absolute top-4 right-20 text-[1.3rem] text-red-500 "
       >
         <IoTrashBin />
       </button>

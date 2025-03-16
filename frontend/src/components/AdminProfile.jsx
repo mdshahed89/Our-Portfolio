@@ -527,7 +527,7 @@ export const ProjectModal = ({ id, setLoad }) => {
   const [projectData, setProjectData] = useState({
     title: "",
     url: "",
-    image: "",
+    coverImg: "",
   });
 
   useEffect(() => {
@@ -538,12 +538,14 @@ export const ProjectModal = ({ id, setLoad }) => {
             `${process.env.NEXT_PUBLIC_BACKEND_URL}/single-project/${id}`
           );
           const project = response.data.data;
+          // console.log(project);
+          
           setProjectData({
             title: project.title,
             url: project.url,
-            image: project.image,
+            coverImg: project?.coverImg,
           });
-          setFilePreview({ url: project.image });
+          setFilePreview({ url: project.coverImg });
         } catch (error) {
           toast.error(error);
         }
@@ -601,7 +603,7 @@ export const ProjectModal = ({ id, setLoad }) => {
 
     if (!title) newErrors.title = "Title is required.";
     if (!url) newErrors.url = "Project Live URL is required.";
-    if (!file && !projectData.image)
+    if (!file && !projectData.coverImg)
       newErrors.file = "Cover Image is required.";
 
     if (Object.keys(newErrors).length > 0) {
@@ -617,7 +619,7 @@ export const ProjectModal = ({ id, setLoad }) => {
         title,
         url,
         imageUrl: imageUrl,
-        image: projectData?.image,
+        coverImg: projectData?.coverImg,
       };
       // console.log(formData);
       setIsLoading(true);
@@ -626,7 +628,7 @@ export const ProjectModal = ({ id, setLoad }) => {
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/update-project/${id}`,
         formData
       );
-      console.log(data);
+      // console.log(data);
       if (data.success) {
         setIsLoading(false);
         setLoad(true);
@@ -638,11 +640,14 @@ export const ProjectModal = ({ id, setLoad }) => {
       }
     } catch (error) {
       setIsLoading(false);
-      toast.success(error);
+      toast.error(error.message || "Failed to submit");
 
       setErrors((prev) => ({ ...prev, file: "Image upload failed." }));
     }
   };
+
+  // console.log(filePreview);
+  
 
   return (
     <div>
@@ -721,7 +726,7 @@ export const ProjectModal = ({ id, setLoad }) => {
                   <div>
                     <h3 className="text-lg font-medium mb-2">Cover Image</h3>
                     <div className="border border-dashed border-[#7BDCB5] rounded-lg p-4 flex flex-col items-center gap-3">
-                      {filePreview ? (
+                      {filePreview && filePreview?.url ? (
                         <div>
                           <div className="flex justify-end">
                             <button type="button" onClick={handleClearFile}>

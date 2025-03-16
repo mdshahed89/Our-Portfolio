@@ -3,9 +3,9 @@ import cloudinary from "../utils/cloudinary.js"
 
 export const addReview = async (req, res) => {
   try {
-    const { name, image, rating, message, date, ref } = req.body;
+    const { name, image, rating, message, time, ref } = req.body;
 
-    if (!name || !image || !rating || !message || !date) {
+    if (!name || !image || !rating || !message || !time) {
       return res.status(400).send({
         success: false,
         message: "Required fields are empty",
@@ -33,7 +33,7 @@ export const addReview = async (req, res) => {
       image: imageUrl,
       rating,
       message,
-      date
+      time
     });
 
     if (!newReview) {

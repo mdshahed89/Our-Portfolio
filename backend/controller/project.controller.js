@@ -3,7 +3,7 @@ import cloudinary from "../utils/cloudinary.js";
 
 export const saveData = async (req, res) => {
   try {
-    const {title, projectUrl, coverImgUrl, projectStart, projectEnd, type, status, briefAboutWebsite, detailedDescription, mainImgUrl, toolImgs, skills, gellaryImgs, reviewerImgUrl, reviewMessage, rating} = req.body;
+    const {projectName, title, projectUrl, coverImgUrl, projectStart, projectEnd, type, status, briefAboutWebsite, detailedDescription, mainImgUrl, toolImgs, skills, gellaryImgs, reviewerImgUrl, reviewMessage, rating} = req.body;
 
     console.log(title, projectUrl, coverImgUrl, projectStart);
     
@@ -85,7 +85,11 @@ export const getSingleData = async (req, res) => {
 };
 export const updateSingleData = async (req, res) => {
   const { id } = req.params;
-  const {title, url, imageUrl, image} = req.body;
+  const {title, url, imageUrl, coverImg} = req.body;
+
+  // console.log(coverImg);
+  // console.log(imageUrl);
+  
 
   try {
 
@@ -93,14 +97,14 @@ export const updateSingleData = async (req, res) => {
 
     let uploadedUrl = ""
 
-    if (image) {
+    if (imageUrl) {
       const result = await cloudinary.uploader.upload(imageUrl, {
         folder: "SIDESONE",
       });
       uploadedUrl = result.secure_url;
     }
 
-    if(!uploadedUrl){
+    if(!uploadedUrl && imageUrl){
       return res.status(400).send({
         success: false,
         message: "Failed to upload image"
@@ -116,7 +120,7 @@ export const updateSingleData = async (req, res) => {
     const updatedProject = await Project.findByIdAndUpdate(id, {
       title,
       url,
-      coverImg: uploadedUrl ? uploadedUrl : image
+      coverImg: uploadedUrl ? uploadedUrl : coverImg
     }, {
       new: true,
     });

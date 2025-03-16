@@ -18,9 +18,9 @@ const reviewSchema = new mongoose.Schema(
       type: String,
       required: [true, "Message is required"],
     },
-    date: {
+    time: {
       type: String,
-      required: [true, "Date is required"],
+      required: [true, "Time is required"],
     },
     ref: {
       type: String,

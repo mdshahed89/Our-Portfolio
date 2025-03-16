@@ -39,7 +39,7 @@ const page = async ({ params }) => {
         <div className=" flex items-center lg:flex-row flex-col  gap-2 ">
           <div className=" flex-1 lg:order-1 order-2 ">
             <h3 className=" text-[2rem] lg:mt-0 mt-3 md:text-[2.5rem] font-medium ">
-              Nettside navn
+              {project?.projectName}
             </h3>
             <div className=" font-medium my-[1rem] ">
               <h5 className=" text-[#525252] ">
@@ -240,6 +240,8 @@ import { IoStar, IoStarOutline } from "react-icons/io5";
 import { KontaktSection } from "@/utils/UtilityComponent";
 
 const ForthPart = ({ project }) => {
+
+  
   return (
     <div className=" mt-10 mb-14 ">
       <div>
@@ -280,7 +282,7 @@ const ForthPart = ({ project }) => {
 
       <div>
         <Link
-          href={``}
+          href={`/#reviews`}
           className=" mt-[5rem] text-[1.2rem] font-medium flex items-center justify-center gap-2 "
         >
           <span>Lets google review</span>
