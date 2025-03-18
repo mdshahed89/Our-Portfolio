@@ -575,7 +575,7 @@ const Card2 = ({ img, title, description, btn, path }) => {
       </div>
       <div className=" px-2 pt-2 pb-4 flex flex-col justify-between flex-grow ">
         <div>
-          <h3 className=" text-[1.7rem] md:text-[2rem] font-medium">{title}</h3>
+          <p className=" text-[1.7rem] md:text-[2rem] font-medium">{title}</p>
           <p className="  md:text-lg text-gray-500">{description}</p>
         </div>
         <div

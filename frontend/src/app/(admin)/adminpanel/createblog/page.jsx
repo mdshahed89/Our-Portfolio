@@ -130,7 +130,7 @@ const Page = () => {
             </div>
 
             <div className="md:w-[30%]">
-              <h3 className="text-lg font-semibold mb-2">Cover Image</h3>
+              <p className="text-lg font-semibold mb-2">Cover Image</p>
               <div className="border border-dashed border-[#7BDCB5] rounded-lg p-4 flex flex-col items-center gap-3">
                 {filePreview.length > 0 ? (
                   <div>

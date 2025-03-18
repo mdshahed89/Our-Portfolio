@@ -44,9 +44,9 @@ const page = () => {
                 <h3 className="text-4xl font-semibold text-[#7BDCB5]">2</h3>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-500">
+                <p className="text-lg font-semibold text-gray-500">
                   Del dine ønsker og behov for din nye nettside
-                </h3>
+                </p>
                 <p>
                   Når du har valgt din nettsidepakke, sender du over informasjon
                   om hva du ønsker å ha med på din nye nettside.

@@ -56,7 +56,7 @@ const page = async () => {
       </div>
       <div className=" px-3 lg:px-5 mt-2 ">
         <div className=" text-[3rem] text-center mb-7 font-medium ">
-          <h2>Prosjekter</h2>
+          <div>Prosjekter</div>
         </div>
         <BlogPageProjects projects={projects} />
       </div>
@@ -68,7 +68,7 @@ const page = async () => {
         </div> */}
         <div>
         <div className=" text-[3rem] text-center mb-7 font-medium ">
-          <h2>Blogger</h2>
+          <div>Blogger</div>
         </div>
           <AllProject referencesData={referencesData} />
         </div>

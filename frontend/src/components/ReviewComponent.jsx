@@ -140,8 +140,8 @@ const ReviewCard = ({ review }) => {
           />
         </div>
         <div>
-          <h4>{review?.name}</h4>
-          <h4>5 Måneder Siden</h4>
+          <p>{review?.name}</p>
+          <p>5 Måneder Siden</p>
         </div>
       </div>
 

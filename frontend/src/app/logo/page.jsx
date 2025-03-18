@@ -24,10 +24,10 @@ const page = () => {
           Prisen varierer etter behov og kompleksitet, men uansett sikrer vi et
           resultat som skaper din digitale identitet.
         </p>
-        <h3 className="text-[20px] font-semibold text-gray-800">
+        <p className="text-[20px] font-semibold text-gray-800">
           Kontakt oss via skjemaet nedenfor, så hjelper vi deg i gang med en
           unik logo!
-        </h3>
+        </p>
       </div>
       <div className="my-20">
         <LogoForm />

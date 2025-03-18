@@ -61,7 +61,7 @@ const Page = () => {
       <div className="h-[50px] flex justify-between items-center  px-2 md:px-5 text-white rounded-md bg-[#035635]">
         <div className="items-center flex gap-2 text-[13px] md:text-[1.3rem] ">
           <HiMiniNewspaper className="  " />
-          <h3 className=" font-medium">Alle bestillinger</h3>
+          <p className=" font-medium">Alle bestillinger</p>
         </div>
       </div>
 

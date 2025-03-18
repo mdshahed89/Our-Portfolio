@@ -18,9 +18,9 @@ const page = () => {
               Søkemotoroptimalisering
             </div>
             <div>
-              <h3 className=" text-[1.2rem] lg:text-[1.4rem] font-semibold ">
+              <p className=" text-[1.2rem] lg:text-[1.4rem] font-semibold ">
                 Hva er SEO, og hvordan jobber Sidesone med det?
-              </h3>
+              </p>
               <p className=" text-base md:text-lg text-gray-500 ">
                 SEO (søkemotoroptimalisering) handler om å øke synligheten til
                 nettsiden din i Google og andre søkemotorer, slik at du får mer
@@ -32,9 +32,9 @@ const page = () => {
               </p>
             </div>
             <div>
-              <h3 className=" text-[1.2rem] md:text-[1.4rem] font-semibold ">
+              <h4 className=" text-[1.2rem] md:text-[1.4rem] font-semibold ">
                 Hvorfor er SEO viktig?
-              </h3>
+              </h4>
               <p className=" text-base md:text-lg text-gray-500 ">
                 God SEO handler ikke bare om å rangere nettsiden din høyere, men
                 også om å gjøre den brukervennlig og tilpasset effektiv
@@ -67,16 +67,16 @@ const page = () => {
 
       <div className=" px-3 text-[#fff] bg-[#035635] py-10 mt-10 ">
         <div className=" flex lg:flex-row flex-col ">
-          <h3 className=" md:px-3 text-[1.4rem] font-semibold lg:mb-6  flex-1 ">
+          <h5 className=" md:px-3 text-[1.4rem] font-semibold lg:mb-6  flex-1 ">
             Hvordan gjør vi nettsiden din mer synlig på nett?
-          </h3>
-          <h3 className=" md:px-3  text-[1.2rem] font-light lg:mb-6  flex-1 ">
+          </h5>
+          <p className=" md:px-3  text-[1.2rem] font-light lg:mb-6  flex-1 ">
             Usikker hvor seo resultatene dine? så kan du sjekke de{" "}
             <span className=" border-b-2 border-[#fff] ">
               her
             </span>
             .
-          </h3>
+          </p>
         </div>
         <div className=" flex items-center lg:flex-row flex-col lg:gap-0 gap-7 mt-10  ">
           <div className=" w-full lg:w-[50%] h-auto ">

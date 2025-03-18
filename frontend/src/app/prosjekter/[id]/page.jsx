@@ -38,9 +38,9 @@ const page = async ({ params }) => {
         </Link>
         <div className=" flex items-center lg:flex-row flex-col  gap-2 ">
           <div className=" flex-1 lg:order-1 order-2 ">
-            <h3 className=" text-[2rem] lg:mt-0 mt-3 md:text-[2.5rem] font-medium ">
+            <p className=" text-[2rem] lg:mt-0 mt-3 md:text-[2.5rem] font-medium ">
               {project?.projectName}
-            </h3>
+            </p>
             <div className=" font-medium my-[1rem] ">
               <h5 className=" text-[#525252] ">
                 Project Start{" "}
@@ -158,9 +158,9 @@ const SecondPart = ({ project }) => {
       </div>
 
       <div className=" max-w-[1400px] mx-auto mt-[2rem] mb-[3rem] px-2 ">
-        <h3 className=" text-center text-[1.5rem] font-medium mb-5 ">
+        <p className=" text-center text-[1.5rem] font-medium mb-5 ">
           Vi brukte følgende ferdigheter i utviklingen av denne tjenesten
-        </h3>
+        </p>
         <div className=" grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-2 ">
           {project?.skills &&
             Array.isArray(project?.skills) &&

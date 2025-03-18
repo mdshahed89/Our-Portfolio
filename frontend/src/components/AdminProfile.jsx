@@ -27,12 +27,12 @@ const AdminProfile = () => {
   return (
     <div className="flex items-center min-h-[80vh]  justify-center">
       <div className="bg-[#035635] space-y-1 py-10  rounded-xl md:w-[70%] mx-auto ">
-        <h3 className="font-bold text-2xl text-center text-white">
+        <p className="font-bold text-2xl text-center text-white">
           {user?.name}
-        </h3>
-        <h3 className="font-semibold text-xl text-center text-white">
+        </p>
+        <p className="font-semibold text-xl text-center text-white">
           {user?.email}
-        </h3>
+        </p>
         <div className="flex justify-center pt-16">
           <div className="flex  items-center md:gap-5 justify-center">
             <ProfilePasswordChange />
@@ -728,7 +728,7 @@ export const ProjectModal = ({ id, setLoad }) => {
                   </div>
 
                   <div>
-                    <h3 className="text-lg font-medium mb-2">Cover Image</h3>
+                    <p className="text-lg font-medium mb-2">Cover Image</p>
                     <div className="border border-dashed border-[#7BDCB5] rounded-lg p-4 flex flex-col items-center gap-3">
                       {filePreview && filePreview?.url ? (
                         <div>

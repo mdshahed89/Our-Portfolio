@@ -99,9 +99,9 @@ export const Newsletter = () => {
               >
                 <RxCross2 className=" text-[1.5rem] text-[#000] " />
               </div>
-              <h3 className=" text-[2rem] leading-tight ">
+              <p className=" text-[2rem] leading-tight ">
                 Abonner på vårt nyhetsbrev
-              </h3>
+              </p>
               <form onSubmit={handleSubmit} className=" mt-5 ">
                 <div>
                   <label htmlFor="name">Fullt navn</label>

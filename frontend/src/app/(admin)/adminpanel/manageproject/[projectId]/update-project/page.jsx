@@ -302,12 +302,11 @@ const Page = ({ params }) => {
                     Neste
                   </Link>
                 ) : (
-                  <Link
-                    href={`#`}
+                  <div
                     className="bg-green-500 opacity-70 cursor-default relative w-[12rem] h-[2.5rem] flex items-center justify-center transition-all duration-300 ease-in-out active:scale-95 text-xl font-medium  rounded-full text-white"
                   >
                     Neste
-                  </Link>
+                  </div>
                 )}
                 <div>
                   {/* {isLoading && (
@@ -797,9 +796,9 @@ const SecondPart = ({ formData, setFormData }) => {
       </div>
 
       <div className=" max-w-[1400px] mx-auto mt-[2rem] mb-[3rem] px-2 ">
-        <h3 className=" text-center text-[1.5rem] font-medium mb-5 ">
+        <p className=" text-center text-[1.5rem] font-medium mb-5 ">
           Vi brukte følgende ferdigheter i utviklingen av denne tjenesten
-        </h3>
+        </p>
 
         <div className=" flex flex-col gap-2 items-center ">
           <div className="  flex items-center max-w-[35rem] w-full ">
@@ -1150,7 +1149,7 @@ const ForthPart = ({ formData, setFormData }) => {
 
       <div>
         <Link
-          href={``}
+          href={`/#reviews`}
           className=" mt-[5rem] text-[1.2rem] font-medium flex items-center justify-center gap-2 "
         >
           <span>Lets google review</span>

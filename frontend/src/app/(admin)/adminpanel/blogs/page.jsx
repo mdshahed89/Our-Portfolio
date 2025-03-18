@@ -161,9 +161,9 @@ const Page = () => {
                     </div>
                   </div>
                   <div className="px-3 py-3 space-y-3">
-                    <h3 className="text-2xl font-semibold">
+                    <p className="text-2xl font-semibold">
                       {reference?.title || "Untitled Blog"}
-                    </h3>
+                    </p>
                     <p className="text-sm font-medium text-gray-600">
                       {formatDate(reference?.createdAt)}
                     </p>

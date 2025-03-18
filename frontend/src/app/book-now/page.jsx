@@ -35,9 +35,9 @@ const page = async () => {
 
   return (
     <div className=" mt-[10rem] pb-[2rem] 2xl:max-w-[1400px] max-w-[1200px] mx-auto md:px-3 px-2 ">
-      <h3 className=" text-[1.5rem] font-semibold ">
+      <p className=" text-[1.5rem] font-semibold ">
         Tilgjengelig - 4 Tjenester
-      </h3>
+      </p>
 
       <div className=" grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 mt-10 gap-4 ">
         <Card
@@ -82,11 +82,11 @@ const Card = ({ title, time, availability }) => {
         </div>
         <div className=" flex items-center gap-1  text-[#000] text-[1rem]  ">
           <CiClock2 className=" text-green-500 " />
-          <h4>{time}</h4>
+          <p>{time}</p>
         </div>
         <div className=" flex items-center gap-1  text-[#000] text-[1rem] ">
           <CiUser className=" text-green-500 " />
-          <h4>1</h4>
+          <p>1</p>
         </div>
       </div>
       <div className=" flex justify-end mt-4 ">

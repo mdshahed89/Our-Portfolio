@@ -6,9 +6,9 @@ const page = () => {
           <div className="text-2xl md:text-[35px] text-gray-600 font-semibold">
             Vilkår og betingelser for Sidesone AS
           </div>
-          <h3 className="font-medium py-2 text-gray-800 text-xl md:text-2xl">
+          <p className="font-medium py-2 text-gray-800 text-xl md:text-2xl">
             Generell informasjon
-          </h3>
+          </p>
           <div>
             <ul className="list-disc pl-6 space-y-2 text-lg text-gray-600">
               <li className="text-xl gap-3 ">

@@ -102,7 +102,7 @@ const ReviewCard = ({ review, fetchReviews }) => {
         </div>
         <div>
           <h4>{review?.name}</h4>
-          <h4>{review?.time}</h4>
+          <p>{review?.time}</p>
         </div>
       </div>
 
