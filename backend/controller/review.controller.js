@@ -1,5 +1,5 @@
 import Review from "../models/review.model.js";
-import cloudinary from "../utils/cloudinary.js"
+import cloudinary from "../utils/cloudinary.js";
 
 export const addReview = async (req, res) => {
   try {
@@ -12,7 +12,7 @@ export const addReview = async (req, res) => {
       });
     }
 
-    let imageUrl = ""
+    let imageUrl = "";
 
     if (image) {
       const result = await cloudinary.uploader.upload(image, {
@@ -21,11 +21,11 @@ export const addReview = async (req, res) => {
       imageUrl = result.secure_url;
     }
 
-    if(!imageUrl){
+    if (!imageUrl) {
       return res.status(400).send({
         success: false,
-        message: "Failed to upload image"
-      })
+        message: "Failed to upload image",
+      });
     }
 
     const newReview = await Review.create({
@@ -33,7 +33,7 @@ export const addReview = async (req, res) => {
       image: imageUrl,
       rating,
       message,
-      time
+      time,
     });
 
     if (!newReview) {
@@ -46,6 +46,72 @@ export const addReview = async (req, res) => {
     return res.status(201).json({
       success: true,
       data: newReview,
+      message: "Review added successfully",
+    });
+  } catch (error) {
+    console.log(`Error in add review controller: ${error}`);
+    return res.status(500).json({
+      success: false,
+      message: "Somethings went wrong",
+      error: error.message,
+    });
+  }
+};
+
+export const updateReview = async (req, res) => {
+  try {
+    const { name, image, base64Img, rating, message, time, ref } = req.body;
+    const { id } = req.params;
+
+    if (!name || (!image && !base64Img) || !rating || !message || !time) {
+      return res.status(400).send({
+        success: false,
+        message: "Required fields are empty",
+      });
+    }
+
+    let imageUrl = "";
+
+    if (base64Img) {
+      const result = await cloudinary.uploader.upload(base64Img, {
+        folder: "SIDESONE",
+      });
+      imageUrl = result.secure_url;
+    }
+
+    // if(!imageUrl){
+    //   return res.status(400).send({
+    //     success: false,
+    //     message: "Failed to upload image"
+    //   })
+    // }
+
+    const existingReview = await Review.findById(id);
+    if (!existingReview) {
+      return res.status(400).send({
+        success: false,
+        message: "Revies is not exist to update",
+      });
+    }
+
+    existingReview.name = name;
+    existingReview.image = imageUrl ? imageUrl : image;
+    existingReview.rating = rating;
+    existingReview.message = message;
+    existingReview.time = time;
+
+    const updatedReview = await existingReview.save();
+
+    if (!updatedReview) {
+      return res.status(400).send({
+        success: false,
+        message: "Failed to add new review",
+      });
+    }
+
+    return res.status(201).json({
+      success: true,
+      data: updatedReview,
       message: "Review added successfully",
     });
   } catch (error) {
@@ -75,7 +141,6 @@ export const getReviews = async (req, res) => {
     });
   }
 };
-
 
 export const deleteReview = async (req, res) => {
   const { id } = req.params;

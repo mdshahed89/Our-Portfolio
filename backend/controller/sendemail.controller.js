@@ -438,8 +438,8 @@ export const sendChatbotMail = async (req, res) => {
 
   const mailBody = {
     from: process.env.SIDESONE_EMAIL,
-    // process.env.SIDESONE_EMAIL, 
-    to: ["r2scoder@gmail.com"],
+    to: process.env.SIDESONE_EMAIL,
+    // to: ["r2scoder@gmail.com"],
     replyTo: email,
     subject: "Ny melding fra chatbot",
     text: `Du har mottatt en ny melding fra chatboten.

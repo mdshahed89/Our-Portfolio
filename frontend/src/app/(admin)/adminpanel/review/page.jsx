@@ -1,30 +1,10 @@
 "use client";
 
-import { AddReviewModal, ReviewDeleteModal } from "@/modals/Modal";
+import { AddReviewModal, ReviewDeleteModal, UpdateReviewModal } from "@/modals/Modal";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { BiSolidQuoteAltLeft, BiSolidQuoteAltRight } from "react-icons/bi";
 import { MdOutlineStarPurple500, MdRateReview } from "react-icons/md";
-
-// const fetchReviews = async () => {
-//   try {
-//     const response = await fetch(
-//       `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/review/get-all-review`,
-//       // { cache: "no-store" }
-//     );
-
-//     if (!response.ok) {
-//       console.log("Failed to get reviews");
-//       return [];
-//     }
-
-//     const data = await response.json();
-//     return data?.reviews || [];
-//   } catch (error) {
-//     console.error("Error fetching reviews:", error);
-//     return [];
-//   }
-// };
 
 
 
@@ -108,6 +88,7 @@ const ReviewCard = ({ review, fetchReviews }) => {
         <FcGoogle />
       </div>
       <ReviewDeleteModal id={review?._id} fetchReviews={fetchReviews} />
+      <UpdateReviewModal review={review} fetchReviews={fetchReviews} />
 
       {/* Review Header (Image and Name) */}
       <div className="px-3 pb-3 pt-[2rem] text-[#000] flex gap-2 w-full">

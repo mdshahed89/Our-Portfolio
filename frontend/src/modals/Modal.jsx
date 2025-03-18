@@ -183,10 +183,12 @@ export const AddReviewModal = ({fetchReviews}) => {
 };
 
 import { useEffect, useRef } from "react";
-import { FaStar } from "react-icons/fa";
+import { FaEdit, FaStar } from "react-icons/fa";
 import { ButtonLoading } from "@/components/Loading";
 import { IoTrashBin } from "react-icons/io5";
 import axios from "axios";
+import { CiEdit } from "react-icons/ci";
+import { AiFillEdit } from "react-icons/ai";
 
 export default function ReviewForm({ setOpenModal, fetchReviews }) {
   const [formData, setFormData] = useState({
@@ -463,3 +465,259 @@ export const ReviewDeleteModal = ({ fetchReviews, id }) => {
     </div>
   );
 };
+
+
+export const UpdateReviewModal = ({fetchReviews, review}) => {
+  const [openModal, setOpenModal] = useState(false);
+
+  return (
+    <div className="">
+      <button
+        onClick={() => setOpenModal(true)}
+        className=" absolute top-4 right-[7.8rem] text-[1.5rem] text-green-500  "
+      >
+        <CiEdit />
+      </button>
+
+      <div
+        onClick={() => setOpenModal(false)}
+        className={`fixed z-50 flex items-center justify-center inset-0 bg-black/20 backdrop-blur-sm duration-200 ${
+          openModal ? "opacity-1 visible" : "invisible opacity-0"
+        }`}
+      >
+        <div
+          onClick={(e_) => e_.stopPropagation()}
+          className={`absolute w-full rounded-lg bg-white text-[#000] drop-shadow-2xl sm:w-[600px] ${
+            openModal
+              ? "opacity-1 translate-y-0 duration-300"
+              : "-translate-y-20 opacity-0 duration-150"
+          }`}
+        >
+          <div className=" flex items-center justify-between px-4 py-3 text-[1.5rem] ">
+            <h4>Update Review</h4>
+            <div
+              onClick={() => setOpenModal(false)}
+              className=" bg-slate-50 p-1 cursor-pointer rounded-full text-[1.5rem] "
+            >
+              <RxCross2 />
+            </div>
+          </div>
+
+          <UpdateReviewForm setOpenModal={setOpenModal} fetchReviews={fetchReviews} review={review} />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
+const UpdateReviewForm =({ setOpenModal, fetchReviews, review }) => {
+  const [formData, setFormData] = useState({
+    name: review?.name || "",
+    message: review?.message || "",
+    time: review?.time || "",
+    rating: review?.rating || "",
+    image: review?.image || "",
+    base64Img: ""
+  });
+  const [loading, setLoading] = useState(false);
+  const [preview, setPreview] = useState(null);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+  const [error, setError] = useState("")
+
+  const ratings = [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
+
+  useEffect(()=> {
+    setFormData({
+      name: review?.name || "",
+      message: review?.message || "",
+      time: review?.time || "",
+      rating: review?.rating || "",
+      image: review?.image || "",
+    })
+    setPreview(review?.image || "")
+  }, [review])
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreview(reader.result);
+        setFormData({ ...formData, base64Img: reader.result });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleRemoveImage = () => {
+    setPreview(null);
+    setFormData({ ...formData, image: "" });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if(!review?._id){
+      toast.error("Someting went wrong, please try again later")
+      return
+    }
+
+    if (
+      !formData.name ||
+      !formData.rating ||
+      !formData.message ||
+      !formData.time ||
+      (!formData.image && !formData.base64Img)
+    ) {
+      toast.error("Vennligst fyll ut alle feltene.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/review/update-review/${review?._id}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success("Review updated successfully");
+        fetchReviews()
+        setFormData({
+          name: review?.name || "",
+          message: review?.message || "",
+          time: review?.time || "",
+          rating: review?.rating || "",
+          image: review?.image || "",
+        })
+        setPreview(review?.image || "");
+        setOpenModal(false);
+      } else {
+        toast.error(data?.message || "Noe gikk galt.");
+        console.log(data?.message);
+      }
+    } catch (err) {
+      console.log("error", err);
+
+      toast.error("Serverfeil, prøv igjen senere.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // console.log(formData);
+  
+
+  return (
+    <div className=" px-10 pt-10 pb-8 ">
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Full Name"
+          value={formData.name}
+          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+          className="w-full p-2 border rounded-md mb-2 outline-none focus:border-[#17DB4F] transition-colors duration-300 ease-in-out "
+        />
+        <textarea
+          placeholder="Message"
+          value={formData.message}
+          onChange={(e) =>
+            setFormData({ ...formData, message: e.target.value })
+          }
+          className="w-full p-2 border rounded-md mb-1 outline-none focus:border-[#17DB4F] transition-colors duration-300 ease-in-out"
+        />
+
+        <div className="relative" ref={dropdownRef}>
+          <button
+            type="button"
+            className="w-full p-2 border rounded mb-2 flex items-center justify-between"
+            onClick={() => setDropdownOpen(!dropdownOpen)}
+          >
+            {formData.rating || "Select Rating"}{" "}
+            <FaStar className="text-yellow-500" />
+          </button>
+          {dropdownOpen && (
+            <div className="absolute w-full z-50 h-[12rem] overflow-y-auto border rounded bg-white shadow-md">
+              {ratings.map((rate) => (
+                <div
+                  key={rate}
+                  className="p-2 hover:bg-gray-200 cursor-pointer flex items-center"
+                  onClick={() => {
+                    setFormData({ ...formData, rating: rate });
+                    setDropdownOpen(false);
+                  }}
+                >
+                  <div className=" flex items-center justify-between w-full ">
+                    <p>{rate}</p> <FaStar className="text-yellow-500 ml-1" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <input
+          type="text"
+          value={formData.time}
+          placeholder="5 måned siden"
+          onChange={(e) => setFormData({ ...formData, time: e.target.value })}
+          className="w-full p-2 border rounded-md mb-2 outline-none focus:border-[#17DB4F] transition-colors duration-300 ease-in-out"
+        />
+
+        <div className="mb-4">
+          <div className="relative border p-2 rounded-lg flex items-center justify-center cursor-pointer">
+            <input
+              type="file"
+              accept="image/*"
+              className="absolute inset-0 opacity-0 cursor-pointer"
+              onChange={handleImageChange}
+            />
+            <span className="text-gray-600">Velg bilde</span>
+          </div>
+          {preview && (
+            <div className="mt-3 relative w-16 h-16 flex items-start ">
+              <Image
+                src={preview}
+                alt="Preview"
+                fill
+                className="w-16 h-16 object-cover rounded"
+              />
+              <button
+                type="button"
+                className=" text-red-500 absolute z-50 right-0 top-0 bg-red-100 text-[1.3rem] ml-2 p-1 rounded-full "
+                onClick={handleRemoveImage}
+              >
+                <RxCross2 />
+              </button>
+            </div>
+          )}
+        </div>
+
+        <button
+          type="submit"
+          className="w-full relative h-[2.5rem] flex items-center justify-center bg-[#17DB4F] font-medium text-white rounded"
+        >
+          {loading ? <ButtonLoading /> : "Legg til anmeldelse"}
+        </button>
+      </form>
+    </div>
+  );
+}

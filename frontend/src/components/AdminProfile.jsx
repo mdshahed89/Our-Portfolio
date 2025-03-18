@@ -14,6 +14,7 @@ import Image from "next/image";
 import { uploadFile } from "@/AuthProvider/imageUpload";
 import { CiEdit } from "react-icons/ci";
 import axios from "axios";
+import Link from "next/link";
 const AdminProfile = () => {
   const { user, loading } = useContext(AuthContext);
   if (loading) {
@@ -434,7 +435,7 @@ export const ProjectCard = () => {
           {projects.map((item, index) => (
             <div
               key={index}
-              className="group relative mx-2 shadow-lg   hover:shadow-lg  flex flex-col items-center justify-center 
+              className="group relative mx-2 shadow-lg  hover:shadow-lg  flex flex-col items-center justify-center 
                  overflow-hidden rounded-xl bg-white 
                  transition-transform duration-500 ease-in-out"
             >
@@ -449,7 +450,10 @@ export const ProjectCard = () => {
                 />
               </figure>
               <div>
-                <ProjectModal id={item._id} setLoad={setLoad} />
+                {/* <ProjectModal id={item._id} setLoad={setLoad} /> */}
+                <Link href={`/adminpanel/manageproject/${item?._id}/update-project`} className=" absolute top-5 right-[5rem] z-50 shadow-xl bg-[#fff] p-2 rounded-md ">
+                <CiEdit className="text-[1.5rem]" />
+                </Link>
                 <button
                   onClick={() => {
                     setDeleteId(item._id);

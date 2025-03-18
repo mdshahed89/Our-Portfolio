@@ -110,7 +110,7 @@ export default function RootLayout({ children }) {
         <div className="bg-[#035635]">
           <Footer />
           <Toaster />
-          <ScrollToTopButton />
+          {/* <ScrollToTopButton /> */}
         </div>
         {/* <CustomChatButton /> */}
         <Chatbot />

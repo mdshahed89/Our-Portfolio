@@ -74,7 +74,7 @@ const Page = () => {
           ))}
         </div>
       ) : (
-        <p>No newsletter found</p>
+        <p className=" mt-5 ml-5  ">No newsletter found</p>
       )}
     </div>
   );

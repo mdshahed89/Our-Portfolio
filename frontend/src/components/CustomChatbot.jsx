@@ -41,18 +41,22 @@ const Chatbot = () => {
   }, []);
 
   const handleSetEmail = () => {
-    if (email.trim() === "") return;
+    const trimmedEmail = email.trim();
+    if (trimmedEmail === "") {
+      toast.error("Vennligst skriv inn en e-postadresse.");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(trimmedEmail)) {
+      toast.error("Vennligst skriv inn en gyldig e-postadresse.");
+      return;
+    }
+
     sessionStorage.setItem("userEmail", email);
     setEmailSet(true);
   };
 
-  // const sendMessage = () => {
-  //   if (!input.trim()) return;
-  //   const newMessages = [...messages, { text: input, sender: "user" }];
-  //   setMessages(newMessages);
-  //   setInput("");
-
-  // };
 
   const submitMessages = async (e) => {
     e.preventDefault()
@@ -97,7 +101,7 @@ const Chatbot = () => {
   
 
   return (
-    <div className="fixed bottom-5 right-5 z-50">
+    <div className="fixed bottom-3 md:bottom-5 right-3 md:right-5 z-50">
 
 {showPopup && !isOpen && (
         <div className="fixed bottom-5 right-5 bg-white p-4 rounded-lg shadow-lg border border-gray-300 z-50">
@@ -131,7 +135,7 @@ const Chatbot = () => {
         </button>
       )}
       {isOpen && (
-        <div className="w-[25rem] bg-white shadow-lg rounded-lg overflow-hidden">
+        <div className=" w-[20rem] md:w-[25rem] bg-white shadow-lg rounded-lg overflow-hidden">
           {/* Header */}
           <div className="bg-green-600 text-white pl-3 pr-4 py-4 flex justify-between items-center">
             {/* <span>Chatbot</span> */}
@@ -175,7 +179,7 @@ const Chatbot = () => {
           {emailSet ? (
             <form onSubmit={submitMessages}>
               {/* Chat Body */}
-              <div className="p-3 h-[25rem] overflow-y-auto">
+              <div className="p-3 h-[20rem] md:h-[25rem] overflow-y-auto">
                 {messages.map((msg, index) => (
                   <div
                     key={index}
@@ -184,10 +188,10 @@ const Chatbot = () => {
                     }`}
                   >
                     <span
-                      className={`inline-block p-2 rounded-md ${
+                      className={`inline-block py-2 px-4 rounded-2xl ${
                         msg.sender === "user"
-                          ? "bg-green-500 text-white"
-                          : "bg-gray-200 text-black"
+                          ? "bg-green-500 text-white rounded-br-none "
+                          : "bg-gray-200 text-black rounded-bl-none"
                       }`}
                     >
                       {msg.text}
@@ -196,22 +200,26 @@ const Chatbot = () => {
                 ))}
               </div>
               {/* Input Field */}
-              <div className="flex py-3 px-4 border-t ">
+              <div className="  flex py-3 px-4 border-t ">
+                <div className=" relative w-full ">
                 <input
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  className="flex-1 py-2 px-3 border outline-none rounded-md"
+                  className="w-full py-2 pl-3 pr-12 border-2 outline-none rounded-full border-green-500 "
                   placeholder="Skriv inn en melding..."
                 />
+                <div className=" absolute top-0 right-2 h-full flex items-center ">
                 <button
-                  // onClick={submitMessages}
                   className={` ${
                     input.length > 0 ? "opacity-100" : "opacity-50"
-                  } bg-green-600 text-white w-10 h-10 text-[1.4rem] flex items-center justify-center rounded-full ml-2`}
+                  } bg-green-600 text-white w-8 h-8  text-[1.4rem] flex items-center justify-center rounded-full ml-2`}
                 >
                   <IoIosSend />
                 </button>
+                </div>
+                </div>
+                
               </div>
             </form>
           ) : (
@@ -224,7 +232,7 @@ const Chatbot = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full p-2 border rounded-md outline-none"
+                className="w-full py-2 px-4 border-2 rounded-full border-green-500  outline-none"
                 placeholder="Vennligst oppgi e-posten din..."
               />
               <button

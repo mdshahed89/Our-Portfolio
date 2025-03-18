@@ -5,7 +5,7 @@ export const saveData = async (req, res) => {
   try {
     const {projectName, title, projectUrl, coverImgUrl, projectStart, projectEnd, type, status, briefAboutWebsite, detailedDescription, mainImgUrl, toolImgs, skills, gellaryImgs, reviewerImgUrl, reviewMessage, rating} = req.body;
 
-    console.log(title, projectUrl, coverImgUrl, projectStart);
+    // console.log(title, projectUrl, coverImgUrl, projectStart);
     
 
     const newProject = await Project.create({
@@ -39,6 +39,60 @@ export const saveData = async (req, res) => {
       data: newProject,
       message: "Prosjektet er lagret.",
     });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Somethings went wrong",
+      error: error.message,
+    });
+  }
+};
+
+export const updateProject = async (req, res) => {
+  try {
+    const {projectName, title, projectUrl, coverImgUrl, projectStart, projectEnd, type, status, briefAboutWebsite, detailedDescription, mainImgUrl, toolImgs, skills, gellaryImgs, reviewerImgUrl, reviewMessage, rating} = req.body;
+
+    const {projectId} = req.params
+
+    
+
+    const updatedProject = await Project.findByIdAndUpdate(
+      projectId, 
+      {
+        projectName,
+        title,
+        url: projectUrl,
+        coverImg: coverImgUrl,
+        projectStart,
+        projectEnd,
+        type,
+        status,
+        briefAboutWebsite,
+        detailedDescription,
+        mainImgUrl,
+        toolImgs,
+        skills,
+        gellaryImgs,
+        reviewerImgUrl,
+        reviewMessage,
+        rating
+      },
+      { new: true, } 
+    );
+
+    if (!updatedProject) {
+      return res.status(404).send({
+        success: false,
+        message: "Project not found",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      data: updatedProject,
+      message: "Project updated successfully!!", 
+    });
+
   } catch (error) {
     return res.status(500).json({
       success: false,
@@ -83,6 +137,7 @@ export const getSingleData = async (req, res) => {
     });
   }
 };
+
 export const updateSingleData = async (req, res) => {
   const { id } = req.params;
   const {title, url, imageUrl, coverImg} = req.body;
@@ -137,6 +192,7 @@ export const updateSingleData = async (req, res) => {
     });
   }
 };
+
 export const deleteProject = async (req, res) => {
   try {
     const { id } = req.params;
