@@ -50,7 +50,7 @@ export const KontaktSection = ({ project }) => {
     
   
     return (
-      <div className=" px-2 pb-[2rem]  ">
+      <div className=" px-2 pb-[2rem] pt-[2rem] ">
         <h3 className=" text-[2rem] md:text-[2.5rem] text-center ">
           Ønsker du en nettside?
         </h3>

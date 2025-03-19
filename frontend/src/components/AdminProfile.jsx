@@ -15,6 +15,7 @@ import { uploadFile } from "@/AuthProvider/imageUpload";
 import { CiEdit } from "react-icons/ci";
 import axios from "axios";
 import Link from "next/link";
+import { IoIosStar, IoIosStarOutline } from "react-icons/io";
 const AdminProfile = () => {
   const { user, loading } = useContext(AuthContext);
   if (loading) {
@@ -396,11 +397,12 @@ export const EmailChangeModal = () => {
   );
 };
 
-export const ProjectCard = () => {
+export const ProjectCard = ({}) => {
   const [openModal, setOpenModal] = useState(false);
   const [deleteId, setDeleteId] = useState(null);
   const [load, setLoad] = useState(false);
   const [projects, setProject] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const fetchData = async () => {
     const { data } = await axios.get(
@@ -422,6 +424,46 @@ export const ProjectCard = () => {
       setOpenModal(false);
     } catch (error) {
       toast.error(error);
+    }
+  };
+
+  const handleProjectVisibility = async (projectId, visibility) => {
+    // console.log(projectId);
+    console.log(visibility);
+    
+    
+    if (!projectId) {
+      toast.error("Something went wrong, please try again later");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/change-project-visibility/${projectId}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ isVisible: visibility }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success("Prosjektsynlighet endret vellykket");
+        fetchData();
+        // router.push("/adminpanel/manageproject");
+      } else {
+        toast.error(data?.message || "Noe gikk galt.");
+        console.log(data?.message);
+      }
+    } catch (err) {
+      console.log("error", err);
+
+      toast.error("Serverfeil, prøv igjen senere.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -451,15 +493,26 @@ export const ProjectCard = () => {
               </figure>
               <div>
                 {/* <ProjectModal id={item._id} setLoad={setLoad} /> */}
-                <Link href={`/adminpanel/manageproject/${item?._id}/update-project`} className=" absolute top-5 right-[5rem] z-50 shadow-xl bg-[#fff] p-2 rounded-md ">
-                <CiEdit className="text-[1.5rem]" />
+                <div
+                  onClick={() =>
+                    handleProjectVisibility(item?._id, item?.isVisible)
+                  }
+                  className={` absolute top-5 right-[9rem] text-[1.5rem] z-50 ${item?.isVisible ? "text-[#fff] bg-green-500" : "text-[#000] bg-[#fff]"} hover:text-[#fff] hover:bg-green-500 cursor-pointer shadow-xl p-2 rounded-md `}
+                >
+                  <IoIosStarOutline />
+                </div>
+                <Link
+                  href={`/adminpanel/manageproject/${item?._id}/update-project`}
+                  className=" absolute top-5 right-[5rem] z-50 shadow-xl bg-[#fff] p-2 rounded-md "
+                >
+                  <CiEdit className="text-[1.5rem]" />
                 </Link>
                 <button
                   onClick={() => {
                     setDeleteId(item._id);
                     setOpenModal(true);
                   }}
-                  className="bg-slate-100 shadow-xl text-[#000] transition-all duration-300 ease-in-out active:scale-95 rounded-md top-5 right-5 p-2 absolute"
+                  className="bg-slate-100 shadow-xl text-[#000] transition-all duration-300 ease-in-out active:scale-95 rounded-md top-5 right-[1.25rem] p-2 absolute"
                 >
                   <MdDelete className="text-[1.5rem]" />
                 </button>
@@ -524,7 +577,7 @@ export const ProjectModal = ({ id, setLoad }) => {
   const [openModal, setOpenModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [filePreview, setFilePreview] = useState(null);
-  const [imageUrl, setImageUrl] = useState("")
+  const [imageUrl, setImageUrl] = useState("");
   const [file, setFile] = useState(null);
   // console.log(file);
   const [errors, setErrors] = useState({});
@@ -543,7 +596,7 @@ export const ProjectModal = ({ id, setLoad }) => {
           );
           const project = response.data.data;
           // console.log(project);
-          
+
           setProjectData({
             title: project.title,
             url: project.url,
@@ -563,7 +616,7 @@ export const ProjectModal = ({ id, setLoad }) => {
   const handleFileUpload = (event) => {
     const selectedFile = event.target.files[0];
     const maxSize = 5 * 1024 * 1024;
-  
+
     if (selectedFile) {
       if (selectedFile.size <= maxSize) {
         const reader = new FileReader();
@@ -571,7 +624,7 @@ export const ProjectModal = ({ id, setLoad }) => {
         reader.onloadend = () => {
           setImageUrl(reader.result);
         };
-  
+
         setFilePreview({
           name: selectedFile.name,
           url: URL.createObjectURL(selectedFile),
@@ -593,7 +646,7 @@ export const ProjectModal = ({ id, setLoad }) => {
     setFilePreview(null);
     setFile(null);
     setErrors((prev) => ({ ...prev, file: null }));
-    setImageUrl("")
+    setImageUrl("");
   };
 
   const handleSubmit = async (e) => {
@@ -651,7 +704,6 @@ export const ProjectModal = ({ id, setLoad }) => {
   };
 
   // console.log(filePreview);
-  
 
   return (
     <div>

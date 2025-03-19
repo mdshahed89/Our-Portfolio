@@ -95,7 +95,19 @@ const page = async ({ params }) => {
 
       <SecondPart project={project} />
       <ThirdPart project={project} />
-      <ForthPart project={project} />
+      
+      {
+        project?.reviewerImgUrl && project?.reviewMessage && project?.rating && <ForthPart project={project} />
+      }
+      <div>
+        <Link
+          href={`/#reviews`}
+          className=" mt-[5rem] text-[1.2rem] font-medium flex items-center justify-center gap-2 "
+        >
+          <span>Lets google review</span>
+          <FaExternalLinkAlt />
+        </Link>
+      </div>
       <KontaktSection project={project} />
     </div>
   );
@@ -195,7 +207,7 @@ const ThirdPart = ({ project }) => {
       </div>
       <div>
         <h3 className=" text-[2rem] text-center font-medium mt-5 ">Galleri</h3>
-        <div className=" grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 mt-5 ">
+        <div className=" flex justify-center gap-2 md:gap-4 mt-5 ">
           {/* <div>
             <Image
               src={Konsulenttorget}
@@ -278,16 +290,6 @@ const ForthPart = ({ project }) => {
             <IoStar /> */}
           </div>
         </div>
-      </div>
-
-      <div>
-        <Link
-          href={`/#reviews`}
-          className=" mt-[5rem] text-[1.2rem] font-medium flex items-center justify-center gap-2 "
-        >
-          <span>Lets google review</span>
-          <FaExternalLinkAlt />
-        </Link>
       </div>
     </div>
   );

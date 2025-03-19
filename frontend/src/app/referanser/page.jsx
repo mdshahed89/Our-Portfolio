@@ -25,9 +25,12 @@ const page = async () => {
   }
 
   let projects = [];
+  let visibleProjects = [];
+
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/get-project`
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/get-project`,
+      { next: { revalidate: 60 } }
     );
 
     if (!response.ok) {
@@ -38,7 +41,8 @@ const page = async () => {
     const data = await response.json();
     // console.log(data);
     
-    projects = data?.data || [];
+    // projects = data?.data || [];
+    visibleProjects = data?.data?.filter(project => project?.isVisible === true) || [];
   } catch (error) {
     console.error("Error fetching projects:", error);
   }
@@ -58,7 +62,7 @@ const page = async () => {
         <div className=" text-[3rem] text-center mb-7 font-medium ">
           <div>Prosjekter</div>
         </div>
-        <BlogPageProjects projects={projects} />
+        <BlogPageProjects projects={visibleProjects} />
       </div>
       <div className="bg-[#fff] min-h-[100vh] px-3 lg:px-5 mt-20 ">
         {/* <div className=" pb-5">

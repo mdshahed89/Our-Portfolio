@@ -99,9 +99,11 @@ export default async function Reference({ title }) {
 
 export const Slider = async () => {
   let projects = [];
+  let visibleProjects = [];
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/get-project`
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/get-project`,
+      { next: { revalidate: 60 } }
     );
 
     if (!response.ok) {
@@ -111,14 +113,18 @@ export const Slider = async () => {
 
     const data = await response.json();
     
-    projects = data?.data || [];
+    // projects = data?.data || [];
+    visibleProjects = data?.data?.filter(project => project?.isVisible === true) || [];
   } catch (error) {
     console.error("Error fetching projects:", error);
   }
 
+  // console.log(visibleProjects);
+  
+
   return (
     <div>
-      {projects.length > 0 ? (
+      {visibleProjects.length > 0 ? (
         <div className="  z-[100] -translate-y-20 lg:-translate-y-28">
           <Marquee
             speed={100}
@@ -126,7 +132,7 @@ export const Slider = async () => {
             pauseOnHover={true}
             autoFill
           >
-            {projects?.map((item, index) => (
+            {visibleProjects?.map((item, index) => (
               <Link
                 href={`${item?._id ? `/prosjekter/${item?._id}` : "#"}`}
                 key={index}

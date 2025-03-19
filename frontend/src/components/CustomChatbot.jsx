@@ -25,10 +25,10 @@ const Chatbot = () => {
     if (!hasPopupBeenShown) {
       const timer = setTimeout(() => {
         setShowPopup(true);
-        sessionStorage.setItem("popupShown", "true"); 
+        sessionStorage.setItem("popupShown", "true");
       }, 5000);
 
-      return () => clearTimeout(timer); 
+      return () => clearTimeout(timer);
     }
   }, []);
 
@@ -57,9 +57,8 @@ const Chatbot = () => {
     setEmailSet(true);
   };
 
-
   const submitMessages = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (!email || messages.length === 0) {
       console.error("Email and messages are required!");
       return;
@@ -68,61 +67,62 @@ const Chatbot = () => {
     if (!input.trim()) return;
     const newMessages = [...messages, { text: input, sender: "user" }];
     setMessages(newMessages);
-    const lastMessage = input; 
-    const chatHistory = messages.map(msg => msg.text); 
+    const lastMessage = input;
+    const chatHistory = messages.map((msg) => msg.text);
     setInput("");
-  
+
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/send-messages`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          message: lastMessage, 
-          chatHistory, 
-        }),
-      });
-  
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/send-messages`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            message: lastMessage,
+            chatHistory,
+          }),
+        }
+      );
+
       const result = await response.json();
       if (response.ok) {
-        
         // console.log("Message sent successfully:", result);
       } else {
         console.error("Error sending message:", result.error);
-        toast.error("Failed to sent message. try later")
+        toast.error("Failed to sent message. try later");
       }
     } catch (error) {
       console.error("Request failed:", error);
-      toast.error("Failed to sent message. try later")
+      toast.error("Failed to sent message. try later");
     }
   };
-  
 
   return (
     <div className="fixed bottom-3 md:bottom-5 right-3 md:right-5 z-50">
-
-{showPopup && !isOpen && (
-        <div className="fixed bottom-5 right-5 bg-white p-4 rounded-lg shadow-lg border border-gray-300 z-50">
-          <div className=" flex justify-end ">
-          <div
+      {showPopup && !isOpen && (
+        <div className="fixed bottom-3 md:bottom-5 right-3 md:right-5 md:max-w-[30rem] max-w-[20rem] bg-white p-4 rounded-lg shadow-lg border border-gray-300 z-50">
+          <div className=" flex justify-end mb-3 ">
+            <div
               onClick={() => setShowPopup(false)}
               className="  cursor-pointer "
             >
               <RxCross1 />
             </div>
           </div>
-          <p className="text-lg text-gray-700">Hei! Hvis du trenger hjelp, send oss en melding.</p>
+          <p className=" text-base md:text-lg text-gray-700">
+            Hei! Hvis du trenger hjelp, send oss en melding.
+          </p>
           <div className=" flex justify-end ">
-          <button
-          onClick={() => setIsOpen(true)}
-          className="bg-green-600 mt-2 text-[1.5rem] text-white p-3 rounded-full shadow-lg"
-        >
-          <RiMessage2Fill />
-        </button>
+            <button
+              onClick={() => setIsOpen(true)}
+              className="bg-green-600 md:mt-4 mt-2 text-[1.3rem] md:text-[1.5rem] text-white p-2 md:p-3 rounded-full shadow-lg"
+            >
+              <RiMessage2Fill />
+            </button>
           </div>
-        
         </div>
       )}
 
@@ -202,45 +202,44 @@ const Chatbot = () => {
               {/* Input Field */}
               <div className="  flex py-3 px-4 border-t ">
                 <div className=" relative w-full ">
-                <input
-                  type="text"
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  className="w-full py-2 pl-3 pr-12 border-2 outline-none rounded-full border-green-500 "
-                  placeholder="Skriv inn en melding..."
-                />
-                <div className=" absolute top-0 right-2 h-full flex items-center ">
-                <button
-                  className={` ${
-                    input.length > 0 ? "opacity-100" : "opacity-50"
-                  } bg-green-600 text-white w-8 h-8  text-[1.4rem] flex items-center justify-center rounded-full ml-2`}
-                >
-                  <IoIosSend />
-                </button>
+                  <input
+                    type="text"
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    className="w-full py-2 pl-3 pr-12 border-2 outline-none rounded-full border-green-500 "
+                    placeholder="Skriv inn en melding..."
+                  />
+                  <div className=" absolute top-0 right-2 h-full flex items-center ">
+                    <button
+                      className={` ${
+                        input.length > 0 ? "opacity-100" : "opacity-50"
+                      } bg-green-600 text-white w-8 h-8  text-[1.4rem] flex items-center justify-center rounded-full ml-2`}
+                    >
+                      <IoIosSend />
+                    </button>
+                  </div>
                 </div>
-                </div>
-                
               </div>
             </form>
           ) : (
             <div className="p-3 h-[25rem] flex items-end w-full text-center">
               <div className=" flex-1 ">
-              <p className="mb-3 text-gray-700">
-              Vennligst oppgi e-posten din for å begynne å chatte
-              </p>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full py-2 px-4 border-2 rounded-full border-green-500  outline-none"
-                placeholder="Vennligst oppgi e-posten din..."
-              />
-              <button
-                onClick={handleSetEmail}
-                className="mt-3 w-full bg-green-600 text-white py-2 rounded-md"
-              >
-                Start Chat
-              </button>
+                <p className="mb-3 text-gray-700">
+                  Vennligst oppgi e-posten din for å begynne å chatte
+                </p>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full py-2 px-4 border-2 rounded-full border-green-500  outline-none"
+                  placeholder="Vennligst oppgi e-posten din..."
+                />
+                <button
+                  onClick={handleSetEmail}
+                  className="mt-3 w-full bg-green-600 text-white py-2 rounded-md"
+                >
+                  Start Chat
+                </button>
               </div>
             </div>
           )}

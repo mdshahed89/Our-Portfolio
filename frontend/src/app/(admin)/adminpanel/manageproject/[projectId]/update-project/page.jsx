@@ -10,6 +10,9 @@ import { MdAssignmentAdd } from "react-icons/md";
 import { ButtonLoading, FetchLoading } from "@/components/Loading";
 import { IoArrowBackOutline, IoStarHalf, IoStarOutline } from "react-icons/io5";
 import Link from "next/link";
+import { SlCloudUpload } from "react-icons/sl";
+import toast from "react-hot-toast";
+
 const Page = ({ params }) => {
   const navigate = useRouter();
   const [isLoading, setIsLoading] = useState(false);
@@ -18,10 +21,12 @@ const Page = ({ params }) => {
   const [file, setFile] = useState(null);
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+  const [loading2, setLoading2] = useState(false);
   const [projectData, setProjectData] = useState({
     title: "",
     projectUrl: "",
     coverImgUrl: "",
+    projectImgUrl: "",
   });
   const [formData, setFormData] = useState({
     projectName: "",
@@ -69,7 +74,7 @@ const Page = ({ params }) => {
             reviewMessage: project.reviewMessage || "",
             rating: project.rating || 0,
             skills: project.skills || [],
-          })
+          });
         } catch (error) {
           toast.error(error);
         }
@@ -80,13 +85,13 @@ const Page = ({ params }) => {
     }
   }, [projectId]);
 
-  // console.log(projectData);
 
   useEffect(() => {
     if (
       (!projectData.title ||
         !projectData.projectUrl ||
-        !projectData.coverImgUrl) &&
+        !projectData.coverImgUrl ||
+        !projectData.projectImgUrl) &&
       queryValue === "update-details"
     ) {
       navigate.push(`/adminpanel/manageproject/${projectId}/update-project`);
@@ -95,8 +100,6 @@ const Page = ({ params }) => {
 
   const searchParams = useSearchParams();
   const queryValue = searchParams.get("query");
-
-  // console.log(queryValue);
 
   const handleFileUpload = async (event) => {
     const selectedFile = event.target.files[0];
@@ -110,7 +113,6 @@ const Page = ({ params }) => {
         try {
           const uploadedUrl = await uploadFile(selectedFile);
           if (uploadedUrl) {
-            // setImageUrl(imageUrl);
             setProjectData({
               ...projectData,
               coverImgUrl: uploadedUrl,
@@ -152,6 +154,55 @@ const Page = ({ params }) => {
     });
   };
 
+  const handleProjectFileUpload = async (event) => {
+    const selectedFile = event.target.files[0];
+    const maxSize = 5 * 1024 * 1024;
+
+    if (selectedFile) {
+      if (selectedFile.size <= maxSize) {
+        setErrors((prev) => ({ ...prev, projectFile: null }));
+        setLoading2(true);
+
+        try {
+          const uploadedUrl = await uploadFile(selectedFile);
+          if (uploadedUrl) {
+            setProjectData({
+              ...projectData,
+              projectImgUrl: uploadedUrl,
+            });
+          } else {
+            setErrors((prev) => ({
+              ...prev,
+              projectFile: "Failed to upload file to Cloudinary.",
+            }));
+          }
+        } catch (error) {
+          console.error("Upload error:", error);
+          setErrors((prev) => ({
+            ...prev,
+            projectFile: "An error occurred while uploading the file.",
+          }));
+        } finally {
+          setLoading2(false);
+        }
+      } else {
+        setErrors((prev) => ({
+          ...prev,
+          projectFile: "File size must be less than 5 MB.",
+        }));
+        // setFile(null);
+      }
+    }
+  };
+
+  const handleClearProjectFile = () => {
+    setErrors((prev) => ({ ...prev, projectFile: null }));
+    setProjectData({
+      ...projectData,
+      projectImgUrl: "",
+    });
+  };
+
   return (
     <div className="m-2 md:m-5">
       <div className="h-[55px] rounded-md flex items-center justify-between  gap-2 px-5 text-white  bg-[#035635] text-[1.2rem] ">
@@ -182,7 +233,7 @@ const Page = ({ params }) => {
           />
         ) : (
           <div>
-            <div className="space-y-3 pt-[2rem] max-w-[40rem] ">
+            <div className="space-y-3 pt-[2rem] max-w-[50rem] ">
               <div className="flex flex-col">
                 <label htmlFor="title" className="text-lg mb-1">
                   Tittel{" "}
@@ -231,70 +282,138 @@ const Page = ({ params }) => {
                 )}
               </div>
 
-              <div className="w-full max-w-[25rem] ">
-                <h3 className="text-lg font-medium mb-2">Forsidebilde</h3>
+              <div className=" flex gap-4 lg:flex-row flex-col ">
+                <div className="w-full max-w-[25rem] ">
+                  <h3 className="text-lg font-medium mb-2">Forsidebilde</h3>
 
-                <div className="flex h-[20rem] border-2 rounded-md border-green-500">
-                  {projectData?.coverImgUrl ? (
-                    <div className=" relative w-full ">
-                      <div className=" absolute flex justify-end z-50 bg-black/50 text-[#fff] p-2 right-3 top-3 rounded-full ">
-                        <button type="button" onClick={handleClearFile}>
-                          <RxCross2 className="text-2xl" />
-                        </button>
+                  <div className="flex h-[20rem] border-2 rounded-md border-green-500">
+                    {projectData?.coverImgUrl ? (
+                      <div className=" relative w-full ">
+                        <div className=" absolute flex justify-end z-50 bg-black/50 text-[#fff] p-2 right-3 top-3 rounded-full ">
+                          <button type="button" onClick={handleClearFile}>
+                            <RxCross2 className="text-2xl" />
+                          </button>
+                        </div>
+                        <div className="relative w-full h-full rounded-lg p-2">
+                          <Image
+                            loading="lazy"
+                            placeholder="blur"
+                            src={projectData?.coverImgUrl}
+                            alt={"Cover Img"}
+                            fill
+                            blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNmMGZkZjQiLz48L3N2Zz4="
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
                       </div>
-                      <div className="relative w-full h-full rounded-lg p-2">
-                        <Image
-                          loading="lazy"
-                          placeholder="blur"
-                          src={projectData?.coverImgUrl}
-                          alt={"Cover Img"}
-                          fill
-                          // blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
-                          blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNmMGZkZjQiLz48L3N2Zz4="
-                          className="w-full h-full object-cover"
+                    ) : (
+                      <div
+                        onClick={() =>
+                          document.getElementById("CoverImgClick").click()
+                        }
+                        className=" relative w-full flex flex-col items-center justify-center gap-4 cursor-pointer "
+                      >
+                        {loading && <FetchLoading />}
+                        <button
+                          type="button"
+                          className="text-black transition-all duration-300 ease-in-out active:scale-95 text-[2rem] py-1 px-8 rounded-full"
+                        >
+                          <SlCloudUpload />
+                        </button>
+                        <div className="text-center text-gray-500">
+                          File Should be in PNG, JPEG or JPG format
+                        </div>
+                        <input
+                          id="CoverImgClick"
+                          type="file"
+                          accept="image/*"
+                          className="hidden"
+                          onChange={handleFileUpload}
                         />
                       </div>
-                    </div>
-                  ) : (
-                    <div
-                      onClick={() =>
-                        document.getElementById("CoverImgClick").click()
-                      }
-                      className=" relative w-full flex flex-col items-center justify-center gap-4 cursor-pointer "
-                    >
-                      {loading && <FetchLoading />}
-                      <button
-                        type="button"
-                        className="text-black transition-all duration-300 ease-in-out active:scale-95 text-[2rem] py-1 px-8 rounded-full"
-                      >
-                        <SlCloudUpload />
-                      </button>
-                      <div className="text-center text-gray-500">
-                        File Should be in PNG, JPEG or JPG format
-                      </div>
-                      <input
-                        id="CoverImgClick"
-                        type="file"
-                        accept="image/*"
-                        className="hidden"
-                        onChange={handleFileUpload}
-                      />
-                    </div>
+                    )}
+                  </div>
+
+                  {errors.file && (
+                    <span className="text-red-500 text-sm">{errors.file}</span>
                   )}
+                  <p className="text-sm text-gray-500 mt-2">
+                    Maks. filstørrelse: 5 MB.
+                  </p>
                 </div>
 
-                {errors.file && (
-                  <span className="text-red-500 text-sm">{errors.file}</span>
-                )}
-                <p className="text-sm text-gray-500 mt-2">
-                  Maks. filstørrelse: 5 MB.
-                </p>
+                <div className="w-full max-w-[25rem] ">
+                  <h3 className="text-lg font-medium mb-2">
+                    Forsidebilde for prosjektsiden
+                  </h3>
+
+                  <div className="flex h-[20rem] border-2 rounded-md border-green-500">
+                    {projectData?.projectImgUrl ? (
+                      <div className=" relative w-full ">
+                        <div className=" absolute flex justify-end z-50 bg-black/50 text-[#fff] p-2 right-3 top-3 rounded-full ">
+                          <button
+                            type="button"
+                            onClick={handleClearProjectFile}
+                          >
+                            <RxCross2 className="text-2xl" />
+                          </button>
+                        </div>
+                        <div className="relative w-full h-full rounded-lg p-2">
+                          <Image
+                            loading="lazy"
+                            placeholder="blur"
+                            src={projectData?.projectImgUrl}
+                            alt={"Project Img"}
+                            fill
+                            blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNmMGZkZjQiLz48L3N2Zz4="
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      </div>
+                    ) : (
+                      <div
+                        onClick={() =>
+                          document.getElementById("ProjectImgClick").click()
+                        }
+                        className=" relative w-full flex flex-col items-center justify-center gap-4 cursor-pointer "
+                      >
+                        {loading2 && <FetchLoading />}
+                        <button
+                          type="button"
+                          className="text-black transition-all duration-300 ease-in-out active:scale-95 text-[2rem] py-1 px-8 rounded-full"
+                        >
+                          <SlCloudUpload />
+                        </button>
+                        <div className="text-center text-gray-500">
+                          File Should be in PNG, JPEG or JPG format
+                        </div>
+                        <input
+                          id="ProjectImgClick"
+                          type="file"
+                          accept="image/*"
+                          className="hidden"
+                          onChange={handleProjectFileUpload}
+                        />
+                      </div>
+                    )}
+                  </div>
+
+                  {errors.file && (
+                    <span className="text-red-500 text-sm">
+                      {errors.projectFile}
+                    </span>
+                  )}
+                  <p className="text-sm text-gray-500 mt-2">
+                    Maks. filstørrelse: 5 MB.
+                  </p>
+                </div>
               </div>
 
               <div className="flex items-center pt-5 gap-5">
                 {projectData.title &&
                 projectData.projectUrl &&
-                projectData.coverImgUrl ? (
+                projectData.coverImgUrl &&
+                projectData.projectImgUrl ? (
                   <Link
                     href={`/adminpanel/manageproject/${projectId}/update-project?query=update-details`}
                     className="bg-green-500 relative w-[12rem] h-[2.5rem] flex items-center justify-center transition-all duration-300 ease-in-out active:scale-95 text-xl font-medium  rounded-full text-white"
@@ -302,9 +421,7 @@ const Page = ({ params }) => {
                     Neste
                   </Link>
                 ) : (
-                  <div
-                    className="bg-green-500 opacity-70 cursor-default relative w-[12rem] h-[2.5rem] flex items-center justify-center transition-all duration-300 ease-in-out active:scale-95 text-xl font-medium  rounded-full text-white"
-                  >
+                  <div className="bg-green-500 opacity-70 cursor-default relative w-[12rem] h-[2.5rem] flex items-center justify-center transition-all duration-300 ease-in-out active:scale-95 text-xl font-medium  rounded-full text-white">
                     Neste
                   </div>
                 )}
@@ -327,7 +444,13 @@ export default Page;
 import { FaExternalLinkAlt } from "react-icons/fa";
 import Konsulenttorget from "@/assets/R2.png";
 
-const ProjectDetails = ({ projectData, setProjectData,formData, setFormData, projectId }) => {
+const ProjectDetails = ({
+  projectData,
+  setProjectData,
+  formData,
+  setFormData,
+  projectId,
+}) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
   const [loading, setLoading] = useState(false);
@@ -404,9 +527,9 @@ const ProjectDetails = ({ projectData, setProjectData,formData, setFormData, pro
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if(!projectId){
-      toast.error("Something went wrong, please try again later")
-      return
+    if (!projectId) {
+      toast.error("Something went wrong, please try again later");
+      return;
     }
 
     if (!projectData || !formData) {
@@ -650,9 +773,9 @@ const ProjectDetails = ({ projectData, setProjectData,formData, setFormData, pro
       <div className=" max-w-[1400px] mx-auto py-[1rem] ">
         <button
           onClick={handleSubmit}
-          className=" bg-green-500 text-[#fff] w-[10rem] h-[2.7rem] rounded-md font-medium active:scale-95 transition-all duration-300 ease-in-out "
+          className=" bg-green-500 text-[#fff] w-[13rem] h-[2.7rem] rounded-md font-medium active:scale-95 transition-all duration-300 ease-in-out "
         >
-          Add Project
+          Oppdater prosjekt
         </button>
       </div>
     </div>
@@ -679,7 +802,7 @@ const SecondPart = ({ formData, setFormData }) => {
       } else {
         setErrors((prev) => ({
           ...prev,
-          file: "File size must be less than 5 MB.",
+          toolFile: "File size must be less than 5 MB.",
         }));
       }
     });
@@ -697,7 +820,7 @@ const SecondPart = ({ formData, setFormData }) => {
         console.error("Upload error:", error);
         setErrors((prev) => ({
           ...prev,
-          file: "An error occurred while uploading the files.",
+          toolFile: "An error occurred while uploading the files.",
         }));
       } finally {
         setLoading(false);
@@ -747,9 +870,29 @@ const SecondPart = ({ formData, setFormData }) => {
         Verktøy brukt
       </h3>
       <div className=" bg-[#eeeeee] pt-3 pb-5 ">
-        <div className=" flex flex-wrap gap-5 justify-center">
+        <div
+          onClick={() => document.getElementById("toolImgInput-click").click()}
+          className=" relative w-full flex flex-col items-center justify-center gap-4 border-2 border-green-500 max-w-[20rem] mx-auto rounded-md cursor-pointer p-4"
+        >
+          {loading && <FetchLoading />}
+          <button
+            type="button"
+            className="text-black transition-all duration-300 ease-in-out active:scale-95 text-[2rem] py-1 px-8 rounded-full"
+          >
+            <SlCloudUpload />
+          </button>
+          <input
+            id="toolImgInput-click"
+            type="file"
+            accept="image/*"
+            multiple
+            className="hidden"
+            onChange={handleFileUpload}
+          />
+        </div>
+        <div className=" mt-3 flex flex-wrap gap-5 justify-center">
           {Array.isArray(formData?.toolImgs) &&
-          formData?.toolImgs.length > 0 ? (
+            formData?.toolImgs.length > 0 &&
             formData?.toolImgs.map((toolImg, index) => (
               <div key={index} className="relative w-[4rem] h-[5rem]">
                 <div className="absolute flex justify-end z-50 bg-black/50 text-[#fff] p-1 right-0 top-0 rounded-full">
@@ -769,29 +912,7 @@ const SecondPart = ({ formData, setFormData }) => {
                   />
                 </div>
               </div>
-            ))
-          ) : (
-            <div
-              onClick={() => document.getElementById("file-input").click()}
-              className=" relative w-full flex flex-col items-center justify-center gap-4 border-2 border-green-500 max-w-[20rem] rounded-md cursor-pointer p-4"
-            >
-              {loading && <FetchLoading />}
-              <button
-                type="button"
-                className="text-black transition-all duration-300 ease-in-out active:scale-95 text-[2rem] py-1 px-8 rounded-full"
-              >
-                <SlCloudUpload />
-              </button>
-              <input
-                id="file-input"
-                type="file"
-                accept="image/*"
-                multiple
-                className="hidden"
-                onChange={handleFileUpload}
-              />
-            </div>
-          )}
+            ))}
         </div>
       </div>
 
@@ -862,23 +983,14 @@ const ThirdPart = ({ formData, setFormData }) => {
       } else {
         setErrors((prev) => ({
           ...prev,
-          file: "File size must be less than 5 MB.",
+          galleryFile: "File size must be less than 5 MB.",
         }));
       }
     });
 
     if (validFiles.length > 0) {
-      // const newPreviews = validFiles.map((file) => ({
-      //   name: file.name,
-      //   url: URL.createObjectURL(file),
-      // }));
       setErrors((prev) => ({ ...prev, file: null }));
       setLoading(true);
-
-      // setFilePreviews((prev) => [...prev, ...newPreviews]);
-      // setFiles((prev) => [...prev, ...validFiles]);
-      // setErrors((prev) => ({ ...prev, file: null }));
-
       try {
         const uploadedUrls = await Promise.all(validFiles.map(uploadFile));
 
@@ -890,7 +1002,7 @@ const ThirdPart = ({ formData, setFormData }) => {
         console.error("Upload error:", error);
         setErrors((prev) => ({
           ...prev,
-          file: "An error occurred while uploading the files.",
+          galleryFile: "An error occurred while uploading the files.",
         }));
       } finally {
         setLoading(false);
@@ -899,15 +1011,11 @@ const ThirdPart = ({ formData, setFormData }) => {
   };
 
   const handleClearFile = (index) => {
-    // setFilePreviews((prev) => prev.filter((_, i) => i !== index));
-    // setFiles((prev) => prev.filter((_, i) => i !== index));
     setFormData((prev) => ({
       ...prev,
       gellaryImgs: prev.gellaryImgs.filter((_, i) => i !== index),
     }));
   };
-
-  // console.log(formData);
 
   return (
     <div className=" max-w-[1400px] mx-auto px-3 ">
@@ -932,10 +1040,34 @@ const ThirdPart = ({ formData, setFormData }) => {
       </div>
       <div>
         <h3 className=" text-[2rem] text-center font-medium mt-5 ">Galleri</h3>
-
+        <div
+          onClick={() =>
+            document.getElementById("galleryImgInput-click").click()
+          }
+          className=" mt-3 relative w-full flex flex-col items-center justify-center gap-4 border-2 border-green-500  rounded-md cursor-pointer py-8 px-4"
+        >
+          {loading && <FetchLoading />}
+          <button
+            type="button"
+            className="text-black transition-all duration-300 ease-in-out active:scale-95 text-[2rem] py-1 px-8 rounded-full"
+          >
+            <SlCloudUpload />
+          </button>
+          <div className="text-center text-gray-500">
+            File Should be in PNG, JPEG or JPG format
+          </div>
+          <input
+            id="galleryImgInput-click"
+            type="file"
+            accept="image/*"
+            multiple
+            className="hidden"
+            onChange={handleFileUpload}
+          />
+        </div>
         <div className=" flex flex-wrap gap-5 mt-4 justify-center">
           {Array.isArray(formData?.gellaryImgs) &&
-          formData?.gellaryImgs.length > 0 ? (
+            formData?.gellaryImgs.length > 0 &&
             formData?.gellaryImgs.map((gellaryImg, index) => (
               <div key={index} className="relative w-[15rem] h-[10rem]">
                 <div className="absolute flex justify-end z-50 bg-black/50 text-[#fff] p-2 right-2 top-2 rounded-full">
@@ -955,32 +1087,7 @@ const ThirdPart = ({ formData, setFormData }) => {
                   />
                 </div>
               </div>
-            ))
-          ) : (
-            <div
-              onClick={() => document.getElementById("file-input2").click()}
-              className=" relative w-full flex flex-col items-center justify-center gap-4 border-2 border-green-500  rounded-md cursor-pointer py-8 px-4"
-            >
-              {loading && <FetchLoading />}
-              <button
-                type="button"
-                className="text-black transition-all duration-300 ease-in-out active:scale-95 text-[2rem] py-1 px-8 rounded-full"
-              >
-                <SlCloudUpload />
-              </button>
-              <div className="text-center text-gray-500">
-                File Should be in PNG, JPEG or JPG format
-              </div>
-              <input
-                id="file-input2"
-                type="file"
-                accept="image/*"
-                multiple
-                className="hidden"
-                onChange={handleFileUpload}
-              />
-            </div>
-          )}
+            ))}
         </div>
       </div>
     </div>
@@ -1008,22 +1115,16 @@ const ForthPart = ({ formData, setFormData }) => {
 
   const handleFileUpload = async (event) => {
     const selectedFile = event.target.files[0];
-    const maxSize = 5 * 1024 * 1024; // 5MB limit
+    const maxSize = 5 * 1024 * 1024;
 
     if (selectedFile) {
       if (selectedFile.size <= maxSize) {
         setError("");
         setLoading(true);
 
-        // setFilePreview({
-        //   name: selectedFile.name,
-        //   url: URL.createObjectURL(selectedFile),
-        // });
-
         try {
           const uploadedUrl = await uploadFile(selectedFile);
           if (uploadedUrl) {
-            // setImageUrl(imageUrl);
             setFormData({
               ...formData,
               reviewerImgUrl: uploadedUrl,
@@ -1037,12 +1138,6 @@ const ForthPart = ({ formData, setFormData }) => {
         } finally {
           setLoading(false);
         }
-
-        // setErrors((prev) => ({ ...prev, file: null }));
-        // setLoading(true);
-
-        // setFile(selectedFile);
-        // setError("");
       } else {
         setError("File size must be less than 5 MB.");
         setFilePreview(null);
@@ -1052,16 +1147,11 @@ const ForthPart = ({ formData, setFormData }) => {
   };
 
   const handleClearFile = () => {
-    // setFilePreview(null);
-    // setFile(null);
-    // setError("");
     setFormData({
       ...formData,
       reviewerImgUrl: "",
     });
   };
-
-  // console.log(formData);
 
   return (
     <div className=" mt-10 mb-14 ">
@@ -1075,12 +1165,6 @@ const ForthPart = ({ formData, setFormData }) => {
       </div>
       <div className=" relative max-w-[30rem] mx-auto shadow-[0px_1px_10px_rgba(0,0,0,0.15)] px-6 pt-14 pb-20 rounded-md mt-20 ">
         <div className=" absolute -top-[3rem] w-full left-0 flex justify-center  ">
-          {/* <Image
-            src={MessageIcon}
-            alt="Review Img"
-            className=" w-[5rem] h-[5rem] object-cover rounded-full "
-          /> */}
-
           <div className="flex flex-col items-center gap-4">
             {formData?.reviewerImgUrl ? (
               <div className="relative w-[5rem] h-[5rem] ">
@@ -1152,14 +1236,10 @@ const ForthPart = ({ formData, setFormData }) => {
           href={`/#reviews`}
           className=" mt-[5rem] text-[1.2rem] font-medium flex items-center justify-center gap-2 "
         >
-          <span>Lets google review</span>
+          <span>Les google review</span>
           <FaExternalLinkAlt />
         </Link>
       </div>
     </div>
   );
 };
-
-import EmailIcon from "@/assets/EmailIcon.png";
-import { SlCloudUpload } from "react-icons/sl";
-import toast from "react-hot-toast";

@@ -1,5 +1,6 @@
 import express from "express";
 import {
+  changeProjectVisibility,
   deleteProject,
   getData,
   getSingleData,
@@ -11,6 +12,7 @@ import {
 const router = express.Router();
 router.post("/save-project", saveData);
 router.put("/update-project/:projectId", updateProject);
+router.put("/change-project-visibility/:projectId", changeProjectVisibility);
 router.get("/get-project", getData);
 router.get("/single-project/:id", getSingleData);
 router.patch("/update-project/:id", updateSingleData);

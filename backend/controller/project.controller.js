@@ -1,17 +1,37 @@
+import mongoose from "mongoose";
 import Project from "../models/createProject.model.js";
 import cloudinary from "../utils/cloudinary.js";
 
 export const saveData = async (req, res) => {
   try {
-    const {projectName, title, projectUrl, coverImgUrl, projectStart, projectEnd, type, status, briefAboutWebsite, detailedDescription, mainImgUrl, toolImgs, skills, gellaryImgs, reviewerImgUrl, reviewMessage, rating} = req.body;
+    const {
+      projectName,
+      title,
+      projectUrl,
+      coverImgUrl,
+      projectImgUrl,
+      projectStart,
+      projectEnd,
+      type,
+      status,
+      briefAboutWebsite,
+      detailedDescription,
+      mainImgUrl,
+      toolImgs,
+      skills,
+      gellaryImgs,
+      reviewerImgUrl,
+      reviewMessage,
+      rating,
+    } = req.body;
 
     // console.log(title, projectUrl, coverImgUrl, projectStart);
-    
 
     const newProject = await Project.create({
       title,
-      url: projectUrl, 
+      url: projectUrl,
       coverImg: coverImgUrl,
+      ProjectImg: projectImgUrl,
       projectName,
       projectStart,
       projectEnd,
@@ -24,14 +44,15 @@ export const saveData = async (req, res) => {
       skills,
       gellaryImgs,
       reviewerImgUrl,
-      reviewMessage,rating
+      reviewMessage,
+      rating,
     });
 
-    if(!newProject){
+    if (!newProject) {
       return res.status(400).send({
         success: false,
-        message: "Failed to create new project"
-      })
+        message: "Failed to create new project",
+      });
     }
 
     return res.status(201).json({
@@ -50,19 +71,37 @@ export const saveData = async (req, res) => {
 
 export const updateProject = async (req, res) => {
   try {
-    const {projectName, title, projectUrl, coverImgUrl, projectStart, projectEnd, type, status, briefAboutWebsite, detailedDescription, mainImgUrl, toolImgs, skills, gellaryImgs, reviewerImgUrl, reviewMessage, rating} = req.body;
+    const {
+      projectName,
+      title,
+      projectUrl,
+      coverImgUrl,
+      projectImgUrl,
+      projectStart,
+      projectEnd,
+      type,
+      status,
+      briefAboutWebsite,
+      detailedDescription,
+      mainImgUrl,
+      toolImgs,
+      skills,
+      gellaryImgs,
+      reviewerImgUrl,
+      reviewMessage,
+      rating,
+    } = req.body;
 
-    const {projectId} = req.params
-
-    
+    const { projectId } = req.params;
 
     const updatedProject = await Project.findByIdAndUpdate(
-      projectId, 
+      projectId,
       {
         projectName,
         title,
         url: projectUrl,
         coverImg: coverImgUrl,
+        ProjectImg: projectImgUrl,
         projectStart,
         projectEnd,
         type,
@@ -75,9 +114,9 @@ export const updateProject = async (req, res) => {
         gellaryImgs,
         reviewerImgUrl,
         reviewMessage,
-        rating
+        rating,
       },
-      { new: true, } 
+      { new: true }
     );
 
     if (!updatedProject) {
@@ -90,9 +129,54 @@ export const updateProject = async (req, res) => {
     return res.status(200).json({
       success: true,
       data: updatedProject,
-      message: "Project updated successfully!!", 
+      message: "Project updated successfully!!",
     });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Somethings went wrong",
+      error: error.message,
+    });
+  }
+};
 
+export const changeProjectVisibility = async (req, res) => {
+  try {
+    const { isVisible } = req.body;
+
+    const { projectId } = req.params;
+
+    if (!projectId) {
+      return res.status(400).send({
+        success: false,
+        message: "Something went wrong, please try again later",
+      });
+    }
+
+    const newVisibility = isVisible === undefined ? true : !isVisible;
+    // console.log(newVisibility);
+    
+
+    const updatedProject = await Project.findByIdAndUpdate(
+      projectId,
+      {
+        isVisible: newVisibility,
+      },
+      { new: true }
+    );
+
+    if (!updatedProject) {
+      return res.status(404).send({
+        success: false,
+        message: "Project not found",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      data: updatedProject,
+      message: "Project visibility change successfully successfully!!",
+    });
   } catch (error) {
     return res.status(500).json({
       success: false,
@@ -104,8 +188,8 @@ export const updateProject = async (req, res) => {
 
 export const getData = async (req, res) => {
   try {
-    const result = await Project.find().select("title url coverImg");
-    return  res.status(200).send({
+    const result = await Project.find().select("title url coverImg ProjectImg isVisible");
+    return res.status(200).send({
       success: true,
       data: result,
       message: "Prosjekt grunnlagt vellykket.",
@@ -130,7 +214,7 @@ export const getSingleData = async (req, res) => {
       message: "Prosjekt grunnlagt vellykket.",
     });
   } catch (error) {
-    return  res.status(500).json({
+    return res.status(500).json({
       success: false,
       message: "Noe gikk galt",
       error: error.message,
@@ -140,17 +224,15 @@ export const getSingleData = async (req, res) => {
 
 export const updateSingleData = async (req, res) => {
   const { id } = req.params;
-  const {title, url, imageUrl, coverImg} = req.body;
+  const { title, url, imageUrl, coverImg } = req.body;
 
   // console.log(coverImg);
   // console.log(imageUrl);
-  
 
   try {
-
     const isProjectExists = await Project.findById(id);
 
-    let uploadedUrl = ""
+    let uploadedUrl = "";
 
     if (imageUrl) {
       const result = await cloudinary.uploader.upload(imageUrl, {
@@ -159,11 +241,11 @@ export const updateSingleData = async (req, res) => {
       uploadedUrl = result.secure_url;
     }
 
-    if(!uploadedUrl && imageUrl){
+    if (!uploadedUrl && imageUrl) {
       return res.status(400).send({
         success: false,
-        message: "Failed to upload image"
-      })
+        message: "Failed to upload image",
+      });
     }
 
     if (!isProjectExists) {
@@ -172,13 +254,17 @@ export const updateSingleData = async (req, res) => {
         message: "Finner ikke prosjektet",
       });
     }
-    const updatedProject = await Project.findByIdAndUpdate(id, {
-      title,
-      url,
-      coverImg: uploadedUrl ? uploadedUrl : coverImg
-    }, {
-      new: true,
-    });
+    const updatedProject = await Project.findByIdAndUpdate(
+      id,
+      {
+        title,
+        url,
+        coverImg: uploadedUrl ? uploadedUrl : coverImg,
+      },
+      {
+        new: true,
+      }
+    );
     return res.status(200).json({
       success: true,
       message: "Prosjektet ble oppdatert",
@@ -198,13 +284,13 @@ export const deleteProject = async (req, res) => {
     const { id } = req.params;
     const result = await Project.findByIdAndDelete(id);
     console.log(result);
-    return  res.status(200).json({
+    return res.status(200).json({
       success: true,
       data: result,
       message: "prosjektet ble slettet",
     });
   } catch (error) {
-    return  res.status(500).json({
+    return res.status(500).json({
       success: false,
       message: "Noe gikk galt",
       error: error.message,

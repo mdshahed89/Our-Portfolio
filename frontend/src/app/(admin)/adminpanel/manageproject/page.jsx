@@ -19,7 +19,7 @@ const page = () => {
         </div>
       </div>
 
-      <ProjectCard />
+      <ProjectCard  />
     </div>
   );
 };

@@ -92,7 +92,7 @@ const BlogPageProjects = ({ projects }) => {
               >
                 <div className="w-full relative h-[15rem]">
                   <Image
-                    src={project?.coverImg || AImg}
+                    src={project?.ProjectImg || AImg}
                     alt={project?.title}
                     priority
                     fill

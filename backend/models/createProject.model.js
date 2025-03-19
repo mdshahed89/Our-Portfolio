@@ -12,7 +12,15 @@ const ProjectSchema = new mongoose.Schema(
     },
     coverImg: {
       type: String,
-      required: [true, "Image is Required"],
+      required: [true, "Cover Image is Required"],
+    },
+    ProjectImg: {
+      type: String,
+      required: [true, "Project Image is Required"],
+    },
+    isVisible: {
+      type: Boolean,
+      default: false
     },
     projectName: {
       type: String,
