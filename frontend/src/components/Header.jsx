@@ -31,15 +31,15 @@ const Header = () => {
     setIsClientReady(true);
   }, []);
 
-  const searchParams = useSearchParams();
-  const scrollTarget = searchParams.get("scroll"); 
+  // const searchParams = useSearchParams();
+  // const scrollTarget = searchParams.get("scroll"); 
 
-  useEffect(() => {
-    if (scrollTarget === "reviews") {
-      document.getElementById("reviews")?.scrollIntoView({ behavior: "smooth" });
-      router.push("/?scroll=reviewd")
-    }
-  }, [scrollTarget]);
+  // useEffect(() => {
+  //   if (scrollTarget === "reviews") {
+  //     document.getElementById("reviews")?.scrollIntoView({ behavior: "smooth" });
+  //     router.push("/?scroll=reviewd")
+  //   }
+  // }, [scrollTarget]);
 
   const toggleDropdown = (index) => {
     setDropdownOpen(dropdownOpen === index ? null : index);

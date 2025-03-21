@@ -101,7 +101,7 @@ const page = async ({ params }) => {
       }
       <div>
         <Link
-          href={`/?scroll=reviews`}
+          href={`/#reviews`}
           className=" mt-[5rem] text-[1.2rem] font-medium flex items-center justify-center gap-2 "
         >
           <span>Les google review</span>
