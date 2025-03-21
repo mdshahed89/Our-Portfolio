@@ -56,7 +56,7 @@ const page = async () => {
         </div>
       </div>
       <div className=" px-3 lg:px-5 mt-2 ">
-        <div className=" text-[3rem] text-center mb-2 font-medium ">
+        <div className=" text-[3rem] text-center mb-5 md:mb-2 font-medium ">
           <div>Prosjekter</div>
         </div>
         <BlogPageProjects projects={visibleProjects} />

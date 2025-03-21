@@ -38,7 +38,7 @@ const page = async () => {
         {visibleProjects &&
         Array.isArray(visibleProjects) &&
         visibleProjects.length > 0 ? (
-          <div className=" grid md:grid-cols-2 grid-cols-1 lg:grid-cols-4 ">
+          <div className=" grid md:grid-cols-2 grid-cols-1 lg:grid-cols-4 gap-5 ">
             {visibleProjects.map((project, idx) => (
               <div key={idx}>
                 <AllProjectCard project={project} />

@@ -57,6 +57,13 @@ const BlogPageProjects = ({ projects }) => {
     afterChange: () => setTimeout(() => setIsDragging(false), 200),
     responsive: [
       {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,
@@ -82,15 +89,15 @@ const BlogPageProjects = ({ projects }) => {
 
   return (
     <div>
-      <div className=" mb-5 flex justify-end pr-5 ">
+      <div className=" md:mb-5 flex justify-end pr-5 ">
         <Link
           href={`/alle-prosjekter`}
-          className=" px-8 py-2 border-2 border-green-500 hover:bg-transparent hover:text-black transition-colors duration-300 ease-in-out rounded-full text-[#fff] bg-green-500  "
+          className=" px-5 md:px-8 py-1 md:py-2 border-2 border-green-500 hover:bg-transparent hover:text-black transition-colors duration-300 ease-in-out rounded-full text-[#fff] bg-green-500  "
         >
           Alle prosjekter
         </Link>
       </div>
-      <div className="overflow-x-hidden overflow-hidden h-auto">
+      <div className="overflow-x-hidden overflow-hidden h-auto md:px-4 ">
         {projects.length > 0 ? (
           <Slider {...settings} className="  ">
             {projects.map((project, index) => (
@@ -100,13 +107,13 @@ const BlogPageProjects = ({ projects }) => {
                   onClick={(e) => isDragging && e.preventDefault()}
                   className="bg-white rounded-lg shadow-md  overflow-x-hidden transition-all duration-300 ease-in-out"
                 >
-                  <div className=" w-full md:w-[430px] relative h-[15rem]  rounded-md">
+                  <div className=" w-full relative h-[15rem] ">
                     <Image
                       src={project?.ProjectImg || AImg}
                       alt={project?.title}
                       priority
                       fill
-                      className="w-full md:w-[430px] h-[15rem] object-contain object-left rounded-md"
+                      className="w-full max-w-[430px] h-[15rem] object-contain object-left rounded-md"
                     />
                   </div>
                   <div className="p-4 flex items-center justify-between ">
@@ -141,12 +148,12 @@ export default BlogPageProjects;
 
 export const AllProjectCard = ({ project }) => {
   return (
-    <div className="px-2 group">
+    <div className="group max-w-[450px] w-full mx-auto ">
       <Link
         href={`/prosjekter/${project?._id}`}
-        className="bg-white rounded-lg shadow-md  overflow-x-hidden transition-all duration-300 ease-in-out"
+        className="bg-white shadow-md  overflow-x-hidden transition-all duration-300 ease-in-out rounded-md"
       >
-        <div className="w-full relative h-[15rem] rounded-md">
+        <div className=" w-full  relative h-[15rem] rounded-md">
           <Image
             src={project?.ProjectImg || AImg}
             alt={project?.title}
