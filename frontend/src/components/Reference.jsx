@@ -141,7 +141,7 @@ export const Slider = async () => {
                  lg:hover:scale-125 hover:scale-[1.15]  border-2 border-[#7BDCB5] 
                  transition-transform duration-500 ease-in-out transform-gpu "
               >
-                <figure className="h-[230px] md:h-[300px] w-[290px] md:w-[400px] overflow-hidden">
+                <figure className="h-[217px] md:h-[300px] w-[290px] md:w-[400px] overflow-hidden">
                   <Image
                     loading="lazy"
                     placeholder="blur"
@@ -150,7 +150,7 @@ export const Slider = async () => {
                     alt={item.title}
                     width={400}
                     height={300}
-                    className="w-full h-full object-cover rounded-md"
+                    className="w-full h-full object-contain rounded-md"
                   />
                 </figure>
 

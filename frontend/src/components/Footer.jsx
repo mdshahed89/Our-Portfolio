@@ -154,7 +154,7 @@ const Footer = () => {
 
       <div className=" mt-[1rem] flex items-start justify-between ">
         <div className=" flex md:items-center gap-8 md:gap-5 md:flex-row flex-col text-[#fff] ">
-          <p className=" ">Sidesone AS, org.nr. 932 244 721</p>
+          <p className=" ">Sidesone AS, org.nr. 934 145 488</p>
           <div className=" hidden md:flex items-center gap-5 ">
             <Link
               href={`/vilkar-og-betingelser`}

@@ -101,10 +101,10 @@ const page = async ({ params }) => {
       }
       <div>
         <Link
-          href={`/#reviews`}
+          href={`/?scroll=reviews`}
           className=" mt-[5rem] text-[1.2rem] font-medium flex items-center justify-center gap-2 "
         >
-          <span>Lets google review</span>
+          <span>Les google review</span>
           <FaExternalLinkAlt />
         </Link>
       </div>
@@ -125,28 +125,12 @@ const SecondPart = ({ project }) => {
         Verktøy brukt
       </h3>
       <div className=" bg-[#eeeeee] pt-3 pb-5 flex items-center justify-center gap-5 ">
-        {/* <div className=" flex flex-col items-center gap-2 ">
-          <h5>Design fason</h5>
-          <Image
-            src={FigmaIcon}
-            className=" w-[3rem] object-contain "
-            alt="Figma icon"
-          />
-        </div>
-        <div className=" flex flex-col items-center gap-2 ">
-          <h5>Design fason</h5>
-          <Image
-            src={FigmaIcon}
-            className=" w-[3rem] object-contain "
-            alt="Figma icon"
-          />
-        </div> */}
         {project?.toolImgs &&
         Array.isArray(project?.toolImgs) &&
         project.toolImgs.length > 0 ? (
           project.toolImgs.map((prjct, idx) => (
             <div key={idx} className=" flex flex-col items-center gap-2 ">
-              <h5>Design fason</h5>
+              {/* <h5>Design fason</h5> */}
               <div className=" relative w-[3rem] h-[4rem] ">
                 <Image
                   src={prjct || FigmaIcon}

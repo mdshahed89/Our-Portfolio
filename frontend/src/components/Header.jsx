@@ -11,7 +11,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Link from "next/link";
 import Image from "next/image";
 import { RxCross2 } from "react-icons/rx";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Logo from "@/assets/logo.png";
 import { PageLoading } from "./Tools";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
@@ -25,9 +25,22 @@ const Header = () => {
   const [isTooltipOpen1, setIsTooltipOpen1] = useState(false);
   const [isClientReady, setIsClientReady] = useState(false);
 
+  const router = useRouter()
+
   useEffect(() => {
     setIsClientReady(true);
   }, []);
+
+  const searchParams = useSearchParams();
+  const scrollTarget = searchParams.get("scroll"); 
+
+  useEffect(() => {
+    if (scrollTarget === "reviews") {
+      document.getElementById("reviews")?.scrollIntoView({ behavior: "smooth" });
+      router.push("/?scroll=reviewd")
+    }
+  }, [scrollTarget]);
+
   const toggleDropdown = (index) => {
     setDropdownOpen(dropdownOpen === index ? null : index);
   };
@@ -460,7 +473,7 @@ const Header = () => {
           <h4 className=" text-[1.6rem] ">Følg oss</h4>
           <div className=" flex items-center gap-4 ">
             <Link
-            onClick={() => setMenuOpen(false)}
+              onClick={() => setMenuOpen(false)}
               href={"https://www.facebook.com/groups/sidesone/"}
               rel="nofollow"
               target="_blank"
@@ -469,7 +482,7 @@ const Header = () => {
               <FaFacebookF />
             </Link>
             <Link
-            onClick={() => setMenuOpen(false)}
+              onClick={() => setMenuOpen(false)}
               target="_blank"
               rel="nofollow"
               href={"https://www.instagram.com/sidesonenorge/"}

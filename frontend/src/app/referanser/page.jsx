@@ -39,15 +39,12 @@ const page = async () => {
     }
 
     const data = await response.json();
-    // console.log(data);
     
-    // projects = data?.data || [];
-    visibleProjects = data?.data?.filter(project => project?.isVisible === true) || [];
+    visibleProjects = data?.data?.filter(project => project?.isVisible !== true) || [];
   } catch (error) {
     console.error("Error fetching projects:", error);
   }
 
-  // console.log(referencesData);
   
 
   return (
@@ -59,17 +56,12 @@ const page = async () => {
         </div>
       </div>
       <div className=" px-3 lg:px-5 mt-2 ">
-        <div className=" text-[3rem] text-center mb-7 font-medium ">
+        <div className=" text-[3rem] text-center mb-2 font-medium ">
           <div>Prosjekter</div>
         </div>
         <BlogPageProjects projects={visibleProjects} />
       </div>
-      <div className="bg-[#fff] min-h-[100vh] px-3 lg:px-5 mt-20 ">
-        {/* <div className=" pb-5">
-          <div className="text-[#1E293B] text-[40px] md:text-[76px] font-bold">
-            Prosjekter
-          </div>
-        </div> */}
+      <div className="bg-[#fff] px-3 lg:px-5 mt-20 ">
         <div>
         <div className=" text-[3rem] text-center mb-7 font-medium ">
           <div>Blogger</div>

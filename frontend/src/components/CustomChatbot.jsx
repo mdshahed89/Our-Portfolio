@@ -8,6 +8,9 @@ import BotIcon2 from "@/assets/BotIcon2.png";
 import BotIcon3 from "@/assets/BotIcon3.png";
 import Image from "next/image";
 import toast from "react-hot-toast";
+import { PiHandWavingDuotone } from "react-icons/pi";
+import WavingIcon from "@/assets/WavingIcon.png"
+
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -112,8 +115,9 @@ const Chatbot = () => {
               <RxCross1 />
             </div>
           </div>
-          <p className=" text-base md:text-lg text-gray-700">
-            Hei! Hvis du trenger hjelp, send oss en melding.
+          <p className=" text-base md:text-lg text-gray-700 flex gap-2">
+            <span>Hei! Hvis du trenger hjelp, send oss en melding.</span>
+            <Image src={WavingIcon} alt="Waving icon" className=" mt-1 w-5 object-contain " />
           </p>
           <div className=" flex justify-end ">
             <button
@@ -169,9 +173,9 @@ const Chatbot = () => {
               <RxCross1 />
             </button>
           </div>
-          <div className=" text-sm pt-2 pb-4 px-2 text-center max-w-[20rem] mx-auto text-[#3f3f3f] ">
+          <div className=" text-sm pt-2 pb-4 px-2 text-center max-w-[20rem] shadow-[0px_1px_10px_rgba(0,0,0,0.15)] mx-auto text-[#3f3f3f] ">
             <p>
-              Vi svarer innen 1 time. Meldingen din sendes til vår Gmail, og vi
+              Vi svarer innen 1 time. Meldingen din sendes til vår mail, og vi
               tar kontakt snart!
             </p>
           </div>

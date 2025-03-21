@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -11,9 +11,12 @@ import {
 import { IoArrowForward } from "react-icons/io5";
 import Link from "next/link";
 import { IoIosArrowForward } from "react-icons/io";
-import AImg from "@/assets/A.jpg"
+import AImg from "@/assets/A.jpg";
+import { FetchDataLoading } from "./Loading";
 
 const BlogPageProjects = ({ projects }) => {
+  const [isDragging, setIsDragging] = useState(false);
+
   function SampleNextArrow(props) {
     const { onClick } = props;
     return (
@@ -48,13 +51,10 @@ const BlogPageProjects = ({ projects }) => {
     autoplaySpeed: 3000,
     cssEase: "linear",
     rtl: true,
-    // nextArrow: <SamplePrevArrow />,
-    // prevArrow: <SampleNextArrow />,
     draggable: true,
     swipe: true,
-    // touchMove: true,
-    // variableWidth: true,
-    // centerMode: false,
+    beforeChange: () => setIsDragging(true), // Start dragging
+    afterChange: () => setTimeout(() => setIsDragging(false), 200),
     responsive: [
       {
         breakpoint: 1024,
@@ -81,46 +81,92 @@ const BlogPageProjects = ({ projects }) => {
   };
 
   return (
-    <div className="overflow-x-hidden overflow-hidden h-auto">
-      {projects.length > 0 ? (
-        <Slider {...settings} className="  ">
-          {projects.map((project, index) => (
-            <div key={index} className="px-2 group">
-              <Link
-                href={`/prosjekter/${project?._id}` || "#"}
-                className="bg-white rounded-lg shadow-md  overflow-x-hidden transition-all duration-300 ease-in-out"
-              >
-                <div className="w-full relative h-[15rem]">
-                  <Image
-                    src={project?.ProjectImg || AImg}
-                    alt={project?.title}
-                    priority
-                    fill
-                    className="w-full h-full object-cover rounded-t-md"
-                  />
-                </div>
-                <div className="p-4 flex items-center justify-between ">
-                  <div>
-                    <div className="text-xl font-semibold mb-2 line-clamp-1">
-                      {project?.title}
+    <div>
+      <div className=" mb-5 flex justify-end pr-5 ">
+        <Link
+          href={`/alle-prosjekter`}
+          className=" px-8 py-2 border-2 border-green-500 hover:bg-transparent hover:text-black transition-colors duration-300 ease-in-out rounded-full text-[#fff] bg-green-500  "
+        >
+          Alle prosjekter
+        </Link>
+      </div>
+      <div className="overflow-x-hidden overflow-hidden h-auto">
+        {projects.length > 0 ? (
+          <Slider {...settings} className="  ">
+            {projects.map((project, index) => (
+              <div key={index} className="px-2 group">
+                <Link
+                  href={isDragging ? "#" : `/prosjekter/${project?._id}`}
+                  onClick={(e) => isDragging && e.preventDefault()}
+                  className="bg-white rounded-lg shadow-md  overflow-x-hidden transition-all duration-300 ease-in-out"
+                >
+                  <div className=" w-full md:w-[430px] relative h-[15rem]  rounded-md">
+                    <Image
+                      src={project?.ProjectImg || AImg}
+                      alt={project?.title}
+                      priority
+                      fill
+                      className="w-full md:w-[430px] h-[15rem] object-contain object-left rounded-md"
+                    />
+                  </div>
+                  <div className="p-4 flex items-center justify-between ">
+                    <div>
+                      <div className="text-xl font-semibold mb-2 line-clamp-1">
+                        {project?.title}
+                      </div>
+                      <p className="text-[#17DB4F] line-clamp-1">
+                        {project?.url}
+                      </p>
                     </div>
-                    <p className="text-[#17DB4F] line-clamp-1">
-                      {project?.url}
-                    </p>
+                    <div className=" border-[#17DB4F] border-2 p-2 rounded-full text-[1.3rem] text-[#17DB4F] ">
+                      <IoIosArrowForward />
+                    </div>
                   </div>
-                  <div className=" border-[#17DB4F] border-2 p-2 rounded-full text-[1.3rem] text-[#17DB4F] ">
-                  <IoIosArrowForward />
-                  </div>
-                </div>
-              </Link>
-            </div>
-          ))}
-        </Slider>
-      ) : (
-        <p>Loading projects...</p>
-      )}
+                </Link>
+              </div>
+            ))}
+          </Slider>
+        ) : (
+          // <p>Laster inn prosjekter...</p>
+          <div className=" py-10 relative ">
+            <FetchDataLoading />
+          </div>
+        )}
+      </div>
     </div>
   );
 };
 
 export default BlogPageProjects;
+
+export const AllProjectCard = ({ project }) => {
+  return (
+    <div className="px-2 group">
+      <Link
+        href={`/prosjekter/${project?._id}`}
+        className="bg-white rounded-lg shadow-md  overflow-x-hidden transition-all duration-300 ease-in-out"
+      >
+        <div className="w-full relative h-[15rem] rounded-md">
+          <Image
+            src={project?.ProjectImg || AImg}
+            alt={project?.title}
+            priority
+            fill
+            className="w-full h-full object-contain rounded-md"
+          />
+        </div>
+        <div className="p-4 flex items-center justify-between ">
+          <div>
+            <div className="text-xl font-semibold mb-2 line-clamp-1">
+              {project?.title}
+            </div>
+            <p className="text-[#17DB4F] line-clamp-1">{project?.url}</p>
+          </div>
+          <div className=" border-[#17DB4F] border-2 p-2 rounded-full text-[1.3rem] text-[#17DB4F] ">
+            <IoIosArrowForward />
+          </div>
+        </div>
+      </Link>
+    </div>
+  );
+};
