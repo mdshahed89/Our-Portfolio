@@ -118,6 +118,7 @@ const Footer = () => {
               className=" border border-[#fff] w-[14rem] py-2 text-center cursor-pointer "
             >
               Book møte
+              <span className=" sr-only ">Bestill Konsultasjon</span>
             </Link>
           </div>
         </div>
@@ -143,6 +144,7 @@ const Footer = () => {
             className=" border border-[#fff] w-full py-2 text-center cursor-pointer "
           >
             Book møte
+            <span className=" sr-only ">Avtal Et Møte</span>
           </Link>
         </div>
         <ResponsiveMenu />
@@ -189,6 +191,7 @@ const Footer = () => {
             className=" p-2 rounded-full border-2 border-[#219642] hover:border-[#17DB50] transition-colors duration-300 ease-in-out text-[#fff] text-[1.3rem] "
           >
             <FaFacebookF />
+            <span className=" sr-only ">Join Our SideStone Facebook Group</span>
           </Link>
           <Link
             onClick={() => setMenuOpen(false)}
@@ -198,6 +201,7 @@ const Footer = () => {
             className=" p-2 rounded-full border-2 border-[#219642] hover:border-[#17DB50] transition-colors duration-300 ease-in-out text-[#fff] text-[1.3rem] "
           >
             <FaInstagram />
+            <span className=" sr-only ">Join Our SideStone Instagram</span>
           </Link>
         </div>
       </div>

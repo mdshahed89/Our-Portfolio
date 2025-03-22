@@ -31,7 +31,7 @@ const page = async ({ params }) => {
       <div className=" max-w-[1400px] px-3 mx-auto ">
         <Link
           href={/^https?:\/\//.test(project?.url) ? project?.url : `https://${project?.url}`}
-          className=" flex items-center text-[1.4rem] gap-2 text-green-500 mb-5 "
+          className=" flex items-center text-[1.4rem] gap-2 text-[#17DB4F] mb-5 "
         >
           <span>{project?.url.replace(/^(https?:\/\/)?(www\.)?/, '')}</span>
           <FaExternalLinkAlt />
@@ -65,7 +65,7 @@ const page = async ({ params }) => {
                 <span
                   className={`${
                     project?.status === "Online"
-                      ? "text-green-500"
+                      ? "text-[#17DB4F]"
                       : project?.status === "Offline"
                       ? "text-yellow-500"
                       : "text-orange-500"
@@ -82,7 +82,7 @@ const page = async ({ params }) => {
               {project?.briefAboutWebsite}
             </div>
           </div>
-          <div className=" flex-1  lg:order-2 order-1 border-2 relative h-[350px] rounded-md border-green-500 ">
+          <div className=" flex-1  lg:order-2 order-1 border-2 relative h-[350px] rounded-md border-[#17DB4F] ">
             <Image
               src={project?.mainImgUrl || Konsulenttorget}
               alt="Nettside img"

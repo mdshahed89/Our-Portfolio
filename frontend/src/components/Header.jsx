@@ -80,9 +80,10 @@ const Header = () => {
         <Link href={"/"} className=" w-auto h-auto ">
           <Image
             src={Logo}
-            alt="Sidesone"
+            alt="Sidesone - Profesjonelle nettsider, nettbutikker og webapper"
             className="w-[211px] h-[35px] object-contain"
           />
+          <span className=" sr-only ">Logo</span>
         </Link>
         <div className="lg:hidden" onClick={() => setMenuOpen(!menuOpen)}>
           <FaBars className="text-2xl cursor-pointer" />
@@ -287,6 +288,7 @@ const Header = () => {
                 >
                   {" "}
                   Book Møte
+                  <span className=" sr-only ">Reserver Din Tid</span>
                 </Link>
                 {/* <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-[#17DB4F] transition-all duration-300 group-hover:w-full"></span> */}
               </div>
@@ -464,6 +466,7 @@ const Header = () => {
                 } flex items-center justify-center  bg-[#17DB4F] border-2 py-1 px-7 w-full text-[1.3rem] text-center rounded-full  border-[#17DB4F] hover:bg-transparent transition-colors duration-300 ease-in-out `}
               >
                 Book Møte
+                <span className=" sr-only ">Book En Samtale</span>
               </Link>
             </li>
           </ul>
@@ -480,6 +483,7 @@ const Header = () => {
               className=" p-2 rounded-full border-2 border-[#17DB50] text-[#fff] text-[1.5rem] "
             >
               <FaFacebookF />
+              <span className=" sr-only ">Join Facebook</span>
             </Link>
             <Link
               onClick={() => setMenuOpen(false)}
@@ -489,6 +493,7 @@ const Header = () => {
               className=" p-2 rounded-full border-2 border-[#17DB50] text-[#fff] text-[1.5rem] "
             >
               <FaInstagram />
+              <span className=" sr-only ">Join Instagram</span>
             </Link>
           </div>
         </div>

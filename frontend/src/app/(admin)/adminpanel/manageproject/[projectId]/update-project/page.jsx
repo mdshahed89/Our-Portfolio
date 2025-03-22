@@ -250,7 +250,7 @@ const Page = ({ params }) => {
                       title: e.target.value,
                     });
                   }}
-                  className="rounded-full bg-transparent border-2 focus:border-green-500 transition-colors duration-300 ease-in-out outline-none p-2 px-4 mt-1"
+                  className="rounded-full bg-transparent border-2 focus:border-[#17DB4F] transition-colors duration-300 ease-in-out outline-none p-2 px-4 mt-1"
                   required
                 />
                 {errors.title && (
@@ -274,7 +274,7 @@ const Page = ({ params }) => {
                       projectUrl: e.target.value,
                     });
                   }}
-                  className="rounded-full px-4 bg-transparent border-2 focus:border-green-500 transition-colors duration-300 ease-in-out outline-none p-2 mt-1"
+                  className="rounded-full px-4 bg-transparent border-2 focus:border-[#17DB4F] transition-colors duration-300 ease-in-out outline-none p-2 mt-1"
                   required
                 />
                 {errors.url && (
@@ -286,7 +286,7 @@ const Page = ({ params }) => {
                 <div className="w-full max-w-[25rem] ">
                   <h3 className="text-lg font-medium mb-2">Forsidebilde</h3>
 
-                  <div className="flex h-[20rem] border-2 rounded-md border-green-500">
+                  <div className="flex h-[20rem] border-2 rounded-md border-[#17DB4F]">
                     {projectData?.coverImgUrl ? (
                       <div className=" relative w-full ">
                         <div className=" absolute flex justify-end z-50 bg-black/50 text-[#fff] p-2 right-3 top-3 rounded-full ">
@@ -347,7 +347,7 @@ const Page = ({ params }) => {
                     Forsidebilde for prosjektsiden
                   </h3>
 
-                  <div className="flex h-[20rem] border-2 rounded-md border-green-500">
+                  <div className="flex h-[20rem] border-2 rounded-md border-[#17DB4F]">
                     {projectData?.projectImgUrl ? (
                       <div className=" relative w-full ">
                         <div className=" absolute flex justify-end z-50 bg-black/50 text-[#fff] p-2 right-3 top-3 rounded-full ">
@@ -416,12 +416,12 @@ const Page = ({ params }) => {
                 projectData.projectImgUrl ? (
                   <Link
                     href={`/adminpanel/manageproject/${projectId}/update-project?query=update-details`}
-                    className="bg-green-500 relative w-[12rem] h-[2.5rem] flex items-center justify-center transition-all duration-300 ease-in-out active:scale-95 text-xl font-medium  rounded-full text-white"
+                    className="bg-[#17DB4F] relative w-[12rem] h-[2.5rem] flex items-center justify-center transition-all duration-300 ease-in-out active:scale-95 text-xl font-medium  rounded-full text-white"
                   >
                     Neste
                   </Link>
                 ) : (
-                  <div className="bg-green-500 opacity-70 cursor-default relative w-[12rem] h-[2.5rem] flex items-center justify-center transition-all duration-300 ease-in-out active:scale-95 text-xl font-medium  rounded-full text-white">
+                  <div className="bg-[#17DB4F] opacity-70 cursor-default relative w-[12rem] h-[2.5rem] flex items-center justify-center transition-all duration-300 ease-in-out active:scale-95 text-xl font-medium  rounded-full text-white">
                     Neste
                   </div>
                 )}
@@ -598,7 +598,7 @@ const ProjectDetails = ({
               ? projectData?.projectUrl
               : `https://${projectData?.projectUrl}`
           }
-          className=" flex items-center text-[1.4rem] gap-2 text-green-500 mb-5 "
+          className=" flex items-center text-[1.4rem] gap-2 text-[#17DB4F] mb-5 "
         >
           <span>
             {projectData?.projectUrl.replace(/^(https?:\/\/)?(www\.)?/, "")}
@@ -718,7 +718,7 @@ const ProjectDetails = ({
               />
             </div>
           </div>
-          <div className="flex-1 lg:order-2 order-1 flex h-full min-h-[25rem] border-2 rounded-md border-green-500">
+          <div className="flex-1 lg:order-2 order-1 flex h-full min-h-[25rem] border-2 rounded-md border-[#17DB4F]">
             {formData?.mainImgUrl ? (
               <div className=" relative w-full ">
                 <div className=" absolute flex justify-end z-50 bg-black/50 text-[#fff] p-2 right-3 top-3 rounded-full ">
@@ -773,7 +773,7 @@ const ProjectDetails = ({
       <div className=" max-w-[1400px] mx-auto py-[1rem] ">
         <button
           onClick={handleSubmit}
-          className=" bg-green-500 text-[#fff] w-[13rem] h-[2.7rem] rounded-md font-medium active:scale-95 transition-all duration-300 ease-in-out "
+          className=" bg-[#17DB4F] text-[#fff] w-[13rem] h-[2.7rem] rounded-md font-medium active:scale-95 transition-all duration-300 ease-in-out "
         >
           Oppdater prosjekt
         </button>
@@ -872,7 +872,7 @@ const SecondPart = ({ formData, setFormData }) => {
       <div className=" bg-[#eeeeee] pt-3 pb-5 ">
         <div
           onClick={() => document.getElementById("toolImgInput-click").click()}
-          className=" relative w-full flex flex-col items-center justify-center gap-4 border-2 border-green-500 max-w-[20rem] mx-auto rounded-md cursor-pointer p-4"
+          className=" relative w-full flex flex-col items-center justify-center gap-4 border-2 border-[#17DB4F] max-w-[20rem] mx-auto rounded-md cursor-pointer p-4"
         >
           {loading && <FetchLoading />}
           <button
@@ -932,7 +932,7 @@ const SecondPart = ({ formData, setFormData }) => {
             />
             <button
               onClick={handleAddSkill}
-              className=" px-5 py-2 text-nowrap rounded-r-md border outline-none text-[#fff] bg-green-500 "
+              className=" px-5 py-2 text-nowrap rounded-r-md border outline-none text-[#fff] bg-[#17DB4F] "
             >
               Legg til ferdighet
             </button>
@@ -1044,7 +1044,7 @@ const ThirdPart = ({ formData, setFormData }) => {
           onClick={() =>
             document.getElementById("galleryImgInput-click").click()
           }
-          className=" mt-3 relative w-full flex flex-col items-center justify-center gap-4 border-2 border-green-500  rounded-md cursor-pointer py-8 px-4"
+          className=" mt-3 relative w-full flex flex-col items-center justify-center gap-4 border-2 border-[#17DB4F]  rounded-md cursor-pointer py-8 px-4"
         >
           {loading && <FetchLoading />}
           <button

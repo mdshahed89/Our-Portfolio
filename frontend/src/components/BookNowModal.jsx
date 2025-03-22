@@ -171,7 +171,7 @@ export const BookNowModal = ({ title, availability }) => {
                     onChange={handleChange}
                     className="block w-full rounded-lg p-3 pl-10 outline-none border bg-white "
                   />
-                  <span className="absolute left-2 top-0 flex items-center h-full text-green-500 ">
+                  <span className="absolute left-2 top-0 flex items-center h-full text-[#17DB4F] ">
                     <FaRegUser />
                   </span>
                 </div>
@@ -193,7 +193,7 @@ export const BookNowModal = ({ title, availability }) => {
                     onChange={handleChange}
                     className="block w-full rounded-lg p-3 pl-10 outline-none border"
                   />
-                  <span className="absolute left-2 top-0 flex items-center h-full text-green-500 ">
+                  <span className="absolute left-2 top-0 flex items-center h-full text-[#17DB4F] ">
                     <MdAlternateEmail />
                   </span>
                 </div>
@@ -215,7 +215,7 @@ export const BookNowModal = ({ title, availability }) => {
                     onChange={handleChange}
                     className="block w-full rounded-lg p-3 pl-10 outline-none border"
                   />
-                  <span className="absolute left-2 top-0 flex items-center h-full text-green-500 ">
+                  <span className="absolute left-2 top-0 flex items-center h-full text-[#17DB4F] ">
                     <BsTelephonePlus />
                   </span>
                 </div>
@@ -256,7 +256,7 @@ export const BookNowModal = ({ title, availability }) => {
                     ))}
                   </select>
 
-                  <span className="absolute left-2 top-0 flex items-center h-full text-green-500 ">
+                  <span className="absolute left-2 top-0 flex items-center h-full text-[#17DB4F] ">
                     <SlCalender />
                   </span>
                 </div>

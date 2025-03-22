@@ -194,7 +194,7 @@ const Chatbot = () => {
                     <span
                       className={`inline-block py-2 px-4 rounded-2xl ${
                         msg.sender === "user"
-                          ? "bg-green-500 text-white rounded-br-none "
+                          ? "bg-[#17DB4F] text-white rounded-br-none "
                           : "bg-gray-200 text-black rounded-bl-none"
                       }`}
                     >
@@ -210,7 +210,7 @@ const Chatbot = () => {
                     type="text"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
-                    className="w-full py-2 pl-3 pr-12 border-2 outline-none rounded-full border-green-500 "
+                    className="w-full py-2 pl-3 pr-12 border-2 outline-none rounded-full border-[#17DB4F] "
                     placeholder="Skriv inn en melding..."
                   />
                   <div className=" absolute top-0 right-2 h-full flex items-center ">
@@ -235,7 +235,7 @@ const Chatbot = () => {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full py-2 px-4 border-2 rounded-full border-green-500  outline-none"
+                  className="w-full py-2 px-4 border-2 rounded-full border-[#17DB4F]  outline-none"
                   placeholder="Vennligst oppgi e-posten din..."
                 />
                 <button

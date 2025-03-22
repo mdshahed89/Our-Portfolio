@@ -106,7 +106,7 @@ export const GetBookedData = () => {
               </h3>
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center text-gray-600">
-                  <CiUser className="text-green-500 text-lg mr-2" />
+                  <CiUser className="text-[#17DB4F] text-lg mr-2" />
                   <p className="text-lg font-medium">{item.fullName}</p>
                 </div>
               </div>
@@ -154,17 +154,17 @@ export const GetBookedData = () => {
               </div>
 
               <div className="flex items-center text-gray-600 mb-4">
-                <MdOutlineDateRange className="text-green-500 text-lg mr-2" />
+                <MdOutlineDateRange className="text-[#17DB4F] text-lg mr-2" />
                 <span className="text-sm font-medium">
                   {new Date(item.dateAndTime).toLocaleString()}
                 </span>
               </div>
               <div className="flex items-center text-gray-600 mb-4">
-                <IoCall className="text-green-500 text-lg mr-2" />
+                <IoCall className="text-[#17DB4F] text-lg mr-2" />
                 <span className="text-sm font-medium">{item.phoneNo}</span>
               </div>
               <div className="flex items-center text-gray-600 mb-4">
-                <MdMarkEmailUnread className="text-green-500 text-lg mr-2" />
+                <MdMarkEmailUnread className="text-[#17DB4F] text-lg mr-2" />
                 <span className="text-sm font-medium">{item.email}</span>
               </div>
             </div>
@@ -303,9 +303,9 @@ export const AvailabilityModal = ({ fetchData }) => {
                   value={startDate}
                   onChange={handleStartDateChange}
                   required
-                  className="block w-full text-black rounded-lg p-3 pl-10 outline-none border focus:ring-2 focus:ring-green-500"
+                  className="block w-full text-black rounded-lg p-3 pl-10 outline-none border focus:ring-2 focus:ring-[#17DB4F]"
                 />
-                <span className="absolute left-3 top-0 flex items-center h-full text-green-500">
+                <span className="absolute left-3 top-0 flex items-center h-full text-[#17DB4F]">
                   <SlCalender />
                 </span>
               </div>
@@ -326,9 +326,9 @@ export const AvailabilityModal = ({ fetchData }) => {
                   value={endDate}
                   onChange={handleEndDateChange}
                   required
-                  className="block w-full text-black rounded-lg p-3 pl-10 outline-none border focus:ring-2 focus:ring-green-500"
+                  className="block w-full text-black rounded-lg p-3 pl-10 outline-none border focus:ring-2 focus:ring-[#17DB4F]"
                 />
-                <span className="absolute left-3 top-0 flex items-center h-full text-green-500">
+                <span className="absolute left-3 top-0 flex items-center h-full text-[#17DB4F]">
                   <SlCalender />
                 </span>
               </div>

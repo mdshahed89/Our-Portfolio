@@ -497,7 +497,7 @@ export const ProjectCard = ({}) => {
                   onClick={() =>
                     handleProjectVisibility(item?._id, item?.isVisible)
                   }
-                  className={` absolute top-5 right-[9rem] text-[1.5rem] z-50 ${item?.isVisible ? "text-[#fff] bg-green-500" : "text-[#000] bg-[#fff]"} hover:text-[#fff] hover:bg-green-500 cursor-pointer shadow-xl p-2 rounded-md `}
+                  className={` absolute top-5 right-[9rem] text-[1.5rem] z-50 ${item?.isVisible ? "text-[#fff] bg-[#17DB4F]" : "text-[#000] bg-[#fff]"} hover:text-[#fff] hover:bg-[#17DB4F] cursor-pointer shadow-xl p-2 rounded-md `}
                 >
                   <IoIosStarOutline />
                 </div>

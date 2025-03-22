@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 import {
+  MdArrowForwardIos,
   MdOutlineKeyboardArrowLeft,
   MdOutlineKeyboardArrowRight,
 } from "react-icons/md";
@@ -133,12 +134,14 @@ const BlogPageProjects = ({ projects }) => {
         )}
       </div>
       <div className=" mt-3 flex justify-end pr-5 ">
-        <Link
-          href={`/alle-prosjekter`}
-          className=" px-6 md:px-8 py-1 md:py-2 border-2 border-green-500 hover:bg-transparent hover:text-black transition-colors duration-300 ease-in-out rounded-full text-[#fff] bg-green-500  "
-        >
-          Alle prosjekter
-        </Link>
+      <Link
+  href={`/alle-prosjekter`}
+  className="px-5 py-1 group text-lg md:text-xl flex items-center gap-2 md:py-2 transition-colors duration-300 ease-in-out rounded-full text-[#17DB4F]"
+>
+  <span className="flex-shrink-0">Se alle prosjekter</span>
+  <MdArrowForwardIos className=" mt-[2px] transition-transform duration-300 ease-linear transform group-hover:translate-x-2" />
+</Link>
+
       </div>
     </div>
   );

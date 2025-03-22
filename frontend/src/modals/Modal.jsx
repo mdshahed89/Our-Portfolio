@@ -474,7 +474,7 @@ export const UpdateReviewModal = ({fetchReviews, review}) => {
     <div className="">
       <button
         onClick={() => setOpenModal(true)}
-        className=" absolute top-4 right-[7.8rem] text-[1.5rem] text-green-500  "
+        className=" absolute top-4 right-[7.8rem] text-[1.5rem] text-[#17DB4F]  "
       >
         <CiEdit />
       </button>

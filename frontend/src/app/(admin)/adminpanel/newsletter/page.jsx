@@ -89,11 +89,11 @@ const Card = ({ newsletter, handleDelete, id }) => {
     <div className="bg-white hover:shadow-[0_0_5px_1px_rgba(0,128,0,0.6)] shadow-[0_0_5px_1px_rgba(128,128,128,0.6)] pt-10 pb-3 rounded-md transition-all duration-300 px-6 relative ">
       <div className="flex flex-col mb-3">
         <div className="flex items-center text-gray-600">
-          <FaUser className="text-green-500 text-lg mr-2" />
+          <FaUser className="text-[#17DB4F] text-lg mr-2" />
           <p className="text-lg font-medium">{newsletter?.name}</p>
         </div>
         <div className="flex items-center text-gray-600">
-          <MdEmail className="text-green-500 text-lg mr-2" />
+          <MdEmail className="text-[#17DB4F] text-lg mr-2" />
           <p className="text-lg font-medium">{newsletter?.email}</p>
         </div>
       </div>

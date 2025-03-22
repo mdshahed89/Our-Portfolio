@@ -97,21 +97,21 @@ const Tools = () => {
             icon={<MdCampaign />}
             title="Markedsføring"
             description="Strategier og kampanjer for å nå ut til målgruppen din på ulike plattformer."
-            btn="Les mer"
+            btn="Lær mer om markedsføring"
             path="/markedsforing"
           />
           <Card
             icon={<FaChartLine />}
             title="Avansert Seo"
             description="Dybdeoptimalisering for bedre synlighet og rangering på søkemotorer."
-            btn="Les mer"
+            btn="Utforsk SEO-strategier"
             path="/seo"
           />
           <Card
             icon={<FaPaintBrush />}
             title="Grafisk design"
             description="Design av logo, visuelle profiler og annet grafisk materiale for merkevaren din."
-            btn="Les mer"
+            btn="Se våre designløsninger"
             path="/logo"
           />
         </div>
@@ -312,9 +312,9 @@ export const Team = () => {
         <div className=" flex flex-col justify-center gap-5 pt-2 md:p-3">
           <div className=" bg-[#0b462ece] p-5 rounded-md mx-2 ">
             <TbUsersGroup className=" text-[2rem] mb-1 " />
-            <h3 className="text-[34px]   pb-5 font-semibold">
+            <h5 className="text-[34px]   pb-5 font-semibold">
               Teamet bak sidesone
-            </h3>
+            </h5>
             <h6 className=" text-[20px] text-gray-100 leading-normal 2xl:leading-8">
               Hos Sidesone er vi eksperter på å skape digitale løsninger som
               gjør en forskjell for både enkeltpersoner og bedrifter. Vi forstår
@@ -466,6 +466,7 @@ export const Booking = () => {
               className="w-60 bg-black transition-all flex items-center gap-4 justify-center duration-300 ease-in-out active:scale-95 text-white p-3 rounded-full"
             >
               Book Møte
+              <span className=" sr-only ">Planlegg En Avtale</span>
               <div className="w-2 h-2 bg-[#17DB4F] rounded-full animate-[ping_2s_ease-in-out_infinite]"></div>
             </Link>
           </div>

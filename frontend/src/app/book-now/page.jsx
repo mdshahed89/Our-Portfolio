@@ -77,15 +77,15 @@ const Card = ({ title, time, availability }) => {
       <h3 className=" text-[1.4rem] font-semibold my-4 ">{title}</h3>
       <div className=" flex items-center justify-between ">
         <div className=" flex items-center gap-1  text-[1rem]  ">
-          <TbFreezeColumn className=" text-green-500 " />
+          <TbFreezeColumn className=" text-[#17DB4F] " />
           <h4>Gratis Konsultasjon</h4>
         </div>
         <div className=" flex items-center gap-1  text-[#000] text-[1rem]  ">
-          <CiClock2 className=" text-green-500 " />
+          <CiClock2 className=" text-[#17DB4F] " />
           <p>{time}</p>
         </div>
         <div className=" flex items-center gap-1  text-[#000] text-[1rem] ">
-          <CiUser className=" text-green-500 " />
+          <CiUser className=" text-[#17DB4F] " />
           <p>1</p>
         </div>
       </div>

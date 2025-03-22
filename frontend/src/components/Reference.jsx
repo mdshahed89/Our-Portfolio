@@ -36,6 +36,14 @@ export default async function Reference({ title }) {
       : plainText;
   }
 
+  const buttonTexts = [
+    "Se Prosjektet",
+    "Utforsk Mer",
+    "Les Om Prosjektet",
+    "Oppdag Arbeidet",
+    "Se Detaljer"
+  ];
+
   // console.log(referencesData);
 
   return (
@@ -84,6 +92,7 @@ export default async function Reference({ title }) {
                       href={`/referanser`}
                     >
                       Se Prosjektet{" "}
+                      <span className=" sr-only ">{buttonTexts[index % buttonTexts.length]}</span>
                       <MdArrowForward className=" mt-1 group-hover:ml-2 transition-all duration-200 ease-linear " />
                     </Link>
                   </div>
@@ -147,7 +156,7 @@ export const Slider = async () => {
                     placeholder="blur"
                     blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNmM2Y0ZjUiLz48L3N2Zz4="
                     src={item.coverImg || AImg}
-                    alt={item.title}
+                    alt={item.title || "title img"}
                     width={400}
                     height={300}
                     className="w-full h-full object-contain object-top rounded-md"
