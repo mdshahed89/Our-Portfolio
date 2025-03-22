@@ -3,7 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
-import { MdAddIcCall, MdEmail, MdOutlineKeyboardArrowDown } from "react-icons/md";
+import {
+  MdAddIcCall,
+  MdEmail,
+  MdOutlineKeyboardArrowDown,
+} from "react-icons/md";
 import Logo from "@/assets/logo.png";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 const Footer = () => {
@@ -31,9 +35,9 @@ const Footer = () => {
         </div>
         <div className=" text-[#fff] flex justify-end lg:justify-start  ">
           <div className=" flex flex-col gap-8 ">
-            <h3 className=" text-[1.5rem] font-medium  relative before:absolute before:h-1 before:-bottom-2 before:w-12 before:bg-[#fff]   ">
+            <div className=" text-[1.5rem] font-medium  relative before:absolute before:h-1 before:-bottom-2 before:w-12 before:bg-[#fff]   ">
               Tjenester
-            </h3>
+            </div>
             <div className=" flex flex-col gap-3 text-lg ">
               <Link
                 href={`/nettside`}
@@ -76,9 +80,9 @@ const Footer = () => {
         </div>
         <div className=" text-[#fff] flex  md:mt-0 mt-5 ">
           <div className=" flex flex-col gap-8 ">
-            <h3 className=" text-[1.5rem] font-medium  relative before:absolute before:h-1 before:-bottom-2 before:w-12 before:bg-[#fff]   ">
+            <div className=" text-[1.5rem] font-medium  relative before:absolute before:h-1 before:-bottom-2 before:w-12 before:bg-[#fff]   ">
               Snarveier
-            </h3>
+            </div>
             <div className=" flex flex-col gap-3 text-lg ">
               <Link
                 href={`/referanser`}
@@ -98,7 +102,7 @@ const Footer = () => {
                 target="_blank"
                 className=" hover:text-[#17DB4F] cursor-pointer transition-colors duration-300 ease-in-out "
               >
-                Facebook Greppe
+                Facebook Gruppe
               </Link>
             </div>
           </div>
@@ -198,37 +202,35 @@ const Footer = () => {
         </div>
       </div>
       <div className=" flex text-[#fff] md:hidden items-center gap-5 ">
-            <Link
-              href={`/vilkar-og-betingelser`}
-              className=" border-b border-[#1e8b3d] pb-1 mt-1 "
-            >
-              Vilkår og betingelser
-            </Link>
-            <Link
-              href={`/informasjonskapsler-cookies`}
-              className=" border-b border-[#1e8b3d] pb-1 mt-1 "
-            >
-              Cookies
-            </Link>
-            <Link
-              href={"/privacy-policy"}
-              className=" border-b border-[#1e8b3d] pb-1 mt-1 "
-            >
-              Personvernpolicy
-            </Link>
-          </div>
+        <Link
+          href={`/vilkar-og-betingelser`}
+          className=" border-b border-[#1e8b3d] pb-1 mt-1 "
+        >
+          Vilkår og betingelser
+        </Link>
+        <Link
+          href={`/informasjonskapsler-cookies`}
+          className=" border-b border-[#1e8b3d] pb-1 mt-1 "
+        >
+          Cookies
+        </Link>
+        <Link
+          href={"/privacy-policy"}
+          className=" border-b border-[#1e8b3d] pb-1 mt-1 "
+        >
+          Personvernpolicy
+        </Link>
+      </div>
     </footer>
   );
 };
 
 export default Footer;
 
-import { FiPlus } from "react-icons/fi";
+import { FiMinus, FiPlus } from "react-icons/fi";
 import { Newsletter } from "@/modals/Modal";
 
-
 const ResponsiveMenu = () => {
-
   const pathName = usePathname();
   const [dropdownOpen, setDropdownOpen] = useState(null);
 
@@ -248,11 +250,11 @@ const ResponsiveMenu = () => {
               onClick={() => toggleDropdown(0)}
             >
               Tjenester
-              <FiPlus
-                className={`ml-2  transition-transform duration-300 ${
-                  dropdownOpen === 0 ? "rotate-180" : "rotate-0"
-                }`}
-              />
+              {dropdownOpen === 0 ? (
+                <FiMinus className="ml-2 rotate-180 transition-all duration-300 " />
+              ) : (
+                <FiPlus className="ml-2 transition-transform duration-300" />
+              )}
             </div>
           </div>
           <ul
@@ -338,11 +340,11 @@ const ResponsiveMenu = () => {
               onClick={() => toggleDropdown(1)}
             >
               Snarveier
-              <FiPlus
-                className={`ml-2 transition-transform duration-300 ${
-                  dropdownOpen === 1 ? "rotate-180" : "rotate-0"
-                }`}
-              />
+              {dropdownOpen === 1 ? (
+                <FiMinus className="ml-2 rotate-180 transition-all duration-300 " />
+              ) : (
+                <FiPlus className="ml-2 transition-transform duration-300" />
+              )}
             </div>
           </div>
           <ul
@@ -380,7 +382,7 @@ const ResponsiveMenu = () => {
                 className={`flex items-center pb-2 hover:text-[#17DB4F] cursor-pointer
                   `}
               >
-                Facebook Greppe
+                Facebook Gruppe
               </Link>
             </li>
           </ul>

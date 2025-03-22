@@ -53,7 +53,7 @@ const BlogPageProjects = ({ projects }) => {
     rtl: true,
     draggable: true,
     swipe: true,
-    beforeChange: () => setIsDragging(true), // Start dragging
+    beforeChange: () => setIsDragging(true), 
     afterChange: () => setTimeout(() => setIsDragging(false), 200),
     responsive: [
       {
@@ -89,14 +89,6 @@ const BlogPageProjects = ({ projects }) => {
 
   return (
     <div>
-      <div className=" md:mb-5 flex justify-end pr-5 ">
-        <Link
-          href={`/alle-prosjekter`}
-          className=" px-5 md:px-8 py-1 md:py-2 border-2 border-green-500 hover:bg-transparent hover:text-black transition-colors duration-300 ease-in-out rounded-full text-[#fff] bg-green-500  "
-        >
-          Alle prosjekter
-        </Link>
-      </div>
       <div className="overflow-x-hidden overflow-hidden h-auto md:px-4 ">
         {projects.length > 0 ? (
           <Slider {...settings} className="  ">
@@ -113,7 +105,7 @@ const BlogPageProjects = ({ projects }) => {
                       alt={project?.title}
                       priority
                       fill
-                      className="w-full max-w-[430px] h-[15rem] object-contain object-left rounded-md"
+                      className="w-full max-w-[430px] h-[15rem] object-contain object-top rounded-md"
                     />
                   </div>
                   <div className="p-4 flex items-center justify-between ">
@@ -140,6 +132,14 @@ const BlogPageProjects = ({ projects }) => {
           </div>
         )}
       </div>
+      <div className=" mt-3 flex justify-end pr-5 ">
+        <Link
+          href={`/alle-prosjekter`}
+          className=" px-6 md:px-8 py-1 md:py-2 border-2 border-green-500 hover:bg-transparent hover:text-black transition-colors duration-300 ease-in-out rounded-full text-[#fff] bg-green-500  "
+        >
+          Alle prosjekter
+        </Link>
+      </div>
     </div>
   );
 };
@@ -159,7 +159,7 @@ export const AllProjectCard = ({ project }) => {
             alt={project?.title}
             priority
             fill
-            className="w-full h-full object-contain rounded-md"
+            className="w-full h-full object-contain object-top rounded-md"
           />
         </div>
         <div className="p-4 flex items-center justify-between ">

@@ -38,11 +38,11 @@ const Tools = () => {
               inkludert i alle nettsidepakker
             </span>
           </div>
-          <p className=" text-gray-500 mt-4 text-base md:text-lg ">
+          <h6 className=" text-gray-500 mt-4 text-base md:text-lg max-w-[50rem] mx-auto ">
             Uansett om du velger en nettside, nettbutikk eller webapplikasjon,
             får du disse grunnleggende tjenestene inkludert for en komplett og
             profesjonell løsning.
-          </p>
+          </h6>
         </div>
         <div className=" 2xl:max-w-[1400px] max-w-[1200px] mx-auto grid sm:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-2 ">
           <Card
@@ -85,12 +85,12 @@ const Tools = () => {
               ekstra kostnad
             </span>
           </div>
-          <p className=" text-gray-500 mt-4 text-base md:text-lg max-w-[60rem] ">
+          <h6 className=" text-gray-500 mt-4 text-base md:text-lg max-w-[60rem] ">
             For deg som ønsker ekstra funksjonalitet eller skreddersydde
             løsninger, tilbyr vi disse tilleggstjenestene. Merk at noen
             kostnader er engangsbeløp, mens andre kan være løpende på månedlig
             basis
-          </p>
+          </h6>
         </div>
         <div className=" grid grid-cols-1 md:grid-cols-3 gap-2 ">
           <Card
@@ -131,9 +131,9 @@ const Card = ({ icon, title, description, btn, path }) => {
         {icon}
       </div>
       <div>
-        <h3 className=" mt-1 text-[1.3rem] md:text-[1.5rem] font-semibold text-[#035635] ">
+        <div className=" mt-1 text-[1.3rem] md:text-[1.5rem] font-semibold text-[#035635] ">
           {title}
-        </h3>
+        </div>
         <p className=" mt-2 text-gray-700 text-base md:text-lg ">
           {description}
         </p>
@@ -288,9 +288,9 @@ const Process = () => {
 const ProcessCard = ({ title, description, icon }) => {
   return (
     <div className=" bg-[#fff] h-full relative text-center py-6 px-4 rounded-lg overflow-hidden ">
-      <h3 className=" relative z-30 text-[1.5rem] font-medium leading-tight ">
+      <div className=" relative z-30 text-[1.5rem] font-medium leading-tight ">
         {title}
-      </h3>
+      </div>
       <p className=" relative z-30 text-lg mt-4 text-gray-600 ">
         {description}
       </p>
@@ -315,7 +315,7 @@ export const Team = () => {
             <h3 className="text-[34px]   pb-5 font-semibold">
               Teamet bak sidesone
             </h3>
-            <p className=" text-[20px] text-gray-100 leading-normal 2xl:leading-8">
+            <h6 className=" text-[20px] text-gray-100 leading-normal 2xl:leading-8">
               Hos Sidesone er vi eksperter på å skape digitale løsninger som
               gjør en forskjell for både enkeltpersoner og bedrifter. Vi forstår
               at behovene kan variere - fra små bedrifter og gründere som
@@ -324,7 +324,7 @@ export const Team = () => {
               digitale strategier. Uansett hvem du er, eller hvilken bransje du
               opererer i, er vårt mål alltid det samme: å levere løsninger som
               overgår forventningene.
-            </p>
+            </h6>
           </div>
           <div className=" bg-[#0b462ece] p-5 rounded-md mx-2  ">
             <p className=" text-[20px] text-gray-100 leading-normal 2xl:leading-8">

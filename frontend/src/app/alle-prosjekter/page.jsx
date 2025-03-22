@@ -2,7 +2,7 @@ import { AllProjectCard } from "@/components/BlogPageProjects";
 import { FetchDataLoading } from "@/components/Loading";
 
 const page = async () => {
-  let visibleProjects = [];
+  let projects = [];
 
   try {
     const response = await fetch(
@@ -17,8 +17,7 @@ const page = async () => {
 
     const data = await response.json();
 
-    visibleProjects =
-      data?.data?.filter((project) => project?.isVisible !== true) || [];
+    projects = data?.data || [];
   } catch (error) {
     console.error("Error fetching projects:", error);
   }
@@ -34,12 +33,12 @@ const page = async () => {
           </p>
         </div>
       </div>
-      <div className=" px-3 lg:px-5 mt-5 ">
-        {visibleProjects &&
-        Array.isArray(visibleProjects) &&
-        visibleProjects.length > 0 ? (
+      <div className=" px-3 lg:px-5 mt-5 py-5 ">
+        {projects &&
+        Array.isArray(projects) &&
+        projects.length > 0 ? (
           <div className=" grid md:grid-cols-2 grid-cols-1 lg:grid-cols-4 gap-5 ">
-            {visibleProjects.map((project, idx) => (
+            {projects.map((project, idx) => (
               <div key={idx}>
                 <AllProjectCard project={project} />
               </div>

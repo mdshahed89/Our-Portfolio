@@ -150,7 +150,7 @@ export const Slider = async () => {
                     alt={item.title}
                     width={400}
                     height={300}
-                    className="w-full h-full object-contain rounded-md"
+                    className="w-full h-full object-contain object-top rounded-md"
                   />
                 </figure>
 
