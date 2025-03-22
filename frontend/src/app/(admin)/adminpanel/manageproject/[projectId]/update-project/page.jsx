@@ -55,9 +55,10 @@ const Page = ({ params }) => {
           );
           const project = response.data.data;
           setProjectData({
-            title: project.title,
-            projectUrl: project.url,
-            coverImgUrl: project?.coverImg,
+            title: project.title || "",
+            projectUrl: project.url || "",
+            coverImgUrl: project?.coverImg || "",
+            projectImgUrl: project?.ProjectImg || "",
           });
           setFormData({
             projectName: project.projectName || "",

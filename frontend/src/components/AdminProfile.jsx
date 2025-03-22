@@ -484,7 +484,7 @@ export const ProjectCard = ({}) => {
               <figure className="h-[300px] w-[400px] overflow-hidden">
                 <Image
                   loading="lazy"
-                  src={item?.coverImg}
+                  src={item?.isVisible ? item?.coverImg : item?.ProjectImg}
                   alt={item.title}
                   width={400}
                   height={300}
