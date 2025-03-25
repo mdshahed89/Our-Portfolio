@@ -2,7 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { MdArrowForward } from "react-icons/md";
 import Marquee from "react-fast-marquee";
-import AImg from "@/assets/A.jpg"
+import AImg from "@/assets/A.jpg";
+import BlogImg1 from "@/assets/BlogImg1.png";
+import BlogImg2 from "@/assets/BlogImg2.png";
+import BlogImg3 from "@/assets/BlogImg3.png";
+import { IoIosArrowForward } from "react-icons/io";
 
 async function getReferencesData() {
   const res = await fetch(
@@ -36,72 +40,106 @@ export default async function Reference({ title }) {
       : plainText;
   }
 
+  const projects = [
+    {
+      img: BlogImg1,
+      title: "Konsulenttorget",
+      type: "Webapplikasjon",
+      link: "konsulenttorget.no",
+      color: "text-[#026DFB]",
+      bgColor: "bg-[#026DFB]/20",
+      description: "Konsulenttorget.no er en avansert webapplikasjon som kobler bedrifter med frilansere og konsulenter innen ulike fagfelt."
+    },
+    {
+      img: BlogImg3,
+      title: "Bidder",
+      type: "Nettside",
+      link: "bidder.no",
+      color: "text-[#008000]",
+      bgColor: "bg-[#008000]/20",
+      description: "Bidder er en pris og tjenestesammenligningsplattform hvor brukere kan finne de billigste skreddersydde tjenestene."
+    },
+    {
+      img: BlogImg2,
+      title: "Amand",
+      type: "Nettbutikk",
+      link: "amand.no",
+      color: "text-[#FF0000]",
+      bgColor: "bg-[#FF0000]/20",
+      description: "Amand.no er en nettbutikk som spesialiserer seg på elegante kjoler og moteklær for kvinner"
+    },
+  ];
+
+  // console.log(projects);
+
   const buttonTexts = [
     "Se Prosjektet",
     "Utforsk Mer",
     "Les Om Prosjektet",
     "Oppdag Arbeidet",
-    "Se Detaljer"
+    "Se Detaljer",
   ];
 
   // console.log(referencesData);
 
   return (
     <div>
-      {referencesData.length > 0 && (
+      
         <div className="pb-10 mt-6 px-3 lg:px-5 ">
           <div className="mx-auto">
             <div className="text-[2rem] lg:text-[3rem] py-3 font-medium">
-              {title}
+            Prosjekter
             </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-            {referencesData.slice(0, 3).map((reference, index) => (
+            {projects.map((project, index) => (
               <div key={index} className="overflow-hidden group w-full h-full ">
                 <Link
-                  href={`/referanser/${reference?._id}`}
+                  href={`https://${project.link}`}
+                  target="_blank"
                   className=" w-full h-full "
                 >
                   <div className=" relative w-full h-[300px] lg:[250px] xl:h-[350px] ">
                     <Image
                       loading="lazy"
-                      src={reference?.coverImage}
-                      alt={reference?.title || "Blog Image"}
+                      src={project?.img}
+                      alt={project?.title || "Blog Image"}
                       fill
-                      // width={16}
-                      // height={9}
                       className="w-full h-full object-cover "
                     />
                   </div>
                 </Link>
 
-                <div className="px-3 py-3 space-y-3">
-                  <div className="text-2xl font-semibold">
-                    {reference?.title || "Untitled Blog"}
+                    <div className=" px-3 py-3 ">
+                    <div className=" flex items-center justify-between pb-3 ">
+                    <div className="text-2xl font-semibold text-nowrap">
+                      {project?.title || "Untitled Blog"}
+                    </div>
+                    <div className={`text-xl font-medium rounded-md ${project.color} ${project.bgColor} px-3  `}>
+                      {project?.type}
+                    </div>
+                    </div>
+                <div className=" flex items-center justify-between gap-4  ">
+                  <div className=" space-y-2 ">
+                    <div>
+                    <p className=" font-medium text-gray-600 ">{project.description}</p>
                   </div>
-                  <div className="line-clamp-3 py-2 text-[22px] text-gray-600">
-                    {sliceContent(
-                      getParagraphContent(reference?.content).join(" "),
-                      150
-                    )}
+                    <div className="text-xl font-medium text-[#17DB4F] ">
+                      {project?.link}
+                    </div>
                   </div>
-                  <div>
-                    <Link
-                      className="text-black group flex items-center gap-2 border-b-2 border-[#035635] w-fit pb-1 transition-all duration-300 ease-in-out active:scale-95 font-medium text-lg"
-                      href={`/referanser`}
-                    >
-                      Se Prosjektet{" "}
-                      <span className=" sr-only ">{buttonTexts[index % buttonTexts.length]}</span>
-                      <MdArrowForward className=" mt-1 group-hover:ml-2 transition-all duration-200 ease-linear " />
-                    </Link>
+                  
+                  <div className=" border-[#17DB4F] border-2 p-2 rounded-full text-[1.3rem] text-[#17DB4F] ">
+                    <IoIosArrowForward />
                   </div>
                 </div>
+                    </div>
               </div>
             ))}
           </div>
         </div>
-      )}
+      
     </div>
   );
 }
@@ -121,15 +159,15 @@ export const Slider = async () => {
     }
 
     const data = await response.json();
-    
+
     // projects = data?.data || [];
-    visibleProjects = data?.data?.filter(project => project?.isVisible === true) || [];
+    visibleProjects =
+      data?.data?.filter((project) => project?.isVisible === true) || [];
   } catch (error) {
     console.error("Error fetching projects:", error);
   }
 
   // console.log(visibleProjects);
-  
 
   return (
     <div>

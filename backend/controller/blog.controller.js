@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import Blog from "../models/blog.model.js";
 import cloudinary from "../utils/cloudinary.js";
 
@@ -101,6 +102,13 @@ export const getBlogsForClient = async (req, res) => {
 
 export const getDetailsData = async (req, res) => {
   const id = req.params.id;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).send({
+      success: false,
+      message: "Something went wrong",
+    });
+  }
 
   try {
     const currentBlog = await Blog.findById(id);

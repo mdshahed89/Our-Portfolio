@@ -10,11 +10,12 @@ import ProcessIcon1 from "@/assets/ProcessIcon1.png";
 import ProcessIcon2 from "@/assets/ProcessIcon2.png";
 import ProcessIcon3 from "@/assets/ProcessIcon3.png";
 import ProcessIcon4 from "@/assets/ProcessIcon4.png";
-import { FaChartLine, FaLaptopCode, FaPaintBrush } from "react-icons/fa";
+import { FaChartLine, FaLaptopCode, FaPaintBrush, FaRegComments } from "react-icons/fa";
 import {
   MdArrowForward,
   MdCampaign,
   MdDevices,
+  MdOutlineContactMail,
   MdSecurity,
 } from "react-icons/md";
 import "@/styles//style.css";
@@ -154,10 +155,10 @@ const Card = ({ icon, title, description, btn, path }) => {
 
 const Process = () => {
   return (
-    <div className=" bg-[#7BDCB5] min-h-[1000px] flex flex-col justify-center md:processBg md:px-3 px-2 py-[2rem] ">
-      <div className=" text-center text-[2rem] md:text-[2.8rem] lg:text-[3rem] leading-tight font-semibold ">
+    <div className="  min-h-[1000px] flex flex-col justify-center md:processBg md:px-3 px-2 py-[2rem] ">
+      <div className=" text-center text-[2rem] md:text-[2.8rem] lg:text-[3.4rem] leading-tight font-semibold ">
         <div>Prosessen med oss er kjempeenkel, vi skreddersyr løsningen.</div>
-        <div className=" text-[#fff] ">Du slipper stress.</div>
+        <div className=" text-[#17DB4F] ">Du slipper stress.</div>
       </div>
       <div className=" 2xl:max-w-[1400px] max-w-[1200px] mt-[5rem] lg:mt-[10rem] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 ">
         <div className="relative">
@@ -165,12 +166,12 @@ const Process = () => {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 180 120"
-              className="w-48 h-32 stroke-white fill-none"
+              className="w-48 h-32 stroke-[#17DB4F] fill-none"
             >
               {/* Curved dashed line */}
               <path
                 d="M5,70 C50,40 80,40 100,60"
-                className="stroke-white"
+                className="stroke-[#17DB4F]"
                 strokeWidth="2"
                 strokeDasharray="5,5" /* Adjust dash spacing for better visibility */
                 fill="none"
@@ -178,8 +179,8 @@ const Process = () => {
               {/* Arrowhead */}
               <path
                 d="M95,57 L106,63 L96,69 Z"
-                className="fill-white"
-                stroke="white"
+                className="fill-[#17DB4F]"
+                stroke="#17DB4F"
                 strokeWidth="1"
                 transform="rotate(50, 100, 70)"
               />
@@ -188,7 +189,7 @@ const Process = () => {
           <ProcessCard
             title="Send inn kontaktskjema"
             description="Vi vil deretter ta kontakt med deg for å tilby hjelp og veiledning i å finne den optimale løsningen som passer best for deg"
-            icon={ProcessIcon1}
+            icon={<MdOutlineContactMail />}
           />
         </div>
         <div className="relative">
@@ -196,12 +197,12 @@ const Process = () => {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 180 120"
-              className="w-48 h-32 stroke-white fill-none"
+              className="w-48 h-32 stroke-[#17DB4F] fill-none"
             >
               {/* Curved dashed line */}
               <path
                 d="M5,70 C50,40 80,40 100,60"
-                className="stroke-white"
+                className="stroke-[#17DB4F]"
                 strokeWidth="2"
                 strokeDasharray="5,5" /* Adjust dash spacing for better visibility */
                 fill="none"
@@ -209,39 +210,17 @@ const Process = () => {
               {/* Arrowhead */}
               <path
                 d="M95,57 L106,63 L96,69 Z"
-                className="fill-white"
-                stroke="white"
+                className="fill-[#17DB4F]"
+                stroke="#17DB4F"
                 strokeWidth="1"
                 transform="rotate(50, 100, 70)"
               />
             </svg>
-            {/* <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 180 120"
-              className="w-48 h-32 stroke-white fill-none"
-            >
-             
-              <path
-                d="M5,70 C50,40 80,40 100,60"
-                className="stroke-white"
-                strokeWidth="2"
-                strokeDasharray="5,5"
-                fill="none"
-              />
-              
-              <path
-                d="M95,57 L106,63 L96,69 Z"
-                className="fill-white"
-                stroke="white"
-                strokeWidth="1"
-                transform="rotate(50, 100, 70)"
-              />
-            </svg> */}
           </div>
           <ProcessCard
-            title="Del dine ønsker og behov for din nye nettside"
+            title="Del dine ønsker og behov"
             description="Når du har valgt din nettsidepakke, sender du over informasjon om hva du ønsker å ha med på din nye nettside."
-            icon={ProcessIcon2}
+            icon={<FaRegComments />}
           />
         </div>
         <div className="relative">
@@ -249,12 +228,12 @@ const Process = () => {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 180 120"
-              className="w-48 h-32 stroke-white fill-none"
+              className="w-48 h-32 stroke-[#17DB4F] fill-none"
             >
               {/* Curved dashed line */}
               <path
                 d="M5,70 C50,40 80,40 100,60"
-                className="stroke-white"
+                className="stroke-[#17DB4F]"
                 strokeWidth="2"
                 strokeDasharray="5,5" /* Adjust dash spacing for better visibility */
                 fill="none"
@@ -262,8 +241,8 @@ const Process = () => {
               {/* Arrowhead */}
               <path
                 d="M95,57 L106,63 L96,69 Z"
-                className="fill-white"
-                stroke="white"
+                className="fill-[#17DB4F]"
+                stroke="#17DB4F"
                 strokeWidth="1"
                 transform="rotate(50, 100, 70)"
               />
@@ -272,35 +251,206 @@ const Process = () => {
           <ProcessCard
             title="Vi lager din nye nettside"
             description="Vårt team designer en attraktiv og brukervennlig nettside for dine kunder. Vi skriver også teksten basert på den informasjonen du deler med oss."
-            icon={ProcessIcon3}
+            icon={<BiCodeCurly />}
           />
         </div>
         <ProcessCard
           title="Du godkjenner, vi lanserer"
           description="Vi samarbeider med deg gjennom hele prosessen, og vi lanserer ikke nettsiden før du er fornøyd og har gitt din godkjennelse."
-          icon={ProcessIcon4}
+          icon={<RiRocketLine />}
         />
       </div>
     </div>
   );
 };
 
+// const  Process =() => {
+//   const options = [
+//     { id: 1, title: "OPTIONS 01", icon: "🔍" },
+//     { id: 2, title: "OPTIONS 02", icon: "💡" },
+//     { id: 3, title: "OPTIONS 03", icon: "📈" },
+//     { id: 4, title: "OPTIONS 04", icon: "🎯" },
+//   ];
+
+//   return (
+//     <div className="  px-4">
+//       <h2 className="text-[2.5rem] relative text-center font-semibold text-gray-700 uppercase tracking-wide mb-6">
+//   <span className="relative bg-white px-2 z-50">BUSINESS INFOGRAPHIC</span>
+//   <div className="absolute left-0 right-0 top-[50%] h-[2px] bg-black w-full z-30"></div>
+// </h2>
+
+//       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 w-full max-w-5xl">
+//         {options.map((option) => (
+//           <div key={option.id} className="relative bg-white p-6 rounded-2xl shadow-lg flex flex-col items-center text-center transition-all hover:scale-105">
+//             <div className="absolute top-[-20px] left-[-20px] bg-blue-500 w-16 h-16 rounded-full flex items-center justify-center text-white text-2xl">
+//               {option.icon}
+//             </div>
+//             <h3 className="text-blue-500 font-bold text-lg mt-8">{option.title}</h3>
+//             <p className="text-gray-500 text-sm mt-2">
+//               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
+//             </p>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
+
+
+// const Process = () => {
+//   return (
+//     <div className=" bg-[#7BDCB5] min-h-[1000px] flex flex-col justify-center md:processBg md:px-3 px-2 py-[2rem] ">
+//       <div className=" text-center text-[2rem] md:text-[2.8rem] lg:text-[3rem] leading-tight font-semibold ">
+//         <div>Prosessen med oss er kjempeenkel, vi skreddersyr løsningen.</div>
+//         <div className=" text-[#fff] ">Du slipper stress.</div>
+//       </div>
+//       <div className=" 2xl:max-w-[1400px] max-w-[1200px] mt-[5rem] lg:mt-[10rem] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 ">
+//         <div className="relative">
+//           <div className="absolute hidden lg:block -top-20 -right-36 z-50">
+//             <svg
+//               xmlns="http://www.w3.org/2000/svg"
+//               viewBox="0 0 180 120"
+//               className="w-48 h-32 stroke-white fill-none"
+//             >
+//               {/* Curved dashed line */}
+//               <path
+//                 d="M5,70 C50,40 80,40 100,60"
+//                 className="stroke-white"
+//                 strokeWidth="2"
+//                 strokeDasharray="5,5" /* Adjust dash spacing for better visibility */
+//                 fill="none"
+//               />
+//               {/* Arrowhead */}
+//               <path
+//                 d="M95,57 L106,63 L96,69 Z"
+//                 className="fill-white"
+//                 stroke="white"
+//                 strokeWidth="1"
+//                 transform="rotate(50, 100, 70)"
+//               />
+//             </svg>
+//           </div>
+//           <ProcessCard
+//             title="Send inn kontaktskjema"
+//             description="Vi vil deretter ta kontakt med deg for å tilby hjelp og veiledning i å finne den optimale løsningen som passer best for deg"
+//             icon={ProcessIcon1}
+//           />
+//         </div>
+//         <div className="relative">
+//           <div className="absolute hidden lg:block -top-20 -right-36 z-50">
+//             <svg
+//               xmlns="http://www.w3.org/2000/svg"
+//               viewBox="0 0 180 120"
+//               className="w-48 h-32 stroke-white fill-none"
+//             >
+//               {/* Curved dashed line */}
+//               <path
+//                 d="M5,70 C50,40 80,40 100,60"
+//                 className="stroke-white"
+//                 strokeWidth="2"
+//                 strokeDasharray="5,5" /* Adjust dash spacing for better visibility */
+//                 fill="none"
+//               />
+//               {/* Arrowhead */}
+//               <path
+//                 d="M95,57 L106,63 L96,69 Z"
+//                 className="fill-white"
+//                 stroke="white"
+//                 strokeWidth="1"
+//                 transform="rotate(50, 100, 70)"
+//               />
+//             </svg>
+//             {/* <svg
+//               xmlns="http://www.w3.org/2000/svg"
+//               viewBox="0 0 180 120"
+//               className="w-48 h-32 stroke-white fill-none"
+//             >
+             
+//               <path
+//                 d="M5,70 C50,40 80,40 100,60"
+//                 className="stroke-white"
+//                 strokeWidth="2"
+//                 strokeDasharray="5,5"
+//                 fill="none"
+//               />
+              
+//               <path
+//                 d="M95,57 L106,63 L96,69 Z"
+//                 className="fill-white"
+//                 stroke="white"
+//                 strokeWidth="1"
+//                 transform="rotate(50, 100, 70)"
+//               />
+//             </svg> */}
+//           </div>
+//           <ProcessCard
+//             title="Del dine ønsker og behov for din nye nettside"
+//             description="Når du har valgt din nettsidepakke, sender du over informasjon om hva du ønsker å ha med på din nye nettside."
+//             icon={ProcessIcon2}
+//           />
+//         </div>
+//         <div className="relative">
+//           <div className="absolute hidden lg:block -top-20 -right-36 z-50">
+//             <svg
+//               xmlns="http://www.w3.org/2000/svg"
+//               viewBox="0 0 180 120"
+//               className="w-48 h-32 stroke-white fill-none"
+//             >
+//               {/* Curved dashed line */}
+//               <path
+//                 d="M5,70 C50,40 80,40 100,60"
+//                 className="stroke-white"
+//                 strokeWidth="2"
+//                 strokeDasharray="5,5" /* Adjust dash spacing for better visibility */
+//                 fill="none"
+//               />
+//               {/* Arrowhead */}
+//               <path
+//                 d="M95,57 L106,63 L96,69 Z"
+//                 className="fill-white"
+//                 stroke="white"
+//                 strokeWidth="1"
+//                 transform="rotate(50, 100, 70)"
+//               />
+//             </svg>
+//           </div>
+//           <ProcessCard
+//             title="Vi lager din nye nettside"
+//             description="Vårt team designer en attraktiv og brukervennlig nettside for dine kunder. Vi skriver også teksten basert på den informasjonen du deler med oss."
+//             icon={ProcessIcon3}
+//           />
+//         </div>
+//         <ProcessCard
+//           title="Du godkjenner, vi lanserer"
+//           description="Vi samarbeider med deg gjennom hele prosessen, og vi lanserer ikke nettsiden før du er fornøyd og har gitt din godkjennelse."
+//           icon={ProcessIcon4}
+//         />
+//       </div>
+//     </div>
+//   );
+// };
+
 const ProcessCard = ({ title, description, icon }) => {
   return (
     <div className=" bg-[#fff] h-full relative text-center py-6 px-4 rounded-lg overflow-hidden ">
-      <div className=" relative z-30 text-[1.5rem] font-medium leading-tight ">
+      <div className=" flex justify-center w-full mb-[1rem] ">
+        <div className=" flex text-[2.5rem] border-2 border-[#17DB4F] text-[#17DB4F] rounded-full p-3 ">
+        {icon}
+        </div>
+      </div>
+      <div className=" relative z-30 text-[1.5rem] font-semibold leading-tight  ">
         {title}
       </div>
-      <p className=" relative z-30 text-lg mt-4 text-gray-600 ">
+      <p className=" relative z-30 text-xl mt-4 text-gray-600 ">
         {description}
       </p>
-      <div className=" absolute -bottom-8  right-0 z-10 ">
+      {/* <div className=" absolute -bottom-8  right-0 z-10 ">
         <Image
           src={icon}
           alt="Process Icon"
           className=" w-fit h-[8rem] object-contain opacity-50  "
         />
-      </div>
+      </div> */}
     </div>
   );
 };
@@ -478,6 +628,8 @@ export const Booking = () => {
 
 import { FcGoogle } from "react-icons/fc";
 import ReviewComponent from "./ReviewComponent";
+import { BiCodeCurly } from "react-icons/bi";
+import { RiRocketLine } from "react-icons/ri";
 
 export const Hero = () => {
   return (

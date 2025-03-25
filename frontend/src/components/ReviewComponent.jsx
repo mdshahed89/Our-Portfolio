@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
-import GoogleLogo from "@/assets/GoogleLogo.png"
+import GoogleLogo from "@/assets/GoogleLogo.png";
 import {
   MdOutlineKeyboardArrowLeft,
   MdOutlineKeyboardArrowRight,
@@ -38,7 +38,10 @@ const ReviewComponent = ({ reviews }) => {
 
   const settings = {
     dots: true,
+    className: "center",
+    centerMode: true,
     infinite: true,
+    centerPadding: "120px",
     speed: 500,
     autoplay: true,
     slidesToShow: 3,
@@ -50,9 +53,24 @@ const ReviewComponent = ({ reviews }) => {
     // prevArrow: <SampleNextArrow />,
     responsive: [
       {
+        breakpoint: 1480,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,
+          slidesToScroll: 1,
+          centerPadding: "60px",
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
           slidesToScroll: 1,
         },
       },
@@ -61,38 +79,20 @@ const ReviewComponent = ({ reviews }) => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 550,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          centerPadding: "20px",
         },
       },
     ],
   };
 
   return (
-    <div className=" max-w-[1400px] mx-auto pl-2 mt-5 flex items-center lg:flex-row flex-col ">
-      <div className=" w-full lg:w-[25%] text-[1.3rem] lg:mt-0 mt-[3rem] ">
-        <div className=" flex items-center  gap-2 ">
-        <p>5.0</p>
-        <div className=" flex items-center gap-2 text-yellow-400 ">
-          <MdOutlineStarPurple500 />
-          <MdOutlineStarPurple500 />
-          <MdOutlineStarPurple500 />
-          <MdOutlineStarPurple500 />
-          <MdOutlineStarPurple500 />
-        </div>
-        </div>
-        <div className=" whitespace-nowrap flex items-center gap-2 "><p>Powered by</p> <Image src={GoogleLogo} alt="Google Logo" className=" mt-1 h-[2rem] w-[4rem] object-cover " /></div>
-      </div>
-      <div className=" w-full lg:w-[75%] overflow-x-hidden overflow-hidden h-auto lgpy-10 ">
+    <div className="   mt-5  ">
+      
+      <div className=" w-full overflow-x-hidden overflow-hidden h-auto lg:py-10 ">
         {Array.isArray(reviews) && reviews.length > 0 ? (
-          <Slider {...settings} className=" py-5 grid grid-cols-3 ">
+          <Slider {...settings} className=" md:my-0 my-10 ">
             {reviews.map((review, idx) => (
-              <div key={idx} className="  h-full ">
+              <div key={idx} className=" w-full  h-full ">
                 <ReviewCard review={review} />
               </div>
             ))}
@@ -103,6 +103,29 @@ const ReviewComponent = ({ reviews }) => {
           </div>
         )}
       </div>
+
+      <div className=" flex justify-center w-full mt-[1.5rem] lg:mt-[3rem] ">
+      <div className=" w-fit text-[1.3rem]  ">
+        <div className=" flex items-center  gap-2 ">
+          <p>5.0</p>
+          <div className=" flex items-center gap-2 text-yellow-400 ">
+            <MdOutlineStarPurple500 />
+            <MdOutlineStarPurple500 />
+            <MdOutlineStarPurple500 />
+            <MdOutlineStarPurple500 />
+            <MdOutlineStarPurple500 />
+          </div>
+        </div>
+        <div className=" whitespace-nowrap flex items-center gap-2 ">
+          <p>Powered by</p>{" "}
+          <Image
+            src={GoogleLogo}
+            alt="Google Logo"
+            className=" mt-1 h-[2rem] w-[4rem] object-cover "
+          />
+        </div>
+      </div>
+      </div>
     </div>
   );
 };
@@ -110,12 +133,10 @@ const ReviewComponent = ({ reviews }) => {
 export default ReviewComponent;
 
 import ReviewIcon from "@/assets/ReviewIcon.png";
-import { BiSolidQuoteAltLeft, BiSolidQuoteAltRight } from "react-icons/bi";
 import { IoIosStarOutline } from "react-icons/io";
 import { FaRegStarHalfStroke } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { FetchDataLoading, FetchLoading } from "./Loading";
-
 
 const ReviewCard = ({ review }) => {
   const fullStars = Math.floor(review?.rating);
@@ -123,15 +144,15 @@ const ReviewCard = ({ review }) => {
   const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
 
   return (
-    <div className="h-full min-h-[22rem] flex flex-col justify-between rounded-xl my-5 shadow-[0px_1px_10px_rgba(0,0,0,0.15)] max-w-[22rem] mx-auto relative">
+    <div className=" px-[1.5rem]  lg:px-[3rem] py-[1rem] lg:py-[2rem] w-full h-full rounded-xl my-5 shadow-[0px_1px_10px_rgba(0,0,0,0.15)] relative">
       {/* Badge */}
       <div className="absolute top-0 right-0 bg-[#035635] text-[#fff] pl-6 pb-6 pt-4 pr-4 text-[1.3rem] rounded-tr-xl rounded-bl-full">
         <FcGoogle />
       </div>
 
       {/* Review Header (Image and Name) */}
-      <div className="px-3 pb-3 pt-[2rem] text-[#000] flex gap-2 w-full">
-        <div className="w-[3rem] h-[3rem] relative rounded-full">
+      <div className="px-3 pb-3 pt-[2rem] text-[#000] flex items-center gap-5 w-full">
+        <div className="w-[4rem] h-[4rem] relative rounded-full bg-slate-100 ">
           <Image
             src={review?.image || ReviewIcon}
             alt="Reviewer Img"
@@ -141,7 +162,7 @@ const ReviewCard = ({ review }) => {
         </div>
         <div>
           <p>{review?.name}</p>
-          <p>5 Måneder Siden</p>
+          <p>{review?.time}</p>
         </div>
       </div>
 
@@ -159,16 +180,12 @@ const ReviewCard = ({ review }) => {
       {/* Review Message */}
       <div className="px-3 py-2 text-lg flex-grow min-h-[8rem]">
         <div className="h-full flex items-center">
-          <p>{review?.message}</p>
+          <p>" {review?.message} "</p>
         </div>
       </div>
     </div>
   );
 };
-
-
-
-
 
 // const ReviewCard = ({ review }) => {
 //   const fullStars = Math.floor(review?.rating);

@@ -202,27 +202,26 @@ const ThirdPart = ({ project }) => {
 
           {project?.gellaryImgs &&
           Array.isArray(project?.gellaryImgs) &&
-          project.gellaryImgs.length > 0 ? (
-            project.gellaryImgs.map((img, idx) => (
-              <div
-                key={idx}
-                className=" relative w-[17rem] h-[11rem] bg-[#eeeeee] rounded-md "
-              >
-                <Image
-                  src={img || Konsulenttorget}
-                  className="  object-cover rounded-md lg:mx-0 mx-auto "
-                  fill
-                  alt="Figma icon"
-                />
-              </div>
-            ))
-          ) : (
-            <div>
-              <Image
-                src={Konsulenttorget}
-                alt="Konsulettorget Img"
-                className=" w-[17rem] h-[11rem] object-cover rounded-md lg:mx-0 mx-auto "
-              />
+          project.gellaryImgs.length > 0 ? 
+          <div className=" flex gap-5 flex-wrap mx-auto justify-center ">
+            {
+              project.gellaryImgs.map((img, idx) => (
+                <div
+                  key={idx}
+                  className=" relative w-[12rem] h-[8rem] rounded-md "
+                >
+                  <Image
+                    src={img || Konsulenttorget}
+                    className="  object-contain rounded-md lg:mx-0 mx-auto "
+                    fill
+                    alt="Gallery Img"
+                  />
+                </div>
+              ))
+            }
+          </div> : (
+            <div className=" text-lg text-gray-600 ">
+              Galleri bilde ikke funnet eller eksisterer ikke.
             </div>
           )}
         </div>
