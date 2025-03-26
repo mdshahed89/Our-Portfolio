@@ -25,14 +25,14 @@ const Header = () => {
   const [isTooltipOpen1, setIsTooltipOpen1] = useState(false);
   const [isClientReady, setIsClientReady] = useState(false);
 
-  const router = useRouter()
+  const router = useRouter();
 
   useEffect(() => {
     setIsClientReady(true);
   }, []);
 
   // const searchParams = useSearchParams();
-  // const scrollTarget = searchParams.get("scroll"); 
+  // const scrollTarget = searchParams.get("scroll");
 
   // useEffect(() => {
   //   if (scrollTarget === "reviews") {
@@ -312,22 +312,31 @@ const Header = () => {
           <ul className="flex flex-col mt-7 space-y-6 ">
             {/* Dropdown 1 */}
             <li className="relative group border-b border-[#17DB4F] py-2 ">
-              <Link href={"/nettside"}>
+              <div>
                 <div
                   className={`flex items-center justify-between pb-2 hover:text-[#17DB4F] cursor-pointer text-[2rem]  ${
                     pathName === "/nettside" && "text-[#17DB4F]"
                   }
                 `}
-                  onClick={() => toggleDropdown(0)}
+                  
                 >
-                  Nettside
+                  
+                  <Link
+                    href="/nettside"
+                    onClick={() => {
+                      setMenuOpen(false);
+                    }}
+                  >
+                    Nettside
+                  </Link>
                   <MdOutlineKeyboardArrowDown
+                  onClick={() => toggleDropdown(0)}
                     className={`ml-2  transition-transform duration-300 ${
                       dropdownOpen === 0 ? "rotate-180" : "rotate-0"
                     }`}
                   />
                 </div>
-              </Link>
+              </div>
               <ul
                 className={`flex flex-col gap-2 border-l-2 border-[#17DB4F] text-[1.5rem] pl-4 mt-2 transition-all duration-200 ease-in-out ${
                   dropdownOpen === 0 ? "block" : "hidden"
@@ -336,8 +345,8 @@ const Header = () => {
                 <li>
                   <Link
                     onClick={() => {
-                      setMenuOpen(false)
-                      toggleDropdown(null)
+                      setMenuOpen(false);
+                      toggleDropdown(null);
                     }}
                     href="/nettside"
                     className={`block py-2  hover:text-[#17DB4F] cursor-pointer ${
@@ -351,8 +360,8 @@ const Header = () => {
                 <li>
                   <Link
                     onClick={() => {
-                      setMenuOpen(false)
-                      toggleDropdown(null)
+                      setMenuOpen(false);
+                      toggleDropdown(null);
                     }}
                     href="/nettbuttik"
                     className={`block py-2  hover:text-[#17DB4F] cursor-pointer ${
@@ -366,8 +375,8 @@ const Header = () => {
                 <li>
                   <Link
                     onClick={() => {
-                      setMenuOpen(false)
-                      toggleDropdown(null)
+                      setMenuOpen(false);
+                      toggleDropdown(null);
                     }}
                     href="/webapplikasjon"
                     className={`block py-2  hover:text-[#17DB4F] cursor-pointer ${
@@ -383,22 +392,29 @@ const Header = () => {
 
             {/* Dropdown 2 */}
             <li className="relative group border-b border-[#17DB4F] py-2">
-              <Link href="/digitale-tjenester">
+              <div>
                 <div
                   className={`flex items-center justify-between pb-2 hover:text-[#17DB4F] cursor-pointer text-[2rem] ${
                     pathName === "/digitale-tjenester" && "text-[#17DB4F]"
                   }
               `}
-                  onClick={() => toggleDropdown(1)}
                 >
-                  Digitale Tjenester
+                  <Link
+                    href="/digitale-tjenester"
+                    onClick={() => {
+                      setMenuOpen(false);
+                    }}
+                  >
+                    Digitale Tjenester
+                  </Link>
                   <MdOutlineKeyboardArrowDown
+                    onClick={() => toggleDropdown(1)}
                     className={`ml-2 transition-transform duration-300 ${
                       dropdownOpen === 1 ? "rotate-180" : "rotate-0"
                     }`}
                   />
                 </div>
-              </Link>
+              </div>
               <ul
                 className={`flex flex-col gap-2 text-[1.5rem] border-l-2 border-[#17DB4F] pl-4 mt-2 transition-all duration-200 ease-in-out ${
                   dropdownOpen === 1 ? "block" : "hidden"
@@ -407,8 +423,8 @@ const Header = () => {
                 <li>
                   <Link
                     onClick={() => {
-                      setMenuOpen(false)
-                      toggleDropdown(null)
+                      setMenuOpen(false);
+                      toggleDropdown(null);
                     }}
                     href="/seo"
                     className={`flex items-center pb-2 hover:text-[#17DB4F] cursor-pointer ${
@@ -422,8 +438,8 @@ const Header = () => {
                 <li>
                   <Link
                     onClick={() => {
-                      setMenuOpen(false)
-                      toggleDropdown(null)
+                      setMenuOpen(false);
+                      toggleDropdown(null);
                     }}
                     href="/logo"
                     className={`flex items-center pb-2 hover:text-[#17DB4F] cursor-pointer ${
@@ -437,8 +453,8 @@ const Header = () => {
                 <li>
                   <Link
                     onClick={() => {
-                      setMenuOpen(false)
-                      toggleDropdown(null)
+                      setMenuOpen(false);
+                      toggleDropdown(null);
                     }}
                     href="/markedsforing"
                     className={`flex items-center pb-2 hover:text-[#17DB4F] cursor-pointer ${

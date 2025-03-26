@@ -53,7 +53,7 @@ const ReviewComponent = ({ reviews }) => {
     // prevArrow: <SampleNextArrow />,
     responsive: [
       {
-        breakpoint: 1480,
+        breakpoint: 1600,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
@@ -151,7 +151,7 @@ const ReviewCard = ({ review }) => {
       </div>
 
       {/* Review Header (Image and Name) */}
-      <div className="px-3 pb-3 pt-[2rem] text-[#000] flex items-center gap-5 w-full">
+      <div className="px-3 pb-3 pt-[2.5rem] text-[#000] flex items-center gap-5 w-full">
         <div className="w-[4rem] h-[4rem] relative rounded-full bg-slate-100 ">
           <Image
             src={review?.image || ReviewIcon}
@@ -167,7 +167,7 @@ const ReviewCard = ({ review }) => {
       </div>
 
       {/* Rating */}
-      <div className="px-3 mt-3 text-[1.3rem] flex items-center gap-1 text-yellow-400">
+      <div className="px-3 text-[1.3rem] flex items-center gap-1 text-yellow-400">
         {[...Array(fullStars)].map((_, index) => (
           <MdOutlineStarPurple500 key={index} />
         ))}
@@ -178,7 +178,7 @@ const ReviewCard = ({ review }) => {
       </div>
 
       {/* Review Message */}
-      <div className="px-3 py-2 text-lg flex-grow min-h-[8rem]">
+      <div className="px-3 py-2 text-lg flex-grow min-h-[13rem] md:min-h-[16.5rem] xl:min-h-[10rem]">
         <div className="h-full flex items-center">
           <p>&quot; {review?.message} &quot;</p>
         </div>

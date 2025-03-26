@@ -463,7 +463,7 @@ export const Team = () => {
           <div className="  p-5 rounded-md mx-2 ">
             <div className=" flex flex-col items-center ">
             <TbUsersGroup className=" text-[2rem] mb-1 " />
-            <h5 className="text-[34px]   pb-5 font-semibold">
+            <h5 className="text-[30px] leading-tight pb-5 font-semibold">
               Teamet bak sidesone
             </h5>
             </div>
