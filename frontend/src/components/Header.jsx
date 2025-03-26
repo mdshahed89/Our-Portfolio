@@ -335,7 +335,10 @@ const Header = () => {
               >
                 <li>
                   <Link
-                    onClick={() => setMenuOpen(false)}
+                    onClick={() => {
+                      setMenuOpen(false)
+                      toggleDropdown(null)
+                    }}
                     href="/nettside"
                     className={`block py-2  hover:text-[#17DB4F] cursor-pointer ${
                       pathName === "/nettside" && "text-[#17DB4F]"
@@ -347,7 +350,10 @@ const Header = () => {
                 </li>
                 <li>
                   <Link
-                    onClick={() => setMenuOpen(false)}
+                    onClick={() => {
+                      setMenuOpen(false)
+                      toggleDropdown(null)
+                    }}
                     href="/nettbuttik"
                     className={`block py-2  hover:text-[#17DB4F] cursor-pointer ${
                       pathName === "/nettbuttik" && "text-[#17DB4F]"
@@ -359,7 +365,10 @@ const Header = () => {
                 </li>
                 <li>
                   <Link
-                    onClick={() => setMenuOpen(false)}
+                    onClick={() => {
+                      setMenuOpen(false)
+                      toggleDropdown(null)
+                    }}
                     href="/webapplikasjon"
                     className={`block py-2  hover:text-[#17DB4F] cursor-pointer ${
                       pathName === "/webapplikasjon" && "text-[#17DB4F]"
@@ -397,7 +406,10 @@ const Header = () => {
               >
                 <li>
                   <Link
-                    onClick={() => setMenuOpen(false)}
+                    onClick={() => {
+                      setMenuOpen(false)
+                      toggleDropdown(null)
+                    }}
                     href="/seo"
                     className={`flex items-center pb-2 hover:text-[#17DB4F] cursor-pointer ${
                       pathName === "/seo" && "text-[#17DB4F]"
@@ -409,7 +421,10 @@ const Header = () => {
                 </li>
                 <li>
                   <Link
-                    onClick={() => setMenuOpen(false)}
+                    onClick={() => {
+                      setMenuOpen(false)
+                      toggleDropdown(null)
+                    }}
                     href="/logo"
                     className={`flex items-center pb-2 hover:text-[#17DB4F] cursor-pointer ${
                       pathName === "/logo" && "text-[#17DB4F]"
@@ -421,7 +436,10 @@ const Header = () => {
                 </li>
                 <li>
                   <Link
-                    onClick={() => setMenuOpen(false)}
+                    onClick={() => {
+                      setMenuOpen(false)
+                      toggleDropdown(null)
+                    }}
                     href="/markedsforing"
                     className={`flex items-center pb-2 hover:text-[#17DB4F] cursor-pointer ${
                       pathName === "/markedsforing" && "text-[#17DB4F]"

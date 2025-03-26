@@ -155,7 +155,7 @@ const Card = ({ icon, title, description, btn, path }) => {
 
 const Process = () => {
   return (
-    <div className="  min-h-[1000px] flex flex-col justify-center md:processBg md:px-3 px-2 py-[2rem] ">
+    <div className=" flex flex-col justify-center md:processBg md:px-3 px-2 pt-[1rem] pb-[3rem] ">
       <div className=" text-center text-[2rem] md:text-[2.8rem] lg:text-[3.4rem] leading-tight font-semibold ">
         <div>Prosessen med oss er kjempeenkel, vi skreddersyr løsningen.</div>
         <div className=" text-[#17DB4F] ">Du slipper stress.</div>
@@ -460,11 +460,14 @@ export const Team = () => {
     <>
       <div className="grid  lg:px-0 lg:grid-cols-2 text-white ">
         <div className=" flex flex-col justify-center gap-5 pt-2 md:p-3">
-          <div className=" bg-[#0b462ece] p-5 rounded-md mx-2 ">
+          <div className="  p-5 rounded-md mx-2 ">
+            <div className=" flex flex-col items-center ">
             <TbUsersGroup className=" text-[2rem] mb-1 " />
             <h5 className="text-[34px]   pb-5 font-semibold">
               Teamet bak sidesone
             </h5>
+            </div>
+            {/* bg-[#0b462ece] */}
             <h6 className=" text-[20px] text-gray-100 leading-normal 2xl:leading-8">
               Hos Sidesone er vi eksperter på å skape digitale løsninger som
               gjør en forskjell for både enkeltpersoner og bedrifter. Vi forstår
@@ -476,7 +479,7 @@ export const Team = () => {
               overgår forventningene.
             </h6>
           </div>
-          <div className=" bg-[#0b462ece] p-5 rounded-md mx-2  ">
+          <div className=" p-5 rounded-md mx-2  ">
             <p className=" text-[20px] text-gray-100 leading-normal 2xl:leading-8">
               Vi utvikler profesjonelle nettsider, nettbutikker og webapper, og
               tilbyr et bredt spekter av tjenester, inkludert markedsføring, SEO
@@ -723,7 +726,7 @@ const Card2 = ({ img, title, description, btn, path }) => {
           src={img}
           alt={`${title} illustrasjon`}
           loading="lazy"
-          className="w-full h-full object-cover group-hover:scale-110 rounded-t-md transition-scale duration-300 ease-in-out"
+          className="w-full h-full object-cover rounded-t-md"
         />
       </div>
       <div className=" px-2 pt-2 pb-4 flex flex-col justify-between flex-grow ">

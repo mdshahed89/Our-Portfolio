@@ -4,6 +4,7 @@ import React from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import Konsulenttorget from "@/assets/R2.png";
 
+
 const page = async ({ params }) => {
   const { id } = await params;
 
@@ -20,10 +21,18 @@ const page = async ({ params }) => {
 
     const data = await response.json();
 
-    project = data?.data || [];
+    project = data?.data || {};
   } catch (error) {
     console.error("Error fetching projects:", error);
   }
+
+  console.log("hello",project);
+
+  if (!project || Object.keys(project).length === 0) {
+    return <div className=" min-h-[100vh] flex items-center justify-center text-xl ">Prosjektdetaljer ikke funnet</div>;
+  }
+  
+  
 
 
   return (

@@ -5,6 +5,8 @@ import axios from "axios";
 import Image from "next/image";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import BotIcon1 from "@/assets/BotIcon1.png";
+
 
 export const KontaktSection = ({ project }) => {
 
@@ -58,9 +60,9 @@ export const KontaktSection = ({ project }) => {
           <div className=" flex flex-col items-center gap-3 text-center mt-5 ">
             <div>
               <Image
-                src={EmailIcon}
+                src={BotIcon1}
                 alt="Email icon"
-                className=" w-[5rem] object-cover "
+                className=" w-[5rem] object-contain rounded-full "
               />
             </div>
             <div>

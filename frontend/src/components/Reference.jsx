@@ -48,7 +48,9 @@ export default async function Reference({ title }) {
       link: "konsulenttorget.no",
       color: "text-[#026DFB]",
       bgColor: "bg-[#026DFB]/20",
-      description: "Konsulenttorget.no er en avansert webapplikasjon som kobler bedrifter med frilansere og konsulenter innen ulike fagfelt."
+      path: "/prosjekter/67d9fd4ff74f550d6aa47b8b",
+      description:
+        "Konsulenttorget.no er en avansert webapplikasjon som kobler bedrifter med frilansere og konsulenter innen ulike fagfelt.",
     },
     {
       img: BlogImg3,
@@ -57,7 +59,9 @@ export default async function Reference({ title }) {
       link: "bidder.no",
       color: "text-[#008000]",
       bgColor: "bg-[#008000]/20",
-      description: "Bidder er en pris og tjenestesammenligningsplattform hvor brukere kan finne de billigste skreddersydde tjenestene."
+      path: "/prosjekter/67db476cda6da85d4292bc7f",
+      description:
+        "Bidder er en pris og tjenestesammenligningsplattform hvor brukere kan finne de billigste skreddersydde tjenestene.",
     },
     {
       img: BlogImg2,
@@ -66,7 +70,9 @@ export default async function Reference({ title }) {
       link: "amand.no",
       color: "text-[#FF0000]",
       bgColor: "bg-[#FF0000]/20",
-      description: "Amand.no er en nettbutikk som spesialiserer seg på elegante kjoler og moteklær for kvinner"
+      path: "/prosjekter/67db362ada6da85d4292bc28",
+      description:
+        "Amand.no er en nettbutikk som spesialiserer seg på elegante kjoler og moteklær for kvinner",
     },
   ];
 
@@ -84,62 +90,67 @@ export default async function Reference({ title }) {
 
   return (
     <div>
-      
-        <div className="pb-10 mt-6 px-3 lg:px-5 ">
-          <div className="mx-auto">
-            <div className="text-[2rem] lg:text-[3rem] py-3 font-medium">
+      <div className="pb-10 mt-6 px-3 lg:px-5 ">
+        <div className="mx-auto">
+          <div className="text-[2rem] lg:text-[3rem] py-3 font-medium">
             Prosjekter
-            </div>
           </div>
+        </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-            {projects.map((project, index) => (
-              <div key={index} className="overflow-hidden group w-full h-full ">
-                <Link
-                  href={`https://${project.link}`}
-                  target="_blank"
-                  className=" w-full h-full "
-                >
-                  <div className=" relative w-full h-[300px] lg:[250px] xl:h-[350px] ">
-                    <Image
-                      loading="lazy"
-                      src={project?.img}
-                      alt={project?.title || "Blog Image"}
-                      fill
-                      className="w-full h-full object-cover "
-                    />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+          {projects.map((project, index) => (
+            <div
+              // target="_blank"
+              className="overflow-hidden group w-full h-full block"
+            >
+              <Link key={index} href={`${project.path}`}>
+                <div className="relative w-full h-[250px] xl:h-[350px]">
+                  <Image
+                    loading="lazy"
+                    src={project?.img}
+                    alt={project?.title || "Prosjekter Image"}
+                    fill
+                    className="w-full h-full object-cover rounded-md"
+                  />
+                </div>
+              </Link>
+
+              <div className="px-1 md:px-3 py-3 text-black">
+                <Link key={index} href={`${project.path}`} className="flex items-center justify-between pb-2 md:pb-3">
+                  <div className="text-2xl font-semibold text-nowrap">
+                    {project?.title || "Untitled Prosjekter"}
+                  </div>
+                  <div
+                    className={`text-base md:text-lg font-medium rounded-md ${project.color} ${project.bgColor} px-2 md:px-3`}
+                  >
+                    {project?.type}
                   </div>
                 </Link>
 
-                    <div className=" px-3 py-3 ">
-                    <div className=" flex items-center justify-between pb-3 ">
-                    <div className="text-2xl font-semibold text-nowrap">
-                      {project?.title || "Untitled Blog"}
-                    </div>
-                    <div className={`text-xl font-medium rounded-md ${project.color} ${project.bgColor} px-3  `}>
-                      {project?.type}
-                    </div>
-                    </div>
-                <div className=" flex items-center justify-between gap-4  ">
-                  <div className=" space-y-2 ">
-                    <div>
-                    <p className=" font-medium text-gray-600 ">{project.description}</p>
+                <div className="flex items-center justify-between gap-4">
+                  <div className=" flex flex-col md:gap-2 gap-1 ">
+                    <Link key={index} href={`${project.path}`} className="font-medium text-gray-600">
+                      {project.description}
+                    </Link>
+                    <Link
+                      href={`https://${project.link}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xl z-50 font-medium text-[#17DB4F]"
+                    >
+                      {project.link}
+                    </Link>
                   </div>
-                    <div className="text-xl font-medium text-[#17DB4F] ">
-                      {project?.link}
-                    </div>
-                  </div>
-                  
-                  <div className=" border-[#17DB4F] border-2 p-2 rounded-full text-[1.3rem] text-[#17DB4F] ">
+
+                  <Link key={index} href={`${project.path}`} className="border-[#17DB4F] border-2 p-2 rounded-full text-[1.3rem] text-[#17DB4F]">
                     <IoIosArrowForward />
-                  </div>
+                  </Link>
                 </div>
-                    </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
-      
+      </div>
     </div>
   );
 }
@@ -190,13 +201,14 @@ export const Slider = async () => {
               >
                 <figure className="h-[217px] md:h-[300px] w-[290px] md:w-[400px] overflow-hidden">
                   <Image
-                    loading="lazy"
+                    // loading="lazy"
                     placeholder="blur"
                     blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNmM2Y0ZjUiLz48L3N2Zz4="
                     src={item.coverImg || AImg}
                     alt={item.title || "title img"}
                     width={400}
                     height={300}
+                    priority
                     className="w-full h-full object-contain object-top rounded-md"
                   />
                 </figure>
