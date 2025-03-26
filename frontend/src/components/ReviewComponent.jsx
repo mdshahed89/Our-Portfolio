@@ -180,7 +180,7 @@ const ReviewCard = ({ review }) => {
       {/* Review Message */}
       <div className="px-3 py-2 text-lg flex-grow min-h-[8rem]">
         <div className="h-full flex items-center">
-          <p>" {review?.message} "</p>
+          <p>&quot; {review?.message} &quot;</p>
         </div>
       </div>
     </div>
