@@ -100,10 +100,10 @@ export default async function Reference({ title }) {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
           {projects.map((project, index) => (
             <div
-              // target="_blank"
+            key={index}
               className="overflow-hidden group w-full h-full block"
             >
-              <Link key={index} href={`${project.path}`}>
+              <Link href={`${project.path}`}>
                 <div className="relative w-full h-[250px] xl:h-[350px]">
                   <Image
                     loading="lazy"
@@ -116,7 +116,7 @@ export default async function Reference({ title }) {
               </Link>
 
               <div className="px-1 md:px-3 py-3 text-black">
-                <Link key={index} href={`${project.path}`} className="flex items-center justify-between pb-2 md:pb-3">
+                <Link href={`${project.path}`} className="flex items-center justify-between pb-2 md:pb-3">
                   <div className="text-2xl font-semibold text-nowrap">
                     {project?.title || "Untitled Prosjekter"}
                   </div>
@@ -129,7 +129,7 @@ export default async function Reference({ title }) {
 
                 <div className="flex items-center justify-between gap-4">
                   <div className=" flex flex-col md:gap-2 gap-1 ">
-                    <Link key={index} href={`${project.path}`} className="font-medium text-gray-600">
+                    <Link href={`${project.path}`} className="font-medium text-gray-600">
                       {project.description}
                     </Link>
                     <Link
@@ -142,7 +142,7 @@ export default async function Reference({ title }) {
                     </Link>
                   </div>
 
-                  <Link key={index} href={`${project.path}`} className="border-[#17DB4F] border-2 p-2 rounded-full text-[1.3rem] text-[#17DB4F]">
+                  <Link href={`${project.path}`} className="border-[#17DB4F] border-2 p-2 rounded-full text-[1.3rem] text-[#17DB4F]">
                     <IoIosArrowForward />
                   </Link>
                 </div>
