@@ -4,7 +4,7 @@ import { RxCross2 } from "react-icons/rx";
 import MailIcon from "@/assets/MailIcon.png";
 import Image from "next/image";
 import toast from "react-hot-toast";
-import { MdAddComment } from "react-icons/md";
+import { MdAddComment, MdCampaign } from "react-icons/md";
 
 export const Newsletter = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -139,7 +139,7 @@ export const Newsletter = () => {
   );
 };
 
-export const AddReviewModal = ({fetchReviews}) => {
+export const AddReviewModal = ({ fetchReviews }) => {
   const [openModal, setOpenModal] = useState(false);
 
   return (
@@ -183,12 +183,13 @@ export const AddReviewModal = ({fetchReviews}) => {
 };
 
 import { useEffect, useRef } from "react";
-import { FaEdit, FaStar } from "react-icons/fa";
+import { FaChartLine, FaEdit, FaPaintBrush, FaStar } from "react-icons/fa";
 import { ButtonLoading } from "@/components/Loading";
 import { IoTrashBin } from "react-icons/io5";
 import axios from "axios";
 import { CiEdit } from "react-icons/ci";
-import { AiFillEdit } from "react-icons/ai";
+import { AiFillEdit, AiOutlineAppstore, AiOutlineDesktop, AiOutlineShoppingCart } from "react-icons/ai";
+import Link from "next/link";
 
 export default function ReviewForm({ setOpenModal, fetchReviews }) {
   const [formData, setFormData] = useState({
@@ -202,7 +203,7 @@ export default function ReviewForm({ setOpenModal, fetchReviews }) {
   const [preview, setPreview] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
-  const [error, setError] = useState("")
+  const [error, setError] = useState("");
 
   const ratings = [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
 
@@ -262,7 +263,7 @@ export default function ReviewForm({ setOpenModal, fetchReviews }) {
 
       if (response.ok) {
         toast.success("Review added successfully");
-        fetchReviews()
+        fetchReviews();
         setFormData({
           name: "",
           message: "",
@@ -466,8 +467,7 @@ export const ReviewDeleteModal = ({ fetchReviews, id }) => {
   );
 };
 
-
-export const UpdateReviewModal = ({fetchReviews, review}) => {
+export const UpdateReviewModal = ({ fetchReviews, review }) => {
   const [openModal, setOpenModal] = useState(false);
 
   return (
@@ -503,41 +503,44 @@ export const UpdateReviewModal = ({fetchReviews, review}) => {
             </div>
           </div>
 
-          <UpdateReviewForm setOpenModal={setOpenModal} fetchReviews={fetchReviews} review={review} />
+          <UpdateReviewForm
+            setOpenModal={setOpenModal}
+            fetchReviews={fetchReviews}
+            review={review}
+          />
         </div>
       </div>
     </div>
   );
 };
 
-
-const UpdateReviewForm =({ setOpenModal, fetchReviews, review }) => {
+const UpdateReviewForm = ({ setOpenModal, fetchReviews, review }) => {
   const [formData, setFormData] = useState({
     name: review?.name || "",
     message: review?.message || "",
     time: review?.time || "",
     rating: review?.rating || "",
     image: review?.image || "",
-    base64Img: ""
+    base64Img: "",
   });
   const [loading, setLoading] = useState(false);
   const [preview, setPreview] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
-  const [error, setError] = useState("")
+  const [error, setError] = useState("");
 
   const ratings = [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
 
-  useEffect(()=> {
+  useEffect(() => {
     setFormData({
       name: review?.name || "",
       message: review?.message || "",
       time: review?.time || "",
       rating: review?.rating || "",
       image: review?.image || "",
-    })
-    setPreview(review?.image || "")
-  }, [review])
+    });
+    setPreview(review?.image || "");
+  }, [review]);
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -569,9 +572,9 @@ const UpdateReviewForm =({ setOpenModal, fetchReviews, review }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if(!review?._id){
-      toast.error("Someting went wrong, please try again later")
-      return
+    if (!review?._id) {
+      toast.error("Someting went wrong, please try again later");
+      return;
     }
 
     if (
@@ -600,14 +603,14 @@ const UpdateReviewForm =({ setOpenModal, fetchReviews, review }) => {
 
       if (response.ok) {
         toast.success("Review updated successfully");
-        fetchReviews()
+        fetchReviews();
         setFormData({
           name: review?.name || "",
           message: review?.message || "",
           time: review?.time || "",
           rating: review?.rating || "",
           image: review?.image || "",
-        })
+        });
         setPreview(review?.image || "");
         setOpenModal(false);
       } else {
@@ -624,7 +627,6 @@ const UpdateReviewForm =({ setOpenModal, fetchReviews, review }) => {
   };
 
   // console.log(formData);
-  
 
   return (
     <div className=" px-10 pt-10 pb-8 ">
@@ -720,4 +722,90 @@ const UpdateReviewForm =({ setOpenModal, fetchReviews, review }) => {
       </form>
     </div>
   );
-}
+};
+
+export const ServicesModal = () => {
+  const [openModal, setOpenModal] = useState(false);
+
+  return (
+    <div className="">
+      <button
+        onClick={() => setOpenModal(true)}
+        className=" text-center mt-4 text-[#fff] cursor-pointer hover:text-black px-12 py-2 rounded-full bg-[#035635] border-2 border-[#035635] hover:bg-transparent transition-all duration-300 ease-in-out "
+      >
+        Kom i gang
+      </button>
+      <div
+        onClick={() => setOpenModal(false)}
+        className={`fixed z-[100000] flex items-center justify-center ${
+          openModal ? "opacity-1 visible" : "invisible opacity-0"
+        } inset-0 h-full w-full bg-black/20 backdrop-blur-sm duration-100`}
+      >
+        <div
+          onClick={(e_) => e_.stopPropagation()}
+          className={`absolute w-full rounded-md bg-white text-[#000] max-w-[45rem] ${
+            openModal
+              ? "opacity-1 translate-y-0 duration-300"
+              : "-translate-y-20 opacity-0 duration-150"
+          }`}
+        >
+          <div className="  ">
+            <div className="flex justify-end p-3   ">
+              <div
+                onClick={() => setOpenModal(false)}
+                className=" flex bg-[#035635] text-[#fff] p-2 rounded-full top-4 cursor-pointer right-4 justify-end "
+              >
+                <RxCross2 className=" text-[1.5rem]  " />
+              </div>
+            </div>
+
+            <div className=" grid grid-cols-2 md:grid-cols-3 gap-2 px-3 md:px-[2rem] py-10 ">
+              <Link
+                href={`/nettside`}
+                className=" flex flex-col items-center gap-1 border-2 border-[#035635] bg-[#035635] text-[#fff] hover:bg-transparent hover:text-[#035635] transition-all duration-300 ease-in-out rounded-md py-5 px-3 "
+              >
+                <AiOutlineAppstore className=" text-[1.5rem] " />
+                <span className=" text-[1.4rem] ">Nettside</span>
+              </Link>
+              <Link
+                href={`/nettbuttik`}
+                className=" flex flex-col items-center gap-1 border-2 border-[#035635] bg-[#035635] text-[#fff] hover:bg-transparent hover:text-[#035635] transition-all duration-300 ease-in-out rounded-md py-5 px-3 "
+              >
+                <AiOutlineShoppingCart className=" text-[1.5rem] " />
+                <span className=" text-[1.4rem] ">Nettbutikk</span>
+              </Link>
+              <Link
+                href={`/webapplikasjon`}
+                className=" flex flex-col items-center gap-1 border-2 border-[#035635] bg-[#035635] text-[#fff] hover:bg-transparent hover:text-[#035635] transition-all duration-300 ease-in-out rounded-md py-5 px-3 "
+              >
+                <AiOutlineDesktop className=" text-[1.5rem] " />
+                <span className=" text-[1.4rem] ">Webapplikasjon</span>
+              </Link>
+              <Link
+                href={`/markedsforing`}
+                className=" flex flex-col items-center gap-1 border-2 border-[#035635] bg-[#035635] text-[#fff] hover:bg-transparent hover:text-[#035635] transition-all duration-300 ease-in-out rounded-md py-5 px-3 "
+              >
+                <MdCampaign className=" text-[1.5rem] " />
+                <span className=" text-[1.4rem] ">Markedsføring</span>
+              </Link>
+              <Link
+                href={`/seo`}
+                className=" flex flex-col items-center gap-1 border-2 border-[#035635] bg-[#035635] text-[#fff] hover:bg-transparent hover:text-[#035635] transition-all duration-300 ease-in-out rounded-md py-5 px-3 "
+              >
+                <FaChartLine className=" text-[1.5rem] " />
+                <span className=" text-[1.4rem] ">Avansert Seo</span>
+              </Link>
+              <Link
+                href={`/logo`}
+                className=" flex flex-col items-center gap-1 border-2 border-[#035635] bg-[#035635] text-[#fff] hover:bg-transparent hover:text-[#035635] transition-all duration-300 ease-in-out rounded-md py-5 px-3 "
+              >
+                <FaPaintBrush className=" text-[1.5rem] " />
+                <span className=" text-[1.4rem] ">Grafisk design</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};

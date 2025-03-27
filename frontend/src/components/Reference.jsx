@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { MdArrowForward } from "react-icons/md";
+import { MdArrowForward, MdArrowForwardIos } from "react-icons/md";
 import Marquee from "react-fast-marquee";
 import AImg from "@/assets/A.jpg";
 import BlogImg1 from "@/assets/BlogImg1.png";
@@ -90,17 +90,23 @@ export default async function Reference({ title }) {
 
   return (
     <div>
-      <div className="pb-10 mt-6 px-3 lg:px-5 ">
+      <div className="pb-6 mt-6 px-3 lg:px-5 ">
         <div className="mx-auto">
-          <div className="text-[2rem] lg:text-[3rem] py-3 font-medium">
-            Prosjekter
+          <div className=" text-center mb-[5rem] relative before:absolute before:w-[10rem] before:h-1 before:bg-[#035635] before:left-1/2 before:bottom-[-2rem] before:transform before:-translate-x-1/2 ">
+            <h2 className=" text-[2rem] lg:text-[3rem] py-3 font-medium leading-none ">
+              Våre Prosjekter og Løsninger
+            </h2>
+            <p className=" text-xl ">
+              Utforsk våre gjennomførte prosjekter og hvordan vi har løst
+              utfordringer for våre kunder.
+            </p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
           {projects.map((project, index) => (
             <div
-            key={index}
+              key={index}
               className="overflow-hidden group w-full h-full block"
             >
               <Link href={`${project.path}`}>
@@ -116,7 +122,10 @@ export default async function Reference({ title }) {
               </Link>
 
               <div className="px-1 md:px-3 py-3 text-black">
-                <Link href={`${project.path}`} className="flex items-center justify-between pb-2 md:pb-3">
+                <Link
+                  href={`${project.path}`}
+                  className="flex items-center justify-between pb-2 md:pb-3"
+                >
                   <div className="text-2xl font-semibold text-nowrap">
                     {project?.title || "Untitled Prosjekter"}
                   </div>
@@ -129,7 +138,10 @@ export default async function Reference({ title }) {
 
                 <div className="flex items-center justify-between gap-4">
                   <div className=" flex flex-col md:gap-2 gap-1 ">
-                    <Link href={`${project.path}`} className="font-medium text-gray-600">
+                    <Link
+                      href={`${project.path}`}
+                      className="font-medium text-gray-600"
+                    >
                       {project.description}
                     </Link>
                     <Link
@@ -142,13 +154,25 @@ export default async function Reference({ title }) {
                     </Link>
                   </div>
 
-                  <Link href={`${project.path}`} className="border-[#17DB4F] border-2 p-2 rounded-full text-[1.3rem] text-[#17DB4F]">
+                  <Link
+                    href={`${project.path}`}
+                    className="border-[#17DB4F] border-2 p-2 rounded-full text-[1.3rem] text-[#17DB4F]"
+                  >
                     <IoIosArrowForward />
                   </Link>
                 </div>
               </div>
             </div>
           ))}
+        </div>
+        <div className=" mt-3 flex justify-end pr-3 ">
+          <Link
+            href={`/alle-prosjekter`}
+            className="px-5 py-1 group text-lg md:text-xl flex items-center gap-2 md:py-2 transition-colors duration-300 ease-in-out rounded-full text-[#17DB4F]"
+          >
+            <span className="flex-shrink-0">Se alle prosjekter</span>
+            <MdArrowForwardIos className=" mt-[4px] transition-transform duration-300 ease-linear transform group-hover:translate-x-2" />
+          </Link>
         </div>
       </div>
     </div>

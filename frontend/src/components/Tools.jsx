@@ -265,6 +265,14 @@ const Process = () => {
           icon={<RiRocketLine />}
         />
       </div>
+      <div className=" flex justify-center ">
+      {/* <div
+        className="  text-center mt-4 text-[#fff] cursor-pointer hover:text-black px-12 py-2 rounded-full bg-[#035635] border-2 border-[#035635] hover:bg-transparent transition-all duration-300 ease-in-out "
+      >
+        Alle Tjenester
+      </div> */}
+      <ServicesModal />
+      </div>
     </div>
   );
 };
@@ -637,7 +645,10 @@ export const Review = async () => {
 
 export const ContactUs = () => {
   return (
-    <section id="kontakt" className=" scroll-mt-40 relative pb-[2rem] overflow-hidden ">
+    <section
+      id="kontakt"
+      className=" scroll-mt-40 relative pb-[2rem] overflow-hidden "
+    >
       {/* <div className="absolute inset-0 z-[100] overflow-hidden">
         <svg
           className="w-full h-full"
@@ -683,43 +694,49 @@ export const ContactUs = () => {
       </div> */}
       <div className=" max-w-[1400px] mx-auto lg:mb-0 relative bg-[#F7F7F7]  md:p-[4rem]  rounded-2xl grid lg:grid-cols-2 ">
         <div className="order-2 lg:order-1 p-[1rem] md:p-[2rem] z-[200] flex items-center ">
-          <div className="w-full overflow-hidden ">
+          <div className="w-full h-[500px] overflow-hidden ">
             <Image
               loading="lazy"
               placeholder="blur"
               src={booking}
               alt={"Booking Img"}
-              width={900}
-              height={900}
-              className="w-full h-full object-contain z-[200] rounded-md "
+              width={1200}
+              height={1200}
+              className="w-full h-full object-cover z-[200] rounded-md "
             />
           </div>
         </div>
         {/* bg-[#7BDCB5] */}
         <div className=" py-10 px-5  order-1 z-[200]  lg:order-2 flex items-center justify-center w-full text-center ">
-          <div className="space-y-8 leading-tight">
+          <div className=" leading-tight">
             <h3 className="text-[40px] lg:text-[56px] font-medium">
               Spørsmål?
             </h3>
-            <div className=" space-y-2 ">
-              <p className="text-[24px] lg:text-[32px] flex items-center justify-center gap-3 ">
-                {/* <IoCallOutline className=" mt-1 " /> */}
+            <div className="space-y-2 mt-8 ">
+              <p className="text-[24px] lg:text-[32px] flex items-center justify-center gap-3">
                 <span>Ring oss:</span>
-                <span>+47 13 65 07</span>
+                <Link href="tel:+47136507" className="text-[#035635] ">
+                  +47 13 65 07
+                </Link>
               </p>
               <p className="text-[24px] lg:text-[32px] flex items-center justify-center gap-3">
-                {/* <IoMailOutline className=" mt-1 " />{" "} */}
                 <span>Mail oss:</span>
-                <span>kontakt@sidesone.no</span>
+                <Link
+                  href="mailto:kontakt@sidesone.no"
+                  className="text-[#035635] "
+                >
+                  kontakt@sidesone.no
+                </Link>
               </p>
             </div>
-            {/* <p className="text-[24px] lg:text-[32px] font-medium">Eller</p> */}
-            <div className=" pt-4 space-y-3 ">
-              <p className="text-[24px] lg:text-[32px]  font-medium">Eller</p>
+
+            <p className="text-[24px] lg:text-[32px] my-6 font-medium ">Eller</p>
+            <div className=" space-y-3 ">
+              
               <p className="text-[24px] lg:text-[32px]  font-medium">
                 Book en konsultasjon
               </p>
-              <div className="flex">
+              <div className=" pt-7 flex">
                 <Link
                   href={"/book-now"}
                   className="w-full bg-[#035635] transition-all flex items-center gap-4 justify-center duration-300 ease-in-out active:scale-95 text-white p-3 rounded-full"
@@ -745,7 +762,7 @@ import { RiRocketLine } from "react-icons/ri";
 export const Hero = () => {
   return (
     <div className=" relative h-[680px] lg:h-[750px] 2xl:max-w-[1400px] max-w-[1200px]  mx-auto text-white flex flex-col lg:flex-row  lg:justify-between ">
-      <div className="  flex mt-[130px] md:mt-[140px] lg:mt-[170px]  flex-col z-50  px-3 max-w-[40rem] lg:max-w-[55rem] ">
+      <div className=" flex mt-[130px] md:mt-[140px] lg:mt-[170px]  flex-col z-50 px-2 smallSize:px-3 max-w-[40rem] lg:max-w-[55rem] ">
         <div className="  md:mt-7 ">
           <h1 className=" text-[34px] md:text-[45px] lg:text-[62px] leading-tight font-semibold ">
             Øk vekst og synlighet med en profesjonell nettside
@@ -758,14 +775,14 @@ export const Hero = () => {
         <div className="flex flex-col gap-6 mt-14 md:mt-5">
           <Link
             href="/nettside"
-            className="border-2 px-2 md:px-0 whitespace-none md:whitespace-normal rounded w-fit md:w-[250px] lg:w-[300px] justify-center text-base lg:text-lg font-medium flex items-center gap-2 md:gap-4 hover:border-white border-[#dadada] md:h-[3rem] h-[2.8rem] transition-transform transform  group"
+            className=" border-2 px-[4px] smallSize:px-2 md:px-0 whitespace-none md:whitespace-normal rounded w-fit md:w-[250px] lg:w-[300px] justify-center text-sm smallSize:text-base lg:text-lg font-medium flex items-center gap-1 smallSize:gap-2 md:gap-4 hover:border-white border-[#dadada] md:h-[3rem] h-[2.8rem] transition-transform transform  group"
           >
             Trenger du en nettside?
-            <MdArrowForward className="transition-transform md:text-[1.5rem] mt-1 text-[1.2rem] transform group-hover:translate-x-2" />
+            <MdArrowForward className="transition-transform  md:text-[1.5rem] mt-1 text-[1rem] smallSize:text-[1.2rem] transform group-hover:translate-x-2" />
           </Link>
           <Link
             href={"#reviews"}
-            className=" text-[1.1rem] md:text-[1.4rem] group w-fit "
+            className=" text-[1rem] smallSize:text-[1.1rem] md:text-[1.4rem] group w-fit "
           >
             <div className=" flex items-center gap-2 ">
               <FcGoogle />
@@ -786,7 +803,7 @@ export const Hero = () => {
       </div>
       <div className=" absolute h-full w-full flex items-end justify-end  ">
         <div
-          className={` -mt-20  w-full  mx-auto lg:order-2 order-1 lg:pt-0  lg:mt-8 h-[400px] md:h-[500px] lg:h-[600px]   bg-no-repeat  bg-hero-image`}
+          className={` -mt-20  w-full  mx-auto lg:order-2 order-1 lg:pt-0  lg:mt-8 h-[395px] md:h-[500px] lg:h-[600px]   bg-no-repeat  bg-hero-image`}
         ></div>
       </div>
     </div>
@@ -795,8 +812,13 @@ export const Hero = () => {
 
 export const OfferSection = () => {
   return (
-    <section id="offers" className=" scroll-mt-40 2xl:2xl:max-w-[1400px] max-w-[1200px]  mx-auto px-2 md:px-3 mt-[6rem]  mb-[3rem] ">
-      <h3 className=" text-[2rem] md:text-[2.8rem] text-center mb-[2rem] ">Hva vi tilbyr</h3>
+    <section
+      id="offers"
+      className=" scroll-mt-40 2xl:2xl:max-w-[1400px] max-w-[1200px]  mx-auto px-2 md:px-3 mt-[6rem]  mb-[3rem] "
+    >
+      <h3 className=" text-[2rem] md:text-[2.8rem] text-center mb-[2rem] ">
+        Hva vi tilbyr
+      </h3>
       <div className=" grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-4 ">
         <Card2
           img={NewImg1}
@@ -873,6 +895,7 @@ import {
   IoCheckmarkCircle,
   IoMailOutline,
 } from "react-icons/io5";
+import { ServicesModal } from "@/modals/Modal";
 
 export const NeedProfessitionSite = () => {
   return (
@@ -945,7 +968,7 @@ export const NeedProfessitionSite = () => {
         </div>
 
         <div className=" mt-8 grid  lg:px-0 grid-cols-1 lg:grid-cols-2 gap-8 text-black ">
-          <div className=" ">
+          <div className=" lg:order-1 order-2 ">
             <figure className="w-full h-full flex items-center justify-center overflow-hidden">
               <Image
                 loading="lazy"
@@ -958,7 +981,7 @@ export const NeedProfessitionSite = () => {
             </figure>
           </div>
 
-          <div className=" flex flex-col justify-center gap-5 pt-2 md:p-3">
+          <div className=" lg:order-2 order-1 flex flex-col justify-center gap-5 pt-2 md:p-3">
             <div className="text-[30px] leading-tight pb-5 font-semibold">
               <span>Hvorfor velge </span>{" "}
               <span className=" text-[#035635] border-l-4 border-[#035635] pl-1 bg-gradient-to-r from-[#035635]/10 to-transparent pb-1 ">

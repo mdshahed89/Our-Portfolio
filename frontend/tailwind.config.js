@@ -17,6 +17,9 @@ module.exports = {
         averta: ['Averta', 'sans-serif'],
         Montserrat: ['Montserrat', 'sans-serif'],
       },
+      screens: {
+        smallSize: "410px", // Custom breakpoint for 420px
+      },
     },
   },
   plugins: [],

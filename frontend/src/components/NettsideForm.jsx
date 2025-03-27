@@ -301,7 +301,7 @@ const NettsideForm = () => {
                     <option value="10 - 20">10 - 20</option>
                     <option value="20 - 50">20 - 50</option>
                     <option value="50+">50+</option>
-                    <option value="jet vet ikke">Jeg not jet</option>
+                    <option value="jet vet ikke">Jeg vet ikke</option>
                   </>
                 ) : (
                   <>
