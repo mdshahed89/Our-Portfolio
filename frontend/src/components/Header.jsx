@@ -72,7 +72,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed h-[112px] z-[100] py-4 lg:px-0 top-0 w-full ${
+      className={`fixed h-[112px] z-[1000] py-4 lg:px-0 top-0 w-full ${
         scrolled ? "bg-[#035635] shadow-xl" : "bg-[#035635]"
       } z-50`}
     >

@@ -40,7 +40,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
 
   return (
-    <html lang="no" className=" scroll-smooth scroll-pt-[5rem] ">
+    <html lang="no" className=" scroll-smooth  ">
       <head>
         <link
           rel="apple-touch-icon"

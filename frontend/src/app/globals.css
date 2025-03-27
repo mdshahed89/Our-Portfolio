@@ -154,11 +154,10 @@
 }
 
 .slick-dots li button:before {
-  color: gray !important; /* Change to your desired color */
+  color: gray !important; 
 }
 
-/* Change active dot color */
 .slick-dots li.slick-active button:before {
-  color: #035635 !important; /* Change to your desired active color */
+  color: #035635 !important; 
 }
 

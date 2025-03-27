@@ -573,7 +573,7 @@ export const Review = async () => {
   // console.log(reviews);
 
   return (
-    <section id="reviews" className=" py-16 ">
+    <section id="reviews" className=" py-16 scroll-mt-[5rem] ">
       <div className=" flex flex-col max-w-[30rem] px-2 mx-auto text-center  ">
         <h2 className=" text-[2rem] md:text-[2.5rem] font-medium ">
           Klientanmeldelser
@@ -637,14 +637,13 @@ export const Review = async () => {
 
 export const ContactUs = () => {
   return (
-    <div className=" relative pb-[2rem] overflow-hidden ">
-      <div className="absolute inset-0 z-[100] overflow-hidden">
+    <section id="kontakt" className=" scroll-mt-40 relative pb-[2rem] overflow-hidden ">
+      {/* <div className="absolute inset-0 z-[100] overflow-hidden">
         <svg
           className="w-full h-full"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1440 800"
         >
-          {/* First Curved Line */}
           <path
             fill="none"
             stroke="#72C04B"
@@ -654,7 +653,6 @@ export const ContactUs = () => {
             d="M-100,300 C150,600 600,50 900,500 C1200,950 1600,100 1900,500"
           />
 
-          {/* Second Curved Line */}
           <path
             fill="none"
             stroke="#72C04B"
@@ -664,7 +662,6 @@ export const ContactUs = () => {
             d="M-200,400 C100,100 500,700 800,300 C1100,-50 1400,600 1700,200"
           />
 
-          {/* Third Curved Line */}
           <path
             fill="none"
             stroke="#72C04B"
@@ -674,7 +671,6 @@ export const ContactUs = () => {
             d="M-50,500 C250,800 700,150 1100,600 C1500,1050 1800,300 2100,600"
           />
 
-          {/* Fourth Curved Line */}
           <path
             fill="none"
             stroke="#72C04B"
@@ -684,7 +680,7 @@ export const ContactUs = () => {
             d="M-150,200 C50,500 400,0 700,400 C1000,800 1400,50 1700,500"
           />
         </svg>
-      </div>
+      </div> */}
       <div className=" max-w-[1400px] mx-auto lg:mb-0 relative bg-[#F7F7F7]  md:p-[4rem]  rounded-2xl grid lg:grid-cols-2 ">
         <div className="order-2 lg:order-1 p-[1rem] md:p-[2rem] z-[200] flex items-center ">
           <div className="w-full overflow-hidden ">
@@ -737,7 +733,7 @@ export const ContactUs = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
@@ -799,8 +795,8 @@ export const Hero = () => {
 
 export const OfferSection = () => {
   return (
-    <div className=" 2xl:2xl:max-w-[1400px] max-w-[1200px]  mx-auto px-2 md:px-3  my-[3rem] ">
-      <h3 className=" text-[2rem] md:text-[2.8rem] mb-4 ">Hva vi tilbyr</h3>
+    <section id="offers" className=" scroll-mt-40 2xl:2xl:max-w-[1400px] max-w-[1200px]  mx-auto px-2 md:px-3 mt-[6rem]  mb-[3rem] ">
+      <h3 className=" text-[2rem] md:text-[2.8rem] text-center mb-[2rem] ">Hva vi tilbyr</h3>
       <div className=" grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-4 ">
         <Card2
           img={NewImg1}
@@ -824,7 +820,7 @@ export const OfferSection = () => {
           description="Vi bygger skreddersydde webapplikasjoner med MERN-stack (MongoDB, Express, React, Node.js) for komplekse og dynamiske løsninger som effektiviserer arbeidsflyten og dekker unike behov."
         />
       </div>
-    </div>
+    </section>
   );
 };
 
@@ -864,7 +860,7 @@ const Card2 = ({ img, title, description, btn, path }) => {
 
 export const PageLoading = () => {
   return (
-    <div className=" fixed h-[100vh] z-[100] w-[100vw] bg-white flex items-center top-0 left-0 justify-center  ">
+    <div className=" fixed h-[100vh] z-[10000] w-[100vw] bg-white flex items-center top-0 left-0 justify-center  ">
       <div className="w-10 h-10 animate-[spin_1s_linear_infinite] rounded-full border-double border-4 border-r-0 border-l-0 border-b-green-400 border-t-green-700"></div>
     </div>
   );
@@ -928,7 +924,7 @@ export const NeedProfessitionSite = () => {
               </div>
             </div>
             <Link
-              href={``}
+              href={`/#offers`}
               className=" w-fit mt-4 text-[#fff] hover:text-black px-8 py-2 rounded-full bg-[#035635] border-2 border-[#035635] hover:bg-transparent transition-all duration-300 ease-in-out "
             >
               Få din nettside
@@ -1001,7 +997,7 @@ export const NeedProfessitionSite = () => {
               </div>
             </div>
             <Link
-              href={``}
+              href={`/#kontakt`}
               className=" w-fit mt-4 text-[#fff] hover:text-black px-8 py-2 rounded-full bg-[#035635] border-2 border-[#035635] hover:bg-transparent transition-all duration-300 ease-in-out "
             >
               Ta Kontakt
