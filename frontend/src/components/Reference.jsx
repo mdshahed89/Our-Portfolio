@@ -181,7 +181,7 @@ export const Slider = async () => {
   // console.log(visibleProjects);
 
   return (
-    <div>
+    <div className="  ">
       {visibleProjects.length > 0 ? (
         <div className="  z-[100] -translate-y-20 lg:-translate-y-28">
           <Marquee

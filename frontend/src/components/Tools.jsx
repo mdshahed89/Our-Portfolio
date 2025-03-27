@@ -10,7 +10,12 @@ import ProcessIcon1 from "@/assets/ProcessIcon1.png";
 import ProcessIcon2 from "@/assets/ProcessIcon2.png";
 import ProcessIcon3 from "@/assets/ProcessIcon3.png";
 import ProcessIcon4 from "@/assets/ProcessIcon4.png";
-import { FaChartLine, FaLaptopCode, FaPaintBrush, FaRegComments } from "react-icons/fa";
+import {
+  FaChartLine,
+  FaLaptopCode,
+  FaPaintBrush,
+  FaRegComments,
+} from "react-icons/fa";
 import {
   MdArrowForward,
   MdCampaign,
@@ -296,7 +301,6 @@ const Process = () => {
 //   );
 // }
 
-
 // const Process = () => {
 //   return (
 //     <div className=" bg-[#7BDCB5] min-h-[1000px] flex flex-col justify-center md:processBg md:px-3 px-2 py-[2rem] ">
@@ -365,7 +369,7 @@ const Process = () => {
 //               viewBox="0 0 180 120"
 //               className="w-48 h-32 stroke-white fill-none"
 //             >
-             
+
 //               <path
 //                 d="M5,70 C50,40 80,40 100,60"
 //                 className="stroke-white"
@@ -373,7 +377,7 @@ const Process = () => {
 //                 strokeDasharray="5,5"
 //                 fill="none"
 //               />
-              
+
 //               <path
 //                 d="M95,57 L106,63 L96,69 Z"
 //                 className="fill-white"
@@ -435,7 +439,7 @@ const ProcessCard = ({ title, description, icon }) => {
     <div className=" bg-[#fff] h-full relative text-center py-6 px-4 rounded-lg overflow-hidden ">
       <div className=" flex justify-center w-full mb-[1rem] ">
         <div className=" flex text-[2.5rem] border-2 border-[#17DB4F] text-[#17DB4F] rounded-full p-3 ">
-        {icon}
+          {icon}
         </div>
       </div>
       <div className=" relative z-30 text-[1.5rem] font-semibold leading-tight  ">
@@ -460,15 +464,15 @@ export const Team = () => {
     <>
       <div className="grid  lg:px-0 lg:grid-cols-2 text-white ">
         <div className=" flex flex-col justify-center gap-5 pt-2 md:p-3">
-          <div className="  p-5 rounded-md mx-2 ">
+          <div className=" md:px-5 p-2 py-5 rounded-md mx-2 ">
             <div className=" flex flex-col items-center ">
-            <TbUsersGroup className=" text-[2rem] mb-1 " />
-            <h5 className="text-[30px] leading-tight pb-5 font-semibold">
-              Teamet bak sidesone
-            </h5>
+              <TbUsersGroup className=" text-[2rem] mb-1 " />
+              <h5 className="text-[30px] leading-tight pb-5 font-semibold">
+                Teamet bak sidesone
+              </h5>
             </div>
             {/* bg-[#0b462ece] */}
-            <h6 className=" text-[20px] text-gray-100 leading-normal 2xl:leading-8">
+            <h6 className=" text-[20px] text-gray-100 leading-normal text-center 2xl:leading-8">
               Hos Sidesone er vi eksperter på å skape digitale løsninger som
               gjør en forskjell for både enkeltpersoner og bedrifter. Vi forstår
               at behovene kan variere - fra små bedrifter og gründere som
@@ -479,8 +483,8 @@ export const Team = () => {
               overgår forventningene.
             </h6>
           </div>
-          <div className=" p-5 rounded-md mx-2  ">
-            <p className=" text-[20px] text-gray-100 leading-normal 2xl:leading-8">
+          <div className=" md:px-5 p-2 py-5 rounded-md mx-2  ">
+            <p className=" text-[20px] text-gray-100 leading-normal text-center 2xl:leading-8">
               Vi utvikler profesjonelle nettsider, nettbutikker og webapper, og
               tilbyr et bredt spekter av tjenester, inkludert markedsføring, SEO
               og grafisk design. Vi setter samarbeid i sentrum og skreddersyr
@@ -549,7 +553,6 @@ export const Team = () => {
 // };
 
 export const Review = async () => {
-
   let reviews = [];
   try {
     const response = await fetch(
@@ -568,60 +571,169 @@ export const Review = async () => {
   }
 
   // console.log(reviews);
-  
 
-  return(
+  return (
     <section id="reviews" className=" py-16 ">
       <div className=" flex flex-col max-w-[30rem] px-2 mx-auto text-center  ">
-      <h2 className=" text-[2rem] md:text-[2.5rem] font-medium ">Klientanmeldelser</h2>
-      <p className=" text-lg md:text-xl ">Se hva våre fornøyde kunder sier om sin opplevelse med oss.</p>
+        <h2 className=" text-[2rem] md:text-[2.5rem] font-medium ">
+          Klientanmeldelser
+        </h2>
+        <p className=" text-lg md:text-xl ">
+          Se hva våre fornøyde kunder sier om sin opplevelse med oss.
+        </p>
       </div>
       <ReviewComponent reviews={reviews} />
     </section>
-  )
-}
+  );
+};
 
-export const Booking = () => {
+// export const Booking = () => {
+//   return (
+//     <div className=" lg:mb-0 z-50 relative  lg:px-0 grid lg:grid-cols-2 ">
+//       <div className="order-2 lg:order-1  ">
+//         <div className="w-full h-auto md:h-[700px] overflow-hidden ">
+//           <Image
+//             loading="lazy"
+//             placeholder="blur"
+//             src={booking}
+//             alt={"Booking Img"}
+//             width={800}
+//             height={800}
+//             className="w-full h-full object-cover "
+//           />
+//         </div>
+//       </div>
+
+//       <div className="bg-[#7BDCB5] py-10  order-1  lg:order-2 flex items-center justify-center text-center">
+//         <div className="space-y-5 leading-tight">
+//           <h3 className="text-[40px] lg:text-[56px] font-medium">Spørsmål?</h3>
+//           <div>
+//             <p className="text-[24px] lg:text-[32px] font-medium">
+//               Ring oss: +47 13 65 07
+//             </p>
+//             <p className="text-[24px] lg:text-[32px] font-medium">
+//               Mail oss: Kontakt@sidesone.no
+//             </p>
+//           </div>
+//           <p className="text-[24px] lg:text-[32px] font-medium">Eller</p>
+//           <p className="text-[24px] lg:text-[32px] font-medium">
+//             Book en konsultasjon
+//           </p>
+//           <div className="flex justify-center py-5 lg:my-3 mt-6">
+//             <Link
+//               href={"/book-now"}
+//               className="w-60 bg-black transition-all flex items-center gap-4 justify-center duration-300 ease-in-out active:scale-95 text-white p-3 rounded-full"
+//             >
+//               Book Møte
+//               <span className=" sr-only ">Planlegg En Avtale</span>
+//               <div className="w-2 h-2 bg-[#17DB4F] rounded-full animate-[ping_2s_ease-in-out_infinite]"></div>
+//             </Link>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+export const ContactUs = () => {
   return (
-    <div className=" lg:mb-0 z-50 relative  lg:px-0 grid lg:grid-cols-2 ">
-      <div className="order-2 lg:order-1  ">
-        <div className="w-full h-auto md:h-[700px] overflow-hidden ">
-          <Image
-            loading="lazy"
-            placeholder="blur"
-            src={booking}
-            alt={"Booking Img"}
-            width={800}
-            height={800}
-            className="w-full h-full object-cover "
+    <div className=" relative pb-[2rem] overflow-hidden ">
+      <div className="absolute inset-0 z-[100] overflow-hidden">
+        <svg
+          className="w-full h-full"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 800"
+        >
+          {/* First Curved Line */}
+          <path
+            fill="none"
+            stroke="#72C04B"
+            strokeWidth="6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M-100,300 C150,600 600,50 900,500 C1200,950 1600,100 1900,500"
           />
-        </div>
-      </div>
 
-      <div className="bg-[#7BDCB5] py-10  order-1  lg:order-2 flex items-center justify-center text-center">
-        <div className="space-y-5 leading-tight">
-          <h3 className="text-[40px] lg:text-[56px] font-medium">Spørsmål?</h3>
-          <div>
-            <p className="text-[24px] lg:text-[32px] font-medium">
-              Ring oss: +47 13 65 07
-            </p>
-            <p className="text-[24px] lg:text-[32px] font-medium">
-              Mail oss: Kontakt@sidesone.no
-            </p>
+          {/* Second Curved Line */}
+          <path
+            fill="none"
+            stroke="#72C04B"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M-200,400 C100,100 500,700 800,300 C1100,-50 1400,600 1700,200"
+          />
+
+          {/* Third Curved Line */}
+          <path
+            fill="none"
+            stroke="#72C04B"
+            strokeWidth="5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M-50,500 C250,800 700,150 1100,600 C1500,1050 1800,300 2100,600"
+          />
+
+          {/* Fourth Curved Line */}
+          <path
+            fill="none"
+            stroke="#72C04B"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M-150,200 C50,500 400,0 700,400 C1000,800 1400,50 1700,500"
+          />
+        </svg>
+      </div>
+      <div className=" max-w-[1400px] mx-auto lg:mb-0 relative bg-[#F7F7F7]  md:p-[4rem]  rounded-2xl grid lg:grid-cols-2 ">
+        <div className="order-2 lg:order-1 p-[1rem] md:p-[2rem] z-[200] flex items-center ">
+          <div className="w-full overflow-hidden ">
+            <Image
+              loading="lazy"
+              placeholder="blur"
+              src={booking}
+              alt={"Booking Img"}
+              width={900}
+              height={900}
+              className="w-full h-full object-contain z-[200] rounded-md "
+            />
           </div>
-          <p className="text-[24px] lg:text-[32px] font-medium">Eller</p>
-          <p className="text-[24px] lg:text-[32px] font-medium">
-            Book en konsultasjon
-          </p>
-          <div className="flex justify-center py-5 lg:my-3 mt-6">
-            <Link
-              href={"/book-now"}
-              className="w-60 bg-black transition-all flex items-center gap-4 justify-center duration-300 ease-in-out active:scale-95 text-white p-3 rounded-full"
-            >
-              Book Møte
-              <span className=" sr-only ">Planlegg En Avtale</span>
-              <div className="w-2 h-2 bg-[#17DB4F] rounded-full animate-[ping_2s_ease-in-out_infinite]"></div>
-            </Link>
+        </div>
+        {/* bg-[#7BDCB5] */}
+        <div className=" py-10 px-5  order-1 z-[200]  lg:order-2 flex items-center justify-center w-full text-center ">
+          <div className="space-y-8 leading-tight">
+            <h3 className="text-[40px] lg:text-[56px] font-medium">
+              Spørsmål?
+            </h3>
+            <div className=" space-y-2 ">
+              <p className="text-[24px] lg:text-[32px] flex items-center justify-center gap-3 ">
+                {/* <IoCallOutline className=" mt-1 " /> */}
+                <span>Ring oss:</span>
+                <span>+47 13 65 07</span>
+              </p>
+              <p className="text-[24px] lg:text-[32px] flex items-center justify-center gap-3">
+                {/* <IoMailOutline className=" mt-1 " />{" "} */}
+                <span>Mail oss:</span>
+                <span>kontakt@sidesone.no</span>
+              </p>
+            </div>
+            {/* <p className="text-[24px] lg:text-[32px] font-medium">Eller</p> */}
+            <div className=" pt-4 space-y-3 ">
+              <p className="text-[24px] lg:text-[32px]  font-medium">Eller</p>
+              <p className="text-[24px] lg:text-[32px]  font-medium">
+                Book en konsultasjon
+              </p>
+              <div className="flex">
+                <Link
+                  href={"/book-now"}
+                  className="w-full bg-[#035635] transition-all flex items-center gap-4 justify-center duration-300 ease-in-out active:scale-95 text-white p-3 rounded-full"
+                >
+                  Book Møte
+                  <span className=" sr-only ">Planlegg En Avtale</span>
+                  <div className="w-2 h-2 bg-[#17DB4F] rounded-full animate-[ping_2s_ease-in-out_infinite]"></div>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -655,7 +767,10 @@ export const Hero = () => {
             Trenger du en nettside?
             <MdArrowForward className="transition-transform md:text-[1.5rem] mt-1 text-[1.2rem] transform group-hover:translate-x-2" />
           </Link>
-          <Link href={"#reviews"} className=" text-[1.1rem] md:text-[1.4rem] group w-fit ">
+          <Link
+            href={"#reviews"}
+            className=" text-[1.1rem] md:text-[1.4rem] group w-fit "
+          >
             <div className=" flex items-center gap-2 ">
               <FcGoogle />
               <h5>5/5 Google reviews</h5>
@@ -684,7 +799,7 @@ export const Hero = () => {
 
 export const OfferSection = () => {
   return (
-    <div className=" 2xl:2xl:max-w-[1400px] max-w-[1200px]  mx-auto px-2 md:px-3 -mt-16 lg:-mt-28 mb-[3rem] ">
+    <div className=" 2xl:2xl:max-w-[1400px] max-w-[1200px]  mx-auto px-2 md:px-3  my-[3rem] ">
       <h3 className=" text-[2rem] md:text-[2.8rem] mb-4 ">Hva vi tilbyr</h3>
       <div className=" grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-4 ">
         <Card2
@@ -752,5 +867,148 @@ export const PageLoading = () => {
     <div className=" fixed h-[100vh] z-[100] w-[100vw] bg-white flex items-center top-0 left-0 justify-center  ">
       <div className="w-10 h-10 animate-[spin_1s_linear_infinite] rounded-full border-double border-4 border-r-0 border-l-0 border-b-green-400 border-t-green-700"></div>
     </div>
+  );
+};
+
+import Img1 from "@/assets/Img1.webp";
+import Img2 from "@/assets/Img2.webp";
+import {
+  IoCallOutline,
+  IoCheckmarkCircle,
+  IoMailOutline,
+} from "react-icons/io5";
+
+export const NeedProfessitionSite = () => {
+  return (
+    <>
+      <div className=" max-w-[1600px] mx-auto px-2 ">
+        <div className=" -mt-16 grid  lg:px-0 grid-cols-1 lg:grid-cols-2 gap-6 text-black ">
+          <div className=" flex flex-col justify-center gap-5 pt-2 md:p-3">
+            <div className="text-[30px] leading-tight pb-5 font-semibold">
+              <span>Hvorfor trenger du en</span>{" "}
+              <span className=" text-[#035635] border-l-4 border-[#035635] pl-1 bg-gradient-to-r from-[#035635]/10 to-transparent pb-1 ">
+                Profesjonell nettside
+              </span>
+            </div>
+            {/* bg-[#0b462ece] */}
+            <h6 className=" ">
+              Nettsiden din er bedriftens digitale ansikt utad. Den skaper
+              tillit, gir et solid forsteinntrykk og hjelper deg med å tiltrekke
+              nye kunder. En profesjonell nettside er ikke bare en investering -
+              det er en nødvendighet for å lykkes i dagens digitale verden.
+            </h6>
+            <p className=" font-semibold text-[1.2rem] ">
+              Her er noen grunner til hvorfor din bedrift trenger en
+              profesjonell nettside:
+            </p>
+            <div className=" flex items-center flex-wrap gap-6 mt-[1.5rem] ">
+              <div className=" flex items-center gap-2 font-medium ">
+                <span className=" w-4 h-4 rounded-full bg-[#035635] "></span>
+                <span>Økt konvertering og salg</span>
+              </div>
+              <div className=" flex items-center gap-2 font-medium ">
+                <span className=" w-4 h-4 rounded-full bg-[#035635] "></span>
+                <span>Bygger troverdighet og tillit</span>
+              </div>
+              <div className=" flex items-center gap-2 font-medium ">
+                <span className=" w-4 h-4 rounded-full bg-[#035635] "></span>
+                <span>Tiltrekker nye kunder</span>
+              </div>
+              <div className=" flex items-center gap-2 font-medium ">
+                <span className=" w-4 h-4 rounded-full bg-[#035635] "></span>
+                <span>Direkte kommunikasjon med kunder</span>
+              </div>
+              <div className=" flex items-center gap-2 font-medium ">
+                <span className=" w-4 h-4 rounded-full bg-[#035635] "></span>
+                <span>Konkurransefortrinn</span>
+              </div>
+              <div className=" flex items-center gap-2 font-medium ">
+                <span className=" w-4 h-4 rounded-full bg-[#035635] "></span>
+                <span>Presentasjon av produkter og tjenester</span>
+              </div>
+            </div>
+            <Link
+              href={``}
+              className=" w-fit mt-4 text-[#fff] hover:text-black px-8 py-2 rounded-full bg-[#035635] border-2 border-[#035635] hover:bg-transparent transition-all duration-300 ease-in-out "
+            >
+              Få din nettside
+            </Link>
+          </div>
+          <div className=" ">
+            <figure className="w-full h-full flex items-center justify-center overflow-hidden">
+              <Image
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
+                src={Img1}
+                alt={"Coding"}
+                className="lg:w-full w-auto md:object-cover object-contain h-auto md:h-[500px] rounded-md "
+              />
+            </figure>
+          </div>
+        </div>
+
+        <div className=" mt-8 grid  lg:px-0 grid-cols-1 lg:grid-cols-2 gap-8 text-black ">
+          <div className=" ">
+            <figure className="w-full h-full flex items-center justify-center overflow-hidden">
+              <Image
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
+                src={Img2}
+                alt={"Coding"}
+                className="lg:w-full w-auto md:object-cover object-contain  h-auto md:h-[500px] rounded-md "
+              />
+            </figure>
+          </div>
+
+          <div className=" flex flex-col justify-center gap-5 pt-2 md:p-3">
+            <div className="text-[30px] leading-tight pb-5 font-semibold">
+              <span>Hvorfor velge </span>{" "}
+              <span className=" text-[#035635] border-l-4 border-[#035635] pl-1 bg-gradient-to-r from-[#035635]/10 to-transparent pb-1 ">
+                Sidesone
+              </span>{" "}
+              <span className=" ">som nettside leverandør?</span>
+            </div>
+            {/* bg-[#0b462ece] */}
+            <p className=" ">
+              Hos Sidesone får du mer enn bare en nettside - du får en komplett
+              digital løsning skreddersydd for din bedrift. Vi kombinerer
+              moderne design, optimal ytelse og smart funksjonalitet for å sikre
+              at nettsiden din skiller seg ut.
+            </p>
+
+            <div className=" flex flex-col gap-3 mt-[1.5rem] ">
+              <div className=" flex items-center gap-2 font-medium p-2 rounded-full bg-gradient-to-r from-[#035635]/10 to-transparent ">
+                <span className="  text-[#035635] text-[1.6rem] ">
+                  <IoCheckmarkCircle />
+                </span>
+                <span className=" whitespace-nowrap ">100% fornøydgaranti</span>
+              </div>
+              <div className=" flex items-center gap-2 font-medium p-2 rounded-full bg-gradient-to-r from-[#035635]/10 to-transparent ">
+                <span className="  text-[#035635] text-[1.6rem] ">
+                  <IoCheckmarkCircle />
+                </span>
+                <span className=" whitespace-nowrap ">8+ års erfaring</span>
+              </div>
+              <div className=" flex items-center gap-2 font-medium p-2 rounded-full bg-gradient-to-r from-[#035635]/10 to-transparent ">
+                <span className="  text-[#035635] text-[1.6rem] ">
+                  <IoCheckmarkCircle />
+                </span>
+                <span className=" whitespace-nowrap ">
+                  150+ fullførte prosjekter
+                </span>
+              </div>
+            </div>
+            <Link
+              href={``}
+              className=" w-fit mt-4 text-[#fff] hover:text-black px-8 py-2 rounded-full bg-[#035635] border-2 border-[#035635] hover:bg-transparent transition-all duration-300 ease-in-out "
+            >
+              Ta Kontakt
+            </Link>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };

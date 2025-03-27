@@ -1,5 +1,5 @@
 import Reference, { Slider } from "../components/Reference";
-import Tools, { Booking, Hero, OfferSection, Review, Team } from "../components/Tools";
+import Tools, { Booking, ContactUs, Hero, NeedProfessitionSite, OfferSection, Review, Team } from "../components/Tools";
 
 export default function Home() {
   return (
@@ -8,9 +8,13 @@ export default function Home() {
         <Hero />
       </div>
       <Slider />
+      <NeedProfessitionSite />
       <OfferSection />
       <div>
         <Tools />
+      </div>
+      <div>
+        <Reference title={"Referanser"} />
       </div>
       <div className="bg-[#035635]">
         <Team />
@@ -19,11 +23,9 @@ export default function Home() {
         <Review />
       </div>
       <div>
-        <Booking />
+        <ContactUs />
       </div>
-      <div>
-        <Reference title={"Referanser"} />
-      </div>
+
     </div>
   );
 }
