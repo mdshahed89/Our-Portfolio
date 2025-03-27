@@ -694,7 +694,7 @@ export const ContactUs = () => {
       </div> */}
       <div className=" max-w-[1400px] mx-auto lg:mb-0 relative bg-[#F7F7F7]  md:p-[4rem]  rounded-2xl grid lg:grid-cols-2 ">
         <div className="order-2 lg:order-1 p-[1rem] md:p-[2rem] z-[200] flex items-center ">
-          <div className="w-full h-[500px] overflow-hidden ">
+          <div className="w-full h-auto md:h-[500px] overflow-hidden ">
             <Image
               loading="lazy"
               placeholder="blur"
@@ -702,12 +702,12 @@ export const ContactUs = () => {
               alt={"Booking Img"}
               width={1200}
               height={1200}
-              className="w-full h-full object-cover z-[200] rounded-md "
+              className="w-full h-full object-contain md:object-cover z-[200] rounded-md "
             />
           </div>
         </div>
         {/* bg-[#7BDCB5] */}
-        <div className=" py-10 px-5  order-1 z-[200]  lg:order-2 flex items-center justify-center w-full text-center ">
+        <div className=" pb-0 md:pb-10 pt-10  px-5  order-1 z-[200]  lg:order-2 flex items-center justify-center w-full text-center ">
           <div className=" leading-tight">
             <h3 className="text-[40px] lg:text-[56px] font-medium">
               Spørsmål?
@@ -736,7 +736,7 @@ export const ContactUs = () => {
               <p className="text-[24px] lg:text-[32px]  font-medium">
                 Book en konsultasjon
               </p>
-              <div className=" pt-7 flex">
+              <div className=" pt-3 md:pt-7 flex">
                 <Link
                   href={"/book-now"}
                   className="w-full bg-[#035635] transition-all flex items-center gap-4 justify-center duration-300 ease-in-out active:scale-95 text-white p-3 rounded-full"
