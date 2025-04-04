@@ -117,7 +117,7 @@ const ReviewComponent = ({ reviews }) => {
           </div>
         </div>
         <div className=" whitespace-nowrap flex items-center gap-2 ">
-          <p>Powered by</p>{" "}
+          <h6>Powered by</h6>{" "}
           <Image
             src={GoogleLogo}
             alt="Google Logo"
@@ -161,8 +161,8 @@ const ReviewCard = ({ review }) => {
           />
         </div>
         <div>
-          <p>{review?.name}</p>
-          <p>{review?.time}</p>
+          <h4>{review?.name}</h4>
+          <h5>{review?.time}</h5>
         </div>
       </div>
 

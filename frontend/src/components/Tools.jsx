@@ -38,17 +38,17 @@ const Tools = () => {
     <>
       <div className="  px-2 md:px-3 my-[8rem] ">
         <div className=" max-w-[1200px] mx-auto text-center w-full mb-[2rem] flex justify-center flex-col items-center  ">
-          <div className=" text-[1.7rem] sm:text-[2rem] md:text-[2.6rem] flex xl:flex-row flex-col w-fit xl:gap-3 ">
+          <h2 className=" text-[1.7rem] sm:text-[2rem] md:text-[2.6rem] flex xl:flex-row flex-col w-fit xl:gap-3 ">
             Disse tjenestene nedenfor er{" "}
             <span className=" bg-[#035635] mt-1 text-[#fff] px-3 w-fit mx-auto leading-tight rounded-sm ">
               inkludert i alle nettsidepakker
             </span>
-          </div>
-          <h6 className=" text-gray-500 mt-4 text-base md:text-lg max-w-[50rem] mx-auto ">
+          </h2>
+          <p className=" text-gray-500 mt-4 text-base md:text-lg max-w-[50rem] mx-auto ">
             Uansett om du velger en nettside, nettbutikk eller webapplikasjon,
             får du disse grunnleggende tjenestene inkludert for en komplett og
             profesjonell løsning.
-          </h6>
+          </p>
         </div>
         <div className=" 2xl:max-w-[1400px] max-w-[1200px] mx-auto grid sm:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-2 ">
           <Card
@@ -85,18 +85,18 @@ const Tools = () => {
       </div>
       <div className=" 2xl:max-w-[1400px] max-w-[1200px] mx-auto px-2 md:px-3 my-[8rem] ">
         <div className=" text-center w-full mb-[2rem] flex justify-center flex-col items-center  ">
-          <div className=" text-[1.7rem] sm:text-[2rem] md:text-[2.8rem] flex xl:flex-row flex-col w-fit xl:gap-3 ">
+          <h2 className=" text-[1.7rem] sm:text-[2rem] md:text-[2.8rem] flex xl:flex-row flex-col w-fit xl:gap-3 ">
             Disse er tilleggstjenester med{" "}
             <span className=" text-[#035635] border-b-4 border-[#035635]  mt-1 h-fit py-1 px-2 w-fit mx-auto leading-none rounded-sm ">
               ekstra kostnad
             </span>
-          </div>
-          <h6 className=" text-gray-500 mt-4 text-base md:text-lg max-w-[60rem] ">
+          </h2>
+          <p className=" text-gray-500 mt-4 text-base md:text-lg max-w-[60rem] ">
             For deg som ønsker ekstra funksjonalitet eller skreddersydde
             løsninger, tilbyr vi disse tilleggstjenestene. Merk at noen
             kostnader er engangsbeløp, mens andre kan være løpende på månedlig
             basis
-          </h6>
+          </p>
         </div>
         <div className=" grid grid-cols-1 md:grid-cols-3 gap-2 ">
           <Card
@@ -137,12 +137,12 @@ const Card = ({ icon, title, description, btn, path }) => {
         {icon}
       </div>
       <div>
-        <div className=" mt-1 text-[1.3rem] md:text-[1.5rem] font-semibold text-[#035635] ">
+        <h3 className=" mt-1 text-[1.3rem] md:text-[1.5rem] font-semibold text-[#035635] ">
           {title}
-        </div>
-        <p className=" mt-2 text-gray-700 text-base md:text-lg ">
+        </h3>
+        <h4 className=" mt-2 text-gray-700 text-base md:text-lg ">
           {description}
-        </p>
+        </h4>
         <div
           className={` ${
             btn ? "" : "hidden"
@@ -450,12 +450,12 @@ const ProcessCard = ({ title, description, icon }) => {
           {icon}
         </div>
       </div>
-      <div className=" relative z-30 text-[1.5rem] font-semibold leading-tight  ">
+      <h5 className=" relative z-30 text-[1.5rem] font-semibold leading-tight  ">
         {title}
-      </div>
-      <p className=" relative z-30 text-xl mt-4 text-gray-600 ">
+      </h5>
+      <h6 className=" relative z-30 text-xl mt-4 text-gray-600 ">
         {description}
-      </p>
+      </h6>
       {/* <div className=" absolute -bottom-8  right-0 z-10 ">
         <Image
           src={icon}
@@ -475,12 +475,12 @@ export const Team = () => {
           <div className=" md:px-5 p-2 py-5 rounded-md mx-2 ">
             <div className=" flex flex-col items-center ">
               <TbUsersGroup className=" text-[2rem] mb-1 " />
-              <h5 className="text-[30px] leading-tight pb-5 font-semibold">
+              <h3 className="text-[30px] leading-tight pb-5 font-semibold">
                 Teamet bak sidesone
-              </h5>
+              </h3>
             </div>
             {/* bg-[#0b462ece] */}
-            <h6 className=" text-[20px] text-gray-100 leading-normal text-center 2xl:leading-8">
+            <h4 className=" text-[20px] text-gray-100 leading-normal text-center 2xl:leading-8">
               Hos Sidesone er vi eksperter på å skape digitale løsninger som
               gjør en forskjell for både enkeltpersoner og bedrifter. Vi forstår
               at behovene kan variere - fra små bedrifter og gründere som
@@ -489,10 +489,10 @@ export const Team = () => {
               digitale strategier. Uansett hvem du er, eller hvilken bransje du
               opererer i, er vårt mål alltid det samme: å levere løsninger som
               overgår forventningene.
-            </h6>
+            </h4>
           </div>
           <div className=" md:px-5 p-2 py-5 rounded-md mx-2  ">
-            <p className=" text-[20px] text-gray-100 leading-normal text-center 2xl:leading-8">
+            <h4 className=" text-[20px] text-gray-100 leading-normal text-center 2xl:leading-8">
               Vi utvikler profesjonelle nettsider, nettbutikker og webapper, og
               tilbyr et bredt spekter av tjenester, inkludert markedsføring, SEO
               og grafisk design. Vi setter samarbeid i sentrum og skreddersyr
@@ -502,7 +502,7 @@ export const Team = () => {
               driftsfasen. For oss er det ikke bare viktig å levere et ferdig
               produkt; vi ønsker å bygge langsiktige relasjoner og være en
               pålitelig partner du kan stole på.
-            </p>
+            </h4>
             <div className="flex justify-center items-center">
               <Link
                 href="/om-oss"
@@ -586,9 +586,9 @@ export const Review = async () => {
         <h2 className=" text-[2rem] md:text-[2.5rem] font-medium ">
           Klientanmeldelser
         </h2>
-        <p className=" text-lg md:text-xl ">
+        <h3 className=" text-lg md:text-xl ">
           Se hva våre fornøyde kunder sier om sin opplevelse med oss.
-        </p>
+        </h3>
       </div>
       <ReviewComponent reviews={reviews} />
     </section>
@@ -709,17 +709,17 @@ export const ContactUs = () => {
         {/* bg-[#7BDCB5] */}
         <div className=" pb-0 md:pb-10 pt-10  px-5  order-1 z-[200]  lg:order-2 flex items-center justify-center w-full text-center ">
           <div className=" leading-tight">
-            <h3 className="text-[40px] lg:text-[56px] font-medium">
+            <h2 className="text-[40px] lg:text-[56px] font-medium">
               Spørsmål?
-            </h3>
+            </h2>
             <div className="space-y-2 mt-8 ">
-              <p className="text-[24px] lg:text-[32px] flex items-center justify-center gap-3">
+              <h3 className="text-[24px] lg:text-[32px] flex items-center justify-center gap-3">
                 <span>Ring oss:</span>
                 <Link href="tel:+47136507" className="text-[#035635] ">
                   +47 13 65 07
                 </Link>
-              </p>
-              <p className="text-[24px] lg:text-[32px] flex items-center justify-center gap-3">
+              </h3>
+              <h3 className="text-[24px] lg:text-[32px] flex items-center justify-center gap-3">
                 <span>Mail oss:</span>
                 <Link
                   href="mailto:kontakt@sidesone.no"
@@ -727,15 +727,15 @@ export const ContactUs = () => {
                 >
                   kontakt@sidesone.no
                 </Link>
-              </p>
+              </h3>
             </div>
 
             <p className="text-[24px] lg:text-[32px] my-6 font-medium ">Eller</p>
             <div className=" space-y-3 ">
               
-              <p className="text-[24px] lg:text-[32px]  font-medium">
+              <h4 className="text-[24px] lg:text-[32px]  font-medium">
                 Book en konsultasjon
-              </p>
+              </h4>
               <div className=" pt-3 md:pt-7 flex">
                 <Link
                   href={"/book-now"}
@@ -786,7 +786,7 @@ export const Hero = () => {
           >
             <div className=" flex items-center gap-2 ">
               <FcGoogle />
-              <h5>5/5 Google reviews</h5>
+              5/5 Google reviews
             </div>
             <div className=" flex items-center gap-4 mt-1 ">
               <div className=" flex items-center gap-1 text-yellow-400 ">
@@ -816,9 +816,9 @@ export const OfferSection = () => {
       id="offers"
       className=" scroll-mt-40 2xl:2xl:max-w-[1400px] max-w-[1200px]  mx-auto px-2 md:px-3 mt-[6rem]  mb-[3rem] "
     >
-      <h3 className=" text-[2rem] md:text-[2.8rem] text-center mb-[2rem] ">
+      <h2 className=" text-[2rem] lg:text-[3rem] py-3 font-medium leading-none text-center mb-[5rem] relative before:absolute before:w-[7rem] before:h-1 before:bg-[#035635] before:left-1/2 before:bottom-[-1rem] before:transform before:-translate-x-1/2 ">
         Hva vi tilbyr
-      </h3>
+      </h2>
       <div className=" grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-4 ">
         <Card2
           img={NewImg1}
@@ -848,11 +848,11 @@ export const OfferSection = () => {
 
 const Card2 = ({ img, title, description, btn, path }) => {
   return (
-    <Link
-      href={`${path}`}
-      title={`Les mer om ${title}`}
-      tabIndex={0}
-      className="shadow-[0_0_5px_1px_rgba(128,128,128,0.6)] rounded-md group h-full  flex flex-col"
+    <div
+      
+      // title={`Les mer om ${title}`}
+      // tabIndex={0}
+      className="shadow-[0_0_5px_1px_rgba(128,128,128,0.6)] rounded-md h-full  flex flex-col"
     >
       <div className="w-full h-[17rem] md:h-[20rem] overflow-hidden">
         <Image
@@ -864,19 +864,20 @@ const Card2 = ({ img, title, description, btn, path }) => {
       </div>
       <div className=" px-2 pt-2 pb-4 flex flex-col justify-between flex-grow ">
         <div>
-          <p className=" text-[1.7rem] md:text-[2rem] font-medium">{title}</p>
-          <p className="  md:text-lg text-gray-500">{description}</p>
+          <h3 className=" text-[1.7rem] md:text-[2rem] font-medium">{title}</h3>
+          <h4 className="  md:text-lg text-gray-500">{description}</h4>
         </div>
-        <div
+        <Link
+        href={`${path}`}
           className={`${
             btn ? "" : "hidden"
           } group hover:text-[#035635] transition-all duration-300 ease-linear border-b-2 border-[#035635] w-fit mt-3 md:mt-5 flex items-center gap-1`}
         >
           <div className="text-[1.1rem] font-light">{btn}</div>
           <MdArrowForward className="mt-1 group-hover:ml-2 transition-all duration-200 ease-linear" />
-        </div>
+        </Link>
       </div>
-    </Link>
+    </div>
   );
 };
 
@@ -903,24 +904,24 @@ export const NeedProfessitionSite = () => {
       <div className=" max-w-[1600px] mx-auto px-2 ">
         <div className=" -mt-16 grid  lg:px-0 grid-cols-1 lg:grid-cols-2 gap-6 text-black ">
           <div className=" flex flex-col justify-center gap-5 pt-2 md:p-3">
-            <div className="text-[30px] leading-tight pb-5 font-semibold">
+            <div className=" text-[26px] md:text-[32px] lg:text-[48px] leading-tight pb-5 font-semibold">
               <span>Hvorfor trenger du en</span>{" "}
               <span className=" text-[#035635] border-l-4 border-[#035635] pl-1 bg-gradient-to-r from-[#035635]/10 to-transparent pb-1 ">
-                Profesjonell nettside
+                Profesjonell nettside ?
               </span>
             </div>
             {/* bg-[#0b462ece] */}
-            <h6 className=" ">
+            <h6 className=" text-[16px] lg:text-[18px] ">
               Nettsiden din er bedriftens digitale ansikt utad. Den skaper
               tillit, gir et solid forsteinntrykk og hjelper deg med å tiltrekke
               nye kunder. En profesjonell nettside er ikke bare en investering -
               det er en nødvendighet for å lykkes i dagens digitale verden.
             </h6>
-            <p className=" font-semibold text-[1.2rem] ">
+            <p className=" font-semibold text-[16px] lg:text-[18px] ">
               Her er noen grunner til hvorfor din bedrift trenger en
               profesjonell nettside:
             </p>
-            <div className=" flex items-center flex-wrap gap-6 mt-[1.5rem] ">
+            <div className=" flex items-center flex-wrap gap-6 text-[16px] lg:text-[18px] mt-[1.5rem] ">
               <div className=" flex items-center gap-2 font-medium ">
                 <span className=" w-4 h-4 rounded-full bg-[#035635] "></span>
                 <span>Økt konvertering og salg</span>
@@ -982,7 +983,7 @@ export const NeedProfessitionSite = () => {
           </div>
 
           <div className=" lg:order-2 order-1 flex flex-col justify-center gap-5 pt-2 md:p-3">
-            <div className="text-[30px] leading-tight pb-5 font-semibold">
+            <div className=" text-[26px] md:text-[32px] lg:text-[48px] leading-tight pb-5 font-semibold">
               <span>Hvorfor velge </span>{" "}
               <span className=" text-[#035635] border-l-4 border-[#035635] pl-1 bg-gradient-to-r from-[#035635]/10 to-transparent pb-1 ">
                 Sidesone
@@ -990,14 +991,14 @@ export const NeedProfessitionSite = () => {
               <span className=" ">som nettside leverandør?</span>
             </div>
             {/* bg-[#0b462ece] */}
-            <p className=" ">
+            <p className=" text-[16px] lg:text-[18px] ">
               Hos Sidesone får du mer enn bare en nettside - du får en komplett
               digital løsning skreddersydd for din bedrift. Vi kombinerer
               moderne design, optimal ytelse og smart funksjonalitet for å sikre
               at nettsiden din skiller seg ut.
             </p>
 
-            <div className=" flex flex-col gap-3 mt-[1.5rem] ">
+            <div className=" flex flex-col gap-3 mt-[1.5rem] text-[16px] lg:text-[18px] ">
               <div className=" flex items-center gap-2 font-medium p-2 rounded-full bg-gradient-to-r from-[#035635]/10 to-transparent ">
                 <span className="  text-[#035635] text-[1.6rem] ">
                   <IoCheckmarkCircle />

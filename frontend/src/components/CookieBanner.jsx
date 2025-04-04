@@ -43,9 +43,9 @@ const CookieBanner = () => {
   return (
     isVisible && (
       <div className="fixed bottom-16 sm:left-16 z-[1000] bg-white text-black p-4 md:p-6 m-3 sm:m-0 sm:w-[30rem] rounded-md ">
-        <hp className=" text-[1.1rem] md:text-[1.3rem] font-semibold ">
+        <h4 className=" text-[1.1rem] md:text-[1.3rem] font-semibold ">
           Vi setter pris på personvernet ditt
-        </hp>
+        </h4>
         <p className=" text-sm md:text-lg text-gray-500 my-4 ">
           Vi bruker informasjonskapsler for å forbedre nettleseropplevelsen din,
           vise personlig tilpassede annonser eller innhold og analysere

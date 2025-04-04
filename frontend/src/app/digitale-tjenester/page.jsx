@@ -27,7 +27,7 @@ const page = () => {
             <div className=" flex  ">
               <Link
                 href={"/markedsforing"}
-                className=" px-10 py-2 rounded-full bg-[#000] text-[#fff] font-medium mt-8 "
+                className=" px-10 py-2 rounded-full bg-[#035635] border-2 border-[#035635] hover:bg-transparent hover:text-[#000] transition-all duration-300 ease-in-out text-[#fff] font-medium mt-8 "
               >
                 Start din vekst!
               </Link>
@@ -74,7 +74,7 @@ const page = () => {
             <div className="pt-8">
               <Link
                 href={"/seo"}
-                className=" px-10 py-2 rounded-full bg-[#000] text-[#fff] font-medium mt-8 "
+                className=" px-10 py-2 rounded-full bg-[#035635] border-2 border-[#035635] hover:bg-transparent hover:text-[#000] transition-all duration-300 ease-in-out text-[#fff] font-medium mt-8 "
               >
                 Øk synligheten din!
               </Link>
@@ -102,7 +102,7 @@ const page = () => {
             <div className=" flex  ">
               <Link
                 href={"/logo"}
-                className=" px-10 py-2 rounded-full bg-[#000] text-[#fff] font-medium mt-8 "
+                className=" px-10 py-2 rounded-full bg-[#035635] border-2 border-[#035635] hover:bg-transparent hover:text-[#000] transition-all duration-300 ease-in-out text-[#fff] font-medium mt-8 "
               >
                 Start din vekst!
               </Link>

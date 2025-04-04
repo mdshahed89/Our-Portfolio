@@ -104,7 +104,7 @@ const Chatbot = () => {
   };
 
   return (
-    <div className="fixed bottom-3 md:bottom-5 right-3 md:right-5 z-50">
+    <div className="fixed bottom-3 md:bottom-5 right-3 md:right-5 z-[2000]">
       {showPopup && !isOpen && (
         <div className="fixed bottom-3 md:bottom-5 right-3 md:right-5 md:max-w-[30rem] max-w-[20rem] bg-white p-4 rounded-lg shadow-lg border border-gray-300 z-50">
           <div className=" flex justify-end mb-3 ">
@@ -173,7 +173,7 @@ const Chatbot = () => {
               <RxCross1 />
             </button>
           </div>
-          <div className=" text-sm pt-2 pb-4 px-2 text-center max-w-[20rem] shadow-[0px_1px_10px_rgba(0,0,0,0.15)] mx-auto text-[#3f3f3f] ">
+          <div className=" text-sm pt-2 pb-4 px-2 text-center max-w-[20rem]  mx-auto text-[#3f3f3f] ">
             <p>
               Vi svarer innen 1 time. Meldingen din sendes til vår mail, og vi
               tar kontakt snart!

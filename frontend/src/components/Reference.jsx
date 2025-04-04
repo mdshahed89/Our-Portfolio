@@ -126,31 +126,29 @@ export default async function Reference({ title }) {
                   href={`${project.path}`}
                   className="flex items-center justify-between pb-2 md:pb-3"
                 >
-                  <div className="text-2xl font-semibold text-nowrap">
+                  <h3 className="text-2xl font-semibold text-nowrap">
                     {project?.title || "Untitled Prosjekter"}
-                  </div>
-                  <div
+                  </h3>
+                  <h4
                     className={`text-base md:text-lg font-medium rounded-md ${project.color} ${project.bgColor} px-2 md:px-3`}
                   >
                     {project?.type}
-                  </div>
+                  </h4>
                 </Link>
 
                 <div className="flex items-center justify-between gap-4">
                   <div className=" flex flex-col md:gap-2 gap-1 ">
                     <Link
                       href={`${project.path}`}
-                      className="font-medium text-gray-600"
                     >
-                      {project.description}
+                      <h5 className="font-medium text-gray-600">{project.description}</h5>
                     </Link>
                     <Link
                       href={`https://${project.link}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xl z-50 font-medium text-[#17DB4F]"
                     >
-                      {project.link}
+                      <h6 className="text-xl z-50 font-medium text-[#17DB4F]">{project.link}</h6>
                     </Link>
                   </div>
 
@@ -189,7 +187,7 @@ export const Slider = async () => {
     );
 
     if (!response.ok) {
-      console.log("Faield to get projects");
+      console.log("Failed to get projects");
       return [];
     }
 
@@ -217,7 +215,7 @@ export const Slider = async () => {
             {visibleProjects?.map((item, index) => (
               <Link
                 href={`${item?._id ? `/prosjekter/${item?._id}` : "#"}`}
-                key={index}
+                key={item?._id}
                 className="group relative mx-2 z-10 hover:z-50  flex flex-col items-center justify-center 
                  overflow-hidden  rounded-xl  shadow-lg 
                  lg:hover:scale-125 hover:scale-[1.15]  border-2 border-[#7BDCB5] 
@@ -228,8 +226,8 @@ export const Slider = async () => {
                     // loading="lazy"
                     placeholder="blur"
                     blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNmM2Y0ZjUiLz48L3N2Zz4="
-                    src={item.coverImg || AImg}
-                    alt={item.title || "title img"}
+                    src={item?.coverImg || AImg}
+                    alt={item?.title || "Uten tittel"}
                     width={400}
                     height={300}
                     priority
@@ -239,17 +237,19 @@ export const Slider = async () => {
 
                 <div
                   className="absolute bottom-0 flex items-center justify-center w-full p-4 
-                   text-lg font-medium text-white bg-[#035635] 
+                    text-white bg-[#035635] 
                    opacity-60 group-hover:opacity-100 transition-opacity duration-500"
                 >
-                  {item.title}
+                  <h3 className="text-lg font-medium">{item.title}</h3>
                 </div>
               </Link>
             ))}
           </Marquee>
         </div>
       ) : (
-        <div className="h-60"></div>
+        <div className="h-60 flex text-[1.4rem] justify-center pt-20 ">
+    Ingen prosjekter funnet.
+  </div>
       )}
     </div>
   );
