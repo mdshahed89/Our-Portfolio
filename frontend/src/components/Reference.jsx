@@ -118,6 +118,7 @@ export default async function Reference({ title }) {
                     fill
                     className="w-full h-full object-cover rounded-md"
                   />
+                  <span className=" absolute sr-only ">{project?.title || "View Project"}</span>
                 </div>
               </Link>
 
@@ -132,7 +133,7 @@ export default async function Reference({ title }) {
                   <h4
                     className={`text-base md:text-lg font-medium rounded-md ${project.color} ${project.bgColor} px-2 md:px-3`}
                   >
-                    {project?.type}
+                    {project?.type} <span className=" sr-only ">Prosjekter</span>
                   </h4>
                 </Link>
 
@@ -157,6 +158,7 @@ export default async function Reference({ title }) {
                     className="border-[#17DB4F] border-2 p-2 rounded-full text-[1.3rem] text-[#17DB4F]"
                   >
                     <IoIosArrowForward />
+                    <span className="sr-only">{project?.title} {project?.type}</span>
                   </Link>
                 </div>
               </div>
@@ -240,7 +242,7 @@ export const Slider = async () => {
                     text-white bg-[#035635] 
                    opacity-60 group-hover:opacity-100 transition-opacity duration-500"
                 >
-                  <h3 className="text-lg font-medium">{item.title}</h3>
+                  <div className="text-lg font-medium">{item.title}</div>
                 </div>
               </Link>
             ))}

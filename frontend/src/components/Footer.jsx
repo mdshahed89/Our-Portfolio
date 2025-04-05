@@ -274,7 +274,7 @@ const ResponsiveMenu = () => {
                 }
                   `}
               >
-                Nettside
+                Nettside <span className="sr-only"> - Phone footer meny</span>
               </Link>
             </li>
             <li>
@@ -285,7 +285,7 @@ const ResponsiveMenu = () => {
                 }
                   `}
               >
-                Nettbutikk
+                Nettbutikk <span className="sr-only"> - Phone footer meny</span>
               </Link>
             </li>
             <li>
@@ -296,7 +296,7 @@ const ResponsiveMenu = () => {
                 }
                   `}
               >
-                Webapp
+                Webapp <span className="sr-only"> - Phone footer meny</span>
               </Link>
             </li>
             <li>
@@ -307,7 +307,7 @@ const ResponsiveMenu = () => {
                 }
                   `}
               >
-                SEO
+                SEO <span className="sr-only"> - Phone footer meny</span>
               </Link>
             </li>
             <li>
@@ -318,7 +318,7 @@ const ResponsiveMenu = () => {
                 }
                   `}
               >
-                Markedsføring
+                Markedsføring <span className="sr-only"> - Phone footer meny</span>
               </Link>
             </li>
             <li>
@@ -329,7 +329,7 @@ const ResponsiveMenu = () => {
                 }
                   `}
               >
-                Grafisk design
+                Grafisk design <span className="sr-only"> - Phone footer meny</span>
               </Link>
             </li>
           </ul>
@@ -364,7 +364,7 @@ const ResponsiveMenu = () => {
                 }
                   `}
               >
-                Blogg
+                Blogg <span className="sr-only"> - Phone footer meny</span>
               </Link>
             </li>
             <li>
@@ -374,8 +374,8 @@ const ResponsiveMenu = () => {
                   pathName === "/om-oss" && "text-[#17DB4F]"
                 }
                   `}
-              >
-                Om Oss
+              > 
+                Om Oss <span className="sr-only"> - Phone footer meny</span>
               </Link>
             </li>
             <li>
@@ -386,7 +386,7 @@ const ResponsiveMenu = () => {
                 className={`flex items-center pb-2 hover:text-[#17DB4F] cursor-pointer
                   `}
               >
-                Facebook Gruppe
+                Facebook Gruppe <span className="sr-only"> - Phone footer meny</span>
               </Link>
             </li>
           </ul>
@@ -400,7 +400,7 @@ const ResponsiveMenu = () => {
               pathName === "/om-oss" && "text-[#17DB4F]"
             }`}
           >
-            Hvem er vi?
+            Hvem er vi? <span className="sr-only"> - Phone footer meny</span>
           </Link>
         </li>
         <li className="relative group border-b border-[#17DB4F] py-2">
@@ -410,7 +410,7 @@ const ResponsiveMenu = () => {
               pathName === "/referanser" && "text-[#17DB4F]"
             } `}
           >
-            Prosjekter
+            Prosjekter <span className="sr-only"> - Phone footer meny</span>
           </Link>
         </li>
       </ul>

@@ -137,12 +137,12 @@ const Card = ({ icon, title, description, btn, path }) => {
         {icon}
       </div>
       <div>
-        <h3 className=" mt-1 text-[1.3rem] md:text-[1.5rem] font-semibold text-[#035635] ">
+        <div className=" mt-1 text-[1.3rem] md:text-[1.5rem] font-semibold text-[#035635] ">
           {title}
-        </h3>
-        <h4 className=" mt-2 text-gray-700 text-base md:text-lg ">
+        </div>
+        <p className=" mt-2 text-gray-700 text-base md:text-lg ">
           {description}
-        </h4>
+        </p>
         <div
           className={` ${
             btn ? "" : "hidden"
@@ -162,8 +162,8 @@ const Process = () => {
   return (
     <div className=" flex flex-col justify-center md:processBg md:px-3 px-2 pt-[1rem] pb-[3rem] ">
       <div className=" text-center text-[2rem] md:text-[2.8rem] lg:text-[3.4rem] leading-tight font-semibold ">
-        <div>Prosessen med oss er kjempeenkel, vi skreddersyr løsningen.</div>
-        <div className=" text-[#17DB4F] ">Du slipper stress.</div>
+        <h2>Prosessen med oss er kjempeenkel, vi skreddersyr løsningen.</h2>
+        <h2 className=" text-[#17DB4F] ">Du slipper stress.</h2>
       </div>
       <div className=" 2xl:max-w-[1400px] max-w-[1200px] mt-[5rem] lg:mt-[10rem] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 ">
         <div className="relative">
@@ -480,7 +480,7 @@ export const Team = () => {
               </h3>
             </div>
             {/* bg-[#0b462ece] */}
-            <h4 className=" text-[20px] text-gray-100 leading-normal text-center 2xl:leading-8">
+            <p className=" text-[20px] text-gray-100 leading-normal text-center 2xl:leading-8">
               Hos Sidesone er vi eksperter på å skape digitale løsninger som
               gjør en forskjell for både enkeltpersoner og bedrifter. Vi forstår
               at behovene kan variere - fra små bedrifter og gründere som
@@ -489,10 +489,10 @@ export const Team = () => {
               digitale strategier. Uansett hvem du er, eller hvilken bransje du
               opererer i, er vårt mål alltid det samme: å levere løsninger som
               overgår forventningene.
-            </h4>
+            </p>
           </div>
           <div className=" md:px-5 p-2 py-5 rounded-md mx-2  ">
-            <h4 className=" text-[20px] text-gray-100 leading-normal text-center 2xl:leading-8">
+            <p className=" text-[20px] text-gray-100 leading-normal text-center 2xl:leading-8">
               Vi utvikler profesjonelle nettsider, nettbutikker og webapper, og
               tilbyr et bredt spekter av tjenester, inkludert markedsføring, SEO
               og grafisk design. Vi setter samarbeid i sentrum og skreddersyr
@@ -502,7 +502,7 @@ export const Team = () => {
               driftsfasen. For oss er det ikke bare viktig å levere et ferdig
               produkt; vi ønsker å bygge langsiktige relasjoner og være en
               pålitelig partner du kan stole på.
-            </h4>
+            </p>
             <div className="flex justify-center items-center">
               <Link
                 href="/om-oss"
@@ -713,13 +713,13 @@ export const ContactUs = () => {
               Spørsmål?
             </h2>
             <div className="space-y-2 mt-8 ">
-              <h3 className="text-[24px] lg:text-[32px] flex items-center justify-center gap-3">
+              <div className="text-[24px] lg:text-[32px] flex items-center justify-center gap-3">
                 <span>Ring oss:</span>
                 <Link href="tel:+47136507" className="text-[#035635] ">
                   +47 13 65 07
                 </Link>
-              </h3>
-              <h3 className="text-[24px] lg:text-[32px] flex items-center justify-center gap-3">
+              </div>
+              <div className="text-[24px] lg:text-[32px] flex items-center justify-center gap-3">
                 <span>Mail oss:</span>
                 <Link
                   href="mailto:kontakt@sidesone.no"
@@ -727,15 +727,15 @@ export const ContactUs = () => {
                 >
                   kontakt@sidesone.no
                 </Link>
-              </h3>
+              </div>
             </div>
 
             <p className="text-[24px] lg:text-[32px] my-6 font-medium ">Eller</p>
             <div className=" space-y-3 ">
               
-              <h4 className="text-[24px] lg:text-[32px]  font-medium">
+              <div className="text-[24px] lg:text-[32px]  font-medium">
                 Book en konsultasjon
-              </h4>
+              </div>
               <div className=" pt-3 md:pt-7 flex">
                 <Link
                   href={"/book-now"}
@@ -864,8 +864,8 @@ const Card2 = ({ img, title, description, btn, path }) => {
       </div>
       <div className=" px-2 pt-2 pb-4 flex flex-col justify-between flex-grow ">
         <div>
-          <h3 className=" text-[1.7rem] md:text-[2rem] font-medium">{title}</h3>
-          <h4 className="  md:text-lg text-gray-500">{description}</h4>
+          <p className=" text-[1.7rem] md:text-[2rem] font-medium">{title}</p>
+          <p className="  md:text-lg text-gray-500">{description}</p>
         </div>
         <Link
         href={`${path}`}
@@ -911,12 +911,12 @@ export const NeedProfessitionSite = () => {
               </span>
             </div>
             {/* bg-[#0b462ece] */}
-            <h6 className=" text-[16px] lg:text-[18px] ">
+            <p className=" text-[16px] lg:text-[18px] ">
               Nettsiden din er bedriftens digitale ansikt utad. Den skaper
               tillit, gir et solid forsteinntrykk og hjelper deg med å tiltrekke
               nye kunder. En profesjonell nettside er ikke bare en investering -
               det er en nødvendighet for å lykkes i dagens digitale verden.
-            </h6>
+            </p>
             <p className=" font-semibold text-[16px] lg:text-[18px] ">
               Her er noen grunner til hvorfor din bedrift trenger en
               profesjonell nettside:

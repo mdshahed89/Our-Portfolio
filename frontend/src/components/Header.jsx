@@ -327,7 +327,7 @@ const Header = () => {
                       setMenuOpen(false);
                     }}
                   >
-                    Nettside
+                    Nettside <span className="sr-only"> - Phone meny</span>
                   </Link>
                   <MdOutlineKeyboardArrowDown
                   onClick={() => toggleDropdown(0)}
@@ -354,7 +354,7 @@ const Header = () => {
                     }
                   `}
                   >
-                    Nettside
+                    Nettside <span className="sr-only"> - Phone meny</span>
                   </Link>
                 </li>
                 <li>
@@ -369,7 +369,7 @@ const Header = () => {
                     }
                   `}
                   >
-                    Nettbutikk
+                    Nettbutikk <span className="sr-only"> - Phone meny</span>
                   </Link>
                 </li>
                 <li>
@@ -384,7 +384,7 @@ const Header = () => {
                     }
                   `}
                   >
-                    Webapplikasjon
+                    Webapplikasjon <span className="sr-only"> - Phone meny</span>
                   </Link>
                 </li>
               </ul>
@@ -405,7 +405,7 @@ const Header = () => {
                       setMenuOpen(false);
                     }}
                   >
-                    Digitale Tjenester
+                    Digitale Tjenester <span className="sr-only"> - Phone meny</span>
                   </Link>
                   <MdOutlineKeyboardArrowDown
                     onClick={() => toggleDropdown(1)}
@@ -432,7 +432,7 @@ const Header = () => {
                     }
                   `}
                   >
-                    Seo
+                    Seo <span className="sr-only"> - Phone meny</span>
                   </Link>
                 </li>
                 <li>
@@ -447,7 +447,7 @@ const Header = () => {
                     }
                   `}
                   >
-                    Logo
+                    Logo <span className="sr-only"> - Phone meny</span>
                   </Link>
                 </li>
                 <li>
@@ -462,7 +462,7 @@ const Header = () => {
                     }
                   `}
                   >
-                    Markedsføring
+                    Markedsføring <span className="sr-only"> - Phone meny</span>
                   </Link>
                 </li>
               </ul>
@@ -477,7 +477,7 @@ const Header = () => {
                   pathName === "/om-oss" && "text-[#17DB4F]"
                 }`}
               >
-                Hvem er vi?
+                Hvem er vi? <span className="sr-only"> - Phone meny</span>
               </Link>
             </li>
             <li className="relative group border-b border-[#17DB4F] py-2">
@@ -488,7 +488,7 @@ const Header = () => {
                   pathName === "/referanser" && "text-[#17DB4F]"
                 } `}
               >
-                Prosjekter
+                Prosjekter <span className="sr-only"> - Phone meny</span>
               </Link>
             </li>
             <li className="relative group pt-[2rem] ">
