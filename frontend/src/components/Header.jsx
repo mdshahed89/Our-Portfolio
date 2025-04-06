@@ -283,7 +283,7 @@ const Header = () => {
                 <Link
                   className={`${
                     pathName === "/book-now" && "bg-transparent"
-                  } bg-[#17DB4E] hover:bg-transparent border-2 border-[#17DB4E] px-4 font-medium text-lg py-1 rounded-sm transition-all duration-300 ease-in-out  `}
+                  } bg-[#20d654] hover:bg-transparent border-2 border-[#20d654] px-6 font-medium text-lg py-2 rounded-full transition-all duration-300 ease-in-out  `}
                   href="/book-now"
                 >
                   {" "}

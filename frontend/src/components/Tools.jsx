@@ -266,12 +266,12 @@ const Process = () => {
         />
       </div>
       <div className=" flex justify-center ">
-      {/* <div
+        {/* <div
         className="  text-center mt-4 text-[#fff] cursor-pointer hover:text-black px-12 py-2 rounded-full bg-[#035635] border-2 border-[#035635] hover:bg-transparent transition-all duration-300 ease-in-out "
       >
         Alle Tjenester
       </div> */}
-      <ServicesModal />
+        <ServicesModal />
       </div>
     </div>
   );
@@ -730,9 +730,10 @@ export const ContactUs = () => {
               </div>
             </div>
 
-            <p className="text-[24px] lg:text-[32px] my-6 font-medium ">Eller</p>
+            <p className="text-[24px] lg:text-[32px] my-6 font-medium ">
+              Eller
+            </p>
             <div className=" space-y-3 ">
-              
               <div className="text-[24px] lg:text-[32px]  font-medium">
                 Book en konsultasjon
               </div>
@@ -814,7 +815,7 @@ export const OfferSection = () => {
   return (
     <section
       id="offers"
-      className=" scroll-mt-40 2xl:2xl:max-w-[1400px] max-w-[1200px]  mx-auto px-2 md:px-3 mt-[6rem]  mb-[3rem] "
+      className=" scroll-mt-40 2xl:2xl:max-w-[1400px] max-w-[1200px]  mx-auto px-2 md:px-3 mt-[3rem] lg:mt-[6rem]  mb-[3rem] "
     >
       <h2 className=" text-[2rem] lg:text-[3rem] py-3 font-medium leading-none text-center mb-[5rem] relative before:absolute before:w-[7rem] before:h-1 before:bg-[#035635] before:left-1/2 before:bottom-[-1rem] before:transform before:-translate-x-1/2 ">
         Hva vi tilbyr
@@ -849,7 +850,6 @@ export const OfferSection = () => {
 const Card2 = ({ img, title, description, btn, path }) => {
   return (
     <div
-      
       // title={`Les mer om ${title}`}
       // tabIndex={0}
       className="shadow-[0_0_5px_1px_rgba(128,128,128,0.6)] rounded-md h-full  flex flex-col"
@@ -868,7 +868,7 @@ const Card2 = ({ img, title, description, btn, path }) => {
           <p className="  md:text-lg text-gray-500">{description}</p>
         </div>
         <Link
-        href={`${path}`}
+          href={`${path}`}
           className={`${
             btn ? "" : "hidden"
           } group hover:text-[#035635] transition-all duration-300 ease-linear border-b-2 border-[#035635] w-fit mt-3 md:mt-5 flex items-center gap-1`}
@@ -891,6 +891,12 @@ export const PageLoading = () => {
 
 import Img1 from "@/assets/Img1.webp";
 import Img2 from "@/assets/Img2.webp";
+import Img3 from "@/assets/Img3.png";
+import Img4 from "@/assets/Img4.png";
+import Img5 from "@/assets/Img5.png";
+import Img6 from "@/assets/Img6.png";
+import Img7 from "@/assets/Img7.png";
+import Img8 from "@/assets/Img8.png";
 import {
   IoCallOutline,
   IoCheckmarkCircle,
@@ -901,7 +907,7 @@ import { ServicesModal } from "@/modals/Modal";
 export const NeedProfessitionSite = () => {
   return (
     <>
-      <div className=" max-w-[1600px] mx-auto px-2 ">
+      <div className=" max-w-[1400px] mx-auto px-2 ">
         <div className=" -mt-16 grid  lg:px-0 grid-cols-1 lg:grid-cols-2 gap-6 text-black ">
           <div className=" flex flex-col justify-center gap-5 pt-2 md:p-3">
             <div className=" text-[26px] md:text-[32px] lg:text-[48px] leading-tight pb-5 font-semibold">
@@ -954,17 +960,73 @@ export const NeedProfessitionSite = () => {
               Få din nettside
             </Link>
           </div>
-          <div className=" ">
-            <figure className="w-full h-full flex items-center justify-center overflow-hidden">
-              <Image
-                loading="lazy"
-                placeholder="blur"
-                blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
-                src={Img1}
-                alt={"Coding"}
-                className="lg:w-full w-auto md:object-cover object-contain h-auto md:h-[500px] rounded-md "
-              />
-            </figure>
+          <div className=" flex h-full gap-1 lg:gap-2 ">
+            <div className=" flex-1 flex flex-col gap-1 lg:gap-3 ">
+              <div className=" w-full ">
+                <Image
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
+                  src={Img3}
+                  alt={"Coding"}
+                  className=" w-full h-auto lg:h-[17rem] rounded-[1.5rem] md:rounded-[2rem] "
+                />
+              </div>
+              <div className="w-full">
+                <Image
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
+                  src={Img4}
+                  alt={"Coding"}
+                  className="w-full h-auto lg:h-[17rem]  rounded-[1.5rem] md:rounded-[2rem] "
+                />
+              </div>
+            </div>
+            <div className="  flex-1 lg:h-auto h-[80%] flex flex-col gap-1 lg:gap-2 ">
+              <div className="w-full lg:h-auto h-1/2 ">
+                <Image
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
+                  src={Img5}
+                  alt={"Coding"}
+                  className=" w-full  object-cover lg:object-fill h-full lg:h-[14rem]  rounded-[1.5rem] md:rounded-[2rem] "
+                />
+              </div>
+              <div className="w-full lg:h-auto h-1/2 ">
+                <Image
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
+                  src={Img6}
+                  alt={"Coding"}
+                  className=" w-full object-cover lg:object-fill h-full lg:h-[14rem]  rounded-[1.5rem] md:rounded-[2rem] "
+                />
+              </div>
+            </div>
+            <div className="  flex-1 flex flex-col gap-1 lg:gap-2 ">
+              <div className=" w-full ">
+                <Image
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
+                  src={Img7}
+                  alt={"Coding"}
+                  className=" w-full object-cover lg:object-fill h-auto lg:h-[10rem]  rounded-[1.5rem] md:rounded-[2rem] "
+                />
+              </div>
+              <div className="w-full ">
+                <Image
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
+                  src={Img8}
+                  alt={"Coding"}
+                  className=" w-full object-cover lg:object-fill  h-auto lg:h-[10rem]  rounded-[1.5rem] md:rounded-[2rem] "
+                />
+              </div>
+            </div>
           </div>
         </div>
 

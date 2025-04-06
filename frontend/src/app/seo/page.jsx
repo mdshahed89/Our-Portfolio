@@ -1,5 +1,5 @@
 import React from "react";
-import Seo1 from "@/assets/seo.png";
+import Seo1 from "@/assets/seo.webp";
 import Seo2 from "@/assets/s2.webp";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,10 +11,10 @@ import { RiSearchLine } from "react-icons/ri";
 const page = () => {
   return (
     <div className="  h-full mt-[160px]  ">
-      <div className=" px-3 flex items-center lg:flex-row flex-col lg:gap-0 gap-7  ">
-        <div className=" flex-1 lg:order-1 order-2  ">
+      <div className=" px-3 flex items-center xl:flex-row flex-col xl:gap-0 gap-7  ">
+        <div className=" flex-1 xl:order-1 order-2  ">
           <div className=" flex flex-col gap-8 justify-between lg:px-3 ">
-            <div className=" lg:text-[2rem] text-[1.7rem]  font-semibold ">
+            <div className=" xl:text-[2rem] text-[1.7rem]  font-semibold ">
               Søkemotoroptimalisering
             </div>
             <div>
@@ -54,18 +54,18 @@ const page = () => {
             </div>
           </div>
         </div>
-        <div className=" lg:order-2 order-1 w-full lg:w-[50%] h-auto items-stretch ">
+        <div className=" xl:order-2 order-1 w-full xl:w-[50%] h-auto items-stretch ">
           <Image
             loading="lazy"
             placeholder="blur"
             src={Seo1}
             alt="Seo"
-            className=" w-full h-full object-contain rounded-md "
+            className=" w-full xl:min-h-[500px] h-full object-cover rounded-md "
           />
         </div>
       </div>
 
-      <div className=" px-3 text-[#fff] bg-[#035635] py-10 mt-10 ">
+      <div className=" text-[#fff] bg-[#035635] py-10 mt-10 ">
         <div className=" flex lg:flex-row flex-col ">
           <h5 className=" md:px-3 text-[1.4rem] font-semibold lg:mb-6  flex-1 ">
             Hvordan gjør vi nettsiden din mer synlig på nett?
@@ -78,22 +78,23 @@ const page = () => {
             .
           </p>
         </div>
-        <div className=" flex items-center lg:flex-row flex-col lg:gap-0 gap-7 mt-10  ">
+        <div className=" px-2 flex items-center xl:flex-row flex-col xl:gap-3 gap-7 mt-10  ">
           <div className=" w-full lg:w-[50%] h-auto ">
-            <div className="  w-full h-auto items-stretch ">
+            <div className="  w-full  h-auto items-stretch ">
               <Image
                 loading="lazy"
                 placeholder="blur"
                 src={Seo2}
                 alt="Seo img"
-                className=" w-full h-full object-cover rounded-md border-2 border-[#0ea76cd7] "
+                className=" w-full xl:min-h-[568px] h-full object-cover rounded-md border-2 border-[#0ea76cd7] "
               />
+              
             </div>
           </div>
 
           <div className=" flex-1  ">
-            <div className=" flex flex-col gap-8 justify-between md:px-3 px-1 ">
-              <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 2xl:grid-cols-2 gap-5  ">
+            <div className=" flex flex-col gap-8 justify-between ">
+              <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-5  ">
                 <Group
                   icon={<RiSearchLine />}
                   title="Teknisk SEO"
@@ -139,9 +140,9 @@ export default page;
 const Group = ({ icon, title, description }) => {
   return (
     <div className=" flex flex-col  gap-5 bg-[#0b462ece] p-3 rounded-md ">
-      <div className=" text-[2rem] ">{icon}</div>
-      <h3 className=" text-[1.6rem] font-semibold ">{title}</h3>
-      <p className=" text-lg text-[#e7e7e7] ">{description}</p>
+      <div className=" text-[1.7rem] 2xl:text-[2rem] ">{icon}</div>
+      <h3 className=" text-[1.3rem] 2xl:text-[1.6rem] font-semibold ">{title}</h3>
+      <p className=" text-base 2xl:text-lg text-[#e7e7e7] ">{description}</p>
     </div>
   );
 };

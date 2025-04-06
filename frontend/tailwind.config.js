@@ -18,7 +18,7 @@ module.exports = {
         Montserrat: ['Montserrat', 'sans-serif'],
       },
       screens: {
-        smallSize: "410px", // Custom breakpoint for 420px
+        smallSize: "410px", 
       },
     },
   },

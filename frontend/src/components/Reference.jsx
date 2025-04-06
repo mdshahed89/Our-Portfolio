@@ -243,6 +243,7 @@ export const Slider = async () => {
                    opacity-60 group-hover:opacity-100 transition-opacity duration-500"
                 >
                   <div className="text-lg font-medium">{item.title}</div>
+                  <span className="sr-only">{item?.url}</span>
                 </div>
               </Link>
             ))}
