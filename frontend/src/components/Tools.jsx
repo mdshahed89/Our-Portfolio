@@ -913,7 +913,7 @@ export const NeedProfessitionSite = () => {
             <div className=" text-[26px] md:text-[32px] lg:text-[48px] leading-tight pb-5 font-semibold">
               <span>Hvorfor trenger du en</span>{" "}
               <span className=" text-[#035635] border-l-4 border-[#035635] pl-1 bg-gradient-to-r from-[#035635]/10 to-transparent pb-1 ">
-                Profesjonell nettside ?
+                Profesjonell nettside?
               </span>
             </div>
             {/* bg-[#0b462ece] */}
@@ -955,14 +955,14 @@ export const NeedProfessitionSite = () => {
             </div>
             <Link
               href={`/#offers`}
-              className=" w-fit mt-4 text-[#fff] hover:text-black px-8 py-2 rounded-full bg-[#035635] border-2 border-[#035635] hover:bg-transparent transition-all duration-300 ease-in-out "
+              className=" w-[15rem] text-[1.1rem] text-center mt-4 text-[#fff] active:scale-95 hover:text-black py-2 rounded-full bg-[#035635] border-2 border-[#035635] hover:bg-transparent transition-all duration-300 ease-in-out "
             >
               Få din nettside
             </Link>
           </div>
           <div className=" flex h-full gap-1 lg:gap-2 ">
             <div className=" flex-1 flex flex-col gap-1 lg:gap-3 ">
-              <div className=" w-full ">
+              <div className=" w-full hover:scale-110  transition-all duration-300 ease-in-out rounded-[1.5rem] md:rounded-[2rem] ">
                 <Image
                   loading="lazy"
                   placeholder="blur"
@@ -972,7 +972,7 @@ export const NeedProfessitionSite = () => {
                   className=" w-full h-auto lg:h-[17rem] rounded-[1.5rem] md:rounded-[2rem] "
                 />
               </div>
-              <div className="w-full">
+              <div className="w-full hover:scale-110  transition-all duration-300 ease-in-out rounded-[1.5rem] md:rounded-[2rem]">
                 <Image
                   loading="lazy"
                   placeholder="blur"
@@ -984,7 +984,7 @@ export const NeedProfessitionSite = () => {
               </div>
             </div>
             <div className="  flex-1 lg:h-auto h-[80%] flex flex-col gap-1 lg:gap-2 ">
-              <div className="w-full lg:h-auto h-1/2 ">
+              <div className="w-full lg:h-auto h-1/2  hover:scale-110  transition-all duration-300 ease-in-out rounded-[1.5rem] md:rounded-[2rem] ">
                 <Image
                   loading="lazy"
                   placeholder="blur"
@@ -994,19 +994,19 @@ export const NeedProfessitionSite = () => {
                   className=" w-full  object-cover lg:object-fill h-full lg:h-[14rem]  rounded-[1.5rem] md:rounded-[2rem] "
                 />
               </div>
-              <div className="w-full lg:h-auto h-1/2 ">
+              <div className="w-full lg:h-auto h-1/2  hover:scale-110  transition-all duration-300 ease-in-out rounded-[1.5rem] md:rounded-[2rem] ">
                 <Image
                   loading="lazy"
                   placeholder="blur"
                   blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
                   src={Img6}
                   alt={"Coding"}
-                  className=" w-full object-cover lg:object-fill h-full lg:h-[14rem]  rounded-[1.5rem] md:rounded-[2rem] "
+                  className=" w-full  object-cover lg:object-fill h-full lg:h-[14rem]  rounded-[1.5rem] md:rounded-[2rem] "
                 />
               </div>
             </div>
             <div className="  flex-1 flex flex-col gap-1 lg:gap-2 ">
-              <div className=" w-full ">
+              <div className=" w-full  hover:scale-110  transition-all duration-300 ease-in-out rounded-[1.5rem] md:rounded-[2rem] ">
                 <Image
                   loading="lazy"
                   placeholder="blur"
@@ -1016,7 +1016,7 @@ export const NeedProfessitionSite = () => {
                   className=" w-full object-cover lg:object-fill h-auto lg:h-[10rem]  rounded-[1.5rem] md:rounded-[2rem] "
                 />
               </div>
-              <div className="w-full ">
+              <div className="w-full hover:scale-110  transition-all duration-300 ease-in-out rounded-[1.5rem] md:rounded-[2rem] ">
                 <Image
                   loading="lazy"
                   placeholder="blur"
@@ -1084,7 +1084,7 @@ export const NeedProfessitionSite = () => {
             </div>
             <Link
               href={`/#kontakt`}
-              className=" w-fit mt-4 text-[#fff] hover:text-black px-8 py-2 rounded-full bg-[#035635] border-2 border-[#035635] hover:bg-transparent transition-all duration-300 ease-in-out "
+              className=" w-[15rem] text-[1.1rem] text-center mt-4 text-[#fff] active:scale-95 hover:text-black px-12 py-2 rounded-full bg-[#035635] border-2 border-[#035635] hover:bg-transparent transition-all duration-300 ease-in-out "
             >
               Ta Kontakt
             </Link>

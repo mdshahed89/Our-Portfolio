@@ -139,6 +139,139 @@ export const Newsletter = () => {
   );
 };
 
+export const BlogNewsletter = () => {
+  const [openModal, setOpenModal] = useState(false);
+
+  const [formData, setFormData] = useState({ name: "", email: "" });
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  // Submit form data
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!formData.name || !formData.email) {
+      setError("Vennligst fyll ut alle feltene.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/newsletter/add-newsletter`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success("Takk for at du abonnerer!");
+        setFormData({ name: "", email: "" });
+        setOpenModal(false);
+      } else {
+        toast.error(data?.message || "Noe gikk galt.");
+        console.log(data?.message);
+      }
+    } catch (err) {
+      console.log("error", err);
+
+      toast.error("Serverfeil, prøv igjen senere.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  //   console.log(formData);
+
+  return (
+    <div className="">
+      <button
+        onClick={() => setOpenModal(true)}
+        className=" text-[1.3rem] lg:text-[1.5rem] bg-[#035635] text-[#fff] px-12 shadow-inner rounded-md w-full py-2 text-center cursor-pointer  "
+      >
+        Abonner på nyhetsbrev
+      </button>
+      <div
+        onClick={() => setOpenModal(false)}
+        className={`fixed z-[100000] flex items-center justify-center ${
+          openModal ? "opacity-1 visible" : "invisible opacity-0"
+        } inset-0 h-full w-full bg-black/20 backdrop-blur-sm duration-100`}
+      >
+        <div
+          onClick={(e_) => e_.stopPropagation()}
+          className={`absolute w-full rounded-md bg-white text-[#000] max-w-[40rem] ${
+            openModal
+              ? "opacity-1 translate-y-0 duration-300"
+              : "-translate-y-20 opacity-0 duration-150"
+          }`}
+        >
+          <div className="flex w-full md:flex-row flex-col  ">
+            <div className="flex items-center rounded-l-md bg-[#17DB4F] w-full md:py-0 py-8 md:w-[40%] justify-center">
+              <div
+                onClick={() => setOpenModal(false)}
+                className=" md:hidden flex bg-[#035635] p-1 rounded-full absolute top-4 cursor-pointer right-4 justify-end "
+              >
+                <RxCross2 className=" text-[1.5rem] text-[#fff] " />
+              </div>
+              <div>
+                <Image src={MailIcon} alt="Mail Icon" />
+              </div>
+            </div>
+
+            <div className=" w-full md:w-[60%] p-8 relative">
+              <div
+                onClick={() => setOpenModal(false)}
+                className=" md:flex hidden absolute top-4 cursor-pointer right-4 justify-end "
+              >
+                <RxCross2 className=" text-[1.5rem] text-[#000] " />
+              </div>
+              <p className=" text-[2rem] leading-tight ">
+                Abonner på vårt nyhetsbrev
+              </p>
+              <form onSubmit={handleSubmit} className=" mt-5 ">
+                <div>
+                  <label htmlFor="name">Fullt navn</label>
+                  <input
+                    type="text"
+                    id="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full border px-3 py-2 outline-none mt-1 rounded-md focus:border-[#17DB4F] transition-all duration-300 ease-in-out "
+                    placeholder="Side sone"
+                  />
+                </div>
+                <div className="mt-3">
+                  <label htmlFor="email">E-post</label>
+                  <input
+                    type="email"
+                    id="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full border px-3 py-2 outline-none mt-1 rounded-md focus:border-[#17DB4F] transition-all duration-300 ease-in-out "
+                    placeholder="Sidesone@gmail.com"
+                  />
+                </div>
+                <div className="mt-6">
+                  <button className="bg-[#17DB4F] text-white w-full font-medium px-4 py-2 rounded">
+                    Abonner
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export const AddReviewModal = ({ fetchReviews }) => {
   const [openModal, setOpenModal] = useState(false);
 
@@ -757,6 +890,10 @@ export const ServicesModal = () => {
               >
                 <RxCross2 className=" text-[1.5rem]  " />
               </div>
+            </div>
+            <div className=" text-center ">
+              <div className=" text-[2rem] ">Tjenester</div>
+              <p className=" text-lg text-gray-700 ">Hva kan vi hjelpe deg med?</p>
             </div>
 
             <div className=" grid grid-cols-2 md:grid-cols-3 gap-2 px-3 md:px-[2rem] py-10 ">

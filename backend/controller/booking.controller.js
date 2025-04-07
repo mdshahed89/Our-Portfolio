@@ -1,4 +1,7 @@
 import Booking from "../models/booking.modal.js";
+import nodemailer from "nodemailer";
+
+
 
 export const sendBookingData = async (req, res) => {
   const { title, fullName, email, phoneNo, dateAndTime } = req.body;
@@ -27,6 +30,34 @@ export const sendBookingData = async (req, res) => {
         message: "Kunne ikke sende bestillingsdata",
       });
     }
+
+    const transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 587,
+        secure: false,
+        auth: {
+          user: process.env.SIDESONE_EMAIL,
+          pass: process.env.SIDESONE_EMAIL_PASS,
+        },
+      });
+
+    const mailOptions = {
+      from: process.env.SIDESONE_EMAIL,
+      to: process.env.SIDESONE_EMAIL || "your-receiving-email@example.com",
+      // to: [process.env.SIDESONE_EMAIL, "r2scoder@gmail.com"],
+      replyTo: email,
+      subject: "Nytt møte bestilt",
+      html: `
+        <h3>Nytt møte bestilt</h3>
+        <p><strong>Tittel:</strong> ${title}</p>
+        <p><strong>Fullt navn:</strong> ${fullName}</p>
+        <p><strong>E-post:</strong> ${email}</p>
+        <p><strong>Telefonnummer:</strong> ${phoneNo || "Ikke oppgitt"}</p>
+        <p><strong>Dato og tid:</strong> ${dateAndTime}</p>
+      `,
+    };
+
+    await transporter.sendMail(mailOptions);
 
     return res.status(201).send({
       success: true,

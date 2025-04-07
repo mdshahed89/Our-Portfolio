@@ -19,6 +19,7 @@ export const BookNowModal = ({ title, availability }) => {
     date: "",
     time: "",
   });
+  const [loading, setLoading] = useState(false)
 
   const [fromTime, setFromTime] = useState("");
   const [toTime, setToTime] = useState("");
@@ -84,6 +85,7 @@ export const BookNowModal = ({ title, availability }) => {
 
   const sendBookingData = async (e) => {
     e.preventDefault();
+    setLoading(true)
     try {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/book/send-data`,
@@ -115,10 +117,12 @@ export const BookNowModal = ({ title, availability }) => {
     } catch (error) {
       console.log("Error:", error);
       toast.error("Kunne ikke sende bestillingsdata");
+    } finally{
+      setLoading(false)
     }
   };
-  console.log("bookingdata", bookingData);
-  console.log("availability", availability);
+  // console.log("bookingdata", bookingData);
+  // console.log("availability", availability);
 
   return (
     <div className="mx-auto flex w-full items-center justify-end ">
@@ -264,9 +268,11 @@ export const BookNowModal = ({ title, availability }) => {
             </div>
             <button
               type="submit"
-              className="relative py-2.5 px-10 w-full rounded-lg mt-10 text-white font-medium bg-green-700 "
+              className="relative h-[2.8rem] px-10 w-full rounded-lg mt-10 text-white font-medium bg-green-700 "
             >
-              Book
+              {
+                loading ? <ButtonLoading /> : "Book"
+              }
             </button>
           </form>
         </div>
@@ -281,6 +287,7 @@ import MessageIcon1 from "@/assets/MessageIcon1.jpg";
 import MessageIcon2 from "@/assets/MessageIcon2.jpg";
 import MessageIcon3 from "@/assets/MessageIcon3.png";
 import Image from "next/image";
+import { ButtonLoading } from "./Loading";
 
 const CustomChatButton = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);

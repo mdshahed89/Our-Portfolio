@@ -4,6 +4,11 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
+import { BlogNewsletter, Newsletter } from "@/modals/Modal";
+import { FaArrowRightLong } from "react-icons/fa6";
+import { MdArrowForward } from "react-icons/md";
+import { HiOutlineArrowRight } from "react-icons/hi2";
+import Arrow from "@/assets/Arrow.png"
 
 const DetailsPage = ({ params }) => {
   const { id } = React.use(params);
@@ -18,7 +23,7 @@ const DetailsPage = ({ params }) => {
         const response = await axios.get(
           `${process.env.NEXT_PUBLIC_BACKEND_URL}/get-details/${id}`
         );
-        
+
         setBlog(response.data?.data);
         setOtherData(response.data?.otherData);
       } catch (error) {
@@ -58,12 +63,12 @@ const DetailsPage = ({ params }) => {
   // console.log(otherData);
 
   return (
-    <div className="mt-40 mx-auto p-4">
-      <div className="text-3xl font-bold mb-4">{blog.title}</div>
-      <div className="flex text-blue-600 items-center mb-6">
+    <div className="mt-40 py-4 mx-auto ">
+      <div className=" text-3xl px-4 font-bold mb-4">{blog.title}</div>
+      <div className=" px-4 flex text-blue-600 items-center mb-6">
         <span className="text-sm font-bold">{formatDate(blog?.createdAt)}</span>
       </div>
-      <div className=" pb-5">
+      <div className=" px-4 pb-5">
         <Image
           src={`${blog?.coverImage}`}
           alt={blog.title}
@@ -77,7 +82,18 @@ const DetailsPage = ({ params }) => {
         ></div>
       </div>
 
-      <div className="flex justify-between my-8 border-t pt-5 ">
+      <div className=" flex items-center justify-between px-2 lg:px-10 py-10 lg:flex-row flex-col gap-5 ">
+        <div className=" text-[2rem] xl:text-[3rem] leading-tight text-[#000] lg:text-left text-center max-w-[35rem] xl:max-w-[50rem] flex items-center gap-7 lg:flex-row flex-col ">
+          <h2>Abonner på vårt nyhetsbrev for relevante tips og nyheter.</h2>
+        <div>
+        {/* <HiOutlineArrowRight className=" text-[#000] text-[2rem] md:rotate-0 rotate-90 lg:text-[3.5rem]  " /> */}
+        <Image src={Arrow} alt="Arrow Icon" className=" lg:rotate-90 rotate-180 lg:h-auto h-[4rem] w-[6rem] xl:w-[8rem] 2xl:w-[10rem] object-contain " />
+        </div>
+        </div>
+        <BlogNewsletter />
+      </div>
+
+      <div className=" px-4 flex justify-between my-8 border-t pt-5 ">
         {otherData?.previousBlogId && (
           <Link
             href={`/referanser/${otherData?.previousBlogId}`}
@@ -96,7 +112,7 @@ const DetailsPage = ({ params }) => {
             className="text-gray-600 ml-auto hover:text-[#129e66] transition-all ease-out delay-100 flex items-end flex-col"
           >
             <div className="flex uppercase font-medium text-sm items-center gap-3">
-            Neste
+              Neste
               <FaLongArrowAltRight />
             </div>
             {otherData?.nextBlogTitle}
