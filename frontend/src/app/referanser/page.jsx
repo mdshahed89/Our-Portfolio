@@ -50,10 +50,10 @@ const page = async () => {
 
   return (
     <div className="mt-[112px]">
-      <div className=" bg-[#035635] py-[5rem] text-[#fff]  ">
+      <div className=" bg-[#035635] pt-[5rem] md:pt-[3rem] pb-[5rem] text-[#fff]  ">
         <div className=" max-w-[40rem] mx-auto text-center ">
-        <h2 className=" text-[3rem] ">Prosjekter og Blogger</h2>
-        <p className=" text-[#ebebeb] text-lg ">Oppdag våre nyeste prosjekter og innsiktsfulle blogginnlegg, som viser innovative ideer, utviklingsprosesser og bransjetrender.</p>
+        <h2 className=" text-[2.5rem] lg:text-[3.5rem] ">Prosjekter og Blogger</h2>
+        <p className=" text-[#ebebeb] mt-2 text-lg lg:text-xl ">Oppdag våre nyeste prosjekter og innsiktsfulle blogginnlegg, som viser innovative ideer, utviklingsprosesser og bransjetrender.</p>
         </div>
       </div>
       <div className=" px-3 lg:px-5 mt-2 ">

@@ -37,8 +37,8 @@ const Tools = () => {
   return (
     <>
       <div className="  px-2 md:px-3 my-[8rem] ">
-        <div className=" max-w-[1200px] mx-auto text-center w-full mb-[2rem] flex justify-center flex-col items-center  ">
-          <h2 className=" text-[1.7rem] sm:text-[2rem] md:text-[2.6rem] flex xl:flex-row flex-col w-fit xl:gap-3 ">
+        <div className=" max-w-[1400px] mx-auto text-center w-full mb-[2rem] flex justify-center flex-col items-center  ">
+          <h2 className=" text-[1.7rem] sm:text-[2rem] md:text-[3rem] flex xl:flex-row flex-col w-fit xl:gap-3 ">
             Disse tjenestene nedenfor er{" "}
             <span className=" bg-[#035635] mt-1 text-[#fff] px-3 w-fit mx-auto leading-tight rounded-sm ">
               inkludert i alle nettsidepakker
@@ -85,7 +85,7 @@ const Tools = () => {
       </div>
       <div className=" 2xl:max-w-[1400px] max-w-[1200px] mx-auto px-2 md:px-3 my-[8rem] ">
         <div className=" text-center w-full mb-[2rem] flex justify-center flex-col items-center  ">
-          <h2 className=" text-[1.7rem] sm:text-[2rem] md:text-[2.8rem] flex xl:flex-row flex-col w-fit xl:gap-3 ">
+          <h2 className=" text-[1.8rem] sm:text-[2rem] md:text-[3rem] flex xl:flex-row flex-col w-fit xl:gap-3 ">
             Disse er tilleggstjenester med{" "}
             <span className=" text-[#035635] border-b-4 border-[#035635]  mt-1 h-fit py-1 px-2 w-fit mx-auto leading-none rounded-sm ">
               ekstra kostnad
@@ -161,7 +161,7 @@ const Card = ({ icon, title, description, btn, path }) => {
 const Process = () => {
   return (
     <div className=" flex flex-col justify-center md:processBg md:px-3 px-2 pt-[1rem] pb-[3rem] ">
-      <div className=" text-center text-[2rem] md:text-[2.8rem] lg:text-[3.4rem] leading-tight font-semibold ">
+      <div className=" text-center text-[2rem] md:text-[3rem] leading-tight font-semibold ">
         <h2>Prosessen med oss er kjempeenkel, vi skreddersyr løsningen.</h2>
         <h2 className=" text-[#17DB4F] ">Du slipper stress.</h2>
       </div>
@@ -583,7 +583,7 @@ export const Review = async () => {
   return (
     <section id="reviews" className=" py-16 scroll-mt-[5rem] ">
       <div className=" flex flex-col max-w-[30rem] px-2 mx-auto text-center  ">
-        <h2 className=" text-[2rem] md:text-[2.5rem] font-medium ">
+        <h2 className=" text-[2rem] md:text-[3rem] font-medium ">
           Klientanmeldelser
         </h2>
         <h3 className=" text-lg md:text-xl ">
@@ -815,7 +815,7 @@ export const OfferSection = () => {
   return (
     <section
       id="offers"
-      className=" scroll-mt-40 2xl:2xl:max-w-[1400px] max-w-[1200px]  mx-auto px-2 md:px-3 mt-[3rem] lg:mt-[6rem]  mb-[3rem] "
+      className=" scroll-mt-40 2xl:max-w-[1400px] max-w-[1200px]  mx-auto px-2 md:px-3 mt-[3rem] lg:mt-[6rem]  mb-[3rem] "
     >
       <h2 className=" text-[2rem] lg:text-[3rem] py-3 font-medium leading-none text-center mb-[5rem] relative before:absolute before:w-[7rem] before:h-1 before:bg-[#035635] before:left-1/2 before:bottom-[-1rem] before:transform before:-translate-x-1/2 ">
         Hva vi tilbyr
@@ -891,24 +891,29 @@ export const PageLoading = () => {
 
 import Img1 from "@/assets/Img1.webp";
 import Img2 from "@/assets/Img2.webp";
-import Img3 from "@/assets/Img3.png";
-import Img4 from "@/assets/Img4.png";
-import Img5 from "@/assets/Img5.png";
-import Img6 from "@/assets/Img6.png";
-import Img7 from "@/assets/Img7.png";
-import Img8 from "@/assets/Img8.png";
+import Img3 from "@/assets/Img3.webp";
+import Img4 from "@/assets/Img4.webp";
+import Img5 from "@/assets/Img5.webp";
+import Img6 from "@/assets/Img6.webp";
+import Img7 from "@/assets/Img7.webp";
+import Img8 from "@/assets/Img8.webp";
+import Img9 from "@/assets/Img9.webp";
+import Img10 from "@/assets/Img10.webp";
+import Img11 from "@/assets/Img11.webp";
+import Img12 from "@/assets/Img12.webp";
 import {
   IoCallOutline,
   IoCheckmarkCircle,
   IoMailOutline,
 } from "react-icons/io5";
 import { ServicesModal } from "@/modals/Modal";
+import Marquee from "react-fast-marquee";
 
 export const NeedProfessitionSite = () => {
   return (
     <>
       <div className=" max-w-[1400px] mx-auto px-2 ">
-        <div className=" -mt-16 grid  lg:px-0 grid-cols-1 lg:grid-cols-2 gap-6 text-black ">
+        <div className=" -mt-16 grid  lg:px-0 grid-cols-1 lg:grid-cols-2  gap-6 text-black ">
           <div className=" flex flex-col justify-center gap-5 pt-2 md:p-3">
             <div className=" text-[26px] md:text-[32px] lg:text-[48px] leading-tight pb-5 font-semibold">
               <span>Hvorfor trenger du en</span>{" "}
@@ -960,72 +965,92 @@ export const NeedProfessitionSite = () => {
               Få din nettside
             </Link>
           </div>
-          <div className=" flex h-full gap-1 lg:gap-2 ">
-            <div className=" flex-1 flex flex-col gap-1 lg:gap-3 ">
-              <div className=" w-full hover:scale-110  transition-all duration-300 ease-in-out rounded-[1.5rem] md:rounded-[2rem] ">
-                <Image
-                  loading="lazy"
-                  placeholder="blur"
-                  blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
-                  src={Img3}
-                  alt={"Coding"}
-                  className=" w-full h-auto lg:h-[17rem] rounded-[1.5rem] md:rounded-[2rem] "
-                />
-              </div>
-              <div className="w-full hover:scale-110  transition-all duration-300 ease-in-out rounded-[1.5rem] md:rounded-[2rem]">
-                <Image
-                  loading="lazy"
-                  placeholder="blur"
-                  blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
-                  src={Img4}
-                  alt={"Coding"}
-                  className="w-full h-auto lg:h-[17rem]  rounded-[1.5rem] md:rounded-[2rem] "
-                />
-              </div>
-            </div>
-            <div className="  flex-1 lg:h-auto h-[80%] flex flex-col gap-1 lg:gap-2 ">
-              <div className="w-full lg:h-auto h-1/2  hover:scale-110  transition-all duration-300 ease-in-out rounded-[1.5rem] md:rounded-[2rem] ">
-                <Image
-                  loading="lazy"
-                  placeholder="blur"
-                  blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
-                  src={Img5}
-                  alt={"Coding"}
-                  className=" w-full  object-cover lg:object-fill h-full lg:h-[14rem]  rounded-[1.5rem] md:rounded-[2rem] "
-                />
-              </div>
-              <div className="w-full lg:h-auto h-1/2  hover:scale-110  transition-all duration-300 ease-in-out rounded-[1.5rem] md:rounded-[2rem] ">
-                <Image
-                  loading="lazy"
-                  placeholder="blur"
-                  blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
-                  src={Img6}
-                  alt={"Coding"}
-                  className=" w-full  object-cover lg:object-fill h-full lg:h-[14rem]  rounded-[1.5rem] md:rounded-[2rem] "
-                />
-              </div>
-            </div>
-            <div className="  flex-1 flex flex-col gap-1 lg:gap-2 ">
-              <div className=" w-full  hover:scale-110  transition-all duration-300 ease-in-out rounded-[1.5rem] md:rounded-[2rem] ">
-                <Image
-                  loading="lazy"
-                  placeholder="blur"
-                  blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
-                  src={Img7}
-                  alt={"Coding"}
-                  className=" w-full object-cover lg:object-fill h-auto lg:h-[10rem]  rounded-[1.5rem] md:rounded-[2rem] "
-                />
-              </div>
-              <div className="w-full hover:scale-110  transition-all duration-300 ease-in-out rounded-[1.5rem] md:rounded-[2rem] ">
-                <Image
-                  loading="lazy"
-                  placeholder="blur"
-                  blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
-                  src={Img8}
-                  alt={"Coding"}
-                  className=" w-full object-cover lg:object-fill  h-auto lg:h-[10rem]  rounded-[1.5rem] md:rounded-[2rem] "
-                />
-              </div>
+          <div className=" flex items-center ">
+            <div className=" rounded-[3rem] overflow-hidden ">
+              <Marquee autoFill className="  ">
+                <div className=" px-2 ">
+                  <Image
+                    src={Img3}
+                    alt="Img professitional"
+                    // draggable="true"
+                    // onDragStart={(e) => e.preventDefault()}
+                    className=" w-[14rem] lg:w-[18rem] h-[12rem] md:h-[14rem] lg:h-[18rem] object-fill rounded-md "
+                  />
+                </div>
+                <div className=" px-2 ">
+                  <Image
+                    src={Img4}
+                    alt="Img professitional"
+                    // draggable="true"
+                    // onDragStart={(e) => e.preventDefault()}
+                    className=" w-[14rem] lg:w-[18rem] h-[12rem] md:h-[14rem] lg:h-[18rem] object-fill rounded-md "
+                  />
+                </div>
+                <div className=" px-2 ">
+                  <Image
+                    src={Img5}
+                    alt="Img professitional"
+                    // draggable="true"
+                    // onDragStart={(e) => e.preventDefault()}
+                    className=" w-[14rem] lg:w-[18rem] h-[12rem] md:h-[14rem] lg:h-[18rem] object-fill rounded-md "
+                  />
+                </div>
+                <div className=" px-2 ">
+                  <Image
+                    src={Img6}
+                    alt="Img professitional"
+                    // draggable="true"
+                    // onDragStart={(e) => e.preventDefault()}
+                    className=" w-[14rem] lg:w-[18rem] h-[12rem] md:h-[14rem] lg:h-[18rem] object-fill rounded-md "
+                  />
+                </div>
+                <div className=" px-2 ">
+                  <Image
+                    src={Img7}
+                    alt="Img professitional"
+                    // draggable="true"
+                    // onDragStart={(e) => e.preventDefault()}
+                    className=" w-[14rem] lg:w-[18rem] h-[12rem] md:h-[14rem] lg:h-[18rem] object-fill rounded-md "
+                  />
+                </div>
+              </Marquee>
+              <Marquee autoFill className=" mt-3 ">
+                <div className=" px-2 ">
+                  <Image
+                    src={Img8}
+                    alt="Img professitional"
+                    className=" w-[14rem] lg:w-[18rem] h-[12rem] md:h-[14rem] lg:h-[18rem] object-fill rounded-md "
+                  />
+                </div>
+                <div className=" px-2 ">
+                  <Image
+                    src={Img9}
+                    alt="Img professitional"
+                    className=" w-[14rem] lg:w-[18rem] h-[12rem] md:h-[14rem] lg:h-[18rem] object-fill rounded-md "
+                  />
+                </div>
+                <div className=" px-2 ">
+                  <Image
+                    src={Img10}
+                    alt="Img professitional"
+                    className=" w-[14rem] lg:w-[18rem] h-[12rem] md:h-[14rem] lg:h-[18rem] object-fill rounded-md "
+                  />
+                </div>
+                <div className=" px-2 ">
+                  <Image
+                    src={Img11}
+                    alt="Img professitional"
+                    className=" w-[14rem] lg:w-[18rem] h-[12rem] md:h-[14rem] lg:h-[18rem] object-fill rounded-md "
+                  />
+                </div>
+                <div className=" px-2 ">
+                  <Image
+                    src={Img12}
+                    alt="Img professitional"
+                    className=" w-[14rem] lg:w-[18rem] h-[12rem] md:h-[14rem] lg:h-[18rem] object-fill rounded-md "
+                  />
+                </div>
+              </Marquee>
             </div>
           </div>
         </div>
@@ -1039,7 +1064,7 @@ export const NeedProfessitionSite = () => {
                 blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
                 src={Img2}
                 alt={"Coding"}
-                className="lg:w-full w-auto md:object-cover object-contain  h-auto md:h-[500px] rounded-md "
+                className="lg:w-full w-auto md:object-contain object-contain h-auto rounded-xl "
               />
             </figure>
           </div>

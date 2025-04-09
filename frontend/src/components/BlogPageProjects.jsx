@@ -118,8 +118,10 @@ const BlogPageProjects = ({ projects }) => {
                         {project?.url}
                       </p>
                     </div>
-                    <div className=" border-[#17DB4F] border-2 p-2 rounded-full text-[1.3rem] text-[#17DB4F] ">
-                      <IoIosArrowForward />
+                    <div className=" border-[#17DB4F] relative  group border-2 w-[2.5rem] h-[2.5rem] rounded-full text-[1.3rem] text-[#17DB4F] ">
+                      <div className=" absolute w-full h-full left-0 top-0 flex items-center justify-center group-hover:ml-2 transition-all duration-300 ease-linear ">
+                      <IoIosArrowForward className="   " />
+                      </div>
                     </div>
                   </div>
                 </Link>

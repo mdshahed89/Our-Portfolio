@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
+import Link from "next/link";
 
 const CookieBanner = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -42,7 +43,8 @@ const CookieBanner = () => {
 
   return (
     isVisible && (
-      <div className="fixed bottom-16 sm:left-16 z-[1000] bg-white text-black p-4 md:p-6 m-3 sm:m-0 sm:w-[30rem] rounded-md ">
+      <div className=" fixed bottom-16 z-[1000] flex items-center justify-center w-full ">
+        <div className=" shadow-[0_0_5px_1px_rgba(128,128,128,0.6)]   bg-white text-black p-4 md:p-6 m-3 sm:m-0 sm:w-[35rem] rounded-md ">
         <h4 className=" text-[1.1rem] md:text-[1.3rem] font-semibold ">
           Vi setter pris på personvernet ditt
         </h4>
@@ -55,17 +57,38 @@ const CookieBanner = () => {
         <div className="flex gap-2">
           <button
             onClick={handleReject}
-            className="bg-[#20C19E] text-[#fff] flex-1 px-4 py-2 rounded"
+            className="bg-[#035635] text-[#fff] flex-1 px-4 py-2 rounded"
           >
             Avslå
           </button>
           <button
             onClick={handleAccept}
-            className="bg-[#20C19E] text-[#fff] flex-1 px-4 py-2 rounded"
+            className="bg-[#035635] text-[#fff] flex-1 px-4 py-2 rounded"
           >
             Aksepter
           </button>
         </div>
+        <div className=" flex mt-4 text-black items-center justify-center gap-5 ">
+        <Link
+          href={`/vilkar-og-betingelser`}
+          className=" border-b border-[#035635] hover:text-[#035635] transition-all duration-300 ease-in-out pb-1 mt-1 "
+        >
+          Vilkår og betingelser
+        </Link>
+        <Link
+          href={`/informasjonskapsler-cookies`}
+          className=" border-b border-[#035635] hover:text-[#035635] transition-all duration-300 ease-in-out pb-1 mt-1 "
+        >
+          Cookies
+        </Link>
+        <Link
+          href={"/privacy-policy"}
+          className=" border-b border-[#035635] hover:text-[#035635] transition-all duration-300 ease-in-out pb-1 mt-1 "
+        >
+          Personvernpolicy
+        </Link>
+      </div>
+      </div>
       </div>
     )
   );

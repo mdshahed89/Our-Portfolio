@@ -96,7 +96,7 @@ export default async function Reference({ title }) {
             <h2 className=" text-[2rem] lg:text-[3rem] py-3 font-medium leading-none ">
               Våre Prosjekter og Løsninger
             </h2>
-            <p className=" text-xl ">
+            <p className=" text-lg md:text-xl ">
               Utforsk våre gjennomførte prosjekter og hvordan vi har løst
               utfordringer for våre kunder.
             </p>
