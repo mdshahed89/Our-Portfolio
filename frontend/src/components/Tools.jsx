@@ -914,7 +914,7 @@ export const NeedProfessitionSite = () => {
     <>
       <div className=" max-w-[1400px] mx-auto px-2 ">
         <div className=" -mt-16 grid  lg:px-0 grid-cols-1 lg:grid-cols-2  gap-6 text-black ">
-          <div className=" flex flex-col justify-center gap-5 pt-2 md:p-3">
+          <div className=" flex flex-col justify-center gap-5 ">
             <div className=" text-[26px] md:text-[32px] lg:text-[48px] leading-tight pb-5 font-semibold">
               <span>Hvorfor trenger du en</span>{" "}
               <span className=" text-[#035635] border-l-4 border-[#035635] pl-1 bg-gradient-to-r from-[#035635]/10 to-transparent pb-1 ">
@@ -972,7 +972,7 @@ export const NeedProfessitionSite = () => {
                   <Image
                     src={Img3}
                     alt="Img professitional"
-                    // draggable="true"
+                    draggable="true"
                     // onDragStart={(e) => e.preventDefault()}
                     className=" w-[14rem] lg:w-[18rem] h-[12rem] md:h-[14rem] lg:h-[18rem] object-fill rounded-md "
                   />
@@ -981,7 +981,7 @@ export const NeedProfessitionSite = () => {
                   <Image
                     src={Img4}
                     alt="Img professitional"
-                    // draggable="true"
+                    draggable="true"
                     // onDragStart={(e) => e.preventDefault()}
                     className=" w-[14rem] lg:w-[18rem] h-[12rem] md:h-[14rem] lg:h-[18rem] object-fill rounded-md "
                   />
@@ -990,7 +990,7 @@ export const NeedProfessitionSite = () => {
                   <Image
                     src={Img5}
                     alt="Img professitional"
-                    // draggable="true"
+                    draggable="true"
                     // onDragStart={(e) => e.preventDefault()}
                     className=" w-[14rem] lg:w-[18rem] h-[12rem] md:h-[14rem] lg:h-[18rem] object-fill rounded-md "
                   />
@@ -999,7 +999,7 @@ export const NeedProfessitionSite = () => {
                   <Image
                     src={Img6}
                     alt="Img professitional"
-                    // draggable="true"
+                    draggable="true"
                     // onDragStart={(e) => e.preventDefault()}
                     className=" w-[14rem] lg:w-[18rem] h-[12rem] md:h-[14rem] lg:h-[18rem] object-fill rounded-md "
                   />
@@ -1008,7 +1008,7 @@ export const NeedProfessitionSite = () => {
                   <Image
                     src={Img7}
                     alt="Img professitional"
-                    // draggable="true"
+                    draggable="true"
                     // onDragStart={(e) => e.preventDefault()}
                     className=" w-[14rem] lg:w-[18rem] h-[12rem] md:h-[14rem] lg:h-[18rem] object-fill rounded-md "
                   />
@@ -1057,14 +1057,14 @@ export const NeedProfessitionSite = () => {
 
         <div className=" mt-8 grid  lg:px-0 grid-cols-1 lg:grid-cols-2 gap-8 text-black ">
           <div className=" lg:order-1 order-2 ">
-            <figure className="w-full h-full flex items-center justify-center overflow-hidden">
+            <figure className="w-full h-full flex items-center justify-start overflow-hidden">
               <Image
                 loading="lazy"
                 placeholder="blur"
                 blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
                 src={Img2}
                 alt={"Coding"}
-                className="lg:w-full w-auto md:object-contain object-contain h-auto rounded-xl "
+                className=" w-auto md:object-cover lg:h-[600px] object-contain h-auto rounded-xl "
               />
             </figure>
           </div>

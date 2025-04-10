@@ -202,7 +202,7 @@ const Header = () => {
                       href="/logo"
                     >
                       <MenuItem className="text-lg hover:text-[#17DB4F] font-medium">
-                        Logo
+                      Grafisk design
                       </MenuItem>
                     </Link>
                   </div>
@@ -432,7 +432,7 @@ const Header = () => {
                     }
                   `}
                   >
-                    Seo <span className="sr-only"> - Phone meny</span>
+                    SEO <span className="sr-only"> - Phone meny</span>
                   </Link>
                 </li>
                 <li>
@@ -447,7 +447,7 @@ const Header = () => {
                     }
                   `}
                   >
-                    Logo <span className="sr-only"> - Phone meny</span>
+                    Grafisk design <span className="sr-only"> - Phone meny</span>
                   </Link>
                 </li>
                 <li>

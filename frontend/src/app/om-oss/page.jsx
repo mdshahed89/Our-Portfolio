@@ -5,6 +5,7 @@ import web from "@/assets/web.png";
 import Image from "next/image";
 import React from "react";
 import "../../styles/style.css";
+import { Values } from "@/utils/UtilityComponent";
 const toolsData = [
   {
     imgSrc: figma,
@@ -124,7 +125,11 @@ const page = () => {
         </div>
       </div>
 
-      <ToolsGrid></ToolsGrid>
+      <div>
+        <Values />
+      </div>
+
+      <ToolsGrid />
     </div>
   );
 };
@@ -149,8 +154,8 @@ const ToolsGrid = () => {
 
   return (
     <div className=" pb-10 ">
-      <div className="flex items-center justify-center mb-5">
-        <div className="font-semibold text-[37px] text-gray-800">Verktøy</div>
+      <div className="flex items-center justify-center mb-10">
+        <div className=" text-[2rem] lg:text-[3rem] text-gray-800">Verktøy</div>
       </div>
       <div className="grid px-5 md:grid-cols-2  lg:grid-cols-3 gap-4 lg:gap-6">
         {toolsData.map((tool, index) => (

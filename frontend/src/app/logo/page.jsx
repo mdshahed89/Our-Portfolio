@@ -6,27 +6,22 @@ const page = () => {
     <div className=" min-h-[100vh] px-3 lg:px-0 2xl:max-w-[1400px] max-w-[1200px] mx-auto mt-[150px] ">
       <div className="space-y-10">
         <h3 className="text-3xl md:text-4xl text-gray-700 font-medium">
-          Vi Lager Logoer som Passer Dine Behov
+        Vi Lager Grafisk Design og Logoer som Passer Dine Behov
         </h3>
         <p className="text-[20px] font-normal text-gray-500">
-          Enten du driver en liten bedrift, en stor virksomhet eller bare ønsker
-          en personlig logo, kan vi hjelpe deg! Vi tilbyr logoer som kan brukes
-          på nettsider, sosiale medier, eller andre plattformer.
+        Enten du driver en liten bedrift, en stor virksomhet, eller har et personlig prosjekt, kan vi hjelpe deg! Vi tilbyr ikke bare logoer, men også grafisk design for nettsider, sosiale medier, annonser, og andre visuelle plattformer.
         </p>
         <p className="text-[20px] font-normal text-gray-500">
-          Har du allerede en nettside, eller trenger du en ny? Uansett tilpasser
-          vi logoen slik at den matcher dine ønsker og behov. Vi sørger for at
-          designet reflekterer din visjon, med eksklusive skrifttyper, riktig
-          bruk av fargepalett og muligheten til å tegne logoer, mønstre eller
-          figurer helt fra bunnen av. Vi lager logoer som passer dine behov.
+        Har du allerede en nettside, eller trenger du design for sosiale medier? Uansett tilpasser vi designet slik at det matcher dine ønsker og behov. Vi lager alt fra logoer og visuelle elementer til innlegg for Instagram, Facebook, LinkedIn eller andre plattformer. Designet ditt vil reflektere din visjon med nøye utvalgte skrifttyper, fargepaletter og grafiske elementer som er tilpasset din merkevare.
         </p>
         <p className="text-[20px] font-normal text-gray-500">
-          Prisen varierer etter behov og kompleksitet, men uansett sikrer vi et
-          resultat som skaper din digitale identitet.
+        Vi tilbyr design som skaper en helhetlig og profesjonell digital identitet, enten det er for nettsider, sosiale medier eller trykksaker. Fra logoer til ferdige innlegg, har vi kompetansen til å levere det perfekte designet som tiltrekker seg oppmerksomhet.
+        </p>
+        <p className="text-[20px] text-gray-800">
+        Prisen varierer etter behov og kompleksitet, men uansett jobber vi for å sikre at du får et resultat som er både funksjonelt og visuelt tiltalende.
         </p>
         <p className="text-[20px] font-semibold text-gray-800">
-          Kontakt oss via skjemaet nedenfor, så hjelper vi deg i gang med en
-          unik logo!
+        Kontakt oss via skjemaet nedenfor, så hjelper vi deg i gang med design som er skreddersydd for ditt behov.
         </p>
       </div>
       <div className="my-20">
