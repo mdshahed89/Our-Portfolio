@@ -1,4 +1,4 @@
-import CustomChatButton, { Messanger } from "@/components/BookNowModal";
+// import CustomChatButton, { Messanger } from "@/components/BookNowModal";
 // const Messanger = dynamic(() => import("../components/BookNowModal"));
 import CookieBanner from "../components/CookieBanner";
 import Footer from "../components/Footer";
@@ -8,6 +8,8 @@ import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import Script from "next/script";
 import Chatbot from "@/components/CustomChatbot";
+
+
 export const metadata = {
   metadataBase: new URL("https://sidesone.no"),
   title: "Sidesone - Profesjonelle nettsider, nettbutikker og webapper",
@@ -38,7 +40,6 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-
   return (
     <html lang="no" className=" scroll-smooth  ">
       <head>
@@ -61,15 +62,21 @@ export default function RootLayout({ children }) {
           type="font/woff2"
           crossOrigin="anonymous"
         />
-        {/* <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            name: "Sidesone",
-            url: "https://sidesone.no",
-            description: metadata.description,
-          })}
-        </script> */}
+
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-6DN381H0CN"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-6DN381H0CN');
+  `}
+        </Script>
+
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -92,16 +99,15 @@ export default function RootLayout({ children }) {
           })}
         </script>
       </head>
-      
+
       <body className={` antialiased font-averta  `}>
-      {/* <Script
+        {/* <Script
         strategy="afterInteractive"
         src="https://embed.tawk.to/67d0cb645481cc190de701fe/1im3pl0fh"
         charset="UTF-8"
         crossOrigin="anonymous"
       /> */}
 
-        
         <div className="">
           <Header />
         </div>
