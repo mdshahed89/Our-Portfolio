@@ -144,7 +144,7 @@ const ReviewCard = ({ review }) => {
   const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
 
   return (
-    <div className=" px-1 md:px-[1.5rem] lg:px-[3rem] py-1 md:py-[1rem] lg:py-[2rem] w-full h-full rounded-xl my-5 shadow-[0px_1px_10px_rgba(0,0,0,0.15)] relative">
+    <div className=" px-1 md:px-[1.5rem] lg:px-[3rem] pt-1 md:pt-[1rem] lg:pt-[2rem] pb-3 w-full h-full rounded-xl my-5 shadow-[0px_1px_10px_rgba(0,0,0,0.15)] relative">
       {/* Badge */}
       <div className="absolute top-0 right-0 bg-[#035635] text-[#fff] pl-6 pb-6 pt-4 pr-4 text-[1.3rem] rounded-tr-xl rounded-bl-full">
         <FcGoogle />
@@ -178,7 +178,7 @@ const ReviewCard = ({ review }) => {
       </div>
 
       {/* Review Message */}
-      <div className="px-3 py-2 text-lg flex-grow min-h-[13rem] md:min-h-[16.5rem] xl:min-h-[10rem]">
+      <div className="px-3 py-2 text-lg flex-grow min-h-[13rem] md:min-h-[17rem] xl:min-h-[12rem]">
         <div className="h-full flex items-center">
           <p>&quot; {review?.message} &quot;</p>
         </div>

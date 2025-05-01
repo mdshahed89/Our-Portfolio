@@ -9,7 +9,6 @@ import { Toaster } from "react-hot-toast";
 import Script from "next/script";
 import Chatbot from "@/components/CustomChatbot";
 
-
 export const metadata = {
   metadataBase: new URL("https://sidesone.no"),
   title: "Sidesone - Profesjonelle nettsider, nettbutikker og webapper",
@@ -64,18 +63,16 @@ export default function RootLayout({ children }) {
         />
 
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-6DN381H0CN"
+          id="gtm-script"
           strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TKS2L7Z5');`,
+          }}
         />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-6DN381H0CN');
-  `}
-        </Script>
 
         <script type="application/ld+json">
           {JSON.stringify({
@@ -101,13 +98,12 @@ export default function RootLayout({ children }) {
       </head>
 
       <body className={` antialiased font-averta  `}>
-        {/* <Script
-        strategy="afterInteractive"
-        src="https://embed.tawk.to/67d0cb645481cc190de701fe/1im3pl0fh"
-        charset="UTF-8"
-        crossOrigin="anonymous"
-      /> */}
-
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKS2L7Z5"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+          }}
+        />
         <div className="">
           <Header />
         </div>
@@ -116,11 +112,40 @@ export default function RootLayout({ children }) {
         <div className="bg-[#035635]">
           <Footer />
           <Toaster />
-          {/* <ScrollToTopButton /> */}
         </div>
-        {/* <CustomChatButton /> */}
+
         <Chatbot />
       </body>
     </html>
   );
+}
+
+{
+  /* <ScrollToTopButton /> */
+}
+{
+  /* <CustomChatButton /> */
+}
+{
+  /* <Script
+        strategy="afterInteractive"
+        src="https://embed.tawk.to/67d0cb645481cc190de701fe/1im3pl0fh"
+        charset="UTF-8"
+        crossOrigin="anonymous"
+      /> */
+}
+{
+  /* <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-4XZJ5XGEWM"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-4XZJ5XGEWM');
+  `}
+        </Script> */
 }

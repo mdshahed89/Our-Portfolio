@@ -948,8 +948,6 @@ const ThirdPart = ({ formData, setFormData }) => {
   };
 
   const handleClearFile = (index) => {
-    // setFilePreviews((prev) => prev.filter((_, i) => i !== index));
-    // setFiles((prev) => prev.filter((_, i) => i !== index));
     setFormData((prev) => ({
       ...prev,
       gellaryImgs: prev.gellaryImgs.filter((_, i) => i !== index),
@@ -1060,7 +1058,7 @@ const ForthPart = ({ formData, setFormData }) => {
 
   const handleFileUpload = async (event) => {
     const selectedFile = event.target.files[0];
-    const maxSize = 5 * 1024 * 1024; // 5MB limit
+    const maxSize = 5 * 1024 * 1024;
 
     if (selectedFile) {
       if (selectedFile.size <= maxSize) {
