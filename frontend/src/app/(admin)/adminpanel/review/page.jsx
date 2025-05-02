@@ -14,28 +14,28 @@ const Page = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const fetchReviews = async () => {
-    try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/review/get-all-review`
-      );
+  // const fetchReviews = async () => {
+  //   try {
+  //     const response = await fetch(
+  //       `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/review/get-all-review`
+  //     );
 
-      if (!response.ok) {
-        throw new Error("Failed to get reviews");
-      }
+  //     if (!response.ok) {
+  //       throw new Error("Failed to get reviews");
+  //     }
 
-      const data = await response.json();
-      setReviews(data?.reviews || []);
-    } catch (error) {
-      setError(error.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-  useEffect(() => {
+  //     const data = await response.json();
+  //     setReviews(data?.reviews || []);
+  //   } catch (error) {
+  //     setError(error.message);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+  // useEffect(() => {
 
-    fetchReviews();
-  }, []);
+  //   fetchReviews();
+  // }, []);
 
   return (
     <div className=" p-2 md:p-5">
@@ -46,17 +46,17 @@ const Page = () => {
         </div>
         <div>
           <div className="">
-            <AddReviewModal fetchReviews={fetchReviews} />
+            <AddReviewModal  /> {/* fetchReviews={fetchReviews} */}
           </div>
         </div>
       </div>
-
+      
       <div>
         {reviews?.length > 0 ? (
           <div className=" flex flex-wrap gap-4  ">
             {reviews.map((review, idx) => (
               <div key={idx} className="  ">
-                <ReviewCard review={review} fetchReviews={fetchReviews} />
+                <ReviewCard review={review}  /> {/* fetchReviews={fetchReviews} */}
               </div>
             ))}
           </div>
