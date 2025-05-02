@@ -20,7 +20,7 @@ import Review6 from "@/assets/Review6.webp"
 import Review7 from "@/assets/Review7.webp"
 import Review8 from "@/assets/Review8.webp"
 
-const ReviewComponent = () => {
+const ReviewComponent = ({reviews}) => {
 
   // function SampleNextArrow(props) {
   //   const { onClick } = props;
@@ -46,72 +46,72 @@ const ReviewComponent = () => {
   //   );
   // }
 
-  const reviews = [
-    {
-      image: Review1,
-      name: "Birdzhan Shaban - Norskkarriere.no",
-      rating: 5,
-      message: "Sidesone AS har bygget nettsiden vår raskt, og de er dyktige utviklere. Vi har hatt et godt samarbeid hele veien. Jeg anbefaler dem på det sterkeste til alle som ønsker å bygge en nettside. De tilbyr gode priser og er enkle å samarbeide med.",
-      time: "1 måned",
-      ref: "Google"
-    },
-    {
-      image: Review2,
-      name: "Andreas wormdahl - Konsulenttorget.no",
-      rating: 5,
-      message: "Meget dyktige utviklere som lager gode nettsider.",
-      time: "1 måned",
-      ref: "Google"
-    },
-    {
-      image: Review3,
-      name: "Per ove bakke - Realpartner.no",
-      rating: 5,
-      message: "Jeg har jobbet tett med Sidesone, og det jeg setter stor pris på er deres evne til å lytte og forstå mine ønsker. De tilpasset nettsiden nøyaktig slik jeg ønsket, og samarbeidet føltes veldig smidig og personlig.",
-      time: "2 måneder siden",
-      ref: "Google"
-    },
-    {
-      image: Review4,
-      name: "Dne dekkskift",
-      rating: 5,
-      message: "Sidesone raskt nøyaktig og korrekt med arbeidet de gjør som nettsteddesigner",
-      time: "11 måned siden",
-      ref: "Google"
-    },
-    {
-      image: Review5,
-      name: "Adil Bhatti - Instacruit.no",
-      rating: 5,
-      message: "brukt sidesone for flere prosjekter, de leverer utrolig bra kvalitet til markedsledende priser. anbefales på det sterkeste! - Adil K. Bhatti / Instacruit AS",
-      time: "3 Måneder siden",
-      ref: "Google"
-    },
-    {
-      image: Review6,
-      name: "Amand.no",
-      rating: 5,
-      message: "Kjempe fornøyd med Sidesone og anbefales. ☺️",
-      time: "5 måneder siden",
-      ref: "Google"
-    },
-    {
-      image: Review7,
-      name: "Jomaa Nazari - Flyttevaskpris.no",
-      rating: 5,
-      message: "Har jobbet med Sidesone siden mai og er veldig fornøyd med kundeservice og avtalen vi har inngått så langt. Bruker deres tjenester nå og kommer til bruke selskapetstjenester fremover også. Anbefales!",
-      time: "6 måneder siden",
-      ref: "Google"
-    },
-    {
-      image: Review8,
-      name: "Blend - Baumex.si",
-      rating: 5,
-      message: "Vi hadde et god dialog fra begynnelse til han ferdig laget blitt hjemmeside min , Sidesone gjorte et stråle resultat å gjøre hjemeside min, jeg anbefaler å bruke Sidesone hvis du ønsker god resultat i ditt hjemmeside.",
-      time: "6 måneder siden",
-      ref: "Google"
-    },
-  ]
+  // const reviews = [
+  //   {
+  //     image: Review1,
+  //     name: "Birdzhan Shaban - Norskkarriere.no",
+  //     rating: 5,
+  //     message: "Sidesone AS har bygget nettsiden vår raskt, og de er dyktige utviklere. Vi har hatt et godt samarbeid hele veien. Jeg anbefaler dem på det sterkeste til alle som ønsker å bygge en nettside. De tilbyr gode priser og er enkle å samarbeide med.",
+  //     time: "1 måned",
+  //     ref: "Google"
+  //   },
+  //   {
+  //     image: Review2,
+  //     name: "Andreas wormdahl - Konsulenttorget.no",
+  //     rating: 5,
+  //     message: "Meget dyktige utviklere som lager gode nettsider.",
+  //     time: "1 måned",
+  //     ref: "Google"
+  //   },
+  //   {
+  //     image: Review3,
+  //     name: "Per ove bakke - Realpartner.no",
+  //     rating: 5,
+  //     message: "Jeg har jobbet tett med Sidesone, og det jeg setter stor pris på er deres evne til å lytte og forstå mine ønsker. De tilpasset nettsiden nøyaktig slik jeg ønsket, og samarbeidet føltes veldig smidig og personlig.",
+  //     time: "2 måneder siden",
+  //     ref: "Google"
+  //   },
+  //   {
+  //     image: Review4,
+  //     name: "Dne dekkskift",
+  //     rating: 5,
+  //     message: "Sidesone raskt nøyaktig og korrekt med arbeidet de gjør som nettsteddesigner",
+  //     time: "11 måned siden",
+  //     ref: "Google"
+  //   },
+  //   {
+  //     image: Review5,
+  //     name: "Adil Bhatti - Instacruit.no",
+  //     rating: 5,
+  //     message: "brukt sidesone for flere prosjekter, de leverer utrolig bra kvalitet til markedsledende priser. anbefales på det sterkeste! - Adil K. Bhatti / Instacruit AS",
+  //     time: "3 Måneder siden",
+  //     ref: "Google"
+  //   },
+  //   {
+  //     image: Review6,
+  //     name: "Amand.no",
+  //     rating: 5,
+  //     message: "Kjempe fornøyd med Sidesone og anbefales. ☺️",
+  //     time: "5 måneder siden",
+  //     ref: "Google"
+  //   },
+  //   {
+  //     image: Review7,
+  //     name: "Jomaa Nazari - Flyttevaskpris.no",
+  //     rating: 5,
+  //     message: "Har jobbet med Sidesone siden mai og er veldig fornøyd med kundeservice og avtalen vi har inngått så langt. Bruker deres tjenester nå og kommer til bruke selskapetstjenester fremover også. Anbefales!",
+  //     time: "6 måneder siden",
+  //     ref: "Google"
+  //   },
+  //   {
+  //     image: Review8,
+  //     name: "Blend - Baumex.si",
+  //     rating: 5,
+  //     message: "Vi hadde et god dialog fra begynnelse til han ferdig laget blitt hjemmeside min , Sidesone gjorte et stråle resultat å gjøre hjemeside min, jeg anbefaler å bruke Sidesone hvis du ønsker god resultat i ditt hjemmeside.",
+  //     time: "6 måneder siden",
+  //     ref: "Google"
+  //   },
+  // ]
 
   const settings = {
     dots: true,
