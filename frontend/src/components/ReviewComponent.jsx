@@ -1,26 +1,51 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 import GoogleLogo from "@/assets/GoogleLogo.png";
 import {
-  MdOutlineKeyboardArrowLeft,
-  MdOutlineKeyboardArrowRight,
   MdOutlineStarPurple500,
 } from "react-icons/md";
 
-import Review1 from "@/assets/Review1.webp"
-import Review2 from "@/assets/Review2.webp"
-import Review3 from "@/assets/Review3.webp"
-import Review4 from "@/assets/Review4.webp"
-import Review5 from "@/assets/Review5.webp"
-import Review6 from "@/assets/Review6.webp"
-import Review7 from "@/assets/Review7.webp"
-import Review8 from "@/assets/Review8.webp"
+// import Review1 from "@/assets/Review1.webp"
+// import Review2 from "@/assets/Review2.webp"
+// import Review3 from "@/assets/Review3.webp"
+// import Review4 from "@/assets/Review4.webp"
+// import Review5 from "@/assets/Review5.webp"
+// import Review6 from "@/assets/Review6.webp"
+// import Review7 from "@/assets/Review7.webp"
+// import Review8 from "@/assets/Review8.webp"
 
-const ReviewComponent = ({reviews}) => {
+const ReviewComponent = () => {
+
+
+  const [reviews, setReviews] = useState([])
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/review/get-all-review`
+        )
+
+        if (!response.ok) {
+          console.log('Failed to fetch all reviews on home page')
+          return
+        }
+
+        const data = await response.json()
+        setReviews(data?.reviews || [])
+      } catch (error) {
+        console.error('Error fetching all reviews on home page:', error)
+      }
+    }
+
+    fetchReviews()
+  }, [])
+
+
 
   // function SampleNextArrow(props) {
   //   const { onClick } = props;
@@ -163,8 +188,16 @@ const ReviewComponent = ({reviews}) => {
   };
 
   return (
-    <div className="   mt-5  ">
-      
+    <section id="reviews" className=" py-16 scroll-mt-[5rem] ">
+      <div className=" flex flex-col max-w-[30rem] px-2 mx-auto text-center  ">
+        <h2 className=" text-[2rem] md:text-[3rem] font-medium ">
+          Klientanmeldelser
+        </h2>
+        <h3 className=" text-lg md:text-xl ">
+          Se hva våre fornøyde kunder sier om sin opplevelse med oss.
+        </h3>
+      </div>
+      <div className="   mt-5  ">
       <div className=" w-full overflow-x-hidden overflow-hidden h-auto lg:py-10 ">
         {Array.isArray(reviews) && reviews.length > 0 ? (
           <Slider {...settings} className=" md:my-0 my-10 ">
@@ -204,6 +237,7 @@ const ReviewComponent = ({reviews}) => {
       </div>
       </div>
     </div>
+    </section>
   );
 };
 

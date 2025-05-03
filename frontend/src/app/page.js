@@ -1,5 +1,6 @@
+import ReviewComponent from "@/components/ReviewComponent";
 import Reference, { Slider } from "../components/Reference";
-import Tools, { Booking, ContactUs, Hero, NeedProfessitionSite, OfferSection, Review, Team } from "../components/Tools";
+import Tools, { ContactUs, Hero, NeedProfessitionSite, OfferSection, Team } from "../components/Tools";
 
 export default function Home() {
   return (
@@ -20,7 +21,7 @@ export default function Home() {
         <Team />
       </div>
       <div>
-        <Review />
+        <ReviewComponent />
       </div>
       <div>
         <ContactUs />
