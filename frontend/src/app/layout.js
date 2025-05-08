@@ -11,11 +11,11 @@ import Chatbot from "@/components/CustomChatbot";
 
 export const metadata = {
   metadataBase: new URL("https://sidesone.no"),
-  title: "Få profesjonell hjelp - Sidesone",
+  title: "Nettside for bedrift? Få profesjonell hjelp - Sidesone",
   description:
     "Sidesone utvikler moderne nettsider, nettbutikker og webapplikasjoner med rask lastetid, høy sikkerhet og responsivt design for økt synlighet og vekst.",
   openGraph: {
-    title: "Få profesjonell hjelp - Sidesone",
+    title: "Nettside for bedrift? Få profesjonell hjelp - Sidesone",
     description:
       "Sidesone utvikler moderne nettsider, nettbutikker og webapplikasjoner med rask lastetid, høy sikkerhet og responsivt design for økt synlighet og vekst.",
     url: "https://sidesone.no/",
@@ -31,7 +31,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Få profesjonell hjelp - Sidesone",
+    title: "Nettside for bedrift? Få profesjonell hjelp - Sidesone",
     description:
       "Sidesone utvikler moderne nettsider, nettbutikker og webapplikasjoner med rask lastetid, høy sikkerhet og responsivt design for økt synlighet og vekst.",
     images: ["/twitterCard-sidesone.png"],
