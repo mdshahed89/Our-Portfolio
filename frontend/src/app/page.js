@@ -1,6 +1,7 @@
 import ReviewComponent from "@/components/ReviewComponent";
 import Reference, { Slider } from "../components/Reference";
 import Tools, { ContactUs, Hero, NeedProfessitionSite, OfferSection, Team } from "../components/Tools";
+import Services from "@/components/Services";
 
 export default function Home() {
   return (
@@ -10,7 +11,8 @@ export default function Home() {
       </div>
       <Slider />
       <NeedProfessitionSite />
-      <OfferSection />
+      {/* <OfferSection /> */}
+      <Services />
       <div>
         <Tools />
       </div>

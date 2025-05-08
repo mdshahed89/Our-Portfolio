@@ -107,7 +107,7 @@ export default function RootLayout({ children }) {
         <div className="">
           <Header />
         </div>
-        <main className="min-h-[calc(100vh-304px)]">{children}</main>
+        <main className="min-h-[calc(100vh-304px)] ">{children}</main>
         <CookieBanner />
         <div className="bg-[#035635]">
           <Footer />

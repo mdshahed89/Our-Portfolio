@@ -83,7 +83,7 @@ const Tools = () => {
           />
         </div>
       </div>
-      <div className=" 2xl:max-w-[1400px] max-w-[1200px] mx-auto px-2 md:px-3 my-[8rem] ">
+      {/* <div className=" 2xl:max-w-[1400px] max-w-[1200px] mx-auto px-2 md:px-3 my-[8rem] ">
         <div className=" text-center w-full mb-[2rem] flex justify-center flex-col items-center  ">
           <h2 className=" text-[1.8rem] sm:text-[2rem] md:text-[3rem] flex xl:flex-row flex-col w-fit xl:gap-3 ">
             Disse er tilleggstjenester med{" "}
@@ -121,7 +121,7 @@ const Tools = () => {
             path="/logo"
           />
         </div>
-      </div>
+      </div> */}
       <Process />
     </>
   );
@@ -811,6 +811,12 @@ export const Hero = () => {
   );
 };
 
+
+import Service1 from "@/assets/Service1.webp"
+import Service2 from "@/assets/Service2.webp"
+import Service3 from "@/assets/Service3.webp"
+
+
 export const OfferSection = () => {
   return (
     <section
@@ -820,23 +826,23 @@ export const OfferSection = () => {
       <h2 className=" text-[2rem] lg:text-[3rem] py-3 font-medium leading-none text-center mb-[5rem] relative before:absolute before:w-[7rem] before:h-1 before:bg-[#035635] before:left-1/2 before:bottom-[-1rem] before:transform before:-translate-x-1/2 ">
         Hva vi tilbyr
       </h2>
-      <div className=" grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-4 ">
+      <div className=" flex gap-4 items-stretch ">
         <Card2
-          img={NewImg1}
+          img={Service1}
           title="Nettside"
           btn="Få nettside"
           path="/nettside"
           description="Vi lager profesjonelle og brukervennlige nettsider som tilpasses dine behov. Enten det er en enkel landingsside eller en mer kompleks løsning, sørger vi for et moderne design og optimal funksjonalitet. Øk vekst og synlighet med en profesjonell nettside"
         />
         <Card2
-          img={NewImg2}
+          img={Service2}
           title="Nettbutikk"
           btn="Få nettbutikk"
           path="/nettbuttik"
           description="Vår ekspertise innen utvikling av nettbutikker gir deg en komplett løsning for salg på nett. Vi fokuserer på brukervennlighet, sikkerhet og integrasjon med betalings- og fraktsystemer."
         />
         <Card2
-          img={NewImg3}
+          img={Service3}
           title="Webapplikasjon"
           btn="Få webapp"
           path="/webapplikasjon"
@@ -849,26 +855,27 @@ export const OfferSection = () => {
 
 const Card2 = ({ img, title, description, btn, path }) => {
   return (
-    <div
-      // title={`Les mer om ${title}`}
-      // tabIndex={0}
-      className="shadow-[0_0_5px_1px_rgba(128,128,128,0.6)] rounded-md h-full  flex flex-col"
-    >
-      <div className="w-full h-[17rem] md:h-[20rem] overflow-hidden">
+    <div className="flex-1 flex flex-col shadow-[0_0_5px_1px_rgba(128,128,128,0.6)] rounded-md">
+      {/* Image Section: fixed height */}
+      <div className="w-full h-[20rem] md:h-[25rem] overflow-hidden rounded-t-md">
         <Image
           src={img}
           alt={`${title} illustrasjon`}
           loading="lazy"
-          className="w-full h-full object-cover rounded-t-md"
+          className="w-full h-full object-fill"
         />
       </div>
-      <div className=" px-2 pt-2 pb-4 flex flex-col justify-between flex-grow ">
+
+      {/* Content Section: take remaining space equally */}
+      <div className="flex flex-col justify-between flex-grow px-2 pt-2 pb-4">
         <div>
-          <p className=" text-[1.7rem] md:text-[2rem] font-medium">{title}</p>
-          <p className="  md:text-lg text-gray-500">{description}</p>
+          <p className="text-[1.7rem] md:text-[2rem] font-medium">{title}</p>
+          <p className="md:text-lg text-gray-500">
+            {description}
+          </p>
         </div>
         <Link
-          href={`${path}`}
+          href={path}
           className={`${
             btn ? "" : "hidden"
           } group hover:text-[#035635] transition-all duration-300 ease-linear border-b-2 border-[#035635] w-fit mt-3 md:mt-5 flex items-center gap-1`}
@@ -880,6 +887,8 @@ const Card2 = ({ img, title, description, btn, path }) => {
     </div>
   );
 };
+
+
 
 export const PageLoading = () => {
   return (
@@ -925,7 +934,7 @@ export const NeedProfessitionSite = () => {
             <p className=" text-[16px] lg:text-[18px] ">
               Nettsiden din er bedriftens digitale ansikt utad. Den skaper
               tillit, gir et solid forsteinntrykk og hjelper deg med å tiltrekke
-              nye kunder. En profesjonell nettside er ikke bare en investering -
+              nye kunder. En profesjonell nettside er ikke bare en investering,
               det er en nødvendighet for å lykkes i dagens digitale verden.
             </p>
             <p className=" font-semibold text-[16px] lg:text-[18px] ">
@@ -1079,7 +1088,7 @@ export const NeedProfessitionSite = () => {
             </div>
             {/* bg-[#0b462ece] */}
             <p className=" text-[16px] lg:text-[18px] ">
-              Hos Sidesone får du mer enn bare en nettside - du får en komplett
+              Hos Sidesone får du mer enn bare en nettside, du får en komplett
               digital løsning skreddersydd for din bedrift. Vi kombinerer
               moderne design, optimal ytelse og smart funksjonalitet for å sikre
               at nettsiden din skiller seg ut.

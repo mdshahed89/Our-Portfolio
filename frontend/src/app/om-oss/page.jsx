@@ -153,20 +153,22 @@ const ToolsGrid = () => {
   const keywordsToBold = ["Figma", "WordPress", "MERN-stack"];
 
   return (
-    <div className=" pb-10 ">
-      <div className="flex items-center justify-center mb-10">
-        <div className=" text-[2rem] lg:text-[3rem] text-gray-800">Verktøy</div>
+    <div className=" pb-10 max-w-[1400px] mx-auto px-3 ">
+      <div className="flex flex-col gap-2 items-center justify-center mb-10">
+        <div className=" text-[2rem] lg:text-[3rem] leading-tight text-gray-800">Verktøy</div>
+        <p className=" text-[1.3rem] text-gray-600 ">Verktøyene vi bruker for å gjøre prosessen lettere for kundene våre.</p>
       </div>
-      <div className="grid px-5 md:grid-cols-2  lg:grid-cols-3 gap-4 lg:gap-6">
+      <div className="grid md:grid-cols-2  lg:grid-cols-3 gap-4 lg:gap-6">
         {toolsData.map((tool, index) => (
           <div
             key={index}
-            className="border p-8 min-h-[350px] rounded-lg space-y-3"
+            className="shadow-[0px_1px_10px_rgba(0,0,0,0.15)] py-[2.5rem] px-[1rem] md:px-[2rem] rounded-xl"
           >
-            <div className="space-y-3">
+            <div className="  ">
+              <div className=" flex items-center gap-4 ">
               <figure
-                className={`h-[50px] ${
-                  tool.imgAlt === "MERN" ? "w-[100px]" : "w-[50px]"
+                className={` ${
+                  tool.imgAlt === "MERN" ? "w-[90px]" : "w-[40px]"
                 } overflow-hidden`}
               >
                 <Image
@@ -175,12 +177,11 @@ const ToolsGrid = () => {
                   className="object-contain h-full w-full"
                 />
               </figure>
-              <div>
-                <div className="text-2xl font-semibold">{tool.title}</div>
+                <div className="text-[1.4rem] font-semibold">{tool.title}</div>
               </div>
             </div>
             <div className="space-y-3">
-              <p className="text-[20px] text-gray-600 font-normal">
+              <p className="text-gray-500 mt-5 text-[1.1rem]">
                 {highlightKeywords(tool.description, keywordsToBold)}
               </p>
             </div>

@@ -11,7 +11,7 @@ const page = () => {
       <div className=" flex items-center md:flex-row flex-col ">
         <div className=" flex-1 md:order-1 order-2 py-5   ">
           <div className=" px-3 ">
-            <div className=" text-[1.8rem] lg:text-[2.2rem] font-semibold ">
+            <div className=" mb-[1.3rem] text-[1.8rem] lg:text-[2.2rem] font-medium ">
               Markedsføring
             </div>
             <p className=" text-lg lg:text-xl text-gray-600 ">
@@ -24,10 +24,10 @@ const page = () => {
               hjelper vi deg med å øke synlighet, bygge engasjement og oppnå
               ønskede resultater.
             </p>
-            <div className=" flex  ">
+            <div className=" flex pt-[4rem] ">
               <Link
                 href={"/markedsforing"}
-                className=" px-10 py-2 rounded-full bg-[#035635] border-2 border-[#035635] hover:bg-transparent hover:text-[#000] transition-all duration-300 ease-in-out text-[#fff] font-medium mt-8 "
+                className=" px-10 py-2 rounded-full bg-[#035635] border-2 border-[#035635] hover:bg-transparent hover:text-[#000] transition-all duration-300 ease-in-out text-[#fff] font-medium  "
               >
                 Start din vekst!
               </Link>
@@ -56,7 +56,7 @@ const page = () => {
         </div>
         <div className=" flex-1  ">
           <div className=" px-3 py-5 ">
-            <div className=" text-[1.8rem] lg:text-[2.2rem] font-semibold ">
+            <div className=" mb-[1.3rem] text-[1.8rem] lg:text-[2.2rem] font-medium ">
               Søkemotoroptimalisering
             </div>
             <p className=" text-lg lg:text-xl text-gray-600 ">
@@ -71,10 +71,10 @@ const page = () => {
               riktig tekstformat, god struktur og andre tiltak som hjelper siden
               din å rangere høyere..
             </p>
-            <div className="pt-8">
+            <div className="pt-[4rem] ">
               <Link
                 href={"/seo"}
-                className=" px-10 py-2 rounded-full bg-[#035635] border-2 border-[#035635] hover:bg-transparent hover:text-[#000] transition-all duration-300 ease-in-out text-[#fff] font-medium mt-8 "
+                className=" px-10 py-2 rounded-full bg-[#035635] border-2 border-[#035635] hover:bg-transparent hover:text-[#000] transition-all duration-300 ease-in-out text-[#fff] font-medium "
               >
                 Øk synligheten din!
               </Link>
@@ -86,7 +86,7 @@ const page = () => {
       <div className=" flex items-center md:flex-row flex-col ">
         <div className=" flex-1 md:order-1 order-2 py-5   ">
           <div className=" px-3  ">
-            <div className=" text-[1.8rem] lg:text-[2.2rem] font-semibold ">
+            <div className=" mb-[1.3rem] text-[1.8rem] lg:text-[2.2rem] font-medium ">
               Grafisk design
             </div>
             <p className=" text-lg lg:text-xl text-gray-600 ">
@@ -99,10 +99,10 @@ const page = () => {
               med deg utvikler vi design som ikke bare ser bra ut, men også
               støtter merkevarens verdier og mål.
             </p>
-            <div className=" flex  ">
+            <div className=" flex pt-[4rem] ">
               <Link
                 href={"/logo"}
-                className=" px-10 py-2 rounded-full bg-[#035635] border-2 border-[#035635] hover:bg-transparent hover:text-[#000] transition-all duration-300 ease-in-out text-[#fff] font-medium mt-8 "
+                className=" px-10 py-2 rounded-full bg-[#035635] border-2 border-[#035635] hover:bg-transparent hover:text-[#000] transition-all duration-300 ease-in-out text-[#fff] font-medium "
               >
                 Start din vekst!
               </Link>

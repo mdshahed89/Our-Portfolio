@@ -27,11 +27,17 @@ const Page = () => {
     projectImgUrl: "",
   });
 
-  useEffect(()=> {
-    if((!projectData.title || !projectData.projectUrl || !projectData.coverImgUrl || !projectData.projectImgUrl) && queryValue === "details"){
-      navigate.push("/adminpanel/createproject")
+  useEffect(() => {
+    if (
+      (!projectData.title ||
+        !projectData.projectUrl ||
+        !projectData.coverImgUrl ||
+        !projectData.projectImgUrl) &&
+      queryValue === "details"
+    ) {
+      navigate.push("/adminpanel/createproject");
     }
-  }, [])
+  }, []);
 
   const searchParams = useSearchParams();
   const queryValue = searchParams.get("query");
@@ -803,7 +809,6 @@ const SecondPart = ({ formData, setFormData }) => {
     }
   };
 
-
   return (
     <div className="my-8">
       <h3 className="text-center text-[1.5rem] bg-[#eeeeee] w-fit px-5 py-1 mx-auto rounded-t-2xl">
@@ -1004,33 +1009,28 @@ const ThirdPart = ({ formData, setFormData }) => {
           />
         </div>
         <div className=" flex flex-wrap gap-5 mt-4 justify-center">
-          {
-            Array.isArray(formData?.gellaryImgs) &&
-              formData?.gellaryImgs.length > 0 &&
-              formData?.gellaryImgs.map((gellaryImg, index) => (
-                <div key={index} className="relative w-[15rem] h-[10rem]">
-                  <div className="absolute flex justify-end z-50 bg-black/50 text-[#fff] p-2 right-2 top-2 rounded-full">
-                    <button
-                      type="button"
-                      onClick={() => handleClearFile(index)}
-                    >
-                      <RxCross2 className="text-xl" />
-                    </button>
-                  </div>
-                  <div className="relative w-full h-full rounded-lg p-2">
-                    <Image
-                      loading="lazy"
-                      placeholder="blur"
-                      src={gellaryImg}
-                      alt={gellaryImg}
-                      fill
-                      blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+          {Array.isArray(formData?.gellaryImgs) &&
+            formData?.gellaryImgs.length > 0 &&
+            formData?.gellaryImgs.map((gellaryImg, index) => (
+              <div key={index} className="relative w-[15rem] h-[10rem]">
+                <div className="absolute flex justify-end z-50 bg-black/50 text-[#fff] p-2 right-2 top-2 rounded-full">
+                  <button type="button" onClick={() => handleClearFile(index)}>
+                    <RxCross2 className="text-xl" />
+                  </button>
                 </div>
-              ))
-          }
+                <div className="relative w-full h-full rounded-lg p-2">
+                  <Image
+                    loading="lazy"
+                    placeholder="blur"
+                    src={gellaryImg}
+                    alt={gellaryImg}
+                    fill
+                    blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjYmRkZmYiLz48L3N2Zz4="
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            ))}
         </div>
       </div>
     </div>
@@ -1090,13 +1090,11 @@ const ForthPart = ({ formData, setFormData }) => {
   };
 
   const handleClearFile = () => {
-
     setFormData({
       ...formData,
       reviewerImgUrl: "",
     });
   };
-
 
   return (
     <div className=" mt-10 mb-14 ">
@@ -1110,7 +1108,6 @@ const ForthPart = ({ formData, setFormData }) => {
       </div>
       <div className=" relative max-w-[30rem] mx-auto shadow-[0px_1px_10px_rgba(0,0,0,0.15)] px-6 pt-14 pb-20 rounded-md mt-20 ">
         <div className=" absolute -top-[3rem] w-full left-0 flex justify-center  ">
-
           <div className="flex flex-col items-center gap-4">
             {formData?.reviewerImgUrl ? (
               <div className="relative w-[5rem] h-[5rem] ">
@@ -1189,5 +1186,3 @@ const ForthPart = ({ formData, setFormData }) => {
     </div>
   );
 };
-
-

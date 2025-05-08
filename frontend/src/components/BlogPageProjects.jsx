@@ -54,7 +54,7 @@ const BlogPageProjects = ({ projects }) => {
     rtl: true,
     draggable: true,
     swipe: true,
-    beforeChange: () => setIsDragging(true), 
+    beforeChange: () => setIsDragging(true),
     afterChange: () => setTimeout(() => setIsDragging(false), 200),
     responsive: [
       {
@@ -120,7 +120,7 @@ const BlogPageProjects = ({ projects }) => {
                     </div>
                     <div className=" border-[#17DB4F] relative  group border-2 w-[2.5rem] h-[2.5rem] rounded-full text-[1.3rem] text-[#17DB4F] ">
                       <div className=" absolute w-full h-full left-0 top-0 flex items-center justify-center group-hover:ml-2 transition-all duration-300 ease-linear ">
-                      <IoIosArrowForward className="   " />
+                        <IoIosArrowForward className="   " />
                       </div>
                     </div>
                   </div>
@@ -136,14 +136,13 @@ const BlogPageProjects = ({ projects }) => {
         )}
       </div>
       <div className=" mt-3 flex justify-end pr-5 ">
-      <Link
-  href={`/alle-prosjekter`}
-  className="px-5 py-1 group text-lg md:text-xl flex items-center gap-2 md:py-2 transition-colors duration-300 ease-in-out rounded-full text-[#17DB4F]"
->
-  <span className="flex-shrink-0">Se alle prosjekter</span>
-  <MdArrowForwardIos className=" mt-[2px] transition-transform duration-300 ease-linear transform group-hover:translate-x-2" />
-</Link>
-
+        <Link
+          href={`/alle-prosjekter`}
+          className="px-5 py-1 group text-lg md:text-xl flex items-center gap-2 md:py-2 transition-colors duration-300 ease-in-out rounded-full text-[#17DB4F]"
+        >
+          <span className="flex-shrink-0">Se alle prosjekter</span>
+          <MdArrowForwardIos className=" mt-[2px] transition-transform duration-300 ease-linear transform group-hover:translate-x-2" />
+        </Link>
       </div>
     </div>
   );

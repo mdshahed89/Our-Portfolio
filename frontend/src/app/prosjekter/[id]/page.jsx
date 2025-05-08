@@ -26,7 +26,7 @@ const page = async ({ params }) => {
     console.error("Error fetching projects:", error);
   }
 
-  console.log("hello",project);
+  // console.log("hello",project);
 
   if (!project || Object.keys(project).length === 0) {
     return <div className=" min-h-[100vh] flex items-center justify-center text-xl ">Prosjektdetaljer ikke funnet</div>;
@@ -152,7 +152,7 @@ const SecondPart = ({ project }) => {
           ))
         ) : (
           <div className=" flex flex-col items-center gap-2 ">
-            <h5>Design fason</h5>
+            {/* <h5>Design fason</h5> */}
             <Image
               src={FigmaIcon}
               className=" w-[3rem] object-contain "

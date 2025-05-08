@@ -25,7 +25,7 @@ const Footer = () => {
         <div className=" text-[#fff] flex  ">
           <div className=" flex flex-col gap-8 ">
             <h3 className=" text-[1.5rem] font-medium relative before:absolute before:h-1 before:-bottom-2 before:w-12 before:bg-[#fff]   ">
-              Konakt
+            Kontakt
             </h3>
             <div className=" flex flex-col gap-3 text-lg ">
               <p className="">Kontakt@sidesone.no</p>
