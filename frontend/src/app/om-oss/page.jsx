@@ -79,12 +79,13 @@ const page = () => {
       </div>
       <div className="bg-[#035635] z-50 relative">
         <div className="grid  items-center  lg:grid-cols-2 mb-16 text-white ">
-          <div className=" py-5 px-3">
-            <div className="text-[30px] pb-5  font-semibold">
+          <div className=" py-10 px-3 text-center ">
+            <div className="text-[30px] mb-10  font-medium ">
               Teamet bak Sidesone har omfattende erfaring innen nettsidedesign
               og utvikling.
             </div>
-            <p className="text-gray-100 text-[20px]">
+            <div className=" space-y-7 ">
+            <p className="text-gray-100 text-[18px]">
               Hos Sidesone er vi en dedikert webutviklingsbedrift som jobber
               tett med både enkeltpersoner og bedrifter for å skape
               skreddersydde digitale løsninger. Vi er opptatt av å forstå våre
@@ -92,8 +93,7 @@ const page = () => {
               til lansering og videre oppfølging, sørger vi for at hver prosess
               er personlig og grundig.
             </p>
-            <br />
-            <br />
+
             <p className="text-[20px] text-gray-100">
               Vi spesialiserer oss på WordPress for fleksible og brukervennlige
               nettsider, og{" "}
@@ -104,7 +104,6 @@ const page = () => {
               som SEO, digital markedsføring og grafisk design for å sikre at
               din nettside både presterer og ser profesjonell ut.
             </p>
-            <br />
             <p className="text-[20px] text-gray-100">
               Vi har hatt gleden av å jobbe med både små og store bedrifter,
               samt enkeltpersoner som har hatt ambisjoner om å bygge sin
@@ -112,14 +111,13 @@ const page = () => {
               tilnærming alltid den samme: å levere skreddersydde løsninger som
               møter de spesifikke behovene til hver kunde
             </p>
-            <br />
-            <br />
             <p className="text-[20px] text-gray-100">
               For en trygg og rask brukeropplevelse benytter vi dedikert hosting
               med egne servere. Hos Sidesone er vi stolte av å være en pålitelig
               partner som hjelper din virksomhet å vokse digitalt, uansett
               størrelse eller bransje.
             </p>
+            </div>
           </div>
           <div className=" h-full bg-image2"></div>
         </div>
@@ -156,7 +154,7 @@ const ToolsGrid = () => {
     <div className=" pb-10 max-w-[1400px] mx-auto px-3 ">
       <div className="flex flex-col gap-2 items-center justify-center mb-10">
         <div className=" text-[2rem] lg:text-[3rem] leading-tight text-gray-800">Verktøy</div>
-        <p className=" text-[1.3rem] text-gray-600 ">Verktøyene vi bruker for å gjøre prosessen lettere for kundene våre.</p>
+        <p className=" text-[1.3rem] text-gray-600 text-center ">Verktøyene vi bruker for å skape innovative og effektive nettsider.</p>
       </div>
       <div className="grid md:grid-cols-2  lg:grid-cols-3 gap-4 lg:gap-6">
         {toolsData.map((tool, index) => (

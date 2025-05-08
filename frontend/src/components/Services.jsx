@@ -36,7 +36,7 @@ const Services = () => {
 
   const handleScroll = (direction) => {
     const isMediumScreen = window.innerWidth >= 768; // Tailwind's 'md' breakpoint
-    const scrollAmount = isMediumScreen ? 500 : 400;
+    const scrollAmount = isMediumScreen ? 500 : 390;
     const el = scrollRef.current;
     if (!el) return;
 
@@ -47,23 +47,6 @@ const Services = () => {
 
     setTimeout(checkScroll, 300);
   };
-
-  //   <div className="relative w-full h-[40rem]">
-  //   <Image src={HfaqImg} className="object-cover w-full h-full" alt="Background Image" />
-
-  //   <div className="absolute inset-0 flex items-center justify-center">
-  //     <div className="w-full overflow-x-auto flex space-x-4 px-4 py-6 scrollbar-hide">
-  //       <div className="flex gap-7 md:mx-[25%]  flex-nowrap">
-  //         <HfeedbackCard className="shrink-0 w-64" />
-  //         <HfeedbackCard className="shrink-0 w-64" />
-  //         <HfeedbackCard className="shrink-0 w-64" />
-  //         <HfeedbackCard className="shrink-0 w-64" />
-  //         <HfeedbackCard className="shrink-0 w-64" />
-  //         {/* <HfeedbackCard className="shrink-0 w-64" /> */}
-  //       </div>
-  //     </div>
-  //   </div>
-  // </div>
 
   return (
     <section
@@ -97,7 +80,7 @@ const Services = () => {
             <Card
               img={Service1}
               title="Webapplikasjon"
-              btn="Start markedsføringen din"
+              btn="Få webapplikasjon"
               path="/markedsforing"
               description="Vi bygger skreddersydde webapplikasjoner med MERN-stack, som effektiviserer arbeidsflyten og dekker spesifikke behov for dynamiske og komplekse løsninger som hjelper virksomheten din å vokse."
             />
@@ -154,9 +137,11 @@ export default Services;
 
 const Card = ({ img, title, description, btn, path }) => {
   return (
-    <div className=" min-w-[400px] max-w-[400px] md:min-w-[500px] md:max-w-[500px] flex flex-col shadow-[0_0_5px_1px_rgba(128,128,128,0.6)] rounded-md">
-      {/* Image Section: fixed height */}
-      <div className="w-full h-[20rem] md:h-[25rem] overflow-hidden rounded-t-md">
+    <Link
+      href={path}
+      className=" min-w-[380px] max-w-[380px] md:min-w-[500px] md:max-w-[500px] flex flex-col shadow-[0_0_5px_1px_rgba(128,128,128,0.6)] rounded-md"
+    >
+      <div className="w-full h-[18rem] md:h-[25rem] overflow-hidden rounded-t-md">
         <Image
           src={img}
           alt={`${title} illustrasjon`}
@@ -165,22 +150,21 @@ const Card = ({ img, title, description, btn, path }) => {
         />
       </div>
 
-      {/* Content Section: take remaining space equally */}
       <div className="flex flex-col justify-between flex-grow px-4 pb-4 pt-2 ">
         <div>
           <p className="text-[1.7rem] md:text-[2rem] font-medium">{title}</p>
           <p className="md:text-lg text-gray-500 ">{description}</p>
         </div>
-        <Link
-          href={path}
+        <div
+          // href={path}
           className={`${
             btn ? "" : "hidden"
           } group hover:text-[#035635] transition-all duration-300 ease-linear border-b-2 border-[#035635] w-fit mt-3 md:mt-5 flex items-center gap-1`}
         >
           <div className="text-[1.1rem] font-light">{btn}</div>
           <MdArrowForward className="mt-1 group-hover:ml-2 transition-all duration-200 ease-linear" />
-        </Link>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };

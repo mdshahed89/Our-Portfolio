@@ -160,7 +160,7 @@ const page = () => {
       <div className=" mt-16 mb-10 ">
         <div className=" text-center ">
           <div className=" text-[1.7rem] md:text-[2.2rem] leading-tight mb-3 font-semibold ">
-            Velg den pakken som passe dine behov
+            Velg den pakken som passer dine behov
             {/* Hvordan markedsfører Sidesone for deg? */}
           </div>
           <p className=" text-gray-600 font-medium ">
