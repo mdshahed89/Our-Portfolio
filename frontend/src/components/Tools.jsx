@@ -742,7 +742,7 @@ export const ContactUs = () => {
                   href={"/book-now"}
                   className="w-full bg-[#035635] transition-all flex items-center gap-4 justify-center duration-300 ease-in-out active:scale-95 text-white p-3 rounded-full"
                 >
-                  Book Møte
+                  Book Møte{" "}
                   <span className=" sr-only ">Planlegg En Avtale</span>
                   <div className="w-2 h-2 bg-[#17DB4F] rounded-full animate-[ping_2s_ease-in-out_infinite]"></div>
                 </Link>
@@ -811,11 +811,9 @@ export const Hero = () => {
   );
 };
 
-
-import Service1 from "@/assets/Service1.webp"
-import Service2 from "@/assets/Service2.webp"
-import Service3 from "@/assets/Service3.webp"
-
+import Service1 from "@/assets/Service1.webp";
+import Service2 from "@/assets/Service2.webp";
+import Service3 from "@/assets/Service3.webp";
 
 export const OfferSection = () => {
   return (
@@ -870,9 +868,7 @@ const Card2 = ({ img, title, description, btn, path }) => {
       <div className="flex flex-col justify-between flex-grow px-2 pt-2 pb-4">
         <div>
           <p className="text-[1.7rem] md:text-[2rem] font-medium">{title}</p>
-          <p className="md:text-lg text-gray-500">
-            {description}
-          </p>
+          <p className="md:text-lg text-gray-500">{description}</p>
         </div>
         <Link
           href={path}
@@ -887,8 +883,6 @@ const Card2 = ({ img, title, description, btn, path }) => {
     </div>
   );
 };
-
-
 
 export const PageLoading = () => {
   return (

@@ -202,7 +202,15 @@ const Header = () => {
                       href="/logo"
                     >
                       <MenuItem className="text-lg hover:text-[#17DB4F] font-medium">
-                      Grafisk design
+                        Grafisk design
+                      </MenuItem>
+                    </Link>
+                    <Link
+                      className={` ${pathName === "/logo" && "text-[#17DB4F]"}`}
+                      href="/ki-chatbot"
+                    >
+                      <MenuItem className="text-lg hover:text-[#17DB4F] font-medium">
+                        Skreddersydd KI-chatbot
                       </MenuItem>
                     </Link>
                   </div>
@@ -318,19 +326,21 @@ const Header = () => {
                     pathName === "/nettside" && "text-[#17DB4F]"
                   }
                 `}
-                  
                 >
-                  
                   <Link
                     href="/nettside"
                     onClick={() => {
                       setMenuOpen(false);
                     }}
                   >
-                    Nettside <span className="sr-only"> - Phone meny</span>
+                    Nettside
+                    <span className=" sr-only ">
+                      {" "}
+                      Spennende prosjekter venter
+                    </span>
                   </Link>
                   <MdOutlineKeyboardArrowDown
-                  onClick={() => toggleDropdown(0)}
+                    onClick={() => toggleDropdown(0)}
                     className={`ml-2  transition-transform duration-300 ${
                       dropdownOpen === 0 ? "rotate-180" : "rotate-0"
                     }`}
@@ -354,7 +364,8 @@ const Header = () => {
                     }
                   `}
                   >
-                    Nettside <span className="sr-only"> - Phone meny</span>
+                    Nettside
+                    <span className=" sr-only "> Enkel, moderne nettside</span>
                   </Link>
                 </li>
                 <li>
@@ -369,7 +380,8 @@ const Header = () => {
                     }
                   `}
                   >
-                    Nettbutikk <span className="sr-only"> - Phone meny</span>
+                    Nettbutikk
+                    <span className=" sr-only "> Skap en digital butikk</span>
                   </Link>
                 </li>
                 <li>
@@ -384,7 +396,11 @@ const Header = () => {
                     }
                   `}
                   >
-                    Webapplikasjon <span className="sr-only"> - Phone meny</span>
+                    Webapplikasjon
+                    <span className=" sr-only ">
+                      {" "}
+                      Nettapplikasjoner som fungerer
+                    </span>
                   </Link>
                 </li>
               </ul>
@@ -405,7 +421,8 @@ const Header = () => {
                       setMenuOpen(false);
                     }}
                   >
-                    Digitale Tjenester <span className="sr-only"> - Phone meny</span>
+                    Digitale Tjenester
+                    <span className=" sr-only "> Tjenester på nett</span>
                   </Link>
                   <MdOutlineKeyboardArrowDown
                     onClick={() => toggleDropdown(1)}
@@ -432,7 +449,7 @@ const Header = () => {
                     }
                   `}
                   >
-                    SEO <span className="sr-only"> - Phone meny</span>
+                    SEO<span className=" sr-only "> Sikre høy rangering</span>
                   </Link>
                 </li>
                 <li>
@@ -447,7 +464,11 @@ const Header = () => {
                     }
                   `}
                   >
-                    Grafisk design <span className="sr-only"> - Phone meny</span>
+                    Grafisk design{" "}
+                    <span className=" sr-only ">
+                      {" "}
+                      Estetisk grafikk og design
+                    </span>
                   </Link>
                 </li>
                 <li>
@@ -462,7 +483,27 @@ const Header = () => {
                     }
                   `}
                   >
-                    Markedsføring <span className="sr-only"> - Phone meny</span>
+                    Markedsføring
+                    <span className=" sr-only "> Fremme din merkevare</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    onClick={() => {
+                      setMenuOpen(false);
+                      toggleDropdown(null);
+                    }}
+                    href="/ki-chatbot"
+                    className={`flex items-center pb-2 hover:text-[#17DB4F] cursor-pointer ${
+                      pathName === "/ki-chatbot" && "text-[#17DB4F]"
+                    }
+                  `}
+                  >
+                    Skreddersydd KI-chatbot{" "}
+                    <span className=" sr-only ">
+                      {" "}
+                      Spennende prosjekter venter
+                    </span>
                   </Link>
                 </li>
               </ul>
@@ -477,7 +518,7 @@ const Header = () => {
                   pathName === "/om-oss" && "text-[#17DB4F]"
                 }`}
               >
-                Hvem er vi? <span className="sr-only"> - Phone meny</span>
+                Hvem er vi? <span className=" sr-only "> Vi er SideStone</span>
               </Link>
             </li>
             <li className="relative group border-b border-[#17DB4F] py-2">
@@ -488,7 +529,8 @@ const Header = () => {
                   pathName === "/referanser" && "text-[#17DB4F]"
                 } `}
               >
-                Prosjekter <span className="sr-only"> - Phone meny</span>
+                Prosjekter{" "}
+                <span className=" sr-only "> Spennende prosjekter venter</span>
               </Link>
             </li>
             <li className="relative group pt-[2rem] ">
@@ -517,7 +559,7 @@ const Header = () => {
               className=" p-2 rounded-full border-2 border-[#17DB50] text-[#fff] text-[1.5rem] "
             >
               <FaFacebookF />
-              <span className=" sr-only ">Join Facebook</span>
+              <span className=" sr-only ">Bli med på Facebook</span>
             </Link>
             <Link
               onClick={() => setMenuOpen(false)}
@@ -527,7 +569,7 @@ const Header = () => {
               className=" p-2 rounded-full border-2 border-[#17DB50] text-[#fff] text-[1.5rem] "
             >
               <FaInstagram />
-              <span className=" sr-only ">Join Instagram</span>
+              <span className=" sr-only ">Bli med på Instagram</span>
             </Link>
           </div>
         </div>

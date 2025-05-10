@@ -25,7 +25,7 @@ const Footer = () => {
         <div className=" text-[#fff] flex  ">
           <div className=" flex flex-col gap-8 ">
             <h3 className=" text-[1.5rem] font-medium relative before:absolute before:h-1 before:-bottom-2 before:w-12 before:bg-[#fff]   ">
-            Kontakt
+              Kontakt
             </h3>
             <div className=" flex flex-col gap-3 text-lg ">
               <p className="">Kontakt@sidesone.no</p>
@@ -75,6 +75,12 @@ const Footer = () => {
               >
                 Grafisk design
               </Link>
+              <Link
+                href={`/ki-chatbot`}
+                className=" hover:text-[#17DB4F] cursor-pointer transition-colors duration-300 ease-in-out "
+              >
+                Skreddersydd KI-chatbot
+              </Link>
             </div>
           </div>
         </div>
@@ -117,8 +123,7 @@ const Footer = () => {
               href={"/book-now"}
               className=" border border-[#fff] w-[14rem] py-2 text-center cursor-pointer "
             >
-              Book møte
-              <span className=" sr-only ">Bestill Konsultasjon</span>
+              Book møte <span className=" sr-only ">Bestill Konsultasjon</span>
             </Link>
           </div>
         </div>
@@ -191,7 +196,7 @@ const Footer = () => {
             className=" p-2 rounded-full border-2 border-[#219642] hover:border-[#17DB50] transition-colors duration-300 ease-in-out text-[#fff] text-[1.3rem] "
           >
             <FaFacebookF />
-            <span className=" sr-only ">Join Our SideStone Facebook Group</span>
+            <span className=" sr-only ">Bli med i vår SideStone Facebook-gruppe</span>
           </Link>
           <Link
             onClick={() => setMenuOpen(false)}
@@ -201,7 +206,7 @@ const Footer = () => {
             className=" p-2 rounded-full border-2 border-[#219642] hover:border-[#17DB50] transition-colors duration-300 ease-in-out text-[#fff] text-[1.3rem] "
           >
             <FaInstagram />
-            <span className=" sr-only ">Join Our SideStone Instagram</span>
+            <span className=" sr-only ">Bli med på vår SideStone Instagram</span>
           </Link>
         </div>
       </div>
@@ -274,7 +279,7 @@ const ResponsiveMenu = () => {
                 }
                   `}
               >
-                Nettside <span className="sr-only"> - Phone footer meny</span>
+                Nettside <span className="sr-only"> - Profesjonell nettside utvikling</span>
               </Link>
             </li>
             <li>
@@ -285,7 +290,7 @@ const ResponsiveMenu = () => {
                 }
                   `}
               >
-                Nettbutikk <span className="sr-only"> - Phone footer meny</span>
+                Nettbutikk <span className="sr-only"> - Skreddersydde nettbutikk løsninger</span>
               </Link>
             </li>
             <li>
@@ -296,7 +301,7 @@ const ResponsiveMenu = () => {
                 }
                   `}
               >
-                Webapp <span className="sr-only"> - Phone footer meny</span>
+                Webapp <span className="sr-only"> - Skreddersydde webapplikasjoner utvikling</span>
               </Link>
             </li>
             <li>
@@ -307,7 +312,7 @@ const ResponsiveMenu = () => {
                 }
                   `}
               >
-                SEO <span className="sr-only"> - Phone footer meny</span>
+                SEO <span className="sr-only"> - Synlighet gjennom søkemotoroptimalisering</span>
               </Link>
             </li>
             <li>
@@ -318,7 +323,8 @@ const ResponsiveMenu = () => {
                 }
                   `}
               >
-                Markedsføring <span className="sr-only"> - Phone footer meny</span>
+                Markedsføring{" "}
+                <span className="sr-only"> - Resultatdrevet digital markedsføring</span>
               </Link>
             </li>
             <li>
@@ -329,7 +335,20 @@ const ResponsiveMenu = () => {
                 }
                   `}
               >
-                Grafisk design <span className="sr-only"> - Phone footer meny</span>
+                Grafisk design{" "}
+                <span className="sr-only"> - Kreativ visuell kommunikasjon</span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/ki-chatbot"
+                className={`block py-2  hover:text-[#17DB4F] cursor-pointer ${
+                  pathName === "/logo" && "text-[#17DB4F]"
+                }
+                  `}
+              >
+                Skreddersydd KI-chatbot{" "}
+                <span className="sr-only"> - Tilpasset KI-assistent</span>
               </Link>
             </li>
           </ul>
@@ -364,7 +383,7 @@ const ResponsiveMenu = () => {
                 }
                   `}
               >
-                Blogg <span className="sr-only"> - Phone footer meny</span>
+                Blogg <span className="sr-only"> - Engasjerende blogginnlegg skaping</span>
               </Link>
             </li>
             <li>
@@ -374,8 +393,8 @@ const ResponsiveMenu = () => {
                   pathName === "/om-oss" && "text-[#17DB4F]"
                 }
                   `}
-              > 
-                Om Oss <span className="sr-only"> - Phone footer meny</span>
+              >
+                Om Oss <span className="sr-only"> - Lær mer om oss</span>
               </Link>
             </li>
             <li>
@@ -386,7 +405,8 @@ const ResponsiveMenu = () => {
                 className={`flex items-center pb-2 hover:text-[#17DB4F] cursor-pointer
                   `}
               >
-                Facebook Gruppe <span className="sr-only"> - Phone footer meny</span>
+                Facebook Gruppe{" "}
+                <span className="sr-only"> - Phone footer meny</span>
               </Link>
             </li>
           </ul>

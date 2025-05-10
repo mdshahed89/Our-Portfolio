@@ -11,7 +11,7 @@ import { RiSearchLine } from "react-icons/ri";
 const page = () => {
   return (
     <div className="  h-full mt-[160px]  ">
-      <div className=" px-3 flex items-center xl:flex-row flex-col xl:gap-0 gap-7  ">
+      <div className=" px-3 flex xl:flex-row flex-col xl:gap-0 gap-7  ">
         <div className=" flex-1 xl:order-1 order-2  ">
           <div className=" flex flex-col gap-8 justify-between lg:px-3 ">
             <div className=" xl:text-[2rem] text-[1.7rem]  font-semibold ">

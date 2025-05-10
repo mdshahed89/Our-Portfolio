@@ -8,6 +8,7 @@ import Service3 from "@/assets/Service3.webp";
 import Service4 from "@/assets/Service4.webp";
 import Service5 from "@/assets/Service5.webp";
 import Service6 from "@/assets/Service6.webp";
+import Service7 from "@/assets/Service7.webp";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -35,7 +36,7 @@ const Services = () => {
   }, []);
 
   const handleScroll = (direction) => {
-    const isMediumScreen = window.innerWidth >= 768; // Tailwind's 'md' breakpoint
+    const isMediumScreen = window.innerWidth >= 768;
     const scrollAmount = isMediumScreen ? 500 : 390;
     const el = scrollRef.current;
     if (!el) return;
@@ -81,7 +82,7 @@ const Services = () => {
               img={Service1}
               title="Webapplikasjon"
               btn="Få webapplikasjon"
-              path="/markedsforing"
+              path="/webapplikasjon"
               description="Vi bygger skreddersydde webapplikasjoner med MERN-stack, som effektiviserer arbeidsflyten og dekker spesifikke behov for dynamiske og komplekse løsninger som hjelper virksomheten din å vokse."
             />
             <Card
@@ -104,6 +105,13 @@ const Services = () => {
               btn="Få et unikt designuttrykk"
               path="/logo"
               description="Vi skaper visuelt imponerende grafiske design for virksomheten din, inkludert logoer, visuelle profiler og trykksaker, med fokus på estetikk, funksjonalitet og merkevarebygging for et sterkt førsteinntrykk."
+            />
+            <Card
+              img={Service7}
+              title="Skreddersydd KI-chatbot"
+              btn="Automatiser kundedialogen din"
+              path="/ki-chatbot"
+              description="Vi utvikler intelligente og skreddersydde KI-chatboter som effektiviserer kundeservice og gir brukerne en sømløs opplevelse. Med fokus på naturlig språkforståelse og automatiserte prosesser, bygger vi løsninger som tilpasses din bransje og dine behov."
             />
           </div>
         </div>
