@@ -184,7 +184,7 @@ export const sendChatbotDataMail = async (req, res) => {
     replyTo: info?.email,
     html: `
   <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; border-radius: 10px; background-color: #ffffff; color: #ffffff; border: 1px solid #3ddc91;">
-    <h2 style="color: #035635; text-align: center; margin-bottom: 24px;">Ny chatbot-forespørsel</h2>
+    <h2 style="color: #035635; text-align: center; margin-bottom: 24px; font-size: 28px;">Ny chatbot-forespørsel</h2>
 
     <div style="margin-bottom: 12px; display: flex;">
       <strong style="width: 90px; color: #035635;">Navn:</strong>
@@ -199,6 +199,83 @@ export const sendChatbotDataMail = async (req, res) => {
     <div style="margin-bottom: 12px; display: flex;">
       <strong style="width: 90px; color: #035635;">Telefon:</strong>
       <span style="color: #000000;">${info?.phone}</span>
+    </div>
+
+    <div style="margin-bottom: 12px; display: flex;">
+      <strong style="width: 90px; color: #035635;">Melding:</strong>
+      <span style="color: #000000;">${info?.message}</span>
+    </div>
+
+    <hr style="margin: 24px 0; border: none; border-top: 1px solid #035635;" />
+
+    <p style="font-size: 14px; color: #035635;">Vennlig hilsen,</p>
+    <p style="font-size: 14px; color: #035635;">${info?.name}</p>
+  </div>
+`,
+  };
+
+  transporter.sendMail(mailBody, (error, info) => {
+    if (error) {
+      console.log(error);
+      return res.status(500).send("Feil ved sending av e-post");
+    } else {
+      console.log(info.response);
+      return res.status(200).send("Email sent successfully!");
+    }
+  });
+};
+
+export const sendSEODataMail = async (req, res) => {
+  const info = req.body;
+
+  const transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false,
+    auth: {
+      user: process.env.SIDESONE_EMAIL,
+      pass: process.env.SIDESONE_EMAIL_PASS,
+    },
+  });
+
+  const mailBody = {
+    from: process.env.SIDESONE_EMAIL,
+    to: process.env.SIDESONE_EMAIL,
+    // to: "r2scoder@gmail.com",
+    subject: "Ny forespørsel om markedsføringstjenester",
+    replyTo: info?.email,
+    html: `
+  <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; border-radius: 10px; background-color: #ffffff; color: #ffffff; border: 1px solid #3ddc91;">
+    <h2 style="color: #035635; text-align: center; margin-bottom: 24px; font-size: 28px;">Ny forespørsel om markedsføringstjenester</h2>
+
+    <div style="margin-bottom: 12px; display: flex;">
+      <strong style="width: 90px; color: #035635;">Pakkenavn:</strong>
+      <span style="color: #000000;">${info?.packageName}</span>
+    </div>
+
+    <div style="margin-bottom: 12px; display: flex;">
+      <strong style="width: 90px; color: #035635;">Pakkepris:</strong>
+      <span style="color: #000000;">${info?.packagePrice}</span>
+    </div>
+
+    <div style="margin-bottom: 12px; display: flex;">
+      <strong style="width: 90px; color: #035635;">Navn:</strong>
+      <span style="color: #000000;">${info?.name}</span>
+    </div>
+
+    <div style="margin-bottom: 12px; display: flex;">
+      <strong style="width: 90px; color: #035635;">E-post:</strong>
+      <span style="color: #000000;">${info?.email}</span>
+    </div>
+
+    <div style="margin-bottom: 12px; display: flex;">
+      <strong style="width: 90px; color: #035635;">Telefon:</strong>
+      <span style="color: #000000;">${info?.phone}</span>
+    </div>
+
+    <div style="margin-bottom: 12px; display: flex;">
+      <strong style="width: 90px; color: #035635;">Melding:</strong>
+      <span style="color: #000000;">${info?.message}</span>
     </div>
 
     <hr style="margin: 24px 0; border: none; border-top: 1px solid #035635;" />

@@ -22,26 +22,28 @@ const page = () => {
                 Hva er SEO, og hvordan jobber Sidesone med det?
               </p>
               <p className=" text-base md:text-lg text-gray-500 ">
-                SEO (søkemotoroptimalisering) handler om å øke synligheten til
-                nettsiden din i Google og andre søkemotorer, slik at du får mer
-                organisk trafikk. Hos Sidesone bruker vi verktøyet Seobility for
-                å analysere nettstedet ditt, identifisere forbedringsområder og
-                lage en skreddersydd strategi. Vi fokuserer på
-                nøkkelordoptimalisering, riktig tekstformat, god struktur og
-                andre tiltak som hjelper siden din å rangere høyere.
+                SEO (søkemotoroptimalisering) handler om å forbedre synligheten
+                til nettsiden din i Google og andre søkemotorer, slik at
+                potensielle kunder finner deg når de søker etter produkter eller
+                tjenester du tilbyr. Dette gir deg mer organisk trafikk, altså
+                besøk som kommer naturlig, uten at du betaler for annonser.
               </p>
             </div>
             <div>
-              <h4 className=" text-[1.2rem] md:text-[1.4rem] font-semibold ">
+              {/* <h4 className=" text-[1.2rem] md:text-[1.4rem] font-semibold ">
                 Hvorfor er SEO viktig?
-              </h4>
+              </h4> */}
               <p className=" text-base md:text-lg text-gray-500 ">
-                God SEO handler ikke bare om å rangere nettsiden din høyere, men
-                også om å gjøre den brukervennlig og tilpasset effektiv
-                markedsføring. Dette gir bedre opplevelser for kundene dine,
-                bygger tillit og sikrer vekst uten kostnadene ved annonsering.
-                Med Sidesone kan du styrke din digitale tilstedeværelse og få
-                resultater som varer.
+                Hos Sidesone tar vi en grundig og målrettet tilnærming til SEO. Vi bruker det profesjonelle analyseverktøyet Seobility for å gjennomgå nettstedet ditt fra bunnen av. Det gjør det mulig for oss å identifisere tekniske feil, svakt innhold, manglende metabeskrivelser og andre faktorer som kan hindre siden din i å rangere høyt. Deretter lager vi en skreddersydd strategi, basert på dine mål og din målgruppe, som sørger for at nettsiden din blir mer synlig og mer effektiv.
+
+              </p>
+            </div>
+            <div>
+              {/* <h4 className=" text-[1.2rem] md:text-[1.4rem] font-semibold ">
+                Hvorfor er SEO viktig?
+              </h4> */}
+              <p className=" text-base md:text-lg text-gray-500 ">
+                Vi sørger for at innholdet er optimalisert med relevante søkeord, at teksten har riktig format og struktur, og at både brukere og søkem
               </p>
             </div>
             <div className=" flex md:justify-start justify-center ">
@@ -72,7 +74,11 @@ const page = () => {
           </h5>
           <p className=" md:px-3  text-[1.2rem] font-light lg:mb-6  flex-1 ">
             Usikker hvor seo resultatene dine? så kan du sjekke de{" "}
-            <Link href={`https://www.seobility.net/?px=2&a_aid=674c80f15d055`} target="_blank" className=" border-b-2 border-[#fff] ">
+            <Link
+              href={`https://www.seobility.net/?px=2&a_aid=674c80f15d055`}
+              target="_blank"
+              className=" border-b-2 border-[#fff] "
+            >
               her
             </Link>
             .
@@ -88,7 +94,6 @@ const page = () => {
                 alt="Seo img"
                 className=" w-full xl:min-h-[568px] h-full object-cover rounded-md border-2 border-[#0ea76cd7] "
               />
-              
             </div>
           </div>
 
@@ -141,7 +146,9 @@ const Group = ({ icon, title, description }) => {
   return (
     <div className=" flex flex-col  gap-5 bg-[#0b462ece] p-3 rounded-md ">
       <div className=" text-[1.7rem] 2xl:text-[2rem] ">{icon}</div>
-      <h3 className=" text-[1.3rem] 2xl:text-[1.6rem] font-semibold ">{title}</h3>
+      <h3 className=" text-[1.3rem] 2xl:text-[1.6rem] font-semibold ">
+        {title}
+      </h3>
       <p className=" text-base 2xl:text-lg text-[#e7e7e7] ">{description}</p>
     </div>
   );

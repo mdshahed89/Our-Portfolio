@@ -17,6 +17,8 @@ import {
 import { RiSecurePaymentLine } from "react-icons/ri";
 import { IoIosArrowRoundForward, IoMdArrowBack } from "react-icons/io";
 import { MdArrowRightAlt } from "react-icons/md";
+import { IoCheckmarkSharp } from "react-icons/io5";
+import Link from "next/link";
 
 export const KontaktSection = ({ project }) => {
   const [kontaktData, setKontaktData] = useState({
@@ -199,6 +201,7 @@ export const AiChatbotPackage = () => {
     name: "",
     email: "",
     phone: "",
+    message: "",
   });
 
   const handleChange = (e) => {
@@ -225,11 +228,13 @@ export const AiChatbotPackage = () => {
 
       if (response.ok) {
         // const result = await response.json();
-        toast.success("Forespørsel sendt vellykket!!");
+        toast.success("Takk for meldingen! Vi tar kontakt med deg snart");
+        setClicked(false)
         setFormdata({
           name: "",
           email: "",
           phone: "",
+          message: "",
         });
       } else {
         toast.error("Kunne ikke sende forespørsel");
@@ -246,65 +251,85 @@ export const AiChatbotPackage = () => {
 
   return (
     <div className=" border-2 border-[#17DB50] max-w-[43rem] mx-auto rounded-tr-xl rounded-bl-xl p-[1rem] ">
-      <h4 className=" text-[1.5rem] font-semibold mb-[3rem] ">Hva får du?</h4>
-      <div className=" px-0 md:px-[1rem] ">
+      <div className=" ">
         {clicked ? (
-          <form onSubmit={handleSubmit}>
-            <div className=" flex justify-end mb-[5rem] ">
-              <div onClick={()=> setClicked(false)} className=" cursor-pointer  p-3 shadow-inner rounded-full text-[1.7rem]  ">
-              <IoMdArrowBack />
-            </div>
-            </div>
+          <div>
+            <h4 className=" text-[1.5rem] font-semibold mb-[3rem] ">
+              Send inn skjemaet, så tar vi kontakt med deg snart.
+            </h4>
+            <form onSubmit={handleSubmit} className=" md:px-[1.5rem] px-0 ">
+              <div className=" flex justify-end mb-[2rem]  ">
+                <div
+                  onClick={() => setClicked(false)}
+                  className=" cursor-pointer  p-3 shadow-inner rounded-full text-[1.7rem]  "
+                >
+                  <IoMdArrowBack />
+                </div>
+              </div>
 
-            <div className=" space-y-4 ">
-              <div className=" space-y-2 text-lg ">
-                <label htmlFor="">Firmanavn*</label>
-                <input
-                  type="text"
-                  value={formdata.name}
-                  name="name"
-                  onChange={handleChange}
-                  required
-                  placeholder=""
-                  className=" w-full py-2 px-4 border outline-none rounded-md  "
-                />
+              <div className=" space-y-2 ">
+                <div className=" space-y-1 text-lg ">
+                  <label htmlFor="">Firmanavn / Navn*</label>
+                  <input
+                    type="text"
+                    value={formdata.name}
+                    name="name"
+                    onChange={handleChange}
+                    required
+                    placeholder=""
+                    className=" w-full py-2 px-4 border outline-none rounded-md  "
+                  />
+                </div>
+                <div className=" space-y-1 text-lg ">
+                  <label htmlFor="">E-post*</label>
+                  <input
+                    type="email"
+                    value={formdata.email}
+                    name="email"
+                    onChange={handleChange}
+                    required
+                    placeholder=""
+                    className=" w-full py-2 px-4 border outline-none rounded-md  "
+                  />
+                </div>
+                <div className=" space-y-1 text-lg ">
+                  <label htmlFor="">Telefon*</label>
+                  <input
+                    type="text"
+                    value={formdata.phone}
+                    name="phone"
+                    onChange={handleChange}
+                    required
+                    placeholder=""
+                    className=" w-full py-2 px-4 border outline-none rounded-md  "
+                  />
+                </div>
+                <div className=" space-y-1 text-lg ">
+                  <label htmlFor="">Melding*</label>
+                  <textarea
+                    rows={3}
+                    value={formdata.message}
+                    name="message"
+                    onChange={handleChange}
+                    required
+                    placeholder=""
+                    className=" w-full py-2 px-4 border outline-none rounded-md  "
+                  />
+                </div>
               </div>
-              <div className=" space-y-2 text-lg ">
-                <label htmlFor="">E-post*</label>
-                <input
-                  type="email"
-                  value={formdata.email}
-                  name="email"
-                  onChange={handleChange}
-                  required
-                  placeholder=""
-                  className=" w-full py-2 px-4 border outline-none rounded-md  "
-                />
+              <div className=" mt-[1.5rem] flex justify-center ">
+                <button className=" relative w-[10rem] h-[2.5rem] font-medium border border-[#575757] rounded-3xl ">
+                  {loading ? <ButtonLoading /> : "Send inn"}
+                </button>
               </div>
-              <div className=" space-y-2 text-lg ">
-                <label htmlFor="">Telefon*</label>
-                <input
-                  type="text"
-                  value={formdata.phone}
-                  name="phone"
-                  onChange={handleChange}
-                  required
-                  placeholder=""
-                  className=" w-full py-2 px-4 border outline-none rounded-md  "
-                />
-              </div>
-            </div>
-            <div className=" mt-[3rem] flex justify-center ">
-              <button className=" relative w-[10rem] h-[2.5rem] font-medium border border-[#575757] rounded-3xl ">
-                {
-                  loading ? <ButtonLoading /> : "Send inn"
-                }
-              </button>
-            </div>
-          </form>
+            </form>
+          </div>
         ) : (
           <div className="  ">
-            <div className="  space-y-6 ">
+            <h4 className=" text-[1.5rem] font-semibold mb-[3rem] ">
+              Hva får du?
+            </h4>
+            <div className=" md:px-[1.5rem] px-0 space-y-6 ">
               {points.map((point, idx) => (
                 <div key={idx} className=" flex gap-2 md:gap-4 ">
                   <div className=" min-w-[2rem] max-w-[2rem] max-h-[2rem] min-h-[2rem] ">
@@ -329,6 +354,243 @@ export const AiChatbotPackage = () => {
             </div>
           </div>
         )}
+      </div>
+    </div>
+  );
+};
+
+export const MarkettingPackages = () => {
+
+  const package1 = [
+    "Google Ads",
+    "A/B testing av tekst i annonser",
+    "Søkeordsanalyse",
+    "A/B testing av landingsside",
+    "Oppsett av Google Ads kampanjestruktur",
+  ];
+  const package2 = [
+    "Google Ads",
+    "A/B testing av tekst i annonser",
+    "Søkeordsanalyse",
+    "Meta Ads",
+    "A/B testing av landingsside",
+    "5 innlegg på sosiale medier per måned",
+    "Oppsett av Google Ads kampanjestruktur",
+  ];
+  const package3 = [
+    "Google Ads",
+    "A/B testing av tekst i annonser",
+    "Søkeordsanalyse",
+    "Meta Ads",
+    "A/B testing av landingsside",
+    "5 innlegg på sosiale medier per måned",
+    "Oppsett av Google Ads kampanjestruktur",
+    "Utvikling av tekst til landingsside",
+    "Hjelp til forretningsutvikling",
+  ];
+
+  const [clicked, setClicked] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [formdata, setFormdata] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+    packageName: "",
+    packagePrice: "",
+  });
+
+  const handleChange = (e) => {
+    setFormdata({
+      ...formdata,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/send-seo-email`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formdata),
+        }
+      );
+
+      if (response.ok) {
+        // const result = await response.json();
+        toast.success(
+          "SEO-forespørselen din er mottatt. Vi tar kontakt med deg snart."
+        );
+        setFormdata({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+          packageName: "",
+          packagePrice: "",
+        });
+      } else {
+        toast.error(
+          "Kunne ikke sende tjenesteforespørselen. Vennligst prøv igjen senere."
+        );
+      }
+    } catch (error) {
+      console.log("Error:", error);
+      toast.error(
+        "Kunne ikke sende tjenesteforespørselen. Vennligst prøv igjen senere."
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div>
+      {clicked ? (
+        <form
+          onSubmit={handleSubmit}
+          className=" max-w-[40rem] mt-[4rem] mb-[3rem] mx-auto border-2 rounded-lg border-[#035635] bg-[#035635] text-[#fff] p-[1.5rem] "
+        >
+          <div className=" flex justify-between mb-[4rem] ">
+            <div>
+              <h4 className=" text-[1.3rem] font-medium text-[#dbdbdb] ">
+                {formdata.packageName}
+              </h4>
+              <h4 className=" text-[1.7rem] font-medium ">
+                {formdata.packagePrice}
+              </h4>
+            </div>
+            <div
+              onClick={() => setClicked(false)}
+              className=" cursor-pointer h-fit  p-3 bg-[#094e33] shadow-inner rounded-full text-[1.7rem]  "
+            >
+              <IoMdArrowBack />
+            </div>
+          </div>
+
+          <div className=" space-y-4 ">
+            <div className=" space-y-2 text-lg ">
+              <label htmlFor="">Firmanavn / Navn*</label>
+              <input
+                type="text"
+                value={formdata.name}
+                name="name"
+                onChange={handleChange}
+                required
+                placeholder=""
+                className=" w-full py-2 px-4 border border-[#fff] bg-[#fff] text-[#000] transition-colors duration-300 ease-in-out rounded-md outline-none "
+              />
+            </div>
+            <div className=" space-y-2 text-lg ">
+              <label htmlFor="">E-post*</label>
+              <input
+                type="email"
+                value={formdata.email}
+                name="email"
+                onChange={handleChange}
+                required
+                placeholder=""
+                className=" w-full py-2 px-4 border border-[#fff] bg-[#fff] text-[#000] transition-colors duration-300 ease-in-out outline-none rounded-md  "
+              />
+            </div>
+            <div className=" space-y-2 text-lg ">
+              <label htmlFor="">Telefon*</label>
+              <input
+                type="text"
+                value={formdata.phone}
+                name="phone"
+                onChange={handleChange}
+                required
+                placeholder=""
+                className=" w-full py-2 px-4 border border-[#fff] bg-[#fff] text-[#000] transition-colors duration-300 ease-in-out outline-none rounded-md  "
+              />
+            </div>
+            <div className=" space-y-2 text-lg ">
+              <label htmlFor="">Melding*</label>
+              <textarea
+                rows={3}
+                value={formdata.message}
+                name="message"
+                onChange={handleChange}
+                required
+                placeholder=""
+                className=" w-full py-2 px-4 border border-[#fff] bg-[#fff] text-[#000] transition-colors duration-300 ease-in-out outline-none rounded-md  "
+              />
+            </div>
+          </div>
+          <div className=" mt-[1rem] flex justify-center ">
+            <button className=" relative w-[10rem] h-[2.5rem] font-medium border border-[#fff] bg-[#fff] text-[#000] rounded-3xl ">
+              {loading ? <ButtonLoading /> : "Send inn"}
+            </button>
+          </div>
+        </form>
+      ) : (
+        <div className=" grid grid-cols-1 md:grid-cols-3 gap-8 mt-10 ">
+          <Package
+            packages={package1}
+            title="Liten pakke"
+            price="20 000kr/mnd"
+            setClicked={setClicked}
+            setFormdata={setFormdata}
+          />
+          <Package
+            packages={package2}
+            title="Medium pakke"
+            price="40 000kr/mnd"
+            setClicked={setClicked}
+            setFormdata={setFormdata}
+          />
+          <Package
+            packages={package3}
+            title="Stor pakke"
+            price="60 000kr/mnd"
+            setClicked={setClicked}
+            setFormdata={setFormdata}
+          />
+        </div>
+      )}
+    </div>
+  );
+};
+
+const Package = ({ packages, title, price, setClicked, setFormdata }) => {
+  return (
+    <div className=" bg-[#035635] text-[#fff] pt-5 pb-[3rem] px-5 rounded-2xl flex flex-col justify-between ">
+      <div>
+        <h3 className=" text-[1.4rem] text-[#e6e6e6] font-bold pt-5 pb-8 ">
+          {title}
+        </h3>
+        <div className=" text-[2.2rem] font-semibold pt-7 pb-14 ">{price}</div>
+        <div className=" flex flex-col gap-4  ">
+          {packages.map((pck, idx) => (
+            <div key={idx} className=" flex items-start gap-2 text-[1.2rem] ">
+              <IoCheckmarkSharp className=" text-[#fff] mt-2 " />
+              {pck}
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className=" mt-20 mx-auto ">
+        <div
+          // href="mailto:kontakt@sideson.no"
+          onClick={() => {
+            setClicked(true);
+            setFormdata((prev) => ({
+              ...prev,
+              packageName: title,
+              packagePrice: price,
+            }));
+          }}
+          className=" cursor-pointer font-medium w-full py-2 px-8 transition-all duration-300 ease-in-out active:scale-95 rounded-full bg-[#fff] text-[#000] text-lg "
+        >
+          Ta Kontakt
+        </div>
       </div>
     </div>
   );

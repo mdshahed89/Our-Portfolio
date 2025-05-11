@@ -189,7 +189,7 @@ const Footer = () => {
         </div>
         <div className=" flex items-center h-auto gap-4 ">
           <Link
-            onClick={() => setMenuOpen(false)}
+            // onClick={() => setMenuOpen(false)}
             href={"https://www.facebook.com/groups/sidesone/"}
             rel="nofollow"
             target="_blank"
@@ -199,10 +199,10 @@ const Footer = () => {
             <span className=" sr-only ">Bli med i vår SideStone Facebook-gruppe</span>
           </Link>
           <Link
-            onClick={() => setMenuOpen(false)}
+            // onClick={() => setMenuOpen(false)}
             target="_blank"
             rel="nofollow"
-            href={"https://www.instagram.com/sidesonenorge/"}
+            href={"https://www.instagram.com/sidesoneas?igsh=MTJ4Z2ZoNGc3Mjg3eQ%3D%3D&utm_source=qr"}
             className=" p-2 rounded-full border-2 border-[#219642] hover:border-[#17DB50] transition-colors duration-300 ease-in-out text-[#fff] text-[1.3rem] "
           >
             <FaInstagram />

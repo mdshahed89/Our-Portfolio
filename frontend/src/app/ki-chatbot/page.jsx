@@ -54,7 +54,7 @@ const page = () => {
                 </div>
               </div>
               <Link
-                href={`#`}
+                href={`/#kontakt`}
                 className={`p-2 border-[#17DB4F] border-2 rounded-full text-[1.3rem] text-[#17DB4F] `}
               >
                 <IoIosArrowForward size={20} />
@@ -96,7 +96,7 @@ const page = () => {
 
         <AiChatbotPackage />
       </div>
-      <p className=" text-gray-400 mt-2 ">Tast / for å velge en blokk</p>
+      {/* <p className=" text-gray-400 mt-2 ">Tast / for å velge en blokk</p> */}
     </div>
   );
 };

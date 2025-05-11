@@ -6,35 +6,10 @@ import { IoCheckmarkSharp } from "react-icons/io5";
 import Link from "next/link";
 import MarkettingIcon1 from "@/assets/MarkettingIcon1.png";
 import MarkettingIcon2 from "@/assets/MarkettingIcon2.png";
+import { MarkettingPackages } from "@/utils/UtilityComponent";
 
 const page = () => {
-  const package1 = [
-    "Google Ads",
-    "A/B testing av tekst i annonser",
-    "Søkeordsanalyse",
-    "A/B testing av landingsside",
-    "Oppsett av Google Ads kampanjestruktur",
-  ];
-  const package2 = [
-    "Google Ads",
-    "A/B testing av tekst i annonser",
-    "Søkeordsanalyse",
-    "Meta Ads",
-    "A/B testing av landingsside",
-    "5 innlegg på sosiale medier per måned",
-    "Oppsett av Google Ads kampanjestruktur",
-  ];
-  const package3 = [
-    "Google Ads",
-    "A/B testing av tekst i annonser",
-    "Søkeordsanalyse",
-    "Meta Ads",
-    "A/B testing av landingsside",
-    "5 innlegg på sosiale medier per måned",
-    "Oppsett av Google Ads kampanjestruktur",
-    "Utvikling av tekst til landingsside",
-    "Hjelp til forretningsutvikling",
-  ];
+  
 
   return (
     <div className="  mt-[120px] 2xl:max-w-[1400px] max-w-[1200px] mx-auto px-3 ">
@@ -169,7 +144,9 @@ const page = () => {
           </p>
         </div>
 
-        <div className=" grid grid-cols-1 md:grid-cols-3 gap-8 mt-10 ">
+        <MarkettingPackages />
+
+        {/* <div className=" grid grid-cols-1 md:grid-cols-3 gap-8 mt-10 ">
           <Package
             packages={package1}
             title="Liten pakke"
@@ -185,7 +162,7 @@ const page = () => {
             title="Stor pakke"
             price="60 000kr/mnd"
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );
