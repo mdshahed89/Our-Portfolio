@@ -1,8 +1,6 @@
 import Booking from "../models/booking.modal.js";
 import nodemailer from "nodemailer";
 
-
-
 export const sendBookingData = async (req, res) => {
   const { title, fullName, email, phoneNo, dateAndTime } = req.body;
 
@@ -32,32 +30,53 @@ export const sendBookingData = async (req, res) => {
     }
 
     const transporter = nodemailer.createTransport({
-        host: "smtp.gmail.com",
-        port: 587,
-        secure: false,
-        auth: {
-          user: process.env.SIDESONE_EMAIL,
-          pass: process.env.SIDESONE_EMAIL_PASS,
-        },
-      });
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
+      auth: {
+        user: process.env.SIDESONE_EMAIL,
+        pass: process.env.SIDESONE_EMAIL_PASS,
+      },
+    });
 
-    const mailOptions = {
+    const adminMailOptions = {
       from: process.env.SIDESONE_EMAIL,
-      to: process.env.SIDESONE_EMAIL || "your-receiving-email@example.com",
-      // to: [process.env.SIDESONE_EMAIL, "r2scoder@gmail.com"],
+      to: [process.env.SIDESONE_EMAIL, "r2scoder@gmail.com"],
       replyTo: email,
       subject: "Nytt møte bestilt",
       html: `
-        <h3>Nytt møte bestilt</h3>
-        <p><strong>Tittel:</strong> ${title}</p>
-        <p><strong>Fullt navn:</strong> ${fullName}</p>
-        <p><strong>E-post:</strong> ${email}</p>
-        <p><strong>Telefonnummer:</strong> ${phoneNo || "Ikke oppgitt"}</p>
-        <p><strong>Dato og tid:</strong> ${dateAndTime}</p>
-      `,
+    <h3>Nytt møte bestilt</h3>
+    <p><strong>Tittel:</strong> ${title}</p>
+    <p><strong>Fullt navn:</strong> ${fullName}</p>
+    <p><strong>E-post:</strong> ${email}</p>
+    <p><strong>Telefonnummer:</strong> ${phoneNo || "Ikke oppgitt"}</p>
+    <p><strong>Dato og tid:</strong> ${dateAndTime}</p>
+  `,
     };
 
-    await transporter.sendMail(mailOptions);
+    // ✅ Email to user
+    const userMailOptions = {
+      from: process.env.SIDESONE_EMAIL,
+      to: email,
+      subject: "Takk for at du har bestilt møte",
+      html: `
+    <h3>Takk for din bestilling!</h3>
+    <p>Hei ${fullName},</p>
+    <p>Vi ser frem til møtet med tittelen <strong>${title}</strong> på tidspunktet du har valgt.</p>
+    
+    <h4>Dine detaljer:</h4>
+    <p><strong>Fullt navn:</strong> ${fullName}</p>
+    <p><strong>E-post:</strong> ${email}</p>
+    <p><strong>Telefonnummer:</strong> ${phoneNo || "Ikke oppgitt"}</p>
+    <p><strong>Dato og tid:</strong> ${dateAndTime}</p>
+    <br/>
+    <p>Med vennlig hilsen,<br/>Sidesone Team</p>
+  `,
+    };
+
+    // ✅ Send both emails
+    await transporter.sendMail(adminMailOptions);
+    await transporter.sendMail(userMailOptions);
 
     return res.status(201).send({
       success: true,

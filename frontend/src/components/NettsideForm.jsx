@@ -2,7 +2,7 @@
 import { uploadFile } from "@/AuthProvider/imageUpload";
 import axios from "axios";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import toast from "react-hot-toast";
@@ -15,6 +15,7 @@ const NettsideForm = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [selectedValues, setSelectedValues] = useState([]);
   const maxSize = 10 * 1024 * 1024; // 10 MB
+  const router = useRouter()
 
   const pathName = usePathname();
   const path =
@@ -138,7 +139,8 @@ const NettsideForm = () => {
       );
 
       if (data === "Email sent successfully!") {
-        toast.success("E-post sendt!");
+        // toast.success("E-post sendt!");
+        router.push(`/foresporselsuksess?query=${path}`)
         form.reset();
         setSelectedFiles([]);
         setFilePreviews([]);
@@ -152,6 +154,10 @@ const NettsideForm = () => {
       setIsLoading(false);
     }
   };
+
+  // console.log(path);
+  
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -449,6 +455,7 @@ export default NettsideForm;
 export const LogoForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const pathName = usePathname();
+  const router = useRouter()
   const path = pathName === "/logo" ? "Logo" : "";
   const handleSubmit = async (e) => {
     setIsLoading(true);
@@ -474,7 +481,8 @@ export const LogoForm = () => {
       formData
     );
     if (data === "Email sent successfully!") {
-      toast.success("E-post sendt!");
+      // toast.success("E-post sendt!");
+      router.push("/grafisk-suksess")
       setIsLoading(false);
       form.reset();
     }

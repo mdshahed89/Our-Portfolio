@@ -19,10 +19,10 @@ export const BookNowModal = ({ title, availability }) => {
     date: "",
     time: "",
   });
-  const [loading, setLoading] = useState(false)
-
+  const [loading, setLoading] = useState(false);
   const [fromTime, setFromTime] = useState("");
   const [toTime, setToTime] = useState("");
+  const router = useRouter();
 
   useEffect(() => {
     if (availability) {
@@ -85,7 +85,7 @@ export const BookNowModal = ({ title, availability }) => {
 
   const sendBookingData = async (e) => {
     e.preventDefault();
-    setLoading(true)
+    setLoading(true);
     try {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/book/send-data`,
@@ -99,26 +99,27 @@ export const BookNowModal = ({ title, availability }) => {
       );
 
       if (response.ok) {
-        const result = await response.json();
-        toast.success("Bestilling vellykket");
-        setBookingData({
-          title,
-          email: "",
-          fullName: "",
-          phoneNo: "",
-          dateAndTime: "",
-          date: "",
-          time: "",
-        });
-        setOpenModal(false);
+        // const result = await response.json();
+        // toast.success("Bestilling vellykket");
+        router.push(`/booking-vellykket?query=${bookingData?.dateAndTime}`);
+        // setBookingData({
+        //   title,
+        //   email: "",
+        //   fullName: "",
+        //   phoneNo: "",
+        //   dateAndTime: "",
+        //   date: "",
+        //   time: "",
+        // });
+        // setOpenModal(false);
       } else {
         toast.error("Kunne ikke bestille");
       }
     } catch (error) {
       console.log("Error:", error);
       toast.error("Kunne ikke sende bestillingsdata");
-    } finally{
-      setLoading(false)
+    } finally {
+      setLoading(false);
     }
   };
   // console.log("bookingdata", bookingData);
@@ -270,9 +271,7 @@ export const BookNowModal = ({ title, availability }) => {
               type="submit"
               className="relative h-[2.8rem] px-10 w-full rounded-lg mt-10 text-white font-medium bg-green-700 "
             >
-              {
-                loading ? <ButtonLoading /> : "Book"
-              }
+              {loading ? <ButtonLoading /> : "Book"}
             </button>
           </form>
         </div>
@@ -288,6 +287,7 @@ import MessageIcon2 from "@/assets/MessageIcon2.jpg";
 import MessageIcon3 from "@/assets/MessageIcon3.png";
 import Image from "next/image";
 import { ButtonLoading } from "./Loading";
+import { useRouter } from "next/navigation";
 
 const CustomChatButton = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);

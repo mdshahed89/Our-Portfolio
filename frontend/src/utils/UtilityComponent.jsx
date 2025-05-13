@@ -19,6 +19,7 @@ import { IoIosArrowRoundForward, IoMdArrowBack } from "react-icons/io";
 import { MdArrowRightAlt } from "react-icons/md";
 import { IoCheckmarkSharp } from "react-icons/io5";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export const KontaktSection = ({ project }) => {
   const [kontaktData, setKontaktData] = useState({
@@ -203,6 +204,7 @@ export const AiChatbotPackage = () => {
     phone: "",
     message: "",
   });
+  const router = useRouter();
 
   const handleChange = (e) => {
     setFormdata({
@@ -228,8 +230,9 @@ export const AiChatbotPackage = () => {
 
       if (response.ok) {
         // const result = await response.json();
-        toast.success("Takk for meldingen! Vi tar kontakt med deg snart");
-        setClicked(false)
+        // toast.success("Takk for meldingen! Vi tar kontakt med deg snart");
+        router.push("/chatbot-suksess");
+        // setClicked(false)
         setFormdata({
           name: "",
           email: "",
@@ -360,7 +363,6 @@ export const AiChatbotPackage = () => {
 };
 
 export const MarkettingPackages = () => {
-
   const package1 = [
     "Google Ads",
     "A/B testing av tekst i annonser",
@@ -399,6 +401,7 @@ export const MarkettingPackages = () => {
     packageName: "",
     packagePrice: "",
   });
+  const router = useRouter();
 
   const handleChange = (e) => {
     setFormdata({
@@ -424,17 +427,23 @@ export const MarkettingPackages = () => {
 
       if (response.ok) {
         // const result = await response.json();
-        toast.success(
-          "SEO-forespørselen din er mottatt. Vi tar kontakt med deg snart."
+        // toast.success(
+        //   "SEO-forespørselen din er mottatt. Vi tar kontakt med deg snart."
+        // );
+        router.push(
+          `/markedsforing-sukess?plan=${encodeURIComponent(
+            formdata.packageName
+          )}&price=${encodeURIComponent(formdata.packagePrice)}`
         );
-        setFormdata({
-          name: "",
-          email: "",
-          phone: "",
-          message: "",
-          packageName: "",
-          packagePrice: "",
-        });
+
+        // setFormdata({
+        //   name: "",
+        //   email: "",
+        //   phone: "",
+        //   message: "",
+        //   packageName: "",
+        //   packagePrice: "",
+        // });
       } else {
         toast.error(
           "Kunne ikke sende tjenesteforespørselen. Vennligst prøv igjen senere."

@@ -9,8 +9,9 @@ import BotIcon3 from "@/assets/BotIcon3.png";
 import Image from "next/image";
 import toast from "react-hot-toast";
 import { PiHandWavingDuotone } from "react-icons/pi";
-import WavingIcon from "@/assets/WavingIcon.png"
-
+import WavingIcon from "@/assets/WavingIcon.png";
+import { AnimatePresence } from "framer-motion";
+import {motion} from "framer-motion"
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -105,8 +106,8 @@ const Chatbot = () => {
 
   return (
     <div className="fixed bottom-3 md:bottom-5 right-3 md:right-5 z-[2000]">
-      {showPopup && !isOpen && (
-        <div className="fixed bottom-3 md:bottom-5 right-3 md:right-5 md:max-w-[30rem] max-w-[20rem] bg-white p-4 rounded-lg shadow-lg border border-gray-300 z-50">
+      {/* {showPopup && !isOpen && (
+        <div className="fixed bottom-3 md:bottom-5 right-3 md:right-5 md:max-w-[30rem] max-w-[20rem] bg-white p-4 rounded-lg shadow-lg border border-[#fff] z-50">
           <div className=" flex justify-end mb-3 ">
             <div
               onClick={() => setShowPopup(false)}
@@ -117,7 +118,11 @@ const Chatbot = () => {
           </div>
           <p className=" text-base md:text-lg text-gray-700 flex gap-2">
             <span>Hei! Hvis du trenger hjelp, send oss en melding.</span>
-            <Image src={WavingIcon} alt="Waving icon" className=" mt-1 w-5 object-contain " />
+            <Image
+              src={WavingIcon}
+              alt="Waving icon"
+              className=" mt-1 w-5 object-contain "
+            />
           </p>
           <div className=" flex justify-end ">
             <button
@@ -128,7 +133,9 @@ const Chatbot = () => {
             </button>
           </div>
         </div>
-      )}
+      )} */}
+
+      <Popup showPopup={showPopup} isOpen={isOpen} setShowPopup={setShowPopup} setIsOpen={setIsOpen} />
 
       {!isOpen && !showPopup && (
         <button
@@ -254,3 +261,42 @@ const Chatbot = () => {
 };
 
 export default Chatbot;
+
+
+const Popup = ({ showPopup, isOpen, setShowPopup, setIsOpen }) => {
+  return (
+    <AnimatePresence>
+      {showPopup && !isOpen && (
+        <motion.div
+          initial={{ x: "100%", opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: "100%", opacity: 0 }}
+          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          className="fixed bottom-3 md:bottom-5 right-3 md:right-5 md:max-w-[30rem] max-w-[20rem] bg-white p-4 rounded-lg shadow-lg border border-[#fff] z-50"
+        >
+          <div className="flex justify-end mb-3">
+            <div onClick={() => setShowPopup(false)} className="cursor-pointer">
+              <RxCross1 />
+            </div>
+          </div>
+          <p className="text-base md:text-lg text-gray-700 flex gap-2">
+            <span>Hei! Hvis du trenger hjelp, send oss en melding.</span>
+            <Image
+              src={WavingIcon}
+              alt="Waving icon"
+              className="mt-1 w-5 object-contain"
+            />
+          </p>
+          <div className="flex justify-end">
+            <button
+              onClick={() => setIsOpen(true)}
+              className="bg-green-600 md:mt-4 mt-2 text-[1.3rem] md:text-[1.5rem] text-white p-2 md:p-3 rounded-full shadow-lg"
+            >
+              <RiMessage2Fill />
+            </button>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
