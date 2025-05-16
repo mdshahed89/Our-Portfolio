@@ -37,7 +37,7 @@ const Services = () => {
 
   const handleScroll = (direction) => {
     const isMediumScreen = window.innerWidth >= 768;
-    const scrollAmount = isMediumScreen ? 500 : 390;
+    const scrollAmount = isMediumScreen ? 510 : 390;
     const el = scrollRef.current;
     if (!el) return;
 

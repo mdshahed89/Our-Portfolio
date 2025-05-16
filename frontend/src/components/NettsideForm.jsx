@@ -83,8 +83,8 @@ const NettsideForm = () => {
     const description = form.description.value;
 
     const newErrors = {};
-    if (!selectedFiles.length)
-      newErrors.file = "At least one file is required.";
+    // if (!selectedFiles.length)
+    //   newErrors.file = "At least one file is required.";
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       setIsLoading(false);
@@ -92,11 +92,10 @@ const NettsideForm = () => {
     }
 
     try {
-      if (!Array.isArray(selectedFiles) || selectedFiles.length === 0) {
-        // throw new Error("No files selected or invalid file input.");
-        console.log("No file selected or invalid file input");
-      return
-      }
+      // if (!Array.isArray(selectedFiles) || selectedFiles.length === 0) {
+      //   console.log("No file selected or invalid file input");
+      // return
+      // }
 
       // const uploadedFileURLs = await Promise.all(
       //   selectedFiles.map((file) => uploadFile(file))

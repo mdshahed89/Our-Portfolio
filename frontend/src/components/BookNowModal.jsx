@@ -137,7 +137,7 @@ export const BookNowModal = ({ title, availability }) => {
         onClick={() => setOpenModal(false)}
         className={`fixed z-[100] flex items-center justify-center ${
           openModal ? "opacity-1 visible" : "invisible opacity-0"
-        } inset-0 h-full w-full bg-black/20 backdrop-blur-sm duration-100`}
+        } inset-0 h-full w-full bg-black/20 backdrop-blur-sm duration-100 px-2 pt-[100px] `}
       >
         <div
           onClick={(e_) => e_.stopPropagation()}
@@ -151,14 +151,16 @@ export const BookNowModal = ({ title, availability }) => {
             onSubmit={sendBookingData}
             className="px-5 pb-5 pt-3 lg:pb-10 lg:pt-5 lg:px-10"
           >
-            <div
+            <div className=" flex items-center justify-between mb-8 pt-3 ">
+              <div className=" text-4xl backdrop-blur-sm">Bestill nå</div>
+              <div
               onClick={() => setOpenModal(false)}
               className=" flex justify-end text-[1.8rem] cursor-pointer  "
             >
               <RxCross2 />
             </div>
-            <div className="pb-8 text-4xl backdrop-blur-sm">Bestill nå</div>
-            <div className="space-y-3">
+            </div>
+            <div className="space-y-2">
               <div>
                 <label
                   htmlFor="email_navigate_ui_modal"
@@ -269,7 +271,7 @@ export const BookNowModal = ({ title, availability }) => {
             </div>
             <button
               type="submit"
-              className="relative h-[2.8rem] px-10 w-full rounded-lg mt-10 text-white font-medium bg-green-700 "
+              className="relative h-[2.8rem] px-10 w-full rounded-lg mt-3 text-white font-medium bg-green-700 "
             >
               {loading ? <ButtonLoading /> : "Book"}
             </button>

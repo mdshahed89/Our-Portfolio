@@ -1,11 +1,12 @@
 import Person from "@/assets/Person.webp";
 import NettsideForm from "@/components/NettsideForm";
 import Image from "next/image";
+import { WebSlider } from "../nettside/page";
 
 const page = () => {
   return (
     <div>
-      <div className="flex flex-col-reverse gap-10 lg:gap-0 lg:flex-row  px-3 lg:px-0 2xl:max-w-[1400px] max-w-[1200px] py-36 mx-auto  justify-between">
+      <div className="flex flex-col-reverse gap-10 lg:gap-0 lg:flex-row px-3 2xl:max-w-[1600px] max-w-[1400px] py-36 mx-auto  justify-between">
         <div className="lg:w-[32%] space-y-5">
           <div>
             <figure>
@@ -111,6 +112,7 @@ const page = () => {
             <NettsideForm />
           </div>
         </div>
+        <WebSlider />
       </div>
     </div>
   );

@@ -272,7 +272,7 @@ const Popup = ({ showPopup, isOpen, setShowPopup, setIsOpen }) => {
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: "100%", opacity: 0 }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="fixed bottom-3 md:bottom-5 right-3 md:right-5 md:max-w-[30rem] max-w-[20rem] bg-white p-4 rounded-lg shadow-lg border border-[#fff] z-50"
+          className="fixed bottom-3 md:bottom-5 right-3 md:right-5 md:max-w-[30rem] max-w-[20rem] bg-white p-4 rounded-lg shadow-[0px_1px_10px_rgba(0,0,0,0.15)] border border-[#fff] z-50"
         >
           <div className="flex justify-end mb-3">
             <div onClick={() => setShowPopup(false)} className="cursor-pointer">
