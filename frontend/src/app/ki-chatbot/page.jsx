@@ -9,12 +9,12 @@ import { AiChatbotPackage } from "@/utils/UtilityComponent";
 const page = () => {
   return (
     <div className=" min-h-[100vh] pt-[150px] 2xl pb-[4rem] px-3 ">
-      <h3 className=" text-[1.5rem] font-semibold mb-[3rem] text-gray-500 ">
+      <h3 className=" text-[2rem] md:text-[2.5rem] font-semibold mb-[3rem] text-gray-500 ">
         Skreddersydd KI-chatbot
       </h3>
       <div className=" max-w-[1200px] mx-auto ">
-        <h3 className=" font-semibold text-[1.5rem] ">KI-Chatbot</h3>
-        <p className=" mt-[1rem] mb-[2rem] text-gray-600 ">
+        <h3 className=" font-semibold text-[2rem] md:text-[2.5rem] ">KI-Chatbot</h3>
+        <p className=" mt-[1rem] mb-[2rem] text-gray-600 text-lg md:text-xl ">
           Vi utvikler intelligente og skreddersydde Kl-chatboter som
           effektiviserer kundeservice og gir brukerne en sømløs opplevelse. Med
           fokus på naturlig språkforståelse og automatiserte prosesser, bygger
@@ -34,7 +34,7 @@ const page = () => {
             <h3 className=" text-[2rem] font-semibold leading-tight ">
               Skreddersydd KI-chatbot
             </h3>
-            <p className=" text-gray-500 md:my-[1rem] my-[2rem] ">
+            <p className=" text-gray-500 md:my-[1rem] my-[2rem] text-lg md:text-xl ">
               Vi bygger chatboten ved hjelp av OpenAI sin avanserte
               ChatGPT-teknologi og tilpasser den til din bedrifts behov. Enten
               du trenger en chatbot for kundeservice, bookingsystem eller
@@ -64,10 +64,10 @@ const page = () => {
         </div>
 
         <div className=" mt-[2rem] mb-[4rem] ">
-          <h3 className=" text-[1.5rem] font-semibold ">
+          <h3 className=" text-[2rem] md:text-[2.5rem] font-semibold ">
             Hvorfor bør din bedrift implementere KI?
           </h3>
-          <div className=" mt-[1rem] space-y-[1.5rem] text-gray-600 ">
+          <div className=" mt-[1rem] space-y-[1.5rem] text-gray-600 text-lg md:text-xl ">
             <p className="  ">
               Kunstig intelligens (KI) er ikke lenger fremtiden - den er
               allerede en del av hverdagen, og bedrifter som tar det i bruk i

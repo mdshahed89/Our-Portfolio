@@ -257,7 +257,7 @@ export const AiChatbotPackage = () => {
       <div className=" ">
         {clicked ? (
           <div>
-            <h4 className=" text-[1.5rem] font-semibold mb-[3rem] ">
+            <h4 className=" text-[1.7rem] md:text-[2rem] font-semibold mb-[3rem] ">
               Send inn skjemaet, så tar vi kontakt med deg snart.
             </h4>
             <form onSubmit={handleSubmit} className=" md:px-[1.5rem] px-0 ">
@@ -329,10 +329,10 @@ export const AiChatbotPackage = () => {
           </div>
         ) : (
           <div className="  ">
-            <h4 className=" text-[1.5rem] font-semibold mb-[3rem] ">
+            <h4 className=" text-[2rem] md:text-[2.5rem] font-semibold mb-[3rem] ">
               Hva får du?
             </h4>
-            <div className=" md:px-[1.5rem] px-0 space-y-6 ">
+            <div className=" md:px-[1.5rem] px-0 space-y-4 md:space-y-6 text-lg md:text-xl ">
               {points.map((point, idx) => (
                 <div key={idx} className=" flex gap-2 md:gap-4 ">
                   <div className=" min-w-[2rem] max-w-[2rem] max-h-[2rem] min-h-[2rem] ">

@@ -918,18 +918,14 @@ export const NeedProfessitionSite = () => {
       <div className=" max-w-[1400px] mx-auto px-2 ">
         <div className=" -mt-16 grid  lg:px-0 grid-cols-1 lg:grid-cols-2  gap-6 text-black ">
           <div className=" flex flex-col justify-center gap-5 ">
-            <div className=" text-[26px] md:text-[32px] lg:text-[48px] leading-tight pb-5 font-semibold">
-              <span>Hvorfor trenger du en</span>{" "}
+            <div className=" text-[26px] md:text-[32px] lg:text-[48px] leading-tight pb-3 font-semibold">
+              <span className=" ">Hvorfor trenger du en</span>{" "}
               <span className=" text-[#035635] border-l-4 border-[#035635] pl-1 bg-gradient-to-r from-[#035635]/10 to-transparent pb-1 ">
                 Profesjonell nettside?
               </span>
             </div>
-            {/* bg-[#0b462ece] */}
             <p className=" text-[16px] lg:text-[18px] ">
-              Nettsiden din er bedriftens digitale ansikt utad. Den skaper
-              tillit, gir et solid forsteinntrykk og hjelper deg med å tiltrekke
-              nye kunder. En profesjonell nettside er ikke bare en investering,
-              det er en nødvendighet for å lykkes i dagens digitale verden.
+              En god nettside viser hvem dere er, hva dere står for og hvorfor dere er til å stole på. Vi utvikler skreddersydde nettsider som gir bedriften et profesjonelt uttrykk, øker synligheten og gjør det enkelt for kunder og samarbeidspartnere å komme i kontakt. Nå tilbyr vi en komplett moderne nettside levert på kort tid, til en pris som tilpasses deres budsjett. Dette er en investering som løfter helhetsinntrykket av bedriften og som ingen bør gå glipp av.
             </p>
             <p className=" font-semibold text-[16px] lg:text-[18px] ">
               Her er noen grunner til hvorfor din bedrift trenger en
