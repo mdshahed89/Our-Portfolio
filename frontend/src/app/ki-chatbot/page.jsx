@@ -9,11 +9,10 @@ import { AiChatbotPackage } from "@/utils/UtilityComponent";
 const page = () => {
   return (
     <div className=" min-h-[100vh] pt-[150px] 2xl pb-[4rem] px-3 ">
-      <h3 className=" text-[2rem] md:text-[2.5rem] font-semibold mb-[3rem] text-gray-500 ">
-        Skreddersydd KI-chatbot
-      </h3>
       <div className=" max-w-[1200px] mx-auto ">
-        <h3 className=" font-semibold text-[2rem] md:text-[2.5rem] ">KI-Chatbot</h3>
+        <h3 className=" font-semibold text-[2rem] md:text-[2.5rem] ">
+          KI-Chatbot
+        </h3>
         <p className=" mt-[1rem] mb-[2rem] text-gray-600 text-lg md:text-xl ">
           Vi utvikler intelligente og skreddersydde Kl-chatboter som
           effektiviserer kundeservice og gir brukerne en sømløs opplevelse. Med
@@ -102,4 +101,3 @@ const page = () => {
 };
 
 export default page;
-
