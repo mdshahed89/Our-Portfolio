@@ -206,7 +206,9 @@ const Header = () => {
                       </MenuItem>
                     </Link>
                     <Link
-                      className={` ${pathName === "/ki-chatbot" && "text-[#17DB4F]"}`}
+                      className={` ${
+                        pathName === "/ki-chatbot" && "text-[#17DB4F]"
+                      }`}
                       href="/ki-chatbot"
                     >
                       <MenuItem className="text-lg hover:text-[#17DB4F] font-medium">
@@ -565,7 +567,9 @@ const Header = () => {
               onClick={() => setMenuOpen(false)}
               target="_blank"
               rel="nofollow"
-              href={"https://www.instagram.com/sidesoneas?igsh=MTJ4Z2ZoNGc3Mjg3eQ%3D%3D&utm_source=qr"}
+              href={
+                "https://www.instagram.com/sidesoneas?igsh=MTJ4Z2ZoNGc3Mjg3eQ%3D%3D&utm_source=qr"
+              }
               className=" p-2 rounded-full border-2 border-[#17DB50] text-[#fff] text-[1.5rem] "
             >
               <FaInstagram />

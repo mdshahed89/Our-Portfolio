@@ -103,6 +103,21 @@ const page = () => {
             </ul>
           </section>
 
+          <section className="mt-8">
+            <div className="text-2xl font-semibold text-[#035635] mb-4">
+              Personvernerklæring for Sidesone Outreacher
+            </div>
+            <p className="text-gray-600">
+              Denne personvernerklæringen gjelder også for Sidesone Outreacher,
+              en tjeneste utviklet og vedlikeholdt av Sidesone. Data som samles
+              inn via Facebook Login eller Instagram Graph API brukes
+              utelukkende til å kontakte potensielle kunder gjennom
+              automatiserte meldinger sendt via Messenger og Instagram Direct
+              Message, ved hjelp av verktøyet n8n. Vi overholder Metas
+              plattformvilkår og retningslinjer.
+            </p>
+          </section>
+
           <footer className="mt-8 text-center text-gray-500">
             <p>Denne personvernpolicyen kan endres uten varsel.</p>
           </footer>
