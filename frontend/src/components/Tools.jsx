@@ -617,7 +617,7 @@ export const Review = async () => {
 //           <h3 className="text-[40px] lg:text-[56px] font-medium">Spørsmål?</h3>
 //           <div>
 //             <p className="text-[24px] lg:text-[32px] font-medium">
-//               Ring oss: +47 13 65 07
+//               Ring oss: +47 471 36 507
 //             </p>
 //             <p className="text-[24px] lg:text-[32px] font-medium">
 //               Mail oss: Kontakt@sidesone.no
@@ -715,8 +715,8 @@ export const ContactUs = () => {
             <div className="space-y-2 mt-8 ">
               <div className="text-[24px] lg:text-[32px] flex items-center justify-center gap-3">
                 <span>Ring oss:</span>
-                <Link href="tel:+47136507" className="text-[#035635] ">
-                  +47 13 65 07
+                <Link href="tel:+4747136507" className="text-[#035635] ">
+                  +47 471 36 507
                 </Link>
               </div>
               <div className="text-[24px] lg:text-[32px] flex items-center justify-center gap-3">

@@ -22,7 +22,7 @@ const page = () => {
                 <ul className="list-disc pl-6 text-lg text-gray-600">
                   {" "}
                   <li className="text-xl gap-3">E-post: kontakt@sidesone.no</li>
-                  <li className="text-xl gap-3">Telefon: +47 13 65 07</li>
+                  <li className="text-xl gap-3">Telefon: +47 471 36 507</li>
                 </ul>
               </li>
             </ul>
@@ -234,7 +234,7 @@ const page = () => {
               Har du spørsmål eller trenger ytterligere informasjon? Kontakt oss
               på
               <strong> kontakt@sidesone.no</strong> eller{" "}
-              <strong>+47 13 65 07</strong>.
+              <strong>+47 471 36 507</strong>.
             </p>
           </section>
         </div>

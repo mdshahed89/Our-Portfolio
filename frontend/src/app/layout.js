@@ -84,7 +84,7 @@ export default function RootLayout({ children }) {
             description: metadata.description,
             contactPoint: {
               "@type": "ContactPoint",
-              telephone: "+47 13 65 07",
+              telephone: "+4747136507",
               contactType: "customer service",
               areaServed: "NO",
               availableLanguage: ["Norwegian", "English"],
