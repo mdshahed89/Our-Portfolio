@@ -29,7 +29,7 @@ const Footer = () => {
             </h3>
             <div className=" flex flex-col gap-3 text-lg ">
               <p className="">Kontakt@sidesone.no</p>
-              <p className="">+47 13 65 07</p>
+              <p className="">+47 471 36 507</p>
             </div>
           </div>
         </div>
